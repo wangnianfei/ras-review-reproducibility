@@ -1,0 +1,62 @@
+# 4.7 段四「按药名检索」的完整词表（sweep B），来自 01_fetch_ctgov.py 的 AGENTS_RAS
+# 取自 RAS临床试验注册分析/脚本/01_fetch_ctgov.py 的 AGENTS_RAS（2026-10-29 整理）
+# 条目 59 条，去重 58 条；其中 3 条是类别词而非具体药名，故具体药名／代号 55 个
+term,kind_in_text
+ADT-007,药名
+AMG 510,药名
+ASP2453,药名
+ASP3082,药名
+BBO-8520,药名
+BI 1701963,药名
+BI 1823911,药名
+BI 2865,药名
+D-1553,药名
+ELI-002,药名
+ERAS-3490,药名
+ERAS-4001,药名
+ERAS-601,药名
+GDC-6036,药名
+GFH375,药名
+GFH925,药名
+HRS-4642,药名
+IBI351,药名
+INCB161734,药名
+JAB-21822,药名
+JAB-3312,药名
+JDQ443,药名
+JMKX1899,药名
+LY3537982,药名
+MK-1084,药名
+MRTX0902,药名
+MRTX1133,药名
+MRTX849,药名
+QTX3034,药名
+RLY-1971,药名
+RMC-4630,药名
+RMC-6236,药名
+RMC-6291,药名
+RMC-9805,药名
+SHP2 inhibitor,类别词
+SOS1 inhibitor,类别词
+SY-5933,药名
+TNO155,药名
+TSN1611,药名
+VS-7375,药名
+YL-15293,药名
+adagrasib,药名
+daraxonrasib,药名
+divarasib,药名
+elironrasib,药名
+fulzerasib,药名
+garsorasib,药名
+glecirasib,药名
+lonafarnib,药名
+mRNA-5671,药名
+migoprotafib,药名
+olomorasib,药名
+opnurasib,药名
+pan-KRAS,类别词
+salirasib,药名
+sotorasib,药名
+tipifarnib,药名
+zoldonrasib,药名

@@ -1,0 +1,129 @@
+gene,accession,source,type,start,end,desc
+KRAS,P01116,文献共识/UniProt,Motif(G-box),10,17,G1 / P-loop (GxxxxGKS)
+KRAS,P01116,文献共识/UniProt,Motif(G-box),30,38,switch I (G2 / effector lobe)
+KRAS,P01116,文献共识/UniProt,Motif(G-box),57,64,"switch II (G3, DxxGQ/H)"
+KRAS,P01116,文献共识/UniProt,Motif(G-box),116,119,G4 (NKxD)
+KRAS,P01116,文献共识/UniProt,Motif(G-box),145,147,G5 (SAK)
+KRAS,P01116,UniProt,Propeptide,187,189,Removed in mature form
+KRAS,P01116,UniProt,Region,166,185,Hypervariable region
+KRAS,P01116,UniProt,Motif,32,40,Effector region
+KRAS,P01116,UniProt,Binding site,13,13,
+KRAS,P01116,UniProt,Binding site,14,14,
+KRAS,P01116,UniProt,Binding site,15,15,
+KRAS,P01116,UniProt,Binding site,16,16,
+KRAS,P01116,UniProt,Binding site,17,17,
+KRAS,P01116,UniProt,Binding site,17,17,
+KRAS,P01116,UniProt,Binding site,18,18,
+KRAS,P01116,UniProt,Binding site,28,28,
+KRAS,P01116,UniProt,Binding site,29,29,
+KRAS,P01116,UniProt,Binding site,30,30,
+KRAS,P01116,UniProt,Binding site,57,57,
+KRAS,P01116,UniProt,Binding site,116,116,
+KRAS,P01116,UniProt,Binding site,117,117,
+KRAS,P01116,UniProt,Binding site,119,119,
+KRAS,P01116,UniProt,Binding site,145,145,
+KRAS,P01116,UniProt,Binding site,146,146,
+KRAS,P01116,UniProt,Binding site,147,147,
+KRAS,P01116,UniProt,Modified residue,1,1,N-acetylmethionine; in GTPase KRas; alternate
+KRAS,P01116,UniProt,Modified residue,2,2,"N-acetylthreonine; in GTPase KRas, N-terminally processed"
+KRAS,P01116,UniProt,Modified residue,104,104,N6-acetyllysine
+KRAS,P01116,UniProt,Modified residue,186,186,Cysteine methyl ester
+KRAS,P01116,UniProt,Lipidation,180,180,S-palmitoyl cysteine
+KRAS,P01116,UniProt,Lipidation,182,182,N6-palmitoyl lysine
+KRAS,P01116,UniProt,Lipidation,184,184,N6-palmitoyl lysine
+KRAS,P01116,UniProt,Lipidation,185,185,N6-palmitoyl lysine
+KRAS,P01116,UniProt,Lipidation,186,186,S-farnesyl cysteine
+KRAS,P01116,UniProt,Alternative sequence,151,153,in isoform 2B
+KRAS,P01116,UniProt,Alternative sequence,165,189,in isoform 2B
+KRAS,P01116,UniProt,Beta strand,3,9,
+KRAS,P01116,UniProt,Helix,10,13,
+KRAS,P01116,UniProt,Helix,16,25,
+KRAS,P01116,UniProt,Beta strand,28,32,
+KRAS,P01116,UniProt,Helix,34,37,
+KRAS,P01116,UniProt,Beta strand,38,46,
+KRAS,P01116,UniProt,Beta strand,49,57,
+KRAS,P01116,UniProt,Helix,60,64,
+KRAS,P01116,UniProt,Helix,66,73,
+KRAS,P01116,UniProt,Beta strand,76,83,
+KRAS,P01116,UniProt,Helix,87,91,
+KRAS,P01116,UniProt,Helix,93,104,
+KRAS,P01116,UniProt,Beta strand,105,107,
+KRAS,P01116,UniProt,Beta strand,111,116,
+KRAS,P01116,UniProt,Beta strand,120,122,
+KRAS,P01116,UniProt,Helix,127,137,
+KRAS,P01116,UniProt,Beta strand,141,143,
+KRAS,P01116,UniProt,Turn,146,148,
+KRAS,P01116,UniProt,Helix,152,164,
+KRAS,P01116,UniProt,Helix,169,171,
+KRAS,P01116,UniProt,Beta strand,175,177,
+KRAS,P01116,UniProt,Beta strand,182,184,
+HRAS,P01112,文献共识/UniProt,Motif(G-box),10,17,G1 / P-loop (GxxxxGKS)
+HRAS,P01112,文献共识/UniProt,Motif(G-box),30,38,switch I (G2 / effector lobe)
+HRAS,P01112,文献共识/UniProt,Motif(G-box),57,64,"switch II (G3, DxxGQ/H)"
+HRAS,P01112,文献共识/UniProt,Motif(G-box),116,119,G4 (NKxD)
+HRAS,P01112,文献共识/UniProt,Motif(G-box),145,147,G5 (SAK)
+HRAS,P01112,UniProt,Propeptide,187,189,Removed in mature form
+HRAS,P01112,UniProt,Region,166,185,Hypervariable region
+HRAS,P01112,UniProt,Motif,32,40,Effector region
+HRAS,P01112,UniProt,Binding site,13,18,
+HRAS,P01112,UniProt,Binding site,29,35,
+HRAS,P01112,UniProt,Binding site,59,60,
+HRAS,P01112,UniProt,Binding site,116,119,
+HRAS,P01112,UniProt,Binding site,145,147,
+HRAS,P01112,UniProt,Modified residue,1,1,N-acetylmethionine; in GTPase HRas; alternate
+HRAS,P01112,UniProt,Modified residue,2,2,"N-acetylthreonine; in GTPase HRas, N-terminally processed"
+HRAS,P01112,UniProt,Modified residue,118,118,S-nitrosocysteine
+HRAS,P01112,UniProt,Modified residue,186,186,Cysteine methyl ester
+HRAS,P01112,UniProt,Lipidation,181,181,S-palmitoyl cysteine
+HRAS,P01112,UniProt,Lipidation,184,184,"S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine; alternate"
+HRAS,P01112,UniProt,Lipidation,184,184,S-palmitoyl cysteine; alternate
+HRAS,P01112,UniProt,Lipidation,186,186,S-farnesyl cysteine
+HRAS,P01112,UniProt,Alternative sequence,152,189,in isoform 2
+HRAS,P01112,UniProt,Beta strand,3,11,
+HRAS,P01112,UniProt,Beta strand,12,15,
+HRAS,P01112,UniProt,Helix,16,25,
+HRAS,P01112,UniProt,Beta strand,27,31,
+HRAS,P01112,UniProt,Helix,33,35,
+HRAS,P01112,UniProt,Beta strand,38,46,
+HRAS,P01112,UniProt,Beta strand,49,57,
+HRAS,P01112,UniProt,Beta strand,60,63,
+HRAS,P01112,UniProt,Helix,66,74,
+HRAS,P01112,UniProt,Beta strand,76,83,
+HRAS,P01112,UniProt,Turn,84,86,
+HRAS,P01112,UniProt,Helix,87,104,
+HRAS,P01112,UniProt,Beta strand,105,107,
+HRAS,P01112,UniProt,Beta strand,111,116,
+HRAS,P01112,UniProt,Beta strand,120,122,
+HRAS,P01112,UniProt,Helix,127,137,
+HRAS,P01112,UniProt,Beta strand,141,144,
+HRAS,P01112,UniProt,Turn,146,148,
+HRAS,P01112,UniProt,Helix,152,164,
+NRAS,P01111,文献共识/UniProt,Motif(G-box),10,17,G1 / P-loop (GxxxxGKS)
+NRAS,P01111,文献共识/UniProt,Motif(G-box),30,38,switch I (G2 / effector lobe)
+NRAS,P01111,文献共识/UniProt,Motif(G-box),57,64,"switch II (G3, DxxGQ/H)"
+NRAS,P01111,文献共识/UniProt,Motif(G-box),116,119,G4 (NKxD)
+NRAS,P01111,文献共识/UniProt,Motif(G-box),145,147,G5 (SAK)
+NRAS,P01111,UniProt,Propeptide,187,189,Removed in mature form
+NRAS,P01111,UniProt,Region,166,185,Hypervariable region
+NRAS,P01111,UniProt,Motif,32,40,Effector region
+NRAS,P01111,UniProt,Binding site,10,18,
+NRAS,P01111,UniProt,Binding site,29,30,
+NRAS,P01111,UniProt,Binding site,57,61,
+NRAS,P01111,UniProt,Binding site,116,119,
+NRAS,P01111,UniProt,Modified residue,89,89,Phosphoserine
+NRAS,P01111,UniProt,Lipidation,181,181,S-palmitoyl cysteine
+NRAS,P01111,UniProt,Lipidation,186,186,S-farnesyl cysteine
+NRAS,P01111,UniProt,Beta strand,2,9,
+NRAS,P01111,UniProt,Helix,11,14,
+NRAS,P01111,UniProt,Helix,16,25,
+NRAS,P01111,UniProt,Beta strand,36,46,
+NRAS,P01111,UniProt,Beta strand,49,58,
+NRAS,P01111,UniProt,Helix,62,68,
+NRAS,P01111,UniProt,Helix,69,74,
+NRAS,P01111,UniProt,Beta strand,76,83,
+NRAS,P01111,UniProt,Helix,87,104,
+NRAS,P01111,UniProt,Beta strand,111,116,
+NRAS,P01111,UniProt,Helix,127,137,
+NRAS,P01111,UniProt,Beta strand,141,143,
+NRAS,P01111,UniProt,Turn,146,148,
+NRAS,P01111,UniProt,Helix,152,168,

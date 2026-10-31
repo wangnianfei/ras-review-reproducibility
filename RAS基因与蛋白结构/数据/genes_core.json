@@ -1,0 +1,3304 @@
+{
+ "KRAS": {
+  "entrez": "3845",
+  "ensg": "ENSG00000133703",
+  "uniprot": "P01116",
+  "ncbi": {
+   "symbol": "KRAS",
+   "desc": "KRas proto-oncogene, GTPase",
+   "map_location": "12p12.1",
+   "chr": "12",
+   "start": 25250928,
+   "stop": 25205245,
+   "summary": "This gene, a Kirsten ras oncogene homolog from the mammalian ras gene family, encodes a protein that is a member of the small GTPase superfamily. A single amino acid substitution is responsible for an activating mutation. The transforming protein that results is implicated in various malignancies, including lung adenocarcinoma, mucinous adenoma, ductal carcinoma of the pancreas and colorectal carcinoma. Alternative splicing leads to variants encoding two isoforms that differ in the C-terminal region. [provided by RefSeq, Jul 2008]",
+   "otherdesignations": "'C-K-RAS, C-K-RAS, CFC2, K-RAS2A, K-RAS2B, K-RAS4A, K-RAS4B, K-Ras, K-Ras 2, KI-RAS, KRAS1, KRAS2, NS, NS3, OES, RALD, RALD2, RASK2, c-Ki-ras, c-Ki-ras2"
+  },
+  "ensembl": {
+   "strand": -1,
+   "chr": "12",
+   "start": 25205246,
+   "end": 25326473,
+   "assembly": "GRCh38",
+   "n_transcripts": 30
+  },
+  "transcripts": [
+   {
+    "id": "ENST00000690406",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-211",
+    "length": 4919,
+    "start": 25205246,
+    "end": 25225773
+   },
+   {
+    "id": "ENST00000256078",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-201",
+    "length": 5430,
+    "start": 25205246,
+    "end": 25250929
+   },
+   {
+    "id": "ENST00000311936",
+    "biotype": "protein_coding",
+    "canonical": 1,
+    "display": "KRAS-202",
+    "length": 5306,
+    "start": 25205246,
+    "end": 25250929
+   },
+   {
+    "id": "ENST00000686877",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-206",
+    "length": 5420,
+    "start": 25205250,
+    "end": 25250908
+   },
+   {
+    "id": "ENST00000685328",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-205",
+    "length": 5317,
+    "start": 25205246,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000693229",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-214",
+    "length": 5255,
+    "start": 25205246,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000687356",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-208",
+    "length": 5101,
+    "start": 25205270,
+    "end": 25250927
+   },
+   {
+    "id": "ENST00000692768",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-213",
+    "length": 5172,
+    "start": 25205246,
+    "end": 25250917
+   },
+   {
+    "id": "ENST00000688940",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-210",
+    "length": 5317,
+    "start": 25205246,
+    "end": 25250444
+   },
+   {
+    "id": "ENST00000690804",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-212",
+    "length": 2721,
+    "start": 25207948,
+    "end": 25250929
+   },
+   {
+    "id": "ENST00000557334",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-204",
+    "length": 4991,
+    "start": 25205246,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000688228",
+    "biotype": "retained_intron",
+    "canonical": 0,
+    "display": "KRAS-209",
+    "length": 1163,
+    "start": 25209673,
+    "end": 25227997
+   },
+   {
+    "id": "ENST00000686969",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-207",
+    "length": 2981,
+    "start": 25232558,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000556131",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-203",
+    "length": 2961,
+    "start": 25232591,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000894155",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-215",
+    "length": 5317,
+    "start": 25205246,
+    "end": 25245585
+   },
+   {
+    "id": "ENST00000940422",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-216",
+    "length": 5252,
+    "start": 25205246,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000982952",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-217",
+    "length": 1509,
+    "start": 25209178,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000982953",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-218",
+    "length": 1433,
+    "start": 25209192,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000982954",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-219",
+    "length": 1562,
+    "start": 25209178,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00000982955",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-220",
+    "length": 1135,
+    "start": 25209191,
+    "end": 25250895
+   },
+   {
+    "id": "ENST00001023996",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-221",
+    "length": 5516,
+    "start": 25205246,
+    "end": 25250922
+   },
+   {
+    "id": "ENST00001084871",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-222",
+    "length": 5240,
+    "start": 25205247,
+    "end": 25250919
+   },
+   {
+    "id": "ENST00001084872",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-223",
+    "length": 5450,
+    "start": 25205248,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00001084873",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-224",
+    "length": 1371,
+    "start": 25209168,
+    "end": 25250927
+   },
+   {
+    "id": "ENST00001102901",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-225",
+    "length": 1169,
+    "start": 25209398,
+    "end": 25326473
+   },
+   {
+    "id": "ENST00001102902",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "KRAS-226",
+    "length": 825,
+    "start": 25209439,
+    "end": 25326473
+   },
+   {
+    "id": "ENST00001106839",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-227",
+    "length": 809,
+    "start": 25226929,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00001106840",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-228",
+    "length": 6429,
+    "start": 25239170,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00001138253",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-229",
+    "length": 5454,
+    "start": 25205246,
+    "end": 25250953
+   },
+   {
+    "id": "ENST00001138254",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "KRAS-230",
+    "length": 5330,
+    "start": 25205246,
+    "end": 25250953
+   }
+  ],
+  "mane_raw": null,
+  "exon_models": {
+   "ENST00000311936": {
+    "biotype": "protein_coding",
+    "canonical": 1,
+    "strand": -1,
+    "start": 25205246,
+    "end": 25250929,
+    "protein_id": "ENSP00000308495",
+    "protein_length": 188,
+    "cds_genomic_start": 25209795,
+    "cds_genomic_end": 25245384,
+    "exons": [
+     {
+      "id": "ENSE00003903543",
+      "start": 25250751,
+      "end": 25250929,
+      "rank": 1
+     },
+     {
+      "id": "ENSE00000936617",
+      "start": 25245274,
+      "end": 25245395,
+      "rank": 2
+     },
+     {
+      "id": "ENSE00001719809",
+      "start": 25227234,
+      "end": 25227412,
+      "rank": 3
+     },
+     {
+      "id": "ENSE00001644818",
+      "start": 25225614,
+      "end": 25225773,
+      "rank": 4
+     },
+     {
+      "id": "ENSE00002456976",
+      "start": 25205246,
+      "end": 25209911,
+      "rank": 5
+     }
+    ],
+    "display": "KRAS-202"
+   },
+   "ENST00000256078": {
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "strand": -1,
+    "start": 25205246,
+    "end": 25250929,
+    "protein_id": "ENSP00000256078",
+    "protein_length": 189,
+    "cds_genomic_start": 25215441,
+    "cds_genomic_end": 25245384,
+    "exons": [
+     {
+      "id": "ENSE00003903543",
+      "start": 25250751,
+      "end": 25250929,
+      "rank": 1
+     },
+     {
+      "id": "ENSE00000936617",
+      "start": 25245274,
+      "end": 25245395,
+      "rank": 2
+     },
+     {
+      "id": "ENSE00001719809",
+      "start": 25227234,
+      "end": 25227412,
+      "rank": 3
+     },
+     {
+      "id": "ENSE00001644818",
+      "start": 25225614,
+      "end": 25225773,
+      "rank": 4
+     },
+     {
+      "id": "ENSE00001189807",
+      "start": 25215437,
+      "end": 25215560,
+      "rank": 5
+     },
+     {
+      "id": "ENSE00002477035",
+      "start": 25205246,
+      "end": 25209911,
+      "rank": 6
+     }
+    ],
+    "display": "KRAS-201"
+   }
+  },
+  "hotspot_map": {
+   "12": {
+    "cds": [
+     34,
+     36
+    ],
+    "genomic": [
+     {
+      "rank": 0,
+      "coord_system": "chromosome",
+      "seq_region_name": "12",
+      "end": 25245351,
+      "strand": -1,
+      "assembly_name": "GRCh38",
+      "gap": 0,
+      "start": 25245349
+     }
+    ]
+   },
+   "13": {
+    "cds": [
+     37,
+     39
+    ],
+    "genomic": [
+     {
+      "rank": 0,
+      "seq_region_name": "12",
+      "gap": 0,
+      "end": 25245348,
+      "start": 25245346,
+      "assembly_name": "GRCh38",
+      "coord_system": "chromosome",
+      "strand": -1
+     }
+    ]
+   },
+   "61": {
+    "cds": [
+     181,
+     183
+    ],
+    "genomic": [
+     {
+      "strand": -1,
+      "coord_system": "chromosome",
+      "assembly_name": "GRCh38",
+      "start": 25227341,
+      "gap": 0,
+      "end": 25227343,
+      "seq_region_name": "12",
+      "rank": 0
+     }
+    ]
+   },
+   "117": {
+    "cds": [
+     349,
+     351
+    ],
+    "genomic": [
+     {
+      "rank": 0,
+      "strand": -1,
+      "gap": 0,
+      "start": 25225713,
+      "seq_region_name": "12",
+      "end": 25225715,
+      "coord_system": "chromosome",
+      "assembly_name": "GRCh38"
+     }
+    ]
+   },
+   "146": {
+    "cds": [
+     436,
+     438
+    ],
+    "genomic": [
+     {
+      "gap": 0,
+      "end": 25225628,
+      "rank": 0,
+      "seq_region_name": "12",
+      "start": 25225626,
+      "strand": -1,
+      "assembly_name": "GRCh38",
+      "coord_system": "chromosome"
+     }
+    ]
+   }
+  },
+  "hotspot_tx": "ENST00000311936",
+  "uniprot_data": {
+   "accession": "P01116",
+   "length": 189,
+   "sequence": "MTEYKLVVVGAGGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHHYREQIKRVKDSEDVPMVLVGNKCDLPSRTVDTKQAQDLARSYGIPFIETSAKTRQRVEDAFYTLVREIRQYRLKKISKEEKTPGCVKIKKCIIM",
+   "protein_name": "GTPase KRas",
+   "features": [
+    {
+     "type": "Chain",
+     "start": 1,
+     "end": 186,
+     "desc": "GTPase KRas"
+    },
+    {
+     "type": "Initiator methionine",
+     "start": 1,
+     "end": 1,
+     "desc": "Removed; alternate"
+    },
+    {
+     "type": "Chain",
+     "start": 2,
+     "end": 186,
+     "desc": "GTPase KRas, N-terminally processed"
+    },
+    {
+     "type": "Propeptide",
+     "start": 187,
+     "end": 189,
+     "desc": "Removed in mature form"
+    },
+    {
+     "type": "Region",
+     "start": 166,
+     "end": 185,
+     "desc": "Hypervariable region"
+    },
+    {
+     "type": "Motif",
+     "start": 32,
+     "end": 40,
+     "desc": "Effector region"
+    },
+    {
+     "type": "Binding site",
+     "start": 13,
+     "end": 13,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 14,
+     "end": 14,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 15,
+     "end": 15,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 16,
+     "end": 16,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 17,
+     "end": 17,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 17,
+     "end": 17,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 18,
+     "end": 18,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 28,
+     "end": 28,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 29,
+     "end": 29,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 30,
+     "end": 30,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 57,
+     "end": 57,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 116,
+     "end": 116,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 117,
+     "end": 117,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 119,
+     "end": 119,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 145,
+     "end": 145,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 146,
+     "end": 146,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 147,
+     "end": 147,
+     "desc": ""
+    },
+    {
+     "type": "Modified residue",
+     "start": 1,
+     "end": 1,
+     "desc": "N-acetylmethionine; in GTPase KRas; alternate"
+    },
+    {
+     "type": "Modified residue",
+     "start": 2,
+     "end": 2,
+     "desc": "N-acetylthreonine; in GTPase KRas, N-terminally processed"
+    },
+    {
+     "type": "Modified residue",
+     "start": 104,
+     "end": 104,
+     "desc": "N6-acetyllysine"
+    },
+    {
+     "type": "Modified residue",
+     "start": 186,
+     "end": 186,
+     "desc": "Cysteine methyl ester"
+    },
+    {
+     "type": "Lipidation",
+     "start": 180,
+     "end": 180,
+     "desc": "S-palmitoyl cysteine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 182,
+     "end": 182,
+     "desc": "N6-palmitoyl lysine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 184,
+     "end": 184,
+     "desc": "N6-palmitoyl lysine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 185,
+     "end": 185,
+     "desc": "N6-palmitoyl lysine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 186,
+     "end": 186,
+     "desc": "S-farnesyl cysteine"
+    },
+    {
+     "type": "Glycosylation",
+     "start": 35,
+     "end": 35,
+     "desc": "(Microbial infection) O-linked (Glc) threonine; by P.sordellii toxin TcsL"
+    },
+    {
+     "type": "Cross-link",
+     "start": 170,
+     "end": 170,
+     "desc": "Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in ubiquitin)"
+    },
+    {
+     "type": "Alternative sequence",
+     "start": 151,
+     "end": 153,
+     "desc": "in isoform 2B"
+    },
+    {
+     "type": "Alternative sequence",
+     "start": 165,
+     "end": 189,
+     "desc": "in isoform 2B"
+    },
+    {
+     "type": "Natural variant",
+     "start": 5,
+     "end": 5,
+     "desc": "in NS3; dbSNP:rs193929331"
+    },
+    {
+     "type": "Natural variant",
+     "start": 5,
+     "end": 5,
+     "desc": "in GASC; found also in a patient with Costello syndrome; exhibits only minor alterations in its in vitro biochemical behavior compared to wild-type protein; dbSNP:rs104894361"
+    },
+    {
+     "type": "Natural variant",
+     "start": 10,
+     "end": 10,
+     "desc": "in AML; expression in 3T3 cell causes cellular transformation; expression in COS cells activates the Ras-MAPK signaling pathway; lower GTPase activity; faster GDP dissociation rate"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in colorectal cancer samples; somatic mutation; dbSNP:rs121913529"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in lung carcinoma; somatic mutation; also found in metastatic colorectal cancer; dbSNP:rs121913530"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in GASC, JMML, SFM and RALD2; somatic mutation; also found in pancreatic carcinoma and lung carcinoma; also found in metastatic colorectal cancer; dbSNP:rs121913529"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in lung cancer and bladder cancer; somatic mutation; dbSNP:rs121913530"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in GASC and JMML; also found in lung carcinoma; somatic mutation; dbSNP:rs121913530"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in GASC; also found in lung carcinoma, pancreatic carcinoma and colon cancer; also found in metastatic colorectal cancer; somatic mutation; it is constitutively activated and stimulates transcription activation of tumor suppressor genes in non-transformed fibroblasts; promotes GTP binding; dbSNP:rs121913529"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in RALD2"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in GASC, JMML, OES and RALD2; also found in a breast carcinoma cell line; somatic mutation; dbSNP:rs112445441"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in pylocytic astrocytoma; somatic mutation; increase activation of the Ras pathway; dbSNP:rs121913535"
+    },
+    {
+     "type": "Natural variant",
+     "start": 14,
+     "end": 14,
+     "desc": "in NS3; affects activity and impairs responsiveness to GTPase activating proteins; characterized by a strong increase of both intrinsic and guanine nucleotide exchanged factor-catalyzed nucleotide exchange leading to an increased level of the activated state; dbSNP:rs104894365"
+    },
+    {
+     "type": "Natural variant",
+     "start": 19,
+     "end": 19,
+     "desc": "in OES; somatic mutation; dbSNP:rs121913538"
+    },
+    {
+     "type": "Natural variant",
+     "start": 22,
+     "end": 22,
+     "desc": "in CFC2; exhibits an increase in intrinsic and guanine nucleotide exchange factor catalyzed nucleotide exchange in combination with an impaired GTPase-activating protein-stimulated GTP hydrolysis but functional in interaction with effectors; dbSNP:rs121913236"
+    },
+    {
+     "type": "Natural variant",
+     "start": 22,
+     "end": 22,
+     "desc": "in NS3; impairs GTPase-activating protein stimulated GTP hydrolysis with unaffected intrinsic functions and a virtually functional effector interaction; dbSNP:rs727503110"
+    },
+    {
+     "type": "Natural variant",
+     "start": 34,
+     "end": 34,
+     "desc": "in NS3; characterized by a defective GTPase-activating protein sensitivity and a strongly reduced interaction with effectors; dbSNP:rs104894366"
+    },
+    {
+     "type": "Natural variant",
+     "start": 34,
+     "end": 34,
+     "desc": "in NS3; dbSNP:rs104894366"
+    },
+    {
+     "type": "Natural variant",
+     "start": 34,
+     "end": 34,
+     "desc": "in CFC2; characterized by a defective GTPase-activating protein sensitivity and a strongly reduced interaction with effectors; dbSNP:rs104894366"
+    },
+    {
+     "type": "Natural variant",
+     "start": 36,
+     "end": 36,
+     "desc": "in NS3; dbSNP:rs727503109"
+    },
+    {
+     "type": "Natural variant",
+     "start": 58,
+     "end": 58,
+     "desc": "in NS3; affects activity and impairs responsiveness to GTPase activating proteins; exhibits only minor alterations in its in vitro biochemical behavior compared to wild-type protein; dbSNP:rs104894364"
+    },
+    {
+     "type": "Natural variant",
+     "start": 59,
+     "end": 59,
+     "desc": "in GASC; also found in bladder cancer; somatic mutation; dbSNP:rs121913528"
+    },
+    {
+     "type": "Natural variant",
+     "start": 60,
+     "end": 60,
+     "desc": "in CFC2; characterized by a defective GTPase-activating protein sensitivity and a strongly reduced interaction with effectors; dbSNP:rs104894359"
+    },
+    {
+     "type": "Natural variant",
+     "start": 60,
+     "end": 60,
+     "desc": "in NS3; dbSNP:rs104894359"
+    },
+    {
+     "type": "Natural variant",
+     "start": 61,
+     "end": 61,
+     "desc": "in lung carcinoma; dbSNP:rs17851045"
+    },
+    {
+     "type": "Natural variant",
+     "start": 61,
+     "end": 61,
+     "desc": "in a colorectal cancer sample; somatic mutation; promotes interaction with SHOC2 and PP1C; dbSNP:rs121913240"
+    },
+    {
+     "type": "Natural variant",
+     "start": 71,
+     "end": 71,
+     "desc": "in CFC2; dbSNP:rs387907205"
+    },
+    {
+     "type": "Natural variant",
+     "start": 117,
+     "end": 117,
+     "desc": "in colorectal cancer samples; somatic mutation; dbSNP:rs770248150"
+    },
+    {
+     "type": "Natural variant",
+     "start": 146,
+     "end": 146,
+     "desc": "in OES; somatic mutation; also found in colorectal cancer samples; dbSNP:rs121913527"
+    },
+    {
+     "type": "Natural variant",
+     "start": 146,
+     "end": 146,
+     "desc": "in OES; somatic mutation; dbSNP:rs1057519725"
+    },
+    {
+     "type": "Natural variant",
+     "start": 147,
+     "end": 147,
+     "desc": "in CFC2; dbSNP:rs387907206"
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 35,
+     "end": 35,
+     "desc": "Increases affinity for LZTR1; alone and when associated with A-62."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 38,
+     "end": 38,
+     "desc": "Decreased interaction with MAPKAP1/SIN1."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 40,
+     "end": 40,
+     "desc": "Decreased interaction with MAPKAP1/SIN1."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 61,
+     "end": 61,
+     "desc": "Promotes GTP binding."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 62,
+     "end": 62,
+     "desc": "Increases affinity for LZTR1; alone and when associated with A-35."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 180,
+     "end": 180,
+     "desc": "Abolished palmitoylation on Cys; reduced palmitoylation on Lys residues."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 182,
+     "end": 185,
+     "desc": "In K-Ras-3KR; abolished lysine-palmitoylation."
+    },
+    {
+     "type": "Beta strand",
+     "start": 3,
+     "end": 9,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 10,
+     "end": 13,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 16,
+     "end": 25,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 28,
+     "end": 32,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 34,
+     "end": 37,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 38,
+     "end": 46,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 49,
+     "end": 57,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 60,
+     "end": 64,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 66,
+     "end": 73,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 76,
+     "end": 83,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 87,
+     "end": 91,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 93,
+     "end": 104,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 105,
+     "end": 107,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 111,
+     "end": 116,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 120,
+     "end": 122,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 127,
+     "end": 137,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 141,
+     "end": 143,
+     "desc": ""
+    },
+    {
+     "type": "Turn",
+     "start": 146,
+     "end": 148,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 152,
+     "end": 164,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 169,
+     "end": 171,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 175,
+     "end": 177,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 182,
+     "end": 184,
+     "desc": ""
+    },
+    {
+     "type": "Natural variant",
+     "start": 152,
+     "end": 152,
+     "desc": "in NS3; dbSNP:rs104894367"
+    },
+    {
+     "type": "Natural variant",
+     "start": 153,
+     "end": 153,
+     "desc": "in CFC2 and NS3; exhibits only minor alterations in its in vitro biochemical behavior compared to wild-type protein; dbSNP:rs104894360"
+    },
+    {
+     "type": "Natural variant",
+     "start": 156,
+     "end": 156,
+     "desc": "in NS3; the patient also has features of cardiofaciocutaneous syndrome; dbSNP:rs397517042"
+    },
+    {
+     "type": "Natural variant",
+     "start": 156,
+     "end": 156,
+     "desc": "found in a patient with Costello syndrome; exhibits an increase in intrinsic and guanine nucleotide exchange factor catalyzed nucleotide exchange in combination with an impaired GTPase-activating protein-stimulated GTP hydrolysis but functional in interaction with effectors; dbSNP:rs104894362"
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 185,
+     "end": 185,
+     "desc": "Abolished interaction with GPR131."
+    }
+   ],
+   "isoforms": [
+    {
+     "name": "2A",
+     "ids": [
+      "P01116-1"
+     ],
+     "type": "Displayed"
+    },
+    {
+     "name": "2B",
+     "ids": [
+      "P01116-2",
+      "P01118-1"
+     ],
+     "type": "Described"
+    }
+   ],
+   "pdb_xrefs": [
+    "10JT",
+    "10NU",
+    "10NV",
+    "11QE",
+    "1D8D",
+    "1D8E",
+    "1KZO",
+    "1KZP",
+    "1N4P",
+    "1N4Q",
+    "1N4R",
+    "1N4S",
+    "2MSC",
+    "2MSD",
+    "2MSE",
+    "3GFT",
+    "4DSN",
+    "4DSO",
+    "4EPR",
+    "4EPT",
+    "4EPV",
+    "4EPW",
+    "4EPX",
+    "4EPY",
+    "4L8G",
+    "4LDJ",
+    "4LPK",
+    "4LRW",
+    "4LUC",
+    "4LV6",
+    "4LYF",
+    "4LYH",
+    "4LYJ",
+    "4M1O",
+    "4M1S",
+    "4M1T",
+    "4M1W",
+    "4M1Y",
+    "4M21",
+    "4M22",
+    "4NMM",
+    "4OBE",
+    "4PZY",
+    "4PZZ",
+    "4Q01",
+    "4Q02",
+    "4Q03",
+    "4QL3",
+    "4TQ9",
+    "4TQA",
+    "4WA7",
+    "5F2E",
+    "5KYK",
+    "5MLA",
+    "5MLB",
+    "5O2S",
+    "5O2T",
+    "5OCG",
+    "5OCO",
+    "5OCT",
+    "5TAR",
+    "5TB5",
+    "5UFE",
+    "5UFQ",
+    "5UK9",
+    "5UQW",
+    "5US4",
+    "5USJ",
+    "5V6S",
+    "5V6V",
+    "5V71",
+    "5V9L",
+    "5V9O",
+    "5V9U",
+    "5VBM",
+    "5VP7",
+    "5VPI",
+    "5VPY",
+    "5VPZ",
+    "5VQ0",
+    "5VQ1",
+    "5VQ2",
+    "5VQ6",
+    "5VQ8",
+    "5W22",
+    "5WHA",
+    "5WHB",
+    "5WHD",
+    "5WHE",
+    "5WLB",
+    "5WPM",
+    "5XCO",
+    "5YXZ",
+    "5YY1",
+    "6ARK",
+    "6ASA",
+    "6ASE",
+    "6B0V",
+    "6B0Y",
+    "6BOF",
+    "6BP1",
+    "6CC9",
+    "6CCH",
+    "6CCX",
+    "6CU6",
+    "6E6F",
+    "6E6G",
+    "6EPL",
+    "6EPM",
+    "6EPN",
+    "6EPO",
+    "6EPP",
+    "6F76",
+    "6FA1",
+    "6FA2",
+    "6FA3",
+    "6FA4",
+    "6GJ5",
+    "6GJ6",
+    "6GJ7",
+    "6GJ8",
+    "6GOD",
+    "6GOE",
+    "6GOF",
+    "6GOG",
+    "6GOM",
+    "6GQT",
+    "6GQW",
+    "6GQX",
+    "6GQY",
+    "6H46",
+    "6H47",
+    "6JTN",
+    "6JTO",
+    "6JTP",
+    "6M9W",
+    "6MBQ",
+    "6MBT",
+    "6MBU",
+    "6MNX",
+    "6MQG",
+    "6MQN",
+    "6MS9",
+    "6MTA",
+    "6N2J",
+    "6N2K",
+    "6O36",
+    "6O46",
+    "6O4Y",
+    "6O4Z",
+    "6O51",
+    "6O53",
+    "6OB2",
+    "6OB3",
+    "6OIM",
+    "6P0Z",
+    "6P8W",
+    "6P8X",
+    "6P8Y",
+    "6P8Z",
+    "6PGO",
+    "6PGP",
+    "6PQ3",
+    "6PTS",
+    "6PTW",
+    "6QUU",
+    "6QUV",
+    "6QUW",
+    "6QUX",
+    "6T5B",
+    "6T5U",
+    "6T5V",
+    "6TAM",
+    "6TAN",
+    "6USX",
+    "6USZ",
+    "6UT0",
+    "6V5L",
+    "6V65",
+    "6V6F",
+    "6VC8",
+    "6VJJ",
+    "6W4E",
+    "6W4F",
+    "6WGN",
+    "6WS2",
+    "6WS4",
+    "6XGU",
+    "6XGV",
+    "6XHA",
+    "6XHB",
+    "6YR8",
+    "6YXW",
+    "6ZL5",
+    "6ZLI",
+    "7A1W",
+    "7A1X",
+    "7A1Y",
+    "7A47",
+    "7ACA",
+    "7ACF",
+    "7ACH",
+    "7ACQ",
+    "7C40",
+    "7C41",
+    "7EW9",
+    "7EWA",
+    "7EWB",
+    "7EYX",
+    "7F0W",
+    "7KFZ",
+    "7KMR",
+    "7KYZ",
+    "7LC1",
+    "7LC2",
+    "7LGI",
+    "7LZ5",
+    "7MDP",
+    "7MQU",
+    "7NY8",
+    "7O70",
+    "7OK3",
+    "7OK4",
+    "7OO7",
+    "7Q9U",
+    "7R0M",
+    "7R0N",
+    "7R0Q",
+    "7ROV",
+    "7RP2",
+    "7RP3",
+    "7RP4",
+    "7RPZ",
+    "7RSC",
+    "7RSE",
+    "7RT1",
+    "7RT2",
+    "7RT3",
+    "7RT4",
+    "7RT5",
+    "7SCW",
+    "7SCX",
+    "7STF",
+    "7T1F",
+    "7T47",
+    "7TLE",
+    "7TLG",
+    "7TLK",
+    "7U8H",
+    "7VVB",
+    "7W5R",
+    "7YCC",
+    "7YCE",
+    "7YUZ",
+    "7YV1",
+    "8AFB",
+    "8AFC",
+    "8AFD",
+    "8AQ5",
+    "8AQ7",
+    "8AZR",
+    "8AZV",
+    "8AZX",
+    "8AZY",
+    "8AZZ",
+    "8B00",
+    "8B69",
+    "8B6I",
+    "8B78",
+    "8BE3",
+    "8BE4",
+    "8BE5",
+    "8BLR",
+    "8CPR",
+    "8CX5",
+    "8DGS",
+    "8DGT",
+    "8DNI",
+    "8DNJ",
+    "8DNK",
+    "8DVG",
+    "8EBZ",
+    "8ECR",
+    "8EDY",
+    "8EER",
+    "8EIE",
+    "8EPW",
+    "8EZG",
+    "8F0M",
+    "8FMI",
+    "8FMJ",
+    "8FMK",
+    "8G42",
+    "8G47",
+    "8G4F",
+    "8G4H",
+    "8G9P",
+    "8G9Q",
+    "8I5C",
+    "8I5D",
+    "8I5E",
+    "8JGD",
+    "8JHL",
+    "8JJS",
+    "8K4T",
+    "8K4V",
+    "8K50",
+    "8ONV",
+    "8PI0",
+    "8PIY",
+    "8QU8",
+    "8QUG",
+    "8QVU",
+    "8QW6",
+    "8QW7",
+    "8R7W",
+    "8R7X",
+    "8RNI",
+    "8RRO",
+    "8S8C",
+    "8STM",
+    "8STN",
+    "8T4V",
+    "8T71",
+    "8T72",
+    "8T73",
+    "8T74",
+    "8T75",
+    "8TBF",
+    "8TBH",
+    "8TBJ",
+    "8TBK",
+    "8TBL",
+    "8TBM",
+    "8TBN",
+    "8TVK",
+    "8TXE",
+    "8TXG",
+    "8TXH",
+    "8TXJ",
+    "8TXK",
+    "8TY2",
+    "8TY8",
+    "8TY9",
+    "8UDR",
+    "8UN3",
+    "8UN4",
+    "8UN5",
+    "8V39",
+    "8V3A",
+    "8VGQ",
+    "8VJZ",
+    "8VR9",
+    "8VRA",
+    "8VRB",
+    "8WTE",
+    "8WUL",
+    "8X6R",
+    "8YIV",
+    "8YJ2",
+    "9AX6",
+    "9BAI",
+    "9BAJ",
+    "9BAK",
+    "9BFV",
+    "9BFW",
+    "9BFX",
+    "9BFY",
+    "9BFZ",
+    "9BG1",
+    "9BG2",
+    "9BG4",
+    "9BG5",
+    "9BG6",
+    "9BG7",
+    "9BG9",
+    "9BGA",
+    "9BGB",
+    "9BGC",
+    "9BHO",
+    "9BHP",
+    "9BHQ",
+    "9BI1",
+    "9BI2",
+    "9BL0",
+    "9C15",
+    "9C3K",
+    "9C3M",
+    "9C3N",
+    "9C3Q",
+    "9C3R",
+    "9C3V",
+    "9C3Z",
+    "9C40",
+    "9C41",
+    "9C43",
+    "9CMV",
+    "9CT7",
+    "9CT8",
+    "9CT9",
+    "9CTA",
+    "9CTB",
+    "9DMM",
+    "9E3S",
+    "9E5D",
+    "9E5F",
+    "9E9H",
+    "9E9I",
+    "9G0Y",
+    "9G4B",
+    "9GBJ",
+    "9GGT",
+    "9GGU",
+    "9GGV",
+    "9GGW",
+    "9GGX",
+    "9GGY",
+    "9GGZ",
+    "9GH0",
+    "9GH1",
+    "9GH2",
+    "9GLU",
+    "9GTK",
+    "9HMR",
+    "9I5E",
+    "9I7Y",
+    "9IAP",
+    "9IAW",
+    "9IAY",
+    "9IB4",
+    "9IB5",
+    "9KFL",
+    "9KPM",
+    "9KPN",
+    "9L6A",
+    "9L6F",
+    "9MF0",
+    "9N44",
+    "9N9N",
+    "9NF2",
+    "9NFB",
+    "9NFC",
+    "9NZM",
+    "9NZN",
+    "9O0N",
+    "9O0O",
+    "9O0R",
+    "9O0S",
+    "9O55",
+    "9O65",
+    "9P44",
+    "9P45",
+    "9PIZ",
+    "9PVF",
+    "9PZF",
+    "9PZY",
+    "9QPZ",
+    "9QQ0",
+    "9QQ1",
+    "9RK8",
+    "9RKC",
+    "9RKE",
+    "9RKJ",
+    "9RKN",
+    "9TBM",
+    "9TBR",
+    "9TBW",
+    "9TC0",
+    "9TC2",
+    "9TC5",
+    "9TC6",
+    "9U50",
+    "9U5T",
+    "9U8L",
+    "9U8T",
+    "9U8U",
+    "9U8V",
+    "9U8W",
+    "9U8X",
+    "9U8Y",
+    "9U8Z",
+    "9U90",
+    "9U95",
+    "9U97",
+    "9U99",
+    "9UOH",
+    "9USB",
+    "9XZ1"
+   ]
+  },
+  "pdb_entry_count": 556,
+  "alphafold": {
+   "entryId": "AF-P01116-F1",
+   "modelCreatedDate": "2025-08-01T00:00:00Z",
+   "latestVersion": 6,
+   "uniprotStart": 1,
+   "uniprotEnd": 189,
+   "modelUrl": null,
+   "pdbUrl": "https://alphafold.ebi.ac.uk/files/AF-P01116-F1-model_v6.pdb"
+  }
+ },
+ "HRAS": {
+  "entrez": "3265",
+  "ensg": "ENSG00000174775",
+  "uniprot": "P01112",
+  "ncbi": {
+   "symbol": "HRAS",
+   "desc": "HRas proto-oncogene, GTPase",
+   "map_location": "11p15.5",
+   "chr": "11",
+   "start": 535575,
+   "stop": 532241,
+   "summary": "This gene belongs to the Ras oncogene family, whose members are related to the transforming genes of mammalian sarcoma retroviruses. The products encoded by these genes function in signal transduction pathways. These proteins can bind GTP and GDP, and they have intrinsic GTPase activity. This protein undergoes a continuous cycle of de- and re-palmitoylation, which regulates its rapid exchange between the plasma membrane and the Golgi apparatus. Mutations in this gene cause Costello syndrome, a disease characterized by increased growth at the prenatal stage, growth deficiency at the postnatal stage, predisposition to tumor formation, cognitive disability, skin and musculoskeletal abnormalities, distinctive facial appearance and cardiovascular abnormalities. Defects in this gene are implicated in a variety of cancers, including bladder cancer, follicular thyroid cancer, and oral squamous cell carcinoma. Multiple transcript variants, which encode different isoforms, have been identified for this gene. [provided by RefSeq, Jul 2008]",
+   "otherdesignations": "C-BAS/HAS, C-H-RAS, C-HA-RAS1, CTLO, H-RASIDX, HAMSV, HRAS1, RASH1, p21ras"
+  },
+  "ensembl": {
+   "strand": -1,
+   "chr": "11",
+   "start": 532242,
+   "end": 537343,
+   "assembly": "GRCh38",
+   "n_transcripts": 27
+  },
+  "transcripts": [
+   {
+    "id": "ENST00000397594",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-202",
+    "length": 1835,
+    "start": 532242,
+    "end": 535236
+   },
+   {
+    "id": "ENST00000397596",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-203",
+    "length": 1100,
+    "start": 532242,
+    "end": 535339
+   },
+   {
+    "id": "ENST00000493230",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "HRAS-210",
+    "length": 1114,
+    "start": 532242,
+    "end": 535538
+   },
+   {
+    "id": "ENST00000311189",
+    "biotype": "protein_coding",
+    "canonical": 1,
+    "display": "HRAS-201",
+    "length": 1070,
+    "start": 532242,
+    "end": 535576
+   },
+   {
+    "id": "ENST00000417302",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-204",
+    "length": 1260,
+    "start": 532242,
+    "end": 535576
+   },
+   {
+    "id": "ENST00000451590",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-205",
+    "length": 1188,
+    "start": 532243,
+    "end": 535587
+   },
+   {
+    "id": "ENST00000462734",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "HRAS-206",
+    "length": 1939,
+    "start": 532275,
+    "end": 537321
+   },
+   {
+    "id": "ENST00000479482",
+    "biotype": "retained_intron",
+    "canonical": 0,
+    "display": "HRAS-208",
+    "length": 485,
+    "start": 532642,
+    "end": 533976
+   },
+   {
+    "id": "ENST00000468682",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-207",
+    "length": 749,
+    "start": 533795,
+    "end": 537287
+   },
+   {
+    "id": "ENST00000482021",
+    "biotype": "protein_coding_CDS_not_defined",
+    "canonical": 0,
+    "display": "HRAS-209",
+    "length": 167,
+    "start": 534279,
+    "end": 534587
+   },
+   {
+    "id": "ENST00000879220",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-211",
+    "length": 1061,
+    "start": 532244,
+    "end": 535587
+   },
+   {
+    "id": "ENST00000879221",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-212",
+    "length": 1013,
+    "start": 532242,
+    "end": 535422
+   },
+   {
+    "id": "ENST00000879222",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-213",
+    "length": 992,
+    "start": 532242,
+    "end": 535339
+   },
+   {
+    "id": "ENST00000879223",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-214",
+    "length": 1442,
+    "start": 532248,
+    "end": 535250
+   },
+   {
+    "id": "ENST00000879224",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-215",
+    "length": 1766,
+    "start": 532246,
+    "end": 535236
+   },
+   {
+    "id": "ENST00000932528",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-216",
+    "length": 978,
+    "start": 532242,
+    "end": 537343
+   },
+   {
+    "id": "ENST00000932529",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-217",
+    "length": 1372,
+    "start": 532243,
+    "end": 537332
+   },
+   {
+    "id": "ENST00000932530",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-218",
+    "length": 2094,
+    "start": 532242,
+    "end": 537324
+   },
+   {
+    "id": "ENST00000932531",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-219",
+    "length": 1070,
+    "start": 532242,
+    "end": 535587
+   },
+   {
+    "id": "ENST00000932532",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-220",
+    "length": 1875,
+    "start": 532245,
+    "end": 535236
+   },
+   {
+    "id": "ENST00000979403",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-221",
+    "length": 1062,
+    "start": 532244,
+    "end": 535587
+   },
+   {
+    "id": "ENST00000979404",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-222",
+    "length": 1956,
+    "start": 532246,
+    "end": 535236
+   },
+   {
+    "id": "ENST00001041405",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "HRAS-223",
+    "length": 3438,
+    "start": 532242,
+    "end": 536822
+   },
+   {
+    "id": "ENST00001041406",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "HRAS-224",
+    "length": 1120,
+    "start": 532243,
+    "end": 535566
+   },
+   {
+    "id": "ENST00001061984",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-225",
+    "length": 1060,
+    "start": 532242,
+    "end": 535587
+   },
+   {
+    "id": "ENST00001142568",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-226",
+    "length": 1081,
+    "start": 532242,
+    "end": 535587
+   },
+   {
+    "id": "ENST00001142569",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "HRAS-227",
+    "length": 1271,
+    "start": 532242,
+    "end": 535587
+   }
+  ],
+  "mane_raw": null,
+  "exon_models": {
+   "ENST00000311189": {
+    "biotype": "protein_coding",
+    "canonical": 1,
+    "strand": -1,
+    "start": 532242,
+    "end": 535576,
+    "protein_id": "ENSP00000309845",
+    "protein_length": 189,
+    "cds_genomic_start": 532636,
+    "cds_genomic_end": 534322,
+    "exons": [
+     {
+      "id": "ENSE00001503789",
+      "start": 535416,
+      "end": 535576,
+      "rank": 1
+     },
+     {
+      "id": "ENSE00004014247",
+      "start": 534212,
+      "end": 534375,
+      "rank": 2
+     },
+     {
+      "id": "ENSE00003921927",
+      "start": 533766,
+      "end": 533944,
+      "rank": 3
+     },
+     {
+      "id": "ENSE00003603244",
+      "start": 533453,
+      "end": 533612,
+      "rank": 4
+     },
+     {
+      "id": "ENSE00003561701",
+      "start": 532631,
+      "end": 532755,
+      "rank": 5
+     },
+     {
+      "id": "ENSE00001529354",
+      "start": 532242,
+      "end": 532522,
+      "rank": 6
+     }
+    ],
+    "display": "HRAS-201"
+   }
+  },
+  "hotspot_map": {
+   "12": {
+    "cds": [
+     34,
+     36
+    ],
+    "genomic": [
+     {
+      "gap": 0,
+      "end": 534289,
+      "strand": -1,
+      "assembly_name": "GRCh38",
+      "start": 534287,
+      "rank": 0,
+      "coord_system": "chromosome",
+      "seq_region_name": "11"
+     }
+    ]
+   },
+   "13": {
+    "cds": [
+     37,
+     39
+    ],
+    "genomic": [
+     {
+      "rank": 0,
+      "coord_system": "chromosome",
+      "seq_region_name": "11",
+      "assembly_name": "GRCh38",
+      "strand": -1,
+      "end": 534286,
+      "start": 534284,
+      "gap": 0
+     }
+    ]
+   },
+   "61": {
+    "cds": [
+     181,
+     183
+    ],
+    "genomic": [
+     {
+      "assembly_name": "GRCh38",
+      "seq_region_name": "11",
+      "strand": -1,
+      "rank": 0,
+      "end": 533875,
+      "start": 533873,
+      "gap": 0,
+      "coord_system": "chromosome"
+     }
+    ]
+   }
+  },
+  "hotspot_tx": "ENST00000311189",
+  "uniprot_data": {
+   "accession": "P01112",
+   "length": 189,
+   "sequence": "MTEYKLVVVGAGGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHQYREQIKRVKDSDDVPMVLVGNKCDLAARTVESRQAQDLARSYGIPYIETSAKTRQGVEDAFYTLVREIRQHKLRKLNPPDESGPGCMSCKCVLS",
+   "protein_name": "GTPase HRas",
+   "features": [
+    {
+     "type": "Chain",
+     "start": 1,
+     "end": 186,
+     "desc": "GTPase HRas"
+    },
+    {
+     "type": "Initiator methionine",
+     "start": 1,
+     "end": 1,
+     "desc": "Removed; alternate"
+    },
+    {
+     "type": "Chain",
+     "start": 2,
+     "end": 186,
+     "desc": "GTPase HRas, N-terminally processed"
+    },
+    {
+     "type": "Propeptide",
+     "start": 187,
+     "end": 189,
+     "desc": "Removed in mature form"
+    },
+    {
+     "type": "Region",
+     "start": 166,
+     "end": 185,
+     "desc": "Hypervariable region"
+    },
+    {
+     "type": "Motif",
+     "start": 32,
+     "end": 40,
+     "desc": "Effector region"
+    },
+    {
+     "type": "Binding site",
+     "start": 13,
+     "end": 18,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 29,
+     "end": 35,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 59,
+     "end": 60,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 116,
+     "end": 119,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 145,
+     "end": 147,
+     "desc": ""
+    },
+    {
+     "type": "Modified residue",
+     "start": 1,
+     "end": 1,
+     "desc": "N-acetylmethionine; in GTPase HRas; alternate"
+    },
+    {
+     "type": "Modified residue",
+     "start": 2,
+     "end": 2,
+     "desc": "N-acetylthreonine; in GTPase HRas, N-terminally processed"
+    },
+    {
+     "type": "Modified residue",
+     "start": 118,
+     "end": 118,
+     "desc": "S-nitrosocysteine"
+    },
+    {
+     "type": "Modified residue",
+     "start": 186,
+     "end": 186,
+     "desc": "Cysteine methyl ester"
+    },
+    {
+     "type": "Lipidation",
+     "start": 181,
+     "end": 181,
+     "desc": "S-palmitoyl cysteine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 184,
+     "end": 184,
+     "desc": "S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine; alternate"
+    },
+    {
+     "type": "Lipidation",
+     "start": 184,
+     "end": 184,
+     "desc": "S-palmitoyl cysteine; alternate"
+    },
+    {
+     "type": "Lipidation",
+     "start": 186,
+     "end": 186,
+     "desc": "S-farnesyl cysteine"
+    },
+    {
+     "type": "Glycosylation",
+     "start": 35,
+     "end": 35,
+     "desc": "(Microbial infection) O-linked (Glc) threonine; by P.sordellii toxin TcsL"
+    },
+    {
+     "type": "Cross-link",
+     "start": 170,
+     "end": 170,
+     "desc": "Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in ubiquitin)"
+    },
+    {
+     "type": "Alternative sequence",
+     "start": 152,
+     "end": 189,
+     "desc": "in isoform 2"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in CSTLO; dbSNP:rs104894230"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in CSTLO; dbSNP:rs104894229"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in CSTLO; severe mutation; dbSNP:rs104894230"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in CSTLO"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in CSTLO and CMEMS; also found in patients with oral squamous cell carcinoma; dbSNP:rs104894229"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in CSTLO, bladder carcinoma and CMEMS; constitutively activated; interacts and recruits PLCE1 to plasma membrane; dbSNP:rs104894230"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in CSTLO; dbSNP:rs104894228"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in CSTLO; dbSNP:rs104894226"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in SFM; somatic mutation; shows constitutive activation of the MAPK and PI3K-AKT signaling pathways; dbSNP:rs104894228"
+    },
+    {
+     "type": "Natural variant",
+     "start": 22,
+     "end": 22,
+     "desc": "in CMEMS; dbSNP:rs121917757"
+    },
+    {
+     "type": "Natural variant",
+     "start": 37,
+     "end": 37,
+     "desc": "in CSTLO"
+    },
+    {
+     "type": "Natural variant",
+     "start": 58,
+     "end": 58,
+     "desc": "in CSTLO; dbSNP:rs121917758"
+    },
+    {
+     "type": "Natural variant",
+     "start": 61,
+     "end": 61,
+     "desc": "in NMTC2; somatic mutation; increases transformation of cultured cell lines; dbSNP:rs28933406"
+    },
+    {
+     "type": "Natural variant",
+     "start": 61,
+     "end": 61,
+     "desc": "in melanoma; strongly reduced GTP hydrolysis in the presence of RAF1; increases transformation of cultured cell lines; dbSNP:rs121913233"
+    },
+    {
+     "type": "Natural variant",
+     "start": 63,
+     "end": 63,
+     "desc": "in CMEMS; dbSNP:rs121917756"
+    },
+    {
+     "type": "Natural variant",
+     "start": 89,
+     "end": 89,
+     "desc": "found in a patient with severe fetal hydrops and pleural effusion; uncertain significance; decreased activation of Ras protein signal transduction; dbSNP:rs755322824"
+    },
+    {
+     "type": "Natural variant",
+     "start": 117,
+     "end": 117,
+     "desc": "in CSTLO; dbSNP:rs104894227"
+    },
+    {
+     "type": "Natural variant",
+     "start": 146,
+     "end": 146,
+     "desc": "in CSTLO; dbSNP:rs104894231"
+    },
+    {
+     "type": "Natural variant",
+     "start": 146,
+     "end": 146,
+     "desc": "in CSTLO; dbSNP:rs121917759"
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 17,
+     "end": 17,
+     "desc": "Dominant negative. Prevents PLCE1 EGF-induced recruitment to plasma membrane. No effect on subcellular location of isoform 2."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 26,
+     "end": 26,
+     "desc": "Loss of interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 29,
+     "end": 29,
+     "desc": "No effect on interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 32,
+     "end": 32,
+     "desc": "Loss of interaction and recruitment to plasma membrane of PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 34,
+     "end": 34,
+     "desc": "No effect on interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 35,
+     "end": 35,
+     "desc": "Loss of interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 37,
+     "end": 37,
+     "desc": "No effect on interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 38,
+     "end": 38,
+     "desc": "No effect on interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 39,
+     "end": 39,
+     "desc": "No effect on interaction with PLCE1; when associated with V-12."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 59,
+     "end": 59,
+     "desc": "Loss of GTPase activity and creation of an autophosphorylation site."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 61,
+     "end": 61,
+     "desc": "Moderately increased transformation of cultured cell lines."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 61,
+     "end": 61,
+     "desc": "Promotes interaction with SHOC2 and PP1C."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 61,
+     "end": 61,
+     "desc": "Strongly increased transformation of cultured cell lines."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 83,
+     "end": 83,
+     "desc": "GTP-binding activity reduced by factor of 30."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 118,
+     "end": 118,
+     "desc": "Abolishes S-nitrosylation. No stimulation of guanine nucleotide exchange."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 119,
+     "end": 119,
+     "desc": "Loss of GTP-binding activity."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 144,
+     "end": 144,
+     "desc": "GTP-binding activity reduced by factor of 25."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 164,
+     "end": 165,
+     "desc": "Loss of GTP-binding activity."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 167,
+     "end": 185,
+     "desc": "In H-Ras-3KR mutant; decreased fatty-acylation."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 170,
+     "end": 170,
+     "desc": "Increased Ras signaling due to impaired ubiquitination."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 181,
+     "end": 181,
+     "desc": "Exclusively localized in Golgi. Non-specifically localized on all endomembranes; when associated with S-184."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 184,
+     "end": 184,
+     "desc": "Loss of S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine stimulation of Ras-GTPase activity. Mainly localized in Golgi. Non-specifically localized on all endomembranes; when associated with S-181."
+    },
+    {
+     "type": "Beta strand",
+     "start": 3,
+     "end": 11,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 12,
+     "end": 15,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 16,
+     "end": 25,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 27,
+     "end": 31,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 33,
+     "end": 35,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 38,
+     "end": 46,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 49,
+     "end": 57,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 60,
+     "end": 63,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 66,
+     "end": 74,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 76,
+     "end": 83,
+     "desc": ""
+    },
+    {
+     "type": "Turn",
+     "start": 84,
+     "end": 86,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 87,
+     "end": 104,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 105,
+     "end": 107,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 111,
+     "end": 116,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 120,
+     "end": 122,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 127,
+     "end": 137,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 141,
+     "end": 144,
+     "desc": ""
+    },
+    {
+     "type": "Turn",
+     "start": 146,
+     "end": 148,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 152,
+     "end": 164,
+     "desc": ""
+    }
+   ],
+   "isoforms": [
+    {
+     "name": "1",
+     "ids": [
+      "P01112-1"
+     ],
+     "type": "Displayed"
+    },
+    {
+     "name": "2",
+     "ids": [
+      "P01112-2"
+     ],
+     "type": "Described"
+    }
+   ],
+   "pdb_xrefs": [
+    "10DC",
+    "121P",
+    "1AA9",
+    "1AGP",
+    "1BKD",
+    "1CLU",
+    "1CRP",
+    "1CRQ",
+    "1CRR",
+    "1CTQ",
+    "1GNP",
+    "1GNQ",
+    "1GNR",
+    "1HE8",
+    "1IAQ",
+    "1IOZ",
+    "1JAH",
+    "1JAI",
+    "1K8R",
+    "1LF0",
+    "1LF5",
+    "1LFD",
+    "1NVU",
+    "1NVV",
+    "1NVW",
+    "1NVX",
+    "1P2S",
+    "1P2T",
+    "1P2U",
+    "1P2V",
+    "1PLJ",
+    "1PLK",
+    "1PLL",
+    "1Q21",
+    "1QRA",
+    "1RVD",
+    "1WQ1",
+    "1XCM",
+    "1XD2",
+    "1XJ0",
+    "1ZVQ",
+    "1ZW6",
+    "221P",
+    "2C5L",
+    "2CE2",
+    "2CL0",
+    "2CL6",
+    "2CL7",
+    "2CLC",
+    "2CLD",
+    "2EVW",
+    "2LCF",
+    "2LWI",
+    "2N42",
+    "2N46",
+    "2Q21",
+    "2QUZ",
+    "2RGA",
+    "2RGB",
+    "2RGC",
+    "2RGD",
+    "2RGE",
+    "2RGG",
+    "2UZI",
+    "2VH5",
+    "2X1V",
+    "3DDC",
+    "3I3S",
+    "3K8Y",
+    "3K9L",
+    "3K9N",
+    "3KKM",
+    "3KKN",
+    "3KUD",
+    "3L8Y",
+    "3L8Z",
+    "3LBH",
+    "3LBI",
+    "3LBN",
+    "3LO5",
+    "3OIU",
+    "3OIV",
+    "3OIW",
+    "3RRY",
+    "3RRZ",
+    "3RS0",
+    "3RS2",
+    "3RS3",
+    "3RS4",
+    "3RS5",
+    "3RS7",
+    "3RSL",
+    "3RSO",
+    "3TGP",
+    "421P",
+    "4DLR",
+    "4DLS",
+    "4DLT",
+    "4DLU",
+    "4DLV",
+    "4DLW",
+    "4DLX",
+    "4DLY",
+    "4DLZ",
+    "4DST",
+    "4DSU",
+    "4EFL",
+    "4EFM",
+    "4EFN",
+    "4G0N",
+    "4G3X",
+    "4K81",
+    "4L9S",
+    "4L9W",
+    "4NYI",
+    "4NYJ",
+    "4NYM",
+    "4Q21",
+    "4RSG",
+    "4URU",
+    "4URV",
+    "4URW",
+    "4URX",
+    "4URY",
+    "4URZ",
+    "4US0",
+    "4US1",
+    "4US2",
+    "4XVQ",
+    "4XVR",
+    "521P",
+    "5B2Z",
+    "5B30",
+    "5E95",
+    "5P21",
+    "5VBE",
+    "5VBZ",
+    "5WDO",
+    "5WDP",
+    "5WDQ",
+    "5WFO",
+    "5WFP",
+    "5WFQ",
+    "5WFR",
+    "5WPL",
+    "5X9S",
+    "5ZC6",
+    "621P",
+    "6AMB",
+    "6AXG",
+    "6BVI",
+    "6BVJ",
+    "6BVK",
+    "6BVL",
+    "6BVM",
+    "6CUO",
+    "6CUP",
+    "6CUR",
+    "6D55",
+    "6D56",
+    "6D59",
+    "6D5E",
+    "6D5G",
+    "6D5H",
+    "6D5J",
+    "6D5L",
+    "6D5M",
+    "6D5V",
+    "6D5W",
+    "6DZH",
+    "6E6C",
+    "6E6P",
+    "6MQT",
+    "6NTC",
+    "6NTD",
+    "6Q21",
+    "6V94",
+    "6V9F",
+    "6V9J",
+    "6V9L",
+    "6V9M",
+    "6V9N",
+    "6V9O",
+    "6ZJ0",
+    "6ZL3",
+    "721P",
+    "7DPH",
+    "7DPJ",
+    "7JHP",
+    "7JIF",
+    "7JIG",
+    "7JIH",
+    "7JII",
+    "7L0F",
+    "7L0G",
+    "7OG9",
+    "7OGA",
+    "7OGB",
+    "7OGC",
+    "7OGD",
+    "7OGE",
+    "7OGF",
+    "7TAM",
+    "7VV8",
+    "7VV9",
+    "7VVG",
+    "821P",
+    "8BE6",
+    "8BE7",
+    "8BE8",
+    "8BE9",
+    "8BEA",
+    "8BOS",
+    "8BWG",
+    "8CNJ",
+    "8CNN",
+    "8ELK",
+    "8ELR",
+    "8ELS",
+    "8ELT",
+    "8ELU",
+    "8ELV",
+    "8ELW",
+    "8ELX",
+    "8ELY",
+    "8ELZ",
+    "8EM0",
+    "8FG3",
+    "8FG4",
+    "8OSM",
+    "8OSN",
+    "8OSO",
+    "8TBG",
+    "8TLR",
+    "8WWC",
+    "9P46",
+    "9PU1",
+    "9PU3",
+    "9PU8",
+    "9PUL",
+    "9PUN",
+    "9PUQ",
+    "9PUT",
+    "9PUZ",
+    "9PVE"
+   ]
+  },
+  "pdb_entry_count": 254,
+  "alphafold": {
+   "entryId": "AF-P01112-F1",
+   "modelCreatedDate": "2025-08-01T00:00:00Z",
+   "latestVersion": 6,
+   "uniprotStart": 1,
+   "uniprotEnd": 189,
+   "modelUrl": null,
+   "pdbUrl": "https://alphafold.ebi.ac.uk/files/AF-P01112-F1-model_v6.pdb"
+  }
+ },
+ "NRAS": {
+  "entrez": "4893",
+  "ensg": "ENSG00000213281",
+  "uniprot": "P01111",
+  "ncbi": {
+   "symbol": "NRAS",
+   "desc": "NRAS proto-oncogene, GTPase",
+   "map_location": "1p13.2",
+   "chr": "1",
+   "start": 114716770,
+   "stop": 114704468,
+   "summary": "This is an N-ras oncogene encoding a membrane protein that shuttles between the Golgi apparatus and the plasma membrane. This shuttling is regulated through palmitoylation and depalmitoylation by the ZDHHC9-GOLGA7 complex. The encoded protein, which has intrinsic GTPase activity, is activated by a guanine nucleotide-exchange factor and inactivated by a GTPase activating protein. Mutations in this gene have been associated with somatic rectal cancer, follicular thyroid cancer, autoimmune lymphoproliferative syndrome, Noonan syndrome, and juvenile myelomonocytic leukemia. [provided by RefSeq, Jun 2011]",
+   "otherdesignations": "ALPS4, CMNS, N-ras, NCMS, NRAS1, NS6, RALD1"
+  },
+  "ensembl": {
+   "strand": -1,
+   "chr": "1",
+   "start": 114704468,
+   "end": 114716775,
+   "assembly": "GRCh38",
+   "n_transcripts": 7
+  },
+  "transcripts": [
+   {
+    "id": "ENST00000369535",
+    "biotype": "protein_coding",
+    "canonical": 1,
+    "display": "NRAS-201",
+    "length": 4326,
+    "start": 114704469,
+    "end": 114716771
+   },
+   {
+    "id": "ENST00000899430",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "NRAS-202",
+    "length": 4383,
+    "start": 114704469,
+    "end": 114716771
+   },
+   {
+    "id": "ENST00000931009",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "NRAS-203",
+    "length": 3987,
+    "start": 114704469,
+    "end": 114716771
+   },
+   {
+    "id": "ENST00000931010",
+    "biotype": "protein_coding",
+    "canonical": 0,
+    "display": "NRAS-204",
+    "length": 4322,
+    "start": 114704469,
+    "end": 114716640
+   },
+   {
+    "id": "ENST00000995004",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "NRAS-205",
+    "length": 4147,
+    "start": 114704469,
+    "end": 114716771
+   },
+   {
+    "id": "ENST00001081567",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "NRAS-206",
+    "length": 4324,
+    "start": 114704468,
+    "end": 114716775
+   },
+   {
+    "id": "ENST00001081568",
+    "biotype": "nonsense_mediated_decay",
+    "canonical": 0,
+    "display": "NRAS-207",
+    "length": 4315,
+    "start": 114704469,
+    "end": 114716771
+   }
+  ],
+  "mane_raw": null,
+  "exon_models": {
+   "ENST00000369535": {
+    "biotype": "protein_coding",
+    "canonical": 1,
+    "strand": -1,
+    "start": 114704469,
+    "end": 114716771,
+    "protein_id": "ENSP00000358548",
+    "protein_length": 189,
+    "cds_genomic_start": 114708535,
+    "cds_genomic_end": 114716160,
+    "exons": [
+     {
+      "id": "ENSE00001364464",
+      "start": 114716658,
+      "end": 114716771,
+      "rank": 1
+     },
+     {
+      "id": "ENSE00001450282",
+      "start": 114716050,
+      "end": 114716177,
+      "rank": 2
+     },
+     {
+      "id": "ENSE00001751295",
+      "start": 114713800,
+      "end": 114713978,
+      "rank": 3
+     },
+     {
+      "id": "ENSE00000784343",
+      "start": 114709569,
+      "end": 114709728,
+      "rank": 4
+     },
+     {
+      "id": "ENSE00000800104",
+      "start": 114708531,
+      "end": 114708654,
+      "rank": 5
+     },
+     {
+      "id": "ENSE00001365300",
+      "start": 114708154,
+      "end": 114708192,
+      "rank": 6
+     },
+     {
+      "id": "ENSE00001450280",
+      "start": 114704469,
+      "end": 114708050,
+      "rank": 7
+     }
+    ],
+    "display": "NRAS-201"
+   }
+  },
+  "hotspot_map": {
+   "12": {
+    "cds": [
+     34,
+     36
+    ],
+    "genomic": [
+     {
+      "start": 114716125,
+      "gap": 0,
+      "coord_system": "chromosome",
+      "assembly_name": "GRCh38",
+      "seq_region_name": "1",
+      "end": 114716127,
+      "strand": -1,
+      "rank": 0
+     }
+    ]
+   },
+   "13": {
+    "cds": [
+     37,
+     39
+    ],
+    "genomic": [
+     {
+      "rank": 0,
+      "coord_system": "chromosome",
+      "end": 114716124,
+      "start": 114716122,
+      "gap": 0,
+      "strand": -1,
+      "assembly_name": "GRCh38",
+      "seq_region_name": "1"
+     }
+    ]
+   },
+   "61": {
+    "cds": [
+     181,
+     183
+    ],
+    "genomic": [
+     {
+      "assembly_name": "GRCh38",
+      "seq_region_name": "1",
+      "end": 114713909,
+      "rank": 0,
+      "strand": -1,
+      "start": 114713907,
+      "gap": 0,
+      "coord_system": "chromosome"
+     }
+    ]
+   }
+  },
+  "hotspot_tx": "ENST00000369535",
+  "uniprot_data": {
+   "accession": "P01111",
+   "length": 189,
+   "sequence": "MTEYKLVVVGAGGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNSKSFADINLYREQIKRVKDSDDVPMVLVGNKCDLPTRTVDTKQAHELAKSYGIPFIETSAKTRQGVEDAFYTLVREIRQYRMKKLNSSDDGTQGCMGLPCVVM",
+   "protein_name": "GTPase NRas",
+   "features": [
+    {
+     "type": "Chain",
+     "start": 1,
+     "end": 186,
+     "desc": "GTPase NRas"
+    },
+    {
+     "type": "Propeptide",
+     "start": 187,
+     "end": 189,
+     "desc": "Removed in mature form"
+    },
+    {
+     "type": "Region",
+     "start": 166,
+     "end": 185,
+     "desc": "Hypervariable region"
+    },
+    {
+     "type": "Motif",
+     "start": 32,
+     "end": 40,
+     "desc": "Effector region"
+    },
+    {
+     "type": "Binding site",
+     "start": 10,
+     "end": 18,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 29,
+     "end": 30,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 57,
+     "end": 61,
+     "desc": ""
+    },
+    {
+     "type": "Binding site",
+     "start": 116,
+     "end": 119,
+     "desc": ""
+    },
+    {
+     "type": "Modified residue",
+     "start": 89,
+     "end": 89,
+     "desc": "Phosphoserine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 181,
+     "end": 181,
+     "desc": "S-palmitoyl cysteine"
+    },
+    {
+     "type": "Lipidation",
+     "start": 186,
+     "end": 186,
+     "desc": "S-farnesyl cysteine"
+    },
+    {
+     "type": "Glycosylation",
+     "start": 35,
+     "end": 35,
+     "desc": "(Microbial infection) O-linked (Glc) threonine; by P.sordellii toxin TcsL"
+    },
+    {
+     "type": "Cross-link",
+     "start": 170,
+     "end": 170,
+     "desc": "Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in ubiquitin)"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in leukemia; dbSNP:rs121913250"
+    },
+    {
+     "type": "Natural variant",
+     "start": 12,
+     "end": 12,
+     "desc": "in KNEN and JMML; dbSNP:rs121913237"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in RALD1 and JMML; dbSNP:rs121434596"
+    },
+    {
+     "type": "Natural variant",
+     "start": 13,
+     "end": 13,
+     "desc": "in CMNS and colorectal cancer; somatic mutation; dbSNP:rs121434595"
+    },
+    {
+     "type": "Natural variant",
+     "start": 34,
+     "end": 34,
+     "desc": "in KNEN; dbSNP:rs397514553"
+    },
+    {
+     "type": "Natural variant",
+     "start": 50,
+     "end": 50,
+     "desc": "in NS6; hypermorphic mutation; dbSNP:rs267606921"
+    },
+    {
+     "type": "Natural variant",
+     "start": 60,
+     "end": 60,
+     "desc": "in NS6; hypermorphic mutation; dbSNP:rs267606920"
+    },
+    {
+     "type": "Natural variant",
+     "start": 61,
+     "end": 61,
+     "desc": "in CMNS and NCMS; somatic mutation; dbSNP:rs121913254"
+    },
+    {
+     "type": "Natural variant",
+     "start": 61,
+     "end": 61,
+     "desc": "in CMNS, NCMS, KNEN and NMTC2; also found in lung carcinoma cell and melanoma; impaired GTP hydrolysis activity, trapping NRAS in a constitutive GTP-bound active conformation; promotes melanomagenesis; promotes interaction with SHOC2 and PP1C; dbSNP:rs11554290"
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 89,
+     "end": 89,
+     "desc": "Abolished phosphorylation by STK19."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 164,
+     "end": 164,
+     "desc": "Loss of GTP-binding activity."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 169,
+     "end": 170,
+     "desc": "In N-Ras-2KR mutant; decreased fatty-acylation."
+    },
+    {
+     "type": "Mutagenesis",
+     "start": 181,
+     "end": 181,
+     "desc": "Loss of plasma membrane localization."
+    },
+    {
+     "type": "Beta strand",
+     "start": 2,
+     "end": 9,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 11,
+     "end": 14,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 16,
+     "end": 25,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 36,
+     "end": 46,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 49,
+     "end": 58,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 62,
+     "end": 68,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 69,
+     "end": 74,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 76,
+     "end": 83,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 87,
+     "end": 104,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 111,
+     "end": 116,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 127,
+     "end": 137,
+     "desc": ""
+    },
+    {
+     "type": "Beta strand",
+     "start": 141,
+     "end": 143,
+     "desc": ""
+    },
+    {
+     "type": "Turn",
+     "start": 146,
+     "end": 148,
+     "desc": ""
+    },
+    {
+     "type": "Helix",
+     "start": 152,
+     "end": 168,
+     "desc": ""
+    }
+   ],
+   "isoforms": [],
+   "pdb_xrefs": [
+    "2N9C",
+    "3CON",
+    "5UHV",
+    "6E6H",
+    "6MPP",
+    "6ULI",
+    "6ULK",
+    "6ULN",
+    "6ULR",
+    "6UON",
+    "6WGH",
+    "6ZIO",
+    "6ZIR",
+    "6ZIZ",
+    "7F68",
+    "7OW3",
+    "7OW4",
+    "7OW5",
+    "7OW6",
+    "7PB2",
+    "8TBI",
+    "8VM2",
+    "9BG0",
+    "9BG3",
+    "9BG8",
+    "9BGD",
+    "9BTM",
+    "9GLW",
+    "9GLX",
+    "9Y0G",
+    "9Y1W",
+    "9Y1X",
+    "9Y1Y",
+    "9Y1Z",
+    "9Y3W"
+   ]
+  },
+  "pdb_entry_count": 36,
+  "alphafold": {
+   "entryId": "AF-P01111-F1",
+   "modelCreatedDate": "2025-08-01T00:00:00Z",
+   "latestVersion": 6,
+   "uniprotStart": 1,
+   "uniprotEnd": 189,
+   "modelUrl": null,
+   "pdbUrl": "https://alphafold.ebi.ac.uk/files/AF-P01111-F1-model_v6.pdb"
+  }
+ },
+ "_study": {
+  "studyId": "msk_impact_2017",
+  "cancerTypeId": "mixed",
+  "name": "MSK-IMPACT Clinical Sequencing Cohort (MSK, Nat Med 2017)",
+  "description": "Targeted sequencing of 10,000 clinical cases using the MSK-IMPACT assay",
+  "publicStudy": true,
+  "pmid": "28481359",
+  "citation": "Zehir et al. Nat Med 2017",
+  "groups": "PUBLIC",
+  "status": 1,
+  "importDate": "2026-07-28 17:54:40",
+  "allSampleCount": 10945,
+  "sequencedSampleCount": 10945,
+  "cnaSampleCount": 10945,
+  "mrnaRnaSeqSampleCount": 0,
+  "mrnaRnaSeqV2SampleCount": 0,
+  "mrnaMicroarraySampleCount": 0,
+  "miRnaSampleCount": 0,
+  "methylationHm27SampleCount": 0,
+  "rppaSampleCount": 0,
+  "massSpectrometrySampleCount": 0,
+  "completeSampleCount": 0,
+  "referenceGenome": "hg19",
+  "treatmentCount": 0,
+  "structuralVariantCount": 1667,
+  "cancerType": {
+   "id": "mixed",
+   "name": "Mixed Cancer Types",
+   "dedicatedColor": "Black",
+   "shortName": "MIXED",
+   "parent": "other"
+  },
+  "readPermission": true,
+  "resourceCounts": []
+ }
+}

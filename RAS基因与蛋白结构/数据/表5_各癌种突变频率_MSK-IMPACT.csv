@@ -1,0 +1,67 @@
+gene,cancer_type,n_samples,n_mut_samples,freq_pct
+HRAS,"Skin Cancer, Non-Melanoma",148,7,4.7
+HRAS,Bladder Cancer,423,19,4.5
+HRAS,Salivary Gland Cancer,114,5,4.4
+HRAS,Thyroid Cancer,231,8,3.5
+HRAS,Head and Neck Cancer,186,6,3.2
+HRAS,Melanoma,365,10,2.7
+HRAS,Cervical Cancer,50,1,2.0
+HRAS,Small Cell Lung Cancer,82,1,1.2
+HRAS,Peripheral Nervous System,80,1,1.2
+HRAS,Soft Tissue Sarcoma,443,4,0.9
+HRAS,Endometrial Cancer,218,2,0.9
+HRAS,Prostate Cancer,717,6,0.8
+HRAS,Colorectal Cancer,1007,8,0.8
+HRAS,Esophagogastric Cancer,341,2,0.6
+HRAS,Cancer of Unknown Primary,186,1,0.5
+HRAS,Breast Cancer,1337,6,0.4
+HRAS,Pancreatic Cancer,502,2,0.4
+HRAS,Non-Small Cell Lung Cancer,1668,5,0.3
+HRAS,Renal Cell Carcinoma,361,1,0.3
+HRAS,Glioma,553,1,0.2
+KRAS,Pancreatic Cancer,502,370,73.7
+KRAS,Appendiceal Cancer,79,53,67.1
+KRAS,Colorectal Cancer,1007,435,43.2
+KRAS,Non-Small Cell Lung Cancer,1668,449,26.9
+KRAS,Cancer of Unknown Primary,186,42,22.6
+KRAS,Cervical Cancer,50,11,22.0
+KRAS,Endometrial Cancer,218,43,19.7
+KRAS,Gastrointestinal Neuroendocrine Tumor,46,6,13.0
+KRAS,Germ Cell Tumor,288,32,11.1
+KRAS,Ovarian Cancer,224,20,8.9
+KRAS,Hepatobiliary Cancer,355,29,8.2
+KRAS,Esophagogastric Cancer,341,27,7.9
+KRAS,Bladder Cancer,423,29,6.9
+KRAS,Thyroid Cancer,231,7,3.0
+KRAS,Mature B-Cell Neoplasms,134,3,2.2
+KRAS,Melanoma,365,7,1.9
+KRAS,Gastrointestinal Stromal Tumor,137,2,1.5
+KRAS,Soft Tissue Sarcoma,443,6,1.4
+KRAS,"Skin Cancer, Non-Melanoma",148,2,1.4
+KRAS,Prostate Cancer,717,9,1.3
+KRAS,Small Cell Lung Cancer,82,1,1.2
+KRAS,Glioma,553,6,1.1
+KRAS,Head and Neck Cancer,186,2,1.1
+KRAS,Salivary Gland Cancer,114,1,0.9
+KRAS,Breast Cancer,1337,11,0.8
+KRAS,Renal Cell Carcinoma,361,3,0.8
+KRAS,Bone Cancer,134,1,0.7
+NRAS,Melanoma,365,78,21.4
+NRAS,Thyroid Cancer,231,37,16.0
+NRAS,Colorectal Cancer,1007,44,4.4
+NRAS,Cancer of Unknown Primary,186,7,3.8
+NRAS,Germ Cell Tumor,288,10,3.5
+NRAS,Endometrial Cancer,218,6,2.8
+NRAS,Ovarian Cancer,224,5,2.2
+NRAS,Hepatobiliary Cancer,355,7,2.0
+NRAS,Bladder Cancer,423,8,1.9
+NRAS,Head and Neck Cancer,186,3,1.6
+NRAS,Soft Tissue Sarcoma,443,7,1.6
+NRAS,"Skin Cancer, Non-Melanoma",148,2,1.4
+NRAS,Non-Small Cell Lung Cancer,1668,20,1.2
+NRAS,Small Cell Lung Cancer,82,1,1.2
+NRAS,Salivary Gland Cancer,114,1,0.9
+NRAS,Pancreatic Cancer,502,4,0.8
+NRAS,Glioma,553,4,0.7
+NRAS,Esophagogastric Cancer,341,2,0.6
+NRAS,Breast Cancer,1337,3,0.2

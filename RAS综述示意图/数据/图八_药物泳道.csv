@@ -1,0 +1,60 @@
+lane,drug,code,stage,n_trials,target,regulatory
+1,sotorasib,AMG 510,Approved,52,KRAS G12C,FDA 2021; EMA 2022
+1,adagrasib,MRTX849,Approved,35,KRAS G12C,FDA 2022
+1,fulzerasib,IBI351; GFH925,Approved,11,KRAS G12C,NMPA 2024-08
+1,garsorasib,D-1553,Approved,12,KRAS G12C,NMPA 2024-11
+1,glecirasib,JAB-21822,Approved,14,KRAS G12C,NMPA 2025-05
+1,sosimerasib,HBI-2438; JMKX001899,Approved,4,KRAS G12C,NMPA 2026 (conditional; KRAS G12C NSCLC)
+1,divarasib,GDC-6036,Phase 3,11,KRAS G12C,
+1,olomorasib,LY3537982,Phase 3,12,KRAS G12C,
+1,calderasib,MK-1084,Phase 3,18,KRAS G12C,
+1,opnurasib,JDQ443,Phase 3,8,KRAS G12C,
+1,D3S-001,,Phase 1/2,1,KRAS G12C,
+1,BI 1823911,,Phase 1,1,KRAS G12C,
+1,HS-10370,,Phase 3,4,KRAS G12C,
+1,ZG19018,,Phase 1/2,1,KRAS G12C,
+1,YL-15293,,Phase 1/2,2,KRAS G12C,
+1,GEC255,,Phase 1,1,KRAS G12C,
+1,HYP-2090PTSA,,Phase 1/2,1,KRAS G12C,
+2,GFH375,VS-7375,Phase 3,11,KRAS G12D,
+2,HRS-4642,,Phase 3,19,KRAS G12D,
+2,INCB161734,,Phase 3,5,KRAS G12D,
+2,TSN1611,,Phase 1/2,1,KRAS G12D,
+2,QTX3034,,Phase 1,1,KRAS G12D,
+2,MRTX1133,,Phase 1,1,KRAS G12D,
+2,QTX3544,,Phase 1,1,KRAS G12V (OFF),
+2,DN022150,,Phase 3,2,KRAS G12D,
+2,QLC1101,,Phase 1/2,2,KRAS G12D,
+3,daraxonrasib,RMC-6236,Approved,18,multi-selective RAS(ON),FDA 2026
+3,zoldonrasib,RMC-9805,Phase 3,8,KRAS G12D (ON),
+3,elironrasib,RMC-6291,Phase 1/2,4,KRAS G12C (ON),
+3,RMC-5127,,Phase 1,1,KRAS G12V (ON),
+3,GFH276,,Phase 2,4,pan-RAS,
+4,setidegrasib,ASP3082,Phase 3,4,KRAS G12D degrader,
+4,ERAS-4001,,Phase 1,1,pan-KRAS,
+4,LY4066434,,Phase 1,1,pan-KRAS,
+4,BGB-53038,,Phase 1,1,pan-KRAS,
+4,JAB-23E73,,Phase 1/2,3,pan-KRAS,
+4,ZG2001,,Phase 1/2,1,pan-KRAS,
+4,FMC-376,,Phase 1/2,1,KRAS G12C (ON/OFF),
+4,BBO-8520,,Phase 1,1,KRAS G12C (ON/OFF),
+4,ARV-806,,Phase 1/2,1,KRAS G12D degrader,
+4,iExosome siG12D,siG12D-LODER,Phase 1/2,1,KRAS G12D mRNA/siRNA,
+4,BI-2865,,Preclinical,0,pan-KRAS,
+4,ADT-007,,Preclinical,0,pan-RAS,
+5,sitneprotafib,JAB-3312,Phase 3,5,SHP2,
+5,RMC-4630,vociprotafib,Phase 2,6,SHP2,
+5,TNO155,batoprotafib,Phase 1/2,10,SHP2,
+5,ERAS-601,,Phase 1/2,5,SHP2,
+5,BBP-398,,Phase 1,3,SHP2,
+5,migoprotafib,RLY-1971,Phase 1,1,SHP2,
+5,BI 1701963,,Phase 1,6,SOS1,
+5,MRTX0902,,Phase 1,1,SOS1,
+5,tipifarnib,R115777,Phase 3,82,farnesyl transferase (HRAS),negative phase 3 in KRAS-mutant disease
+5,lonafarnib,SCH66336,Phase 3,21,farnesyl transferase (HRAS),negative phase 3 in KRAS-mutant disease
+5,ELI-002,,Phase 1/2,3,mutant-RAS peptide vaccine,
+5,GI-4000,,Phase 2,12,mutant-RAS whole-yeast vaccine,
+5,TG01,,Phase 1/2,2,mutant-RAS peptide vaccine,
+5,V941,mRNA-5671,Phase 1,1,mutant-KRAS mRNA vaccine,
+5,mutant-RAS TCR-T,,Phase 2,11,adoptive T-cell therapy,
+6,avutometinib + defactinib,VS-6766; VS-6063,Approved,14,RAF/MEK clamp + FAK,FDA 2025 (accelerated; KRAS-mutant LGSOC)

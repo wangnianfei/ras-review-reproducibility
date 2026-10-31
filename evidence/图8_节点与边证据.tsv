@@ -1,0 +1,73 @@
+元素	类型	支撑原文句	库内文献	所在正文节
+受体酪氨酸激酶（Receptor tyrosine kinases）	节点	The SH2 and SH3 Domain-Containing Protein GRB2 Links Receptor Tyrosine Kinases to ras Signaling	3.1_LowensteinEJ_1992_1322798	3.1
+整合素（Integrins）	节点	Integrin-mediated mechanotransduction is known to activate	3.5_KumarasamyV_2024_38294344	3.5
+G 蛋白偶联受体（G-protein-coupled receptors）	节点	RAS proteins are essential for transducing signals from all RTKs, as well as many GPCRs.	2.3_SimanshuDK_2017_28666118（p11 逐字核过）	正文未引；图边出处（3.1 ¶7 只作结构性陈述）
+抗原与免疫受体（Antigen and immune receptors）	节点	In response to T cell receptor (TCR) stimulation, both RasGRP1 and SOS are recruited to the membrane where they encounter membrane-anchored Ras and both convert Ras·GDP to Ras·GTP.	3.1_JunJE_2013_24027568（verify 因行末连字符断词未过：原文 membrane- 与 anchored 跨行、归一时连字符被吞；p4 grep 定位）	正文未引；图边出处
+GRB2	节点	The SH2 and SH3 Domain-Containing Protein GRB2 Links Receptor Tyrosine Kinases to ras Signaling	3.1_LowensteinEJ_1992_1322798	3.1
+SOS1（GEF）	节点	Critical requirement of SOS1 for tumor development	3.1_BaltansFC_2023_37730692	3.1
+SHP2	节点	Because SHP2 is a node downstream of RTKs	3.1_HaoHX_2019_31439712	3.1
+组织限定性 GEF（Tissue-restricted GEFs；RasGRF／RasGRP）	节点	RasGRF1 and RasGRF2 are predominantly expressed in the central nervous system	3.1_JunJE_2013_24027568（verify 因版面交错未过，p3 grep 定位）；并列 5.4_ChoucairK_2025_41309533「expressed primarily in the brain」（verify 同样因交错未过，p5 grep 定位）	正文未引；图边出处
+NF1、RASA1（GAPs）	节点	Binding of ARAF to RAS displaced the GTPase-activating protein NF1 and antagonized NF1-mediated inhibition of RAS	3.1_SuW_2022_35613620	3.1
+RAS–GDP（OFF state）	节点	that cycles between an inactive GDP-bound state and an active GTP-bound state	3.4_SimanshuDK_2026_42017331	3.4
+RAS–GTP（ON state）	节点	increase in GTP-bound RAS levels and enabling engagement of lower-affinity effectors such as PI3Kα and RALGDS, thereby	3.4_SimanshuDK_2026_42017331	3.4
+RAF（BRAF、CRAF）	节点	The three RAF kinases, ARAF, BRAF, and CRAF (RAF1), serve as the primary effectors of canonical RAS isoforms	3.4_SimanshuDK_2026_42017331	3.4（3.2 ¶1 记骨架不逐句挂引文）
+MEK1/2	节点	Abstract The MAPK/ERK Kinase MEK is a shared effector of the frequent cancer drivers KRAS and BRAF	3.2_KhanZM_2020_32927473	3.2
+ERK1/2	节点	Determining the ERK-regulated phosphoproteome driving KRAS-mutant cancer	3.2_KlompJE_2024_38843329	3.2
+PI3K（p110）	节点	The interaction of Ras with p110a is thus required in vivo for certain normal growth	3.3_GuptaS_2007_17540175	3.3
+AKT	节点	recruits proteins with PH domains, such as AKT and PDK1, to the	3.3_CzyzykD_2025_39788953	3.3
+mTORC1	节点	教科书骨架（正文 3.x 明示不逐句挂引文）	—（3.3 ¶1 明示 PI3K–AKT–mTOR 骨架不逐句挂引文；3.3 记录的是 RAS 直达 mTORC2，图未画该边）	3.3 ¶1
+RALGDS	节点	PI3K [29] and RalGDS [30] were identified as additional distinct potential effectors.	3.4_SimanshuDK_2026_42017331	3.4
+RAL	节点	is a GEF that activates the RAL subfamily GTPases RALA	3.4_SimanshuDK_2026_42017331	3.4
+胞内运输与分泌（vesicle traffic, secretion）	节点	RalGDS transduces upstream signals to drive RAL-dependent processes [64–66], including vesicle trafficking, cytoskeletal	3.4_SimanshuDK_2026_42017331	3.4
+PLCε	节点	many studies have expanded the potential RAS effector repertoire to include RGL1–4, Tiam1, PLCε, AF6/AFDN/Afadin, RIN1,	3.4_SimanshuDK_2026_42017331	3.4
+TIAM1	节点	many studies have expanded the potential RAS effector repertoire to include RGL1–4, Tiam1, PLCε, AF6/AFDN/Afadin, RIN1,	3.4_SimanshuDK_2026_42017331	3.4
+DAG 与 PKC（DAG, PKC）	节点	InsP3 detaches from the membrane and interacts with InsP3-specific receptors to regulate Ca2+ release, while DAG remains membrane-bound to mediate the activation of PKC upon Ca2+ release	3.4_OwusuObengE_2020_32276377（verify 因版面未过：抽取值把上标 Ca2+ 拆成独立行、错位到 release 之前；p3 grep 定位）；2026-10-31 作者定节点由「calcium, PKC」改为「DAG, PKC」——PLCε 主要经 DAG 激活 PKC，本句只取 DAG→PKC 一半作支撑	正文未引；图边出处
+RAC	节点	GTPase gene sets, such as RAC1, RAC3, CDC42, and RHOA	3.2_KlompJE_2024_38843329	3.2（间接：只证 RAC 属 ERK 依赖的 RHO GTPase 集，未证 TIAM1→RAC）
+细胞骨架重塑、迁移与侵袭（actin remodelling, migration and invasion）	节点	remodeling, cellular adhesion, and migration	3.4_SimanshuDK_2026_42017331	3.4
+代谢重编程（Metabolic reprogramming）	节点	Oncogenic Kras Maintains Pancreatic Tumors through Regulation of Anabolic Glucose Metabolism	3.5_YingH_2012_22541435	3.5
+巨胞饮与自噬（Macropinocytosis and autophagy）	节点	AGER-dependent macropinocytosis drives resistance to KRAS-G12D-targeted therapy in advanced pancreatic cancer	3.5_LiC_2025_39879317	3.5
+免疫抑制性微环境（Immunosuppressive microenvironment）	节点	KRAS represses IRF2 expression leading to high expression of CXCL3	3.5_LiaoW_2019_30905761	3.5
+衰老与致瘤性应激（Senescence and oncogenic stress）	节点	Senescence surveillance of pre-malignant hepatocytes limits liver ca	3.5_KangTW_2011_22080947	3.5
+RTK → GRB2	边	The SH2 and SH3 Domain-Containing Protein GRB2 Links Receptor Tyrosine Kinases to ras Signaling	3.1_LowensteinEJ_1992_1322798	3.1 ¶1
+GRB2 → SOS1	边	教科书骨架（正文 3.x 明示不逐句挂引文）	—（3.1 ¶1 明写「GRB2 与 SOS1 的偶联由次年的工作建立，原始文献不在本库」）	3.1 ¶1
+RTK → SHP2	边	factors or cytokines, the autoinhibitory interactions of SHP2	3.1_HaoHX_2019_31439712	3.1 ¶3（两条入边之一，另一条为整合素 → SHP2，见下行）
+整合素 → SHP2	边	SHP2, encoded by PTPN11, is involved in signal transduction downstream of multiple growth factor, cytokine and integrin receptors	4.5_RuessDA_2018_29808009	正文未引；图边出处
+SHP2 → GRB2–SOS1	边	SHP2 transduces the upstream signal with its phosphatase	3.1_HaoHX_2019_31439712	3.1 ¶3
+GPCR → 组织限定性 GEF	边	RAS-GRF1 can also be activated by protein kinase A, itself under the regulation of the chemokine receptor-mediated production of cyclic AMP.	5.4_ChoucairK_2025_41309533（趋化因子受体属 GPCR；verify 因版面交错未过，该句跨 p5→p6，grep 定位）	正文未引；图边出处
+抗原与免疫受体 → 组织限定性 GEF	边	In response to T cell receptor (TCR) stimulation, both RasGRP1 and SOS are recruited to the membrane where they encounter membrane-anchored Ras and both convert Ras·GDP to Ras·GTP.	3.1_JunJE_2013_24027568（同「抗原与免疫受体」节点句；RasGRP 属组织限定性 GEF；verify 因行末连字符断词未过，p4 grep 定位）	正文未引；图边出处
+SOS1 → 核苷酸交换（RAS–GDP → RAS–GTP）	边	driven by guanine nucleotide exchange factors (GEFs), which promote GDP release and GTP loading,	3.4_SimanshuDK_2026_42017331	3.4
+GAP（NF1）→ GTP 水解	边	and is terminated by GTPase-activating proteins (GAPs), which accelerate GTP hydrolysis	3.4_SimanshuDK_2026_42017331	3.4
+RAS–GTP → RAF	边	GTP-bound RAS recruits RAF to the plasma membrane to activate the MAPK cascade	3.4_SimanshuDK_2026_42017331	3.4（3.2 ¶1 记骨架不挂引文）
+RAF → MEK1/2	边	教科书骨架（正文 3.x 明示不逐句挂引文）	—（3.2 ¶1：骨架为教科书内容、不逐句挂引文）	3.2 ¶1
+MEK1/2 → ERK1/2	边	教科书骨架（正文 3.x 明示不逐句挂引文）	—（同上）	3.2 ¶1
+RAS–GTP → PI3K（p110）	边	The interaction of Ras with p110a is thus required in vivo for certain normal growth	3.3_GuptaS_2007_17540175	3.3
+PI3K → AKT	边	recruits proteins with PH domains, such as AKT and PDK1, to the	3.3_CzyzykD_2025_39788953	3.3
+AKT → mTORC1	边	教科书骨架（正文 3.x 明示不逐句挂引文）	—（3.3 ¶1：骨架不逐句挂引文）	3.3 ¶1
+RAS–GTP → RALGDS	边	PI3K [29] and RalGDS [30] were identified as additional distinct potential effectors.	3.4_SimanshuDK_2026_42017331	3.4
+RALGDS → RAL	边	is a GEF that activates the RAL subfamily GTPases RALA	3.4_SimanshuDK_2026_42017331	3.4
+RAL → 胞内运输与分泌	边	RalGDS transduces upstream signals to drive RAL-dependent processes [64–66], including vesicle trafficking, cytoskeletal	3.4_SimanshuDK_2026_42017331	3.4
+RAS–GTP → PLCε	边	many studies have expanded the potential RAS effector repertoire to include RGL1–4, Tiam1, PLCε, AF6/AFDN/Afadin, RIN1,	3.4_SimanshuDK_2026_42017331	3.4（只证 PLCε 属 RAS 效应器清单）
+RAS–GTP → TIAM1	边	many studies have expanded the potential RAS effector repertoire to include RGL1–4, Tiam1, PLCε, AF6/AFDN/Afadin, RIN1,	3.4_SimanshuDK_2026_42017331	3.4（同上）
+PLCε → DAG 与 PKC	边	PLCE1 appears to activate the NF-κB signaling pathway by regulating PKCα to promote the invasion and migration of esophageal cancer cells	3.4_LiY_2018_30450849（p6 逐字核过）	正文未引；图边出处
+TIAM1 → RAC	边	RAS can activate RACGEFs and subsequently RAC1 through direct effector binding (for example, T lymphoma invasion and metastasis-inducing protein 1 (TIAM1))	1.4_CoxAD_2014_25323927（令所指定句是该文参考文献 124 的篇名（Lambert JM 等，Nat Cell Biol 2002;4:621-625），非该文自述、不作证据；此句为该文正文原句；verify 因双栏交错未过，p13 grep 定位）	正文未引；图边出处
+DAG 与 PKC → 细胞骨架／迁移侵袭	边	Down-regulation of PLCE1 significantly decreased the expression of PKCα and NF-κB-related proteins (p65: p=0.002, p=0.004; p50: p=0.005, p=0.009) and inhibited the migration and invasion of Eca109 and EC9706 cells.	3.4_LiY_2018_30450849（p1 摘要逐字核过；令给的正文版同义句在 p3，与小标题交错 verify 未过）	正文未引；图边出处
+RAC → 细胞骨架／迁移侵袭	边	The RAC1-PAK pathway: RAS indirectly activates RAC1, a GTPase involved in cytoskeletal remodeling.	5.4_ChoucairK_2025_41309533（verify 因版面交错未过，p5 grep 定位；原文该句末带上标 101）	正文未引；图边出处
+ERK → 负反馈（SOS1、CRAF 与受体）	边	ERK signaling requires RAS-induced RAF dimerization and is limited by feedback	3.2_YaoZ_2015_26343582	3.2 ¶5（三层反馈未逐层挂引文；第四层 DUSP6 见 Valcikova 2024）
+标签：SHP2 与 SOS1 抑制剂作用于该层（临床）	标签	Critical requirement of SOS1 for tumor development	3.1_BaltansFC_2023_37730692（机制）；表1／4.5（状态）	3.1／4.5
+标签：OFF 态共价抑制剂（KRAS G12C，获批）	标签	Switch II pocket inhibitors (e.g., sotorasib, adagrasib, divarasib, and MRTX1133) target GDP-bound KRAS, while tri-complex inhibitors (e.g., daraxonrasib,	4.7_RiedlJM_2026_41616774（机制）；表1 与图9 泳道 1（状态）	4.7
+标签：非半胱氨酸等位基因的 OFF 态抑制剂（临床）	标签	Switch II pocket inhibitors (e.g., sotorasib, adagrasib, divarasib, and MRTX1133) target GDP-bound KRAS, while tri-complex inhibitors (e.g., daraxonrasib,	4.7_RiedlJM_2026_41616774（同一句含 MRTX1133）；表1 与图9 泳道 2（状态）	4.7
+标签：RAS(ON) 三元复合物抑制剂（等位基因选择性与多选择性，获批）	标签	elironrasib, and zoldonrasib) engage the gap between switch I and II to target GTP-bound KRAS.	4.7_RiedlJM_2026_41616774（机制）；表1 与图9 泳道 3（状态）	4.7
+标签：RAS 降解剂与效应器界面结合物（临床）	标签	PROTAC degraders may offer another potential salvage strategy.	4.7_WuYL_2026_42776617；Covalent inhibitors of the PI3K（3.3_KlebbaJE_2025_41066541）；表1（状态）	4.7／3.3
+标签：RAF 与 MEK 抑制剂（获批）	标签	Abstract The MAPK/ERK Kinase MEK is a shared effector of the frequent cancer drivers KRAS and BRAF	3.2_KhanZM_2020_32927473（机制）；表1／表2（状态）	3.2／4.7
+标签：ERK 抑制剂（临床）	标签	MEK and ERK inhibitors have undergone extensive clinical testing as monotherapies or in combinations with other RAS pathway inhibitors in patients with KRAS or NRAS mutated cancers	4.4_HolderfieldM_2024_38589574（该文被 4.4 引、此句未引；p6 逐字核过）；语料实测：ERK1/2 抑制剂 7 种药（ulixertinib、ASN007／ERAS-007、LY3214996／temuterkib、KO-947、ASTX029、JSI-1187、LTT462）共 14 项登记、最高 Phase 2、无获批（表1；正则见说明行）	4.4（图边）；状态见 4.7 与表1
+标签：PI3K、AKT 与 mTOR 抑制剂（获批）	标签	The interaction of Ras with p110a is thus required in vivo for certain normal growth	3.3_GuptaS_2007_17540175（节点机制）；表1／表2（状态）	3.3／4.7
+标签：阻断一条主干会解除另一条的抑制（临床）	标签	Inhibition of one pathway can lead to the compensatory activation of the other	1.4_MooreAR_2020_32528145（p13 逐字核过）；令所指 Whitehead 句实为其参考文献 40（Turke 2012）篇名、非原始测定，见本轮报告	正文未引；图边出处（3.3 ¶8 明写该代偿库内无原始测定）
+标签：RAL 分支无可用于临床的选择性药物（临床前）	标签	Similarly to RAS, the RAL GTPases are not considered to be tractable drug targets.	1.4_CoxAD_2014_25323927（verify 因双栏交错未过，p13 grep 定位）；语料实测：RAL 抑制剂登记 0 项（正则见说明行）	正文未引；图边出处
+标签：PLCε／TIAM1 分支无可用于临床的选择性药物（临床前）	标签	One small-molecule inhibitor of RAC1 activation by RACGEFs has been described	1.4_CoxAD_2014_25323927（p13 逐字核过，只作「仅临床前」旁证）；语料实测：PLCε、TIAM1／RAC 抑制剂登记 0 项（正则见说明行）	正文未引；图边出处
+标签：效应器使用随等位基因与组织而异（临床）	标签	These intrinsic preferences are influenced by the fraction of active,	3.4_SimanshuDK_2026_42017331	3.4
+标签（面板 b）：代谢联合靶向（临床前）	标签	Oncogenic Kras Maintains Pancreatic Tumors through Regulation of Anabolic Glucose Metabolism	3.5_YingH_2012_22541435	3.5
+标签（面板 b）：自噬抑制（临床）	标签	Protective autophagy elicited by RAF	3.5_KinseyCG_2019_30833748	3.5
+标签（面板 b）：检查点阻断；突变 RAS 疫苗与 TCR-T（临床）	标签	pharmacological inhibition of glycosphingolipid synthesis synergizes with checkpoint blockade therapy to enhance anti-tumor immune response.	3.5_SoulaM_2024_39112706	3.5
+标签（面板 b）：无治疗用途；制约突变数据的读法（临床前）	标签	Senescence surveillance of pre-malignant hepatocytes limits liver ca	3.5_KangTW_2011_22080947	3.5
+说明（三种标记的含义）	—	「教科书骨架（正文 3.x 明示不逐句挂引文）」＝该连接属教科书骨架，正文 3.2 ¶1／3.3 ¶1 明示骨架不逐句挂引文，不另找逐字句；「语料实测（药物状态标签）」见下行；原先的缺口标记（支撑句一栏写「查无逐字句，备注列写明已查范围」）＝真缺口，指 3.1–3.5 已引文献内确实没有可逐字回核的句子——本轮 14 行已全部补上有出处的句子，该标记清零、不再使用。	—	—
+说明（第三种标记：语料实测（药物状态标签））	—	「语料实测（药物状态标签）」＝该药物类别的临床状态不凭文献断言，而是用 RAS临床试验注册分析/数据/表1_临床试验总表.csv 的 brief_title 与 interventions 两列现跑正则统计（截取日 2026-10-20 的表）：ERK1/2 抑制剂 ulixertinib|BVD-?523|ravoxertinib|GDC-?0994|LY3214996|temuterkib|MK-?8353|SCH-?900353|KO-?947|ASN-?007|ERAS-?007|ASTX-?029|LTT-?462|CC-?90003|JSI-?1187 → 7 种药／14 项登记（Phase 2 六、Phase 1 八，最高 Phase 2；表2 无获批 ERK 抑制剂）；RAL 分支 \bRAL[AB]?\b|RalGDS|RALGDS|BQU-?57|RBC-?8|RGC-?1|Ral inhibitor → 0 项；PLCε／TIAM1／RAC 分支 PLC|phospholipase C、TIAM-?1?|RAC-?1|\bRAC\b|NSC-?23766|EHT-?1864|MBQ-?167|AZA-?1\b、RACGEF|RacGEF|P-REX|PREX-?1 → 均 0 项。	—	—

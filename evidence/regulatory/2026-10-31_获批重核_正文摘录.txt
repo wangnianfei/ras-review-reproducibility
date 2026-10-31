@@ -1,0 +1,193 @@
+2026-10-31 获批信息按一手件重核（作者指示「recheck all approval information before proofs」）
+================================================================================
+
+本文件的每一句英文原句都由执行代理用 `pdftotext -layout` 从同目录的 PDF 现场重抽、
+逐字比对命中（`python3 /tmp/verify_appr.py` 逐条 OK；216340/S-000 一封因扫描件
+OCR 在「th is」处断词，原句截到该词之前，见下注）。批准日以**函尾签署时间戳**为准，
+与 Drugs@FDA 的审批历史页所载日期一致。
+
+--------------------------------------------------------------------------------
+一、七封批准函
+--------------------------------------------------------------------------------
+
+【1】sotorasib 首次批准（NSCLC）
+  文件：2026-10-31_FDA_sotorasib_214665_Orig1s000_批准函.pdf
+        md5 207bd13a87b63b923fb98c7548b0a426，170 648 字节
+  函头：NDA 214665　ACCELERATED APPROVAL（Amgen, Inc.）
+  签署时间戳：05/28/2021 11:06:15 AM　→ 批准日 2021-05-28
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2021/214665Orig1s000ltr.pdf
+  批准类型原句（逐字）：
+    "It is approved under the provisions of accelerated approval regulations (21 CFR 314.500),
+     effective on the date of this letter, for use as recommended in the enclosed agreed-upon
+     labeling."
+  → 加速批准。
+
+【2】adagrasib 首次批准（NSCLC）
+  文件：2026-10-31_FDA_adagrasib_216340_Orig1s000_批准函.pdf
+        md5 22b0535695571b4a865cad766a518a5e，1 759 505 字节
+  函头：NDA 216340（扫描件，OCR 层函头为乱码，不可引）
+  签署时间戳：12/12/2022 02:48:46 PM　→ 批准日 2022-12-12
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2022/216340Orig1s000ltr.pdf
+  批准类型原句（逐字）：
+    "It is approved under the provisions of accelerated approval regulations (21 CFR 314.500),
+     effective on the date of this letter, for use as recommended in the enclosed agreed-upon
+     labeling."
+  注：该件是扫描件，OCR 把 "this" 抽成 "th is"（"review of th is application"），故上面这句
+      截到 "effective on the date" 为止；照规矩 B7，不引带断词的那一段。
+  → 加速批准。
+
+【3】sotorasib＋帕尼单抗（结直肠癌，新增适应证）
+  文件：2026-10-31_FDA_sotorasib_214665_Orig1s009_批准函.pdf
+        md5 78e7677050c5bb1cf7f8ff4d370e1fda，165 835 字节
+  函头：NDA 214665/S-009　SUPPLEMENT APPROVAL（Amgen Inc.）——**函头不是 ACCELERATED APPROVAL**
+  签署时间戳：01/16/2025 11:59:36 AM　→ 批准日 2025-01-16
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2025/214665Orig1s009ltr.pdf
+        （Drugs@FDA 的审批历史页另链 `…Orig1s009correctedltr.pdf`，两版逐行 diff 只差
+         Reference ID 与签署时间戳 11:59:36→13:55:21；批准条款一字相同，故结论不受影响。）
+  批准类型原句（逐字）：
+    "It is approved, effective on the date of this letter, for use as recommended in the
+     enclosed agreed-upon labeling."
+  全函检索："accelerated approval" 出现 **0 次**（`grep -ic` = 0）。
+  适应证原句：该补充申请 "adds a new indication of Lumakras, in combination with panitumumab,
+  for the treatment of adult patients with KRAS G12C-mutated metastatic colorectal cancer…"
+  → **常规批准**（批准函无加速批准条款）。
+
+【4】avutometinib＋defactinib（复发性低级别浆液性卵巢癌）
+  文件：2026-10-31_FDA_avutometinib_defactinib_219616_Orig1s000_批准函.pdf
+        md5 1b26a13344b91d275aa9a32481faba45，229 630 字节
+  函头：NDA 219616　ACCELERATED APPROVAL（Verastem, Inc.）
+  签署时间戳：05/08/2025 10:09:03 AM　→ 批准日 2025-05-08
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2025/219616Orig1s000ltr.pdf
+  批准类型原句（逐字）：
+    "It is approved under accelerated approval pursuant to section 506(c) of the Federal Food,
+     Drug, and Cosmetic Act (FDCA) and 21 CFR 314.510, effective on the date of this letter,
+     for use as recommended in the enclosed agreed-upon labeling."
+  → 加速批准（与表2 附注九一致）。
+
+【5】adagrasib 说明书更新（PMR 4378-1 仍未了结）
+  文件：2026-10-31_FDA_adagrasib_216340_Orig1s009_批准函.pdf
+        md5 d2278ed2a1703f056718d56b1a2b3455，188 881 字节
+  函头：NDA 216340/S-009　SUPPLEMENT APPROVAL / FULFILLMENT OF POSTMARKETING REQUIREMENT
+  签署时间戳：03/25/2026 01:43:45 PM　→ 2026-03-25
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/216340Orig1s009ltr.pdf
+  批准类型原句（逐字）：
+    "It is approved, effective on the date of this letter, for use as recommended in the
+     enclosed agreed-upon labeling."
+  加速批准仍未了结的原句（逐字）：
+    "We remind you that accelerated approval PMR 4378-1 listed in the December 12, 2022,
+     approval letter is still open. Pursuant to 21 CFR 314.510 (Subpart H), continued approval
+     of the drug is contingent upon verification and description of clinical benefit and
+     completion of the clinical trial for PMR 4378-1."
+  → adagrasib 的 NSCLC 适应证截至 2026-10-31 **仍为加速批准**，确证要求未了结。
+
+【6】adagrasib＋西妥昔单抗（结直肠癌）撤销
+  文件：2026-10-31_FDA_adagrasib_216340_Orig1s011_批准函.pdf
+        md5 91cdf51a526e6f675087061677a06447，1 776 017 字节
+  函头：NDA 216340/S-011　SUPPLEMENT APPROVAL / FULFILLMENT OF POSTMARKETING REQUIREMENT
+  签署时间戳：09/01/2026 02:06:29 PM　→ 2026-09-01
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/216340Orig1s011ltr.pdf
+  撤销原句（逐字）：
+    "This Prior Approval sNDA provides for the voluntary withdrawal of the following
+     accelerated approval indication associated with PMR 4650-1: adagrasib in combination
+     with cetuximab for the treatment of adult patients with KRAS G12 mutated locally
+     advanced or metastatic CRC…"
+  撤销理由原句（逐字）：
+    "Although the PMR was fulfilled, the trial did not confirm clinical benefit."
+  → 与表2 附注六「KRYSTAL-10 未证实获益，撤销即据此」一致，且此处是一手件原字。
+
+【7】daraxonrasib 首次批准（转移性胰腺导管腺癌）
+  文件：2026-10-31_FDA_daraxonrasib_220910_Orig1s000_批准函.pdf
+        md5 f4a27a149640e01adc29d37c9f941234，1 825 908 字节
+  函头：NDA 220910　NDA APPROVAL（Revolution Medicines, Incorporated）——**函头不是 ACCELERATED APPROVAL**
+  签署时间戳：08/26/2026 09:36:34 AM　→ 批准日 2026-08-26
+  取回：https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/220910Orig1s000ltr.pdf
+  批准类型原句（逐字）：
+    "It is approved, effective on the date of this letter, for use as recommended in the
+     enclosed agreed-upon labeling."
+  全函检索："accelerated approval" 出现 **0 次**（`grep -ic` = 0）。
+  适应证原句（逐字）："for the treatment of adult patients with metastatic pancreatic
+  adenocarcinoma who have received at least one prior systemic therapy or who are not
+  candidates for multiagent systemic therapy."
+  → **常规批准**（批准函原字，不再只是按证据形态的判断）。
+
+--------------------------------------------------------------------------------
+二、Drugs@FDA 审批历史页（2026-10-31 取）：四个申请号在表2 所记日期之后，
+    均无新的**疗效补充**——sotorasib 与 adagrasib 的 NSCLC 都没有转为常规批准
+--------------------------------------------------------------------------------
+
+https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=214665
+  NDA 214665 审批历史（逐行照抄「日期 | 补充号 | 类型」）：
+    05/28/2021 | ORIG-1 | Approval｜Type 1 - New Molecular Entity｜PRIORITY; Orphan
+    11/21/2022 | SUPPL-2 | Labeling-Package Insert
+    01/20/2023 | SUPPL-3 | Labeling-Patient Package Insert, Labeling-Package Insert
+    04/24/2023 | SUPPL-4 | Labeling-Package Insert
+    03/17/2023 | SUPPL-7 | Labeling-Container/Carton Labels
+    09/30/2024 | SUPPL-12 | Labeling-Package Insert
+    01/16/2025 | SUPPL-9 | **Efficacy-New Indication**（结直肠癌，见第【3】封）
+  → 2021-05-28 之后**只有一次疗效补充**（S-009，新增结直肠癌适应证），**没有把 NSCLC
+     的加速批准转为常规批准的补充**；S-009 不是该适应证，故 sotorasib 的 NSCLC 至今仍是
+     加速批准。
+https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=216340
+  NDA 216340 审批历史（同上口径）：
+    12/12/2022 | ORIG-1 | Approval｜Type 1 - New Molecular Entity｜STANDARD; Orphan
+    06/21/2024 | SUPPL-5 | **Efficacy-New Indication**（结直肠癌）
+    03/25/2026 | SUPPL-9 | Labeling-Package Insert（见第【5】封，PMR 4378-1 仍开放）
+    09/01/2026 | SUPPL-11 | Labeling-Package Insert（随撤销，见第【6】封）
+  → **NSCLC 仍为 2022-12-12 的加速批准**；唯一一次疗效补充是结直肠癌（2026-09-01 撤销）。
+  注：该行末的「STANDARD; Orphan」是**审评序列**（标准审评）与孤儿药资格，不是批准路径；
+  adagrasib 的批准路径看批准函原句（第【2】封，加速批准），两者不矛盾。
+https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219616
+  NDA 219616：仅 05/08/2025 | ORIG-1 | Approval｜Type 1 - New Molecular Entity｜PRIORITY; Orphan。
+  无后续疗效补充。
+https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=220910
+  NDA 220910：仅 08/26/2026 | ORIG-1 | Approval｜Type 1 - New Molecular Entity｜PRIORITY; Orphan。
+  无后续疗效补充。
+
+FDA 肿瘤批准公告页（https://www.fda.gov/drugs/resources-information-approved-drugs/oncology-cancer-approvals-safety-notifications）
+最新条目到 2026-10-26；**2026-10-20（表2 的语料与计数截取日）之后没有 RAS 相关新获批**。
+
+--------------------------------------------------------------------------------
+三、EMA CHMP 2026 年 10 月 12–15 日会议纪要（2026-10-16 发布）
+--------------------------------------------------------------------------------
+
+文件：2026-10-31_EMA_CHMP_2026-10_会议纪要_en.html（91 932 字节）
+页面标题：Meeting highlights from the Committee for Medicinal Products for Human Use
+          (CHMP) 12-15 October 2026 | European Medicines Agency (EMA)
+发布日期（页面 <time datetime="2026-10-16T12:00:00Z">）：2026-10-16
+取回：https://www.ema.europa.eu/en/news/meeting-highlights-committee-medicinal-products-human-use-chmp-12-15-october-2026
+原句（逐字）：
+  "Rasonque (daraxonrasib) received a positive opinion from the CHMP for the treatment of
+   adults with metastatic pancreatic adenocarcinoma (pancreatic cancer that has spread) who
+   have received at least one previous treatment. This recommendation follows a phased review
+   of data on Rasonque, which was identified as a high-priority medicine under EMA's Cancer
+   Medicines Pathfinder project, given its potential to address this unmet medical need."
+判读：
+  ① 这是 **CHMP 正面意见**，不是批准——欧盟委员会（European Commission）的上市许可决定
+     尚未作出；
+  ② 纪要**未写**该项意见是常规上市许可还是附条件上市许可，故本表与正文都不写这一层；
+  ③ 会议日期 2026-10-12 至 10-15，纪要 2026-10-16 发布。
+
+--------------------------------------------------------------------------------
+四、NMPA 与 PMDA（检索，非一手件；如实登记限度）
+--------------------------------------------------------------------------------
+
+NMPA：2026-10-20 之后未见新的 RAS 相关批准公告。表2 四个 NMPA 批准的日期与一手件状态
+照 2026-10-31 那一轮（见 `2026-10-29_NMPA_garsorasib_*`、`2026-10-31_NMPA_sosimerasib_*`），
+本轮未取到新的 NMPA 原件，sosimerasib 的中文站原页仍未取回。
+PMDA：沿用 `2026-10-31_PMDA_list_of_approved_drugs_2004-2026-02_en.pdf`（清单覆盖到
+2026-02），2026-10-20 之后未见新的 RAS 相关条目；该清单不能覆盖 2026-02 之后的日本批准，
+故只能写「清单未见」，不写「未批准」。
+
+--------------------------------------------------------------------------------
+五、本次重核改了什么（表2 与正文的落点）
+--------------------------------------------------------------------------------
+
+1. 表2 sotorasib＋帕尼单抗行：机构·时间 `2025-01` → **2025-01-16**；批准路径
+   `未核实（公告未写路径，不推定）` → **常规批准（批准函无加速批准条款）**。
+2. 表2 daraxonrasib 行：批准路径 `常规批准的证据形态…非原字` → **常规批准（批准函原字；
+   随机、双主要终点、不允许交叉）**；机构·时间补 EMA 的 CHMP 正面意见（注明非批准）。
+3. 表2 附注：sotorasib 与 adagrasib 的 NSCLC 截至 2026-10-31 仍为加速批准（各附原句／
+   审批历史依据）；附注三、六、十按一手件改。
+4. 正文 5.5 段七：删「公告只写 approved、属本文判断、不是公告原字」，改为批准函本身
+   不含加速批准条款。
+5. 未改任何获批计数，未增删表2 行。

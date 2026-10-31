@@ -1,0 +1,7 @@
+# Python packages for the plotting and data-preparation scripts.
+# Tested with Python 3.9.6 on macOS 26.7 (arm64). The retrieval scripts
+# (01_fetch.py, 01_fetch_ctgov.py, 02_prepare.py, 02_curate.py) use only the
+# standard library.
+matplotlib==3.9.4
+numpy==2.0.2
+pillow==11.3.0

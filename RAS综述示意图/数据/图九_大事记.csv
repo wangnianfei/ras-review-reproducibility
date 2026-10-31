@@ -1,0 +1,35 @@
+year,lane,kind,label,tag,detail,section,source,milestone,result
+1964,bio,lit,Tumour-inducing murine virus,Harvey 1964,The title is the finding,1.1,Harvey JJ 1964 Nature,Y,positive
+1967,bio,lit,A second murine virus,Kirsten 1967,The other naming source,1.1,Kirsten WH 1967 JNCI,N,positive
+1982,bio,lit,Human *ras* genes; one base,Der/Santos/Reddy 82,"Bladder and lung lines are homologous to viral ras, and the activating lesion is a point mutation - the first shown in cellular DNA",1.1,Der CJ 1982 PNAS / Santos E 1982 Nature / Reddy EP 1982 Nature,Y,positive
+1983,bio,lit,Three genes; one family,Shimizu 1983,Colon and lung lines share the v-K-ras homologue,1.1,Shimizu K 1983 PNAS,Y,positive
+1987,bio,lit,GAP spares oncogenic mutants,Trahey 1987,Stimulates normal p21 but not the mutants,2.3,Trahey M 1987 Science,N,positive
+1988,bio,lit,*KRAS* in most pancreatic carcinomas,Almoguera 1988,First allele bound to one cancer type,1.1,Almoguera C 1988 Cell,Y,positive
+1992,bio,lit,GRB2 links receptors to RAS,Lowenstein 1992,The adaptor that closes the circuit,3.1,Lowenstein EJ 1992 Cell,N,positive
+1997,bio,lit,Structure of the RAS-GAP complex,Scheffzek 1997,Why codons 12 and 61 lose GAP-stimulated hydrolysis,2.3,Scheffzek K 1997 Science,Y,positive
+2010,bio,lit,RAF-inhibitor paradox,Poulikakos 2010 +1,Dimer transactivation in wild-type BRAF cells,3.2,Poulikakos PI 2010 Nature / Hatzivassiliou G 2010 Nature,Y,positive
+2013,bio,pivot,The switch-II pocket,Ostrem 2013,A pocket opened by the ligand; allosteric control of GTP affinity,4.2,Ostrem JM 2013 Nature,Y,positive
+2015,bio,lit,Mutant RAS is immunogenic,Tran 2015,Somatic-mutation neoepitopes in gastrointestinal cancers,4.6,Tran E 2015 Science,N,positive
+2016,bio,lit,Trapping needs intact GTPase,Lito 2016,The kinetic condition behind every OFF-state drug,4.2,Lito P 2016 Science,N,positive
+2018,bio,lit,LZTR1 ubiquitinates RAS,Bigenzahn 2018,A degradation route independent of the pocket,4.3,Bigenzahn JW 2018 Science,N,positive
+2019,bio,lit,KRAS4A regulates hexokinase 1,Amendola 2019,A non-signalling job for the splice variant,2.2,Amendola CR 2019 Nature,N,positive
+2023,bio,lit,A chaperone remodelled into glue,Schulze 2023,Cyclophilin A recruited to the active state,4.4,Schulze CJ 2023 Science,Y,positive
+2024,bio,lit,Wild-type RAS-GTP inhibited too,Holderfield 2024 +1,And yet the effect is tumour-selective,4.4,Holderfield M 2024 Nature / Wasko UN 2024 Nature,N,positive
+2025,bio,lit,How LZTR1 reads a RAS GTPase,Dharmaiah 2025,Structural basis for recognition and degradation,4.4,Dharmaiah S 2025 Science,N,positive
+2004,drug,lit,FTI + gemcitabine: phase 3 negative,Van Cutsem 2004,193 vs 182 days; the wrong target rather than a weak drug,4.1,Van Cutsem E 2004 JCO,N,negative
+2004,drug,lit,MEK inhibitor CI-1040: no responses,Rinehart 2004,67 patients; no complete or partial response,4.1,Rinehart J 2004 JCO,N,negative
+2013,drug,lit,Selumetinib phase 2 positive,Janne 2013,PFS 5.3 vs 2.1 months; HR 0.58,4.1,Janne PA 2013 Lancet Oncol,N,positive
+2015,drug,lit,Not reproduced by trametinib,Blumenschein 2015,Stopped for futility; HR 1.14 (0.75-1.75),4.1,Blumenschein GR 2015 Ann Oncol,N,negative
+2017,drug,lit,SELECT-1 phase 3 negative,Janne 2017,510 patients; HR 0.93 (0.77-1.12),4.1,Janne PA 2017 JAMA,N,negative
+2019,drug,lit,AMG 510 engages immunity,Canon 2019,The covalent inhibitor is not only cell-intrinsic,4.6,Canon J 2019 Nature,N,positive
+2021,drug,reg,Sotorasib approved (FDA),FDA 2021,"CodeBreaK 100: ORR 36% (95% CI 28-45), 124 treated patients; accelerated approval",4.2,FDA 2021; Nakajima EC 2022 Clin Cancer Res,Y,positive
+2022,drug,reg,Adagrasib approved (FDA),FDA 2022,Second agent in the same lane and the same allele,4.7,FDA 2022,Y,positive
+2023,drug,lit,Pan-KRAS inhibitor: preclinical,Kim D 2023,One binder across KRAS alleles,4.4,Kim D 2023 Nature,N,positive
+2024,drug,lit,Pan-KRAS degraders,Popow 2024,Deeper and longer than occupancy; 13 of 17 alleles degraded,4.4,Popow J 2024 Science,N,positive
+2024,drug,reg,Adagrasib + cetuximab approved (FDA),FDA Jun 2024 (CRC),"Accelerated approval in KRAS G12C colorectal cancer, with cetuximab; this is the indication withdrawn on 1 Sep 2026",5.2,FDA 2024-06-21,N,positive
+2025,drug,reg,Avutometinib + defactinib approved (FDA),FDA 8 May 2025,"Accelerated approval in KRAS-mutated recurrent low-grade serous ovarian cancer after prior systemic therapy; a RAF/MEK clamp plus a FAK inhibitor, so the indication rather than the mechanism is defined by KRAS mutation (Table 2 note 9)",4.1,FDA 2025-05-08,N,positive
+2025,drug,reg,NMPA approvals 2024-2025,NMPA 2024-2025,"Fulzerasib 2024-08; garsorasib 2024-11-08; glecirasib 2025-05 (ORR 47.9%, 95% CI 38.5-57.3) - each a conditional approval with a confirmatory obligation; the fourth NMPA G12C approval, sosimerasib (February 2026), is filed as its own row below",4.7,NMPA 2024-2025; Shi Y 2025 Nat Med; Yuan Y 2025 STTT,Y,positive
+2026,drug,reg,Daraxonrasib approved (FDA),FDA 26 Aug 2026,RASolute 302; first approval in the RAS(ON) multi-selective lane; treated metastatic PDAC,4.7,FDA 2026-08-26; Wolpin BM 2026 NEJM; O'Reilly EM 2026 NEJM,Y,positive
+2026,drug,reg,Sosimerasib approved (NMPA),NMPA Feb 2026,"Conditional approval for KRAS G12C-mutant NSCLC after at least one systemic therapy, on a single-arm phase 2 study (145 patients, ORR 52.4%; ChiCTR2200059986); the fourth NMPA G12C approval; library papers predate the event (GH35 is a different molecule)",4.7,"NMPA approval 2026-02-25, announced 2026-02-28 (official reprint, NMPA original page not retrieved); Zhong et al. 2025 JCO via Riedl JM 2026",N,positive
+2026,drug,wdr,Adagrasib + cetuximab withdrawn,FDA 1 Sep 2026,Accelerated approval 21 Jun 2024; withdrawn 1 Sep 2026 after confirmatory KRYSTAL-10 failed to show benefit,5.2,FDA 2026-09-01,N,negative
+2026,drug,lit,Divarasib phase 3 vs first-generation,Krascendo 1 2026,"Randomised phase 3 against the first-generation inhibitors (control: 156 sotorasib, 15 adagrasib), crossover not permitted; PFS 9.8 vs 5.7 months (HR 0.58, 0.44-0.76), OS 17.7 vs 12.0 months (HR 0.56, 0.41-0.78)",5.1,Skoulidis F 2026 NEJM,N,positive

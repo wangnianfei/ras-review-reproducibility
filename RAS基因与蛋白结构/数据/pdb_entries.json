@@ -1,0 +1,198 @@
+{
+ "5P21": {
+  "note": "HRAS G域-GppNHp 1.35Å 活性态标准结构",
+  "title": "REFINED CRYSTAL STRUCTURE OF THE TRIPHOSPHATE CONFORMATION OF H-RAS P21 AT 1.35 ANGSTROMS RESOLUTION: IMPLICATIONS FOR THE MECHANISM OF GTP HYDROLYSIS",
+  "method": "X-ray",
+  "resolution": 1.35,
+  "released": "1992-01-15",
+  "ligands": [
+   "GNP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": null,
+  "pubmed": 2196171,
+  "journal": "EMBO J.",
+  "year": 1990
+ },
+ "4Q21": {
+  "note": "HRAS p21-GDP 非活性态",
+  "title": "MOLECULAR SWITCH FOR SIGNAL TRANSDUCTION: STRUCTURAL DIFFERENCES BETWEEN ACTIVE AND INACTIVE FORMS OF PROTOONCOGENIC RAS PROTEINS",
+  "method": "X-ray",
+  "resolution": 2.0,
+  "released": "1992-07-15",
+  "ligands": [
+   "GDP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": null,
+  "pubmed": 2406906,
+  "journal": "Science",
+  "year": 1990
+ },
+ "1WQ1": {
+  "note": "HRAS–p120RasGAP 过渡态(Scheffzek 1997)",
+  "title": "RAS-RASGAP COMPLEX",
+  "method": "X-ray",
+  "resolution": 2.5,
+  "released": "1998-07-15",
+  "ligands": [
+   "AF3",
+   "GDP",
+   "MG"
+  ],
+  "polymer_entities": 2,
+  "doi": "10.1126/science.277.5324.333",
+  "pubmed": 9219684,
+  "journal": "Science",
+  "year": 1997
+ },
+ "1NVV": {
+  "note": "HRAS–SOS1 核苷酸交换复合物",
+  "title": "Structural evidence for feedback activation by RasGTP of the Ras-specific nucleotide exchange factor SOS",
+  "method": "X-ray",
+  "resolution": 2.18,
+  "released": "2003-04-01",
+  "ligands": [
+   "GNP",
+   "MG"
+  ],
+  "polymer_entities": 3,
+  "doi": "10.1016/S0092-8674(03)00149-1",
+  "pubmed": 12628188,
+  "journal": "Cell(Cambridge,Mass.)",
+  "year": 2003
+ },
+ "4G0N": {
+  "note": "HRAS–RAF1 RBD 效应器复合物",
+  "title": "Crystal Structure of wt H-Ras-GppNHp bound to the RBD of Raf Kinase",
+  "method": "X-ray",
+  "resolution": 2.45,
+  "released": "2013-07-17",
+  "ligands": [
+   "ACT",
+   "CA",
+   "GNP",
+   "MG"
+  ],
+  "polymer_entities": 2,
+  "doi": "10.1016/j.str.2014.12.017",
+  "pubmed": 25684575,
+  "journal": "Structure",
+  "year": 2015
+ },
+ "4OBE": {
+  "note": "KRAS-GDP 高分辨",
+  "title": "Crystal Structure of GDP-bound Human KRas",
+  "method": "X-ray",
+  "resolution": 1.24,
+  "released": "2014-06-04",
+  "ligands": [
+   "GDP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": "10.1073/pnas.1404639111",
+  "pubmed": 24889603,
+  "journal": "Proc.Natl.Acad.Sci.USA",
+  "year": 2014
+ },
+ "6OIM": {
+  "note": "KRAS G12C + 索托拉西布(AMG 510) 共价加合",
+  "title": "Crystal Structure of human KRAS G12C covalently bound to AMG 510",
+  "method": "X-ray",
+  "resolution": 1.65,
+  "released": "2019-11-06",
+  "ligands": [
+   "GDP",
+   "MG",
+   "MOV"
+  ],
+  "polymer_entities": 1,
+  "doi": "10.1038/s41586-019-1694-1",
+  "pubmed": 31666701,
+  "journal": "Nature",
+  "year": 2019
+ },
+ "5VQ2": {
+  "note": "KRAS WT-GTP 类似物",
+  "title": "Crystal structure of human WT-KRAS in complex with GTP",
+  "method": "X-ray",
+  "resolution": 1.96,
+  "released": "2017-12-06",
+  "ligands": [
+   "GTP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": "10.1107/S2059798317015418",
+  "pubmed": 29199977,
+  "journal": "Acta Crystallogr D Struct Biol",
+  "year": 2017
+ },
+ "4LDJ": {
+  "note": "KRAS G12C-GDP",
+  "title": "Crystal Structure of a GDP-bound G12C Oncogenic Mutant of Human GTPase KRas",
+  "method": "X-ray",
+  "resolution": 1.15,
+  "released": "2014-06-04",
+  "ligands": [
+   "GDP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": "10.1073/pnas.1404639111",
+  "pubmed": 24889603,
+  "journal": "Proc.Natl.Acad.Sci.USA",
+  "year": 2014
+ },
+ "6GJ8": {
+  "note": "KRAS G12D",
+  "title": "CRYSTAL STRUCTURE OF KRAS G12D (GPPCP) IN COMPLEX WITH BI 2852",
+  "method": "X-ray",
+  "resolution": 1.65,
+  "released": "2019-07-31",
+  "ligands": [
+   "GCP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": "10.1073/pnas.1904529116",
+  "pubmed": 31332011,
+  "journal": "Proc.Natl.Acad.Sci.USA",
+  "year": 2019
+ },
+ "7RPZ": {
+  "note": "KRAS G12D + MRTX1133",
+  "title": "KRAS G12D in complex with MRTX-1133",
+  "method": "X-ray",
+  "resolution": 1.3,
+  "released": "2021-12-22",
+  "ligands": [
+   "GDP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": "10.1021/acs.jmedchem.1c01688",
+  "pubmed": 34889605,
+  "journal": "J.Med.Chem.",
+  "year": 2022
+ },
+ "3CON": {
+  "note": "NRAS 结构",
+  "title": "Crystal structure of the human NRAS GTPase bound with GDP",
+  "method": "X-ray",
+  "resolution": 1.649,
+  "released": "2008-04-08",
+  "ligands": [
+   "GDP",
+   "MG"
+  ],
+  "polymer_entities": 1,
+  "doi": null,
+  "pubmed": null,
+  "journal": "To be Published",
+  "year": null
+ }
+}

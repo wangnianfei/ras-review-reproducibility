@@ -1,0 +1,10 @@
+id,group,title,detail,evidence,section
+R1,genetic,Receptor-level bypass,MET amplification; activating NRAS/BRAF/MAP2K1/RET; ALK/RET/BRAF/RAF1/FGFR3 fusions. MET keeps RAS GTP-loaded through SOS1 rather than bypassing it,Awad 2021; Suzuki 2021,6.3
+R2,genetic,Downstream MAPK nodes,"BRAF, MAP2K1, NRAS, RAF1 reactivate ERK without passing through RAS; rarely alone - 10 alterations across 4 genes in one patient's serial cfDNA",Tanaka 2021; Topham 2023,6.3
+R3,genetic,Parallel chains,PI3K-AKT-mTOR and YAP1/TAZ; YAP1/TAZ drives resistance with no ERK rebound. The weight of PI3K-AKT is disputed and the two studies used different tissues,Edwards 2023 vs Klomp 2024,6.3
+R4,nongenetic,Cell state,"A classical epithelial state confers acute resistance with no new mutation; transcriptional reprogramming was found in all eight resistant biopsies, including those with genetic hits",Singhal 2024; Alonso 2026,6.3
+R5,nongenetic,Lineage exit,"Adeno-to-squamous transition (LKB1-deficient), Paneth-like state under dual KRAS/EGFR blockade, quiescent AT1-like state. The squamous signature is already visible before treatment",Tong 2024; Zhang Y 2026; Li Z 2024,6.3
+C1,carrier,Proteostasis,How much protein is left: KRAS inhibition suppresses the heat-shock response and IRE1a; resistant tumours reactivate IRE1a. Named convergence point of several mechanisms,Lv 2023,6.4
+C2,carrier,Polarity and cytoskeleton,Where the protein goes: the YAP-MRAS axis,Adachi 2023,6.4
+C3,carrier,Signalling condensates,How it is organised locally: the disordered ARAF N terminus self-assembles into membrane-tethered ARAF-RAS condensates that concentrate active RAS and defeat NF1,Li W 2025,6.4
+C4,carrier,Metabolic reprogramming,Two separate things: whether the membrane still holds the protein (mevalonate pathway; statin-reversible) and how the cell makes energy (OXPHOS-dependent state with ZBTB11 as its hub),Guo 2026; Tran NL 2026,6.4

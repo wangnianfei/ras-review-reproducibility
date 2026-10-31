@@ -1,0 +1,130 @@
+{
+ "fetched": "2026-10-20T12:26:52",
+ "source": "ClinicalTrials.gov REST API v2",
+ "raw_interventional_union": 3149,
+ "curated_trials": 1133,
+ "excluded": 2016,
+ "excluded_reasons": {
+  "RAS not referenced as a gene/target (e.g. renin-angiotensin system, or RAS appears in neither title, summary, condition, keyword, eligibility criteria nor outcome measure)": 1899,
+  "phase outside I-III (NA)": 52,
+  "non-malignant RASopathy / non-oncology indication": 19,
+  "phase outside I-III (Phase 4)": 10,
+  "condition is not oncological": 36
+ },
+ "by_tier": {
+  "RAS-biomarker-selected": 634,
+  "RAS-targeted": 321,
+  "RAS-mentioned": 46,
+  "RAS-regulator-targeted": 132
+ },
+ "by_phase_group": {
+  "Phase 1": 344,
+  "Phase 2": 661,
+  "Phase 3": 117,
+  "Early Phase 1": 11
+ },
+ "by_status_group": {
+  "Not yet recruiting": 73,
+  "Ongoing": 345,
+  "Stopped early": 196,
+  "Completed": 416,
+  "Other/unknown": 103
+ },
+ "by_sponsor_class": {
+  "INDUSTRY": 535,
+  "OTHER": 477,
+  "NETWORK": 26,
+  "NIH": 81,
+  "OTHER_GOV": 14
+ },
+ "trials_with_no_location": 79,
+ "multinational_trials": 272,
+ "median_sites": 2,
+ "total_site_records": 25966,
+ "countries_covered": 72,
+ "top10_countries": [
+  [
+   "United States",
+   618
+  ],
+  [
+   "China",
+   245
+  ],
+  [
+   "Spain",
+   183
+  ],
+  [
+   "Italy",
+   153
+  ],
+  [
+   "France",
+   149
+  ],
+  [
+   "Australia",
+   126
+  ],
+  [
+   "Germany",
+   119
+  ],
+  [
+   "South Korea",
+   117
+  ],
+  [
+   "Canada",
+   108
+  ],
+  [
+   "United Kingdom",
+   99
+  ]
+ ],
+ "top10_sponsors": [
+  [
+   "National Cancer Institute (NCI)",
+   79
+  ],
+  [
+   "Merck Sharp & Dohme LLC",
+   29
+  ],
+  [
+   "M.D. Anderson Cancer Center",
+   28
+  ],
+  [
+   "Pfizer",
+   24
+  ],
+  [
+   "Amgen",
+   22
+  ],
+  [
+   "Eli Lilly and Company",
+   18
+  ],
+  [
+   "Revolution Medicines, Inc.",
+   18
+  ],
+  [
+   "Novartis Pharmaceuticals",
+   18
+  ],
+  [
+   "Memorial Sloan Kettering Cancer Center",
+   15
+  ],
+  [
+   "Hoffmann-La Roche",
+   15
+  ]
+ ],
+ "enrollment_total_reported": 160436
+}

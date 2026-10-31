@@ -1,0 +1,6 @@
+# unpacked from studies_raw.json.gz by reproduce.sh
+RAS临床试验注册分析/数据/raw/studies_raw.json
+__pycache__/
+*.pyc
+.DS_Store
+Rplots.pdf

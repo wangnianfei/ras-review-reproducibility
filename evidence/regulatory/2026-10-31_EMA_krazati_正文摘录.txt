@@ -1,0 +1,7 @@
+EMA EPAR 概览页存档（2026-10-31 取回）：https://www.ema.europa.eu/en/medicines/human/EPAR/krazati
+药品：Krazati／adagrasib
+
+【适应证原文】Krazati as monotherapy is indicated for the treatment of adult patients with advanced non-small cell lung cancer (NSCLC) with KRAS G12C mutation and disease progression after at least one prior systemic therapy.
+【附条件批准的表述】Conditional approval This medicine received a conditional marketing authorisation. This was granted in the interest of public health because the medicine addresses an unmet medical need and the benefit of immediate availability outweighs the risk from less comprehensive data than normally required.
+【授权日期】Marketing authorisation issued 05/01/2024
+【欧盟一侧的适应证范围】该页只列非小细胞肺癌一项适应证，未见结直肠癌适应证——与 FDA 一侧 2024-06-21 新增、2026-09-01 撤销的结直肠癌适应证不同。

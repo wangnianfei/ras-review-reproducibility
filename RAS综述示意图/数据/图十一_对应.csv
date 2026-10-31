@@ -1,0 +1,11 @@
+from,to,basis
+R1,L1,"Bypass keeps RAS GTP-loaded through SOS1, so upstream nodes are the place to squeeze (6.3 para 1; 6.5 para 2)"
+R2,L1,ERK reactivation without passing through RAS is what vertical blockade was built for (6.5 para 2)
+R1,L2,"Receptor-level bypass is the one case where the dominant route is named: EGFR in colorectal cancer (6.5 para 5)"
+R3,L2,A parallel chain is answered by switching to a parallel pathway (6.3 para 5; 6.5 para 5)
+R4,L4,A state change with no new mutation is answered by switching the survival programme (6.5 para 10)
+R5,L4,Lineage exit is a programme rather than a node (6.3 para 8; 6.5 para 10)
+C1,L4,"Each carrier comes with a target that has nothing to do with RAS: IRE1a (6.4 para 6)"
+C2,L4,YAP-MRAS (6.4 para 6)
+C3,L4,ARAF N terminus (6.4 para 6)
+C4,L4,Mevalonate pathway and ZBTB11 (6.4 para 6)

@@ -1,0 +1,80 @@
+{
+ "mane": {
+  "KRAS": [
+   {
+    "ensembl_tx": "ENST00000256078.10",
+    "refseq": "NM_033360.4",
+    "type": "MANE_Plus_Clinical"
+   },
+   {
+    "ensembl_tx": "ENST00000311936.8",
+    "refseq": "NM_004985.5",
+    "type": "MANE_Select"
+   }
+  ],
+  "HRAS": [
+   {
+    "ensembl_tx": "ENST00000311189.8",
+    "refseq": "NM_005343.4",
+    "type": "MANE_Select"
+   },
+   {
+    "ensembl_tx": "ENST00000417302.7",
+    "refseq": "NM_176795.5",
+    "type": "MANE_Plus_Clinical"
+   }
+  ],
+  "NRAS": [
+   {
+    "ensembl_tx": "ENST00000369535.5",
+    "refseq": "NM_002524.5",
+    "type": "MANE_Select"
+   }
+  ]
+ },
+ "kras4b_seq": "MTEYKLVVVGAGGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHHYREQIKRVKDSEDVPMVLVGNKCDLPSRTVDTKQAQDLARSYGIPFIETSAKTRQGVDDAFYTLVREIRKHKEKMSKDGKKKKKKSKTKCVIM",
+ "transcript_summary": [
+  {
+   "gene": "KRAS",
+   "transcript": "ENST00000311936",
+   "cds_len": 567,
+   "aa_len": 188,
+   "protein": "ENSP00000308495",
+   "n_exons": 5,
+   "n_coding_exons": 4
+  },
+  {
+   "gene": "KRAS",
+   "transcript": "ENST00000256078",
+   "cds_len": 570,
+   "aa_len": 189,
+   "protein": "ENSP00000256078",
+   "n_exons": 6,
+   "n_coding_exons": 4
+  },
+  {
+   "gene": "HRAS",
+   "transcript": "ENST00000311189",
+   "cds_len": 570,
+   "aa_len": 189,
+   "protein": "ENSP00000309845",
+   "n_exons": 6,
+   "n_coding_exons": 4
+  },
+  {
+   "gene": "NRAS",
+   "transcript": "ENST00000369535",
+   "cds_len": 570,
+   "aa_len": 189,
+   "protein": "ENSP00000358548",
+   "n_exons": 7,
+   "n_coding_exons": 4
+  }
+ ],
+ "cohort": {
+  "study": "msk_impact_2017",
+  "name": "MSK-IMPACT Clinical Sequencing Cohort (MSK, Nat Med 2017)",
+  "n_samples": 10945,
+  "reference_pmid": 28481359
+ }
+}

@@ -1,0 +1,60 @@
+GH35（索西拉西布／sosimerasib）NMPA 批准状态 —— 联网核实记录（2026-10-29）
+
+【2026-10-31 作者裁定（最高优先，作废下文「一、作者判定 2026-10-29」）】
+  作者 2026-10-31 原话：「Conditionally approved by China's NMPA in February」。
+  **sosimerasib（索西美雷塞，HBI-2438／JMKX001899）计入获批**：NMPA 2026 年 2 月附条件批准
+  （批准日 2026-02-25 由作者 2026-10-31 提供，公告日 2026-02-28，转载件见同目录 2026-10-31_NMPA_sosimerasib_附条件批准_* ）。
+  下文第一节「作者判定（2026-10-29）」的「不计入获批」自本日起**作废**，其检索记录仍作留档，
+  但不得再据以写「未获批」「不在获批之列」。GH35 与 sosimerasib 是两味药的结论（见下节）不变。
+
+【2026-10-30 更正（督导更正令第一组，文件名照旧不改）】
+  本文件自第一行起把 **GH35 与 sosimerasib 当作同一药**，这个前提是错的，不能据此再引。
+  · **GH35** ＝ 苏州信诺维（Suzhou Genhouse Bio）的 KRAS G12C 分子，只登记了Ⅰ期 NCT05010694；
+  · **sosimerasib** ＝ **HBI-2438**（HUYABIO，Ⅰ期 NCT05485974）＝ **JMKX001899**（济民可信／
+    上海杰佑，Ⅰb 期 NCT06946927、Ⅲ期 NCT07242274 与 NCT07833202），中文通用名**索西美雷塞**
+    （硫酸索西美雷塞片）。库内 `1.4_MolinaArcasM_2024`、`5.4_ChoucairK_2025`、`7.1_EbrightRY_2025`
+    的原表都把 GH35 与 HBI-2438 列为同表的两行不同药。
+  · 下文第三、四节里引作「该药的Ⅰ期（NCT05010694）」的是 GH35 的记录，不属于 sosimerasib；
+    sosimerasib 的Ⅱ期记录只见于 `4.7_RiedlJM_2026`（ChiCTR2200059986，Zhong 等 2025）。
+  · 批准状态的处置不变：**作者 2026-10-29 判定不计入获批**；本文件只作「分歧从哪里来」的留档，
+    不得据以改写正文、表一、表二、图9 与摘要。中文通用名此前写作「索西拉西布」，按当日督导更正
+    统一改为「索西美雷塞」，但正文里已按上一版写下的「索西拉西布」一律改名为「索西美雷塞」。
+
+一、作者判定（2026-10-29，最高优先，覆盖以下检索结论）
+  **GH35 未获得正式批准用于临床。** 本综述正文、表一、表二、图八数据与图九图注
+  一律不计入获批，按库内文献记为Ⅰ至Ⅱ期。以下检索记录仅作为「为什么曾出现分歧」的留档，
+  以及将来若取得正式批件时的追查线索；在校样阶段取得 NMPA 批件前不得改回「已获批」。
+
+二、检索结论（与作者判定不一致，留档备查）
+  已获 NMPA **附条件批准上市**（conditional approval for marketing），批准日 2026-02-28，
+  适应证为既往接受过至少一线系统治疗的晚期 KRAS G12C 突变非小细胞肺癌，附确证性研究义务。
+  注意：「附条件批准上市」是《药品管理法》下的上市许可，与「批准开展临床试验（IND）」不是一回事；
+  但它也不等同于常规批准——其确证性研究须在上市后完成。
+
+三、证据
+  1) 二手（可直接引用，含 NMPA 公告标题与日期）：
+     Cancer Innovation 2026, PMC13673135 —
+     "Fulzerasib, garsorasib, glecirasib, and sosimerasib received conditional approval in
+      August 2024, November 2024, May 2025, and February 2026, respectively, for adults with
+      advanced KRAS G12C-mutant NSCLC after at least one systemic regimen [77-80]."
+     其参考文献 80 = National Medical Products Administration, “Sosimerasib Sulfate Tablets
+     Conditionally Approved for Marketing” [In Chinese], February 28, 2026, accessed July 30, 2026.
+     同文参考文献 78 = “Garsorasib Tablets Approved With Conditions for Marketing by China NMPA”,
+     November 8, 2024。
+  2) 一手（本目录已存档）：NMPA 英文站 garsorasib 公告页
+     https://english.nmpa.gov.cn/2025-02/19/c_1073662.htm
+     标题 "Garsorasib Tablets Approved with Conditions for Marketing by China NMPA"，
+     正文 "approved with conditions for marketing … through the priority review and approval
+     procedure"，商品名 安方宁。页面更新日 2025-02-19（英文版发布日）；批准日 2024-11-08。
+     一手文件：2026-10-29_NMPA_garsorasib_附条件批准_en.html 与同目录 _正文摘录.txt。
+  3) 未取得：sosimerasib 的 NMPA 英文公告页（英文站检索入口为 JS 渲染，未取到）；
+     目前仅二手来源给出标题与日期，若投稿要求一手来源，需向 NMPA 中文站或企业公告补齐。
+
+四、与库内文献的冲突及解释
+  5.4_ChoucairK_2025 把 GH35 记为 Phase 1（NCT05010694），4.7_RiedlJM_2026 记为 2 期
+  （ChiCTR2200059986）——两者都成文于批准之前，记录的是批准前的研发阶段，不构成反证；
+  但正文若写「已获批」，须交代「库内文献早于批准事件」，否则读者会看到矛盾。
+
+五、PubMed 检索记录（证明该药尚未进入索引）
+  esearch: sosimerasib → 0 条；"GH35" AND KRAS → 0 条（2026-10-29 实查）。
+  Europe PMC: "sosimerasib" → 2 条，均为 2026 年综述。

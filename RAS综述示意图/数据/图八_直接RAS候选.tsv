@@ -1,0 +1,81 @@
+# 图9 泳道 1–4「直接 RAS 药物」的逐个核查台账（2026-10-31 督导更正令第三组建）。
+# 每行一个代号：靶点身份、证据原文、出处、拟归泳道、是否上图、理由。
+# 身份证据类型：registry_title = 语料登记标题明写靶点类别（如「(pan-KRAS inhibitor)」）；
+#   library_paper = 库内论文同一句／同一行写明；弱 = 只在汇总表／图中成组出现、无句子写靶点；
+#   未证实 = 语料只有入组条件或泛称（「KRAS G12D-Mutant」「RAS Mutations」「RAS Inhibitor Treatment」），
+#   按 A10 一律记为未证实，不上图、不进清单正文。
+# 泳道口径（2026-10-31e 统一）：共价 G12C → 1；非共价等位基因选择性（单一等位基因）→ 2；RAS(ON) 三元复合物 → 3；
+#   pan-KRAS／pan-RAS 抑制剂、降解剂与其他直接作用模式 → 4。pan-KRAS／pan-RAS 一律归 4，不按化学（共价／非共价）另立口径；
+#   仅当证据写明其为 RAS(ON) 三元复合物（分子胶）时归 3。构象态与作用方式在语料里是 Undisclosed 的（GEC255、HS-10370、YL-15293、RNK08954），
+#   按上一轮同一处理：针对单一 G12C 等位基因者归 1，其余不归泳道并在末列注明。
+# 是否上图：是 = 身份已证实，且（语料最高阶段 ≥ Phase 1/2 或库内有已发表临床读数），且构象态／作用方式可归泳道；
+#   否 = 其余，理由见末列。本表的行数与「是」的条数由 figaudit 与图注对账，不手填。
+#   头注登记的两处例外（都写在末列）：已停止开发的程序不上图——JNJ-74699157（Ⅰ期且已停止开发）、
+#   LY3499446（仅一项Ⅰ/Ⅱ期登记、已停止开发、无读数），二者的排除依据是「已停止开发」，不是阶段。
+# 「语料最高阶段」一列的口径（2026-10-31f 定）：取该行 NCT 号在语料（表1_临床试验总表.csv）中的
+#   `phase` 字段的最高值——Phase 1/Phase 2 记 Phase 1/2、Phase 2/Phase 3 记 Phase 2/3、Early Phase 1
+#   与 Phase 1 都记 Phase 1——**不是** `phase_group` 字段（后者把Ⅰ/Ⅱ期坍缩成Ⅱ期，ZG19018 与
+#   HYP-2090PTSA 就是这样被抬高过的）。核对脚本：`脚本/00_count_swimlane_trials.py --stage`（make check）。
+#   例外：语料未登记该试验者记「语料未登记」（BEBT-607、LUNA18）。
+code	别名	申办方	NCT 号	语料最高阶段	身份证据类型	证据原文	证据出处	拟归泳道	是否上图	理由
+AZD0022	—	AstraZeneca	NCT06599502	Phase 1	library_paper	potent, oral KRASG12D-selective inhibitor	4.7_WuYL_2026 参文 ND11 题名；另 4.7_RiedlJM_2026 表「KRASG12D ON/OFF state inhibitor」	2	否	仅Ⅰ期、无已发表临床读数
+LY3962673	—	Eli Lilly	NCT06586515	Phase 1	library_paper	non-covalent KRAS G12D inhibitor	2.3_SeamonKJ_2026 参文 23 题名	2	否	仅Ⅰ期、无已发表临床读数
+PF-07934040	—	Pfizer	NCT06447662	Phase 1	library_paper	pan-KRAS(OFF)-selective inhibitors	2.3_SeamonKJ_2026（与 BI-2493/BI-2865、LY4066434 并列）；另 4.4_CreggJ_2025 列为 novel pan-KRAS inhibitors	4	否	仅Ⅰ期、无已发表临床读数
+BI 3706674	BI-3706674	Boehringer Ingelheim	NCT06056024	Phase 1	library_paper	novel pan-KRAS inhibitors have emerged, including BI-3706674	4.4_CreggJ_2025；另 4.7_WuYL_2026 表「OFF inhibitor」	4	否	仅Ⅰ期、无已发表临床读数
+GEC255	—	GenEros Biopharma	NCT05768321	Phase 1	library_paper	GEC255, a novel KRASG12C inhibitor	4.7_OyaY_2024 参文题名（正文同节）	1	是	库内有已发表临床读数：同文「The ORR in the 13 evaluable patients was 77 %」（16 例入组、13 例可评估）
+HS-10370	—	Jiangsu Hansoh	NCT05367778; NCT06594874; NCT06963502; NCT07822542	Phase 3	library_paper	HS-10370 [98, 99] (51.2% ORR in NSCLC)	7.1_WangX_2025；另 7.1_EbrightRY_2025 表「KRAS G12C … Inhibitor Phase 1/2」	1	是	语料最高阶段Ⅲ期（NCT07822542，一线联合化疗）
+HS-10529	—	Jiangsu Hansoh	NCT06963398	Phase 1	未证实	A Study of HS-10529 in KRAS G12D Patients With Advanced Solid Tumors	语料 表1（NCT06963398）	—	否	登记标题只写明入组人群为 KRAS G12D，不等于该药是 G12D 抑制剂；库内无任何提及
+ZG19018	—	Suzhou Zelgen	NCT06237400	Phase 1/2	library_paper	ZG19018 Zelgen KRAS G12C OFF Inhibitor Phase 1/2 NCT06237400	7.1_EbrightRY_2025 表 1	1	是	语料最高阶段Ⅰ/Ⅱ期
+ZG2001	—	Suzhou Zelgen	NCT06237413	Phase 1/2	registry_title	A Study of ZG2001 (pan-KRAS inhibitor)	语料 表1（NCT06237413）标题；库内 4.7_FrischA_2025 转载同一标题	4	是	语料最高阶段Ⅰ/Ⅱ期；构象态未载，按靶点类别（pan-KRAS 抑制剂）归泳道 4
+SY-5933	—	Shouyao Holdings	NCT06006793; NCT06970132	Phase 1/2	弱	SY-5933 Phase 1 NCT06006793	5.4_ChoucairK_2025 的 KRAS G12C 抑制剂汇总表（该行未写靶点）；另 1.4_MolinaArcasM_2024 的 G12C 分组图	—	否	只在汇总表／分组图中成组出现，库内无一句写它是 G12C 抑制剂；按 A10 记为弱证据，不上图
+BPI-421286	BPI-0421286	Betta Pharmaceuticals	NCT05315180	Phase 1	library_paper	BPI-421286 Betta KRAS G12C Undisclosed Inhibitor Phase 1 NCT05315180	7.1_EbrightRY_2025 表 1	1	否	仅Ⅰ期、无已发表临床读数
+YL-15293	—	Shanghai YingLi	NCT05173805; NCT05119933	Phase 1/2	library_paper	Other G12C inhibitors HBI-2438 (HUYA Bioscience) (NCT05485974), YL-15293	4.7_OyaY_2024 第 2.13 节；另 7.1_EbrightRY_2025 表「KRAS G12C」	1	是	语料最高阶段Ⅰ/Ⅱ期
+YL-17231	—	Shanghai YingLi	NCT06096974; NCT06078800	Phase 1	library_paper	YL-17231 is a reversible, small-molecule pan-RAS inhibitor	4.7_RameshS_2026 第 2.5 节	4	否	仅Ⅰ期、无已发表临床读数
+GH35	—	Suzhou Genhouse Bio	NCT05010694	Phase 1	library_paper	GH35 Suzhou Genhouse Bio KRAS G12C OFF Inhibitor Phase 1	7.1_EbrightRY_2025 表 1	1	否	仅Ⅰ期、无已发表临床读数（它不是 sosimerasib，见 4.7 段二）
+ERAS-0015	—	Erasca	NCT06983743	Phase 1	library_paper	ERAS-0015 is another pan-RAS molecular glue	4.7_RiedlJM_2026；另 4.7_WuYL_2026 表「ON inhibitor; tri-complex molecular glue」	3	否	仅Ⅰ期、无已发表临床读数
+JAB-23E73	—	Jacobio	NCT06959615; NCT06973564; NCT07640295	Phase 1/2	library_paper	JAB-23E73 is another pan-KRAS inhibitor that targets both the GTP- and GDP-bound forms of KRAS	4.7_RameshS_2026 第 3.5 节	4	是	语料最高阶段Ⅰ/Ⅱ期；pan-KRAS（同时针对 GTP 与 GDP 结合态）归泳道 4
+ASP5834	—	Astellas	NCT07094204	Phase 1	library_paper	degraders ASP5834 and PT0511	7.1_HondaR_2026（「the pan-KRAS degraders ASP5834 and PT0511」）	4	否	仅Ⅰ期、无已发表临床读数
+AN4035	—	Adlai Nortye	NCT07686445	Phase 1	未证实	A Study of AN4035 in Advanced Cancers With RAS Mutations and High CEACAM5 Expression	语料 表1（NCT07686445）	—	否	登记标题只写 RAS 突变人群与 CEACAM5 表达（后者提示偶联物），未写靶点类别；库内无任何提及
+AN9025	AN-9025	Adlai Nortye	NCT07252479	Phase 1	library_paper	Some pan-RAS(ON) tricomplex inhibitors have demonstrated promising efficacy in preclinical models: daraxonrasib (RMC-6236), ADT-007, AN9025, and GFH276	3.1_GarboE_2026；另 4.7_WuYL_2026 表「ON inhibitor; tri-complex molecular glue」	3	否	仅Ⅰ期、无已发表临床读数
+D3S-003	—	D3 Bio	NCT07456046	Phase 1	未证实	A Phase 1 Study of D3S-003 as Monotherapy in Participants With Advanced Solid Tumors With a KRAS p.G12D Mutation	语料 表1（NCT07456046）	—	否	只写入组等位基因；库内无任何提及（D3S-001 是另一个分子，不得互推）
+ABSK141	—	Abbisko	NCT07417189	Phase 1/2	未证实	A Phase I/II Study of ABSK141 in Patients With Advanced Solid Tumors	语料 表1（NCT07417189）	—	否	标题与干预均未写靶点；库内无任何提及
+ABSK211	—	Abbisko	NCT07718165	Phase 1	未证实	A Phase I Study of ABSK211 in Participants With Advanced Solid Tumors With KRAS Alteration	语料 表1（NCT07718165）	—	否	只写 KRAS 改变人群；库内无任何提及
+QTX3046	—	Quanta Therapeutics	NCT06428500	Phase 1	library_paper	QTX3046, a potent, selective, and	4.7_WuYL_2026 参文 LB321 题名（「… orally bioavailable non-covalent KRASG12D inhibitor」）；另 4.7_RiedlJM_2026 表	2	否	仅Ⅰ期、无已发表临床读数（与 QTX3034 是两个分子，不合并）
+INV-8989	—	Shenzhen Ionova	NCT07610798	Phase 1/2	未证实	A Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Preliminary Antitumor Activity of INV-8989	语料 表1（NCT07610798）	—	否	标题只写入组人群；库内无任何提及
+KQB548	—	Kumquat Biosciences	NCT07207707	Phase 1	未证实	A Study to Investigate the Safety and Efficacy of KQB548 in Participants With Advanced Solid Malignancies	语料 表1（NCT07207707）	—	否	标题未写靶点；库内无任何提及
+ASKC189	—	Jiangsu Aosaikang	NCT07836036	Phase 1	未证实	Evaluation of RAS Inhibitor Treatment in Participants With Advanced or Metastatic Solid Tumors Harboring RAS Mutations	语料 表1（NCT07836036）	—	否	标题是同一套通用措辞（与 AN9025 的登记标题逐字相同），不构成本药身份的证据；库内无任何提及
+BG-85738	—	BeOne Medicines	NCT07746141	Phase 1	未证实	A First-in-Human Study Investigating BG-85738 Alone or in Combination With Other Antitumor Agents in Patients With Advanced or Metastatic Solid Tumors With Rat Sarcoma Virus (RAS) Mutations	语料 表1（NCT07746141）	—	否	标题只写入组人群；库内无任何提及
+HRS-2329	—	Hengrui／浙江大学	NCT07736612	Phase 1/2	registry_title	A Pan-RAS Inhibitor in Combination With Anti-Tumor Therapy in Participants With Advanced Pancreatic Cancer	语料 表1（NCT07736612）标题	4	否	身份可证（标题写明 pan-RAS 抑制剂），按靶点类别拟归泳道 4；语料未载作用方式与读数，是否上图待督导签字（现不上图）
+BLU-924	SAR449336	Blueprint Medicines	NCT07629960	Phase 1/2	未证实	A First-in-Human Trial of BLU-924 (SAR449336) in Advanced Solid Tumors Harboring KRAS Mutations	语料 表1（NCT07629960）	—	否	标题只写入组人群；库内无任何提及
+RNK08954	RNK08954-01	Ranok Therapeutics	NCT06667544; NCT07303465; NCT07441174; NCT07848893	Phase 2	library_paper	RNK08954 Ranok Therapeutics KRAS G12D Undisclosed Inhibitor Phase 1/2	7.1_EbrightRY_2025 表 1	—	否	身份可证（KRAS G12D 抑制剂），但构象态与作用方式在语料内记为 Undisclosed，无法归泳道；留作清单
+GFH276	—	Genfleet Therapeutics	NCT07198321; NCT07678593; NCT07784374; NCT07846358	Phase 2	library_paper	GFH276: a molecular glue panRAS(on) inhibitor	3.1_GarboE_2026 参文 35 题名（正文把 GFH276 与 daraxonrasib、ADT-007、AN9025 同列为 pan-RAS(ON) 三元复合物）	3	是	语料最高阶段Ⅱ期
+ARV-806	—	Arvinas	NCT07023731	Phase 1/2	library_paper	ARV-806 KRAS G12D protein	4.7_WuYL_2026 表（「KRAS G12D protein degrader」）；正文称其为 KRAS-targeted PROTAC	4	是	语料最高阶段Ⅰ/Ⅱ期
+BBO-11818	—	BridgeBio Oncology (TheRas)	NCT06917079	Phase 1	library_paper	BBO-11818 is an orally bioavailable pan-KRAS inhibitor	4.7_RameshS_2026 第 3.2 节	4	否	仅Ⅰ期、无已发表临床读数
+S241656	—	Servier	NCT05786924	Phase 1/2	未证实	Phase 1/2 Trial of S241656 in Selected RAS/MAPK Mutation- Positive Malignancies	语料 表1（NCT05786924）	—	否	只写 RAS/MAPK 突变人群；库内无任何提及
+DN022150	—	Jiangxi Kvvit Pharmaceutical	NCT07689539; NCT07656376	Phase 3	library_paper	selective KRAS G12D inhibitor DN022150	1.3_PillozziS_2026 正文（同句还写 Phase I/IIa of DN022150, a novel selective noncovalent small molecule KRAS G12D inhibitor）	2	是	语料最高阶段Ⅲ期（两项：对化疗、联合 AG 一线，均尚未招募）；本轮全量扫描新增
+FMC-376	—	Frontier Medicines	NCT06244771	Phase 1/2	library_paper	FMC-376              Frontier Medicines      KRAS G12C       ON/OFF        Inhibitor   Phase 1/2       NCT06244771	7.1_EbrightRY_2025 表 1；另 4.7_RiedlJM_2026 表 2「FMC-376/Frontier Medicines KRASG12C ON/OFF state inhibitor … Covalent」	4	是	语料最高阶段Ⅰ/Ⅱ期（NCT06244771 登记为 Phase 1/Phase 2）；ON/OFF 双态共价，与 BBO-8520 同归泳道 4；本轮新增
+HYP-2090PTSA	—	Sichuan Huiyu	NCT06243354	Phase 1/2	library_paper	HYP-2090PTSA         Sichuan Huiyu           KRAS G12C       Undisclosed   Inhibitor   Phase 1/2       NCT06243354	7.1_EbrightRY_2025 表 1	1	是	语料最高阶段Ⅰ/Ⅱ期（NCT06243354 登记为 Phase 1/Phase 2）；构象态与化学未载，按所针对等位基因（G12C）归泳道 1，同 HS-10370／YL-15293／GEC255 的处理；本轮新增
+QLC1101	—	Qilu Pharmaceutical	NCT06403735; NCT06949761	Phase 1/2	library_paper	QLC1101 Qilu Pharmaceutical KRAS G12D Undisclosed Inhibitor Phase 1 NCT06403735	7.1_EbrightRY_2025 表 1；另 5.2_DemingDA_2025「QLC1101 KRAS G12D inhibitor NCT06403735」	2	是	语料最高阶段Ⅰ/Ⅱ期（NCT06403735 为Ⅰ期、NCT06949761 联合方案为Ⅰ/Ⅱ期且尚未招募）；本轮新增
+PT0253	—	PAQ Therapeutics	NCT06797336	Phase 1	library_paper	including the G12D-selective agents PT0253 and ARV-806 and the pan-KRAS degraders ASP5834 and PT0511	7.1_HondaR_2026；另 7.1_EbrightRY_2025 表 1「PT0253 PAQ Therapeutics KRAS G12D Undisclosed Degrader Phase 1」	4	否	仅Ⅰ期、无已发表临床读数；本轮新增
+ASP4396	—	Astellas	NCT06364696	Phase 1	library_paper	ASP4396 KRAS G12D inhibitor NCT06364696	5.2_DemingDA_2025 表；另 7.1_EbrightRY_2025 表 1「KRAS G12D Undisclosed Degrader」、7.1_WasiakK_2025「KRAS G12D degraders … in development are ASP3082 and ASP4396」	4	否	仅Ⅰ期、无已发表临床读数（与已上图的 ASP3082 是两个分子）；本轮新增
+PT0511	—	—	NCT07300150	Phase 1	library_paper	the pan-KRAS degraders ASP5834 and PT0511	7.1_HondaR_2026	4	否	仅Ⅰ期、无已发表临床读数；本轮新增
+GDC-7035	—	Roche/Genentech	NCT07859085	Phase 1	library_paper	GDC-7035             Roche/Genentech         KRAS G12D       Undisclosed   Inhibitor   Phase 1         NCT06619587	7.1_EbrightRY_2025 表 1	2	否	仅Ⅰ期、无已发表临床读数；本轮新增
+INCB186748	—	Incyte	NCT06818812	Phase 1	library_paper	INCB186748          Incyte                 KRAS G12D            Undisclosed   Inhibitor   Phase 1         NCT06818812	7.1_EbrightRY_2025 表 1	2	否	仅Ⅰ期、无已发表临床读数；本轮新增
+ALTA3263	ALTA-3263	Alterome Therapeutics	NCT06835569	Phase 1	library_paper	ALTA3263 (Alterome) ON/OFF KRAS inhibitor NCT06835569	4.7_WuYL_2026 表；另 7.1_EbrightRY_2025 表 1「ALTA-3263 Alterome Pan-KRAS ON Inhibitor Phase 1」	4	否	仅Ⅰ期、无已发表临床读数；pan-KRAS（ON/OFF）归泳道 4；本轮新增
+PF-07985045	—	Pfizer	NCT06704724	Phase 1	library_paper	PF-07985045          Pfizer                 Pan-KRAS             Undisclosed   Inhibitor   Phase 1         NCT06704724	7.1_EbrightRY_2025 表 1；另 4.7_WuYL_2026 表记该试验 terminated	4	否	仅Ⅰ期、无已发表临床读数；本轮新增
+AMG 410	AMG-410	Amgen	NCT07094113	Phase 1	library_paper	AMG 410 is a reversible pan-KRAS inhibitor that binds to the same allosteric pocket targeted by sotorasib	4.7_RameshS_2026；另 4.7_WuYL_2026 表「AMG-410 (Amgen) ON/OFF KRAS inhibitor NCT07094113」	4	否	仅Ⅰ期、无已发表临床读数；本轮新增
+TLN-372	—	Treeline Biosciences	NCT07204340	Phase 1	library_paper	TLN-372 (Treeline biosciences) … pan-KRAS inhibitor NCT07204340 (recruiting)	4.7_WuYL_2026 表（PDF 把这一行折成三行：代号／申办方／机制＋试验号）	4	否	仅Ⅰ期、无已发表临床读数；本轮新增
+BEBT-607	—	BeBetter Med	—（语料未登记；表记 NCT06117371）	语料未登记	library_paper	BEBT-607             BeBetter Med            KRAS G12C       Undisclosed   Inhibitor   Phase 1         NCT06117371	7.1_EbrightRY_2025 表 1	1	否	1 133 项语料未收该试验，无阶段、无读数可据；按 A10 只入清单、不上图；本轮新增（督导点名的漏项）
+LUNA18	—	Chugai	—（语料未登记；表记 NCT05012618）	语料未登记	library_paper	LUNA18              Chugai                 Pan-RAS              OFF           Inhibitor   Phase 1         NCT05012618	7.1_EbrightRY_2025 表 1	4	否	语料未收该试验，无阶段、无读数可据；只入清单；本轮新增
+JNJ-74699157	—	Janssen	NCT04006301	Phase 1	library_paper	The development of two other KRAS inhibitors, JNJ-74699157 and LY-3499446, has been discontinued	1.2_ReckM_2021	1	否	仅Ⅰ期且已停止开发；本轮新增
+LY3499446	LY-3499446	Eli Lilly	NCT04165031	Phase 1/2	library_paper	The development of two other KRAS inhibitors, JNJ-74699157 and LY-3499446, has been discontinued	1.2_ReckM_2021；另 6.5_AkhaveNS_2021 表把 LY3499446 列为 KRAS G12C inhibitor	1	否	语料仅 1 项Ⅰ/Ⅱ期登记且已停止开发、无读数（已停止开发的程序不上图，见头注）；本轮新增
+RSC-1255	—	Rascomp	NCT04678648	Phase 1	library_paper	Pan-RAS                 RSC-1255                 -                                     Lung Cancer, Colon Cancer, Glioblastoma, Pancreatic Cancer   Phase Ia/Ib   NCT04678648	7.1_WasiakK_2025 表 2「Pan-(K)RAS inhibitors」；另 1.4_PerurenaN_2024 图侧注把 RSC-1255 列在 Pan-RAS 一组	4	否	仅Ⅰ/Ⅱa 期、无已发表临床读数；pan-RAS 归泳道 4；本轮新增
+AZD4785	—	AstraZeneca	NCT03101839	Phase 1	非直接	Targeting KRAS-dependent tumors with AZD4785, a high-affinity therapeutic antisense oligonucleotide inhibitor of KRAS	1.4_MooreAR_2020 题名	—	否	反义寡核苷酸，抑制 KRAS 表达而不结合、也不降解 RAS 蛋白，不属泳道 1–4 的作用方式；记此备查
+GDC-1971	—	Genentech	NCT05954871; NCT04449874	Phase 1	非直接	SHP2 抑制剂（语料与 4.7 综述均记为 SHP2）	语料表1 与库内综述	—	否	SHP2 抑制剂，上游节点，属泳道 5 的类别，不是直接作用 RAS 的药物
+VIC-1911	—	—	NCT05374538	Phase 1	非直接	Given these interactions, the role of WEE1 has been evaluated in models of acquired resistance to KRAS G12C inhibitors, with synergistic activity of adavosertib and VIC-1911	1.4_PunekarSR_2022	—	否	WEE1 抑制剂（细胞周期检查点），非直接作用 RAS
+TNG260	—	—	NCT05887492	Phase 1/2	非直接	dency by inhibiting MAT2A, an enzyme required … TNG260 (NCT05887492)	6.3_HendriksLEL_2026	—	否	MAT2A／表观相关靶点，非直接作用 RAS
+BBO-10203	—	BridgeBio Oncology	NCT06917079; NCT06625775	Phase 1	非直接	Sustained activation of PI3Kα signaling may mediate resistance to KRAS inhibitors, so the combination of BBO-11818 with BBO-10203	3.4_StahlhutC_2026	—	否	PI3Kα 抑制剂，是 BBO-11818 的联合搭档，非直接作用 RAS
+BMS-986504	—	Bristol Myers Squibb	NCT07492680	Phase 2	非直接	Combination of the MTA-cooperative PRMT5 inhibitor BMS-986504 and KRAS inhibitors	4.7_WuYL_2026	—	否	PRMT5 抑制剂，联合搭档，非直接作用 RAS
+HM95573	—	Hanmi	NCT03118817	Phase 1	非直接	HM95573 即 belvarafenib，pan-RAF 抑制剂	4.7 与 3.x 综述均记为 pan-RAF	—	否	pan-RAF 抑制剂（即 belvarafenib），下游激酶
+Erdafitinib	—	Janssen	NCT03732703; NCT03155620	Phase 2	非直接	MTTs received were olaparib …, NOTCH 1 inhibitor …, anti-MEK …, KRAS G12C inhibitors …, erdafitinib	5.3_TarabayA_2025	—	否	FGFR 抑制剂，非直接作用 RAS
+Futibatinib	—	Taiho	NCT04965818	Phase 1	非直接	an effect reversed by futibatinib co-treatment	6.3_ZhangY_2026	—	否	FGFR 抑制剂，做的是旁路验证，非直接作用 RAS

@@ -1,0 +1,11 @@
+mechanism,group,logic,level,node
+R1,Genetic,1,direct,SOS1
+R2,Genetic,1,direct,ERK
+R1,Genetic,2,direct,EGFR (CRC)
+R3,Genetic,2,partial,PI3K-AKT
+R4,Non-genetic,4,direct,cell state -> GPX4
+R5,Non-genetic,4,direct,lineage programme
+C1,Carrier,4,direct,IRE1a
+C2,Carrier,4,direct,YAP-MRAS
+C3,Carrier,4,direct,ARAF condensates
+C4,Carrier,4,direct,mevalonate; ZBTB11

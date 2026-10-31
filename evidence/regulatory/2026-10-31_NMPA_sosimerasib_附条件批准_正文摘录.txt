@@ -1,0 +1,36 @@
+来源（转载件）：https://www.cnpharm.com/ （中国食品药品网，中国医药报社主办，国家药监局主管）
+页面标题：国家药监局附条件批准硫酸索西美雷塞片上市 - 中国食品药品网
+页面署名：来源：国家药监局网站（作者栏为空）
+页面日期：2026-02-28
+取回日期：2026-10-31（原件 HTML 同目录：2026-10-31_NMPA_sosimerasib_附条件批准_转载_zh.html，75 409 字节）
+取用者：督导（Claude），由执行代理入档
+
+【身份说明】
+这是《中国医药报》社／中国食品药品网的**转载件**，正文页署「来源：国家药监局网站」，不是 NMPA
+官网原页。**NMPA 中文站原始公告页未取回**——因此本件只能作「官方转载」档，不能当一手件引；
+表2 的「机构·时间」列原写「NMPA，2026-02-28（公告日）」。
+【2026-10-31 补记】作者提供批准日 2026-02-25（作者贴出的条目：Sosimerasib (Zhejiang Hangyu Pharmaceutical)，Approval date: February 25, 2026，Indication: KRAS G12C-mutant NSCLC；未注明出处），与下列线索 1) 送达信息页日期一致；表2 改为「NMPA，2026-02-25（公告 2026-02-28）」，与 garsorasib 一行写批准日的口径一致。国药准字 H20260009 仍未见原件，不入表。
+
+【正文逐字（一段，页面第 100 行）】
+近日，国家药品监督管理局通过优先审评审批程序，附条件批准浙江杭煜制药有限公司申报的1类创新药硫酸索西美雷塞片（商品名：济乐美）上市，该药适用于至少接受过一种系统性治疗的鼠类肉瘤病毒癌基因（KRAS）G12C突变型的晚期非小细胞肺癌（NSCLC）成人患者。该药品上市为患者提供了新的治疗选择。
+
+（页面其余部分：作者栏空、「(责任编辑：宋莉)」、页脚「《中国医药报》社版权所有」等版式文字。）
+
+【同一事件的其他线索（不入正文、不入表）】
+1) NMPA「2026年03月03日药品批准证明文件送达信息」页
+   nmpa.gov.cn/zwfw/sdxx/sdxxyp/yppjfb/20260303134617125.html
+   据检索摘要列有：硫酸索西美雷塞片、浙江杭煜制药、国药准字 H20260009、日期 2026-02-25、
+   受理号 CXZS2500007。该页有反爬（HTTP 412），督导未能取回原文，**H20260009 与 02-25 两个值
+   不写进正文与表**，只在此作线索。该页亦不写「附条件」。
+2) PMC13673135（Cancer Innovation 2026）参考文献 80：
+   National Medical Products Administration, "Sosimerasib Sulfate Tablets Conditionally Approved
+   for Marketing" [In Chinese], February 28, 2026, accessed July 30, 2026.
+   同文正文句：「Fulzerasib, garsorasib, glecirasib, and sosimerasib received conditional approval
+   in August 2024, November 2024, May 2025, and February 2026, respectively, for adults with advanced
+   KRAS G12C-mutant NSCLC after at least one systemic regimen [77-80].」
+   该文亦为本轮 4.7 段二改写可对得上的二手记录（库内检索：Europe PMC 2026-10-29 实查 2 条，
+   均为 2026 年综述）。
+
+【本轮用途（2026-10-31i）】
+作者 2026-10-31 裁定：sosimerasib（索西美雷塞，HBI-2438／JMKX001899）**计入获批**，
+原 2026-10-29「不计获批」判定作废。本档为裁定所依据的官方转载件。

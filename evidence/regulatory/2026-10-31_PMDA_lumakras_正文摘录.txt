@@ -1,0 +1,29 @@
+PMDA「List of Approved Drugs（April 2004 to February 2026）」摘录（2026-10-31 取回）
+原件：https://www.pmda.go.jp/files/000281190.pdf （已同目录存档：2026-10-31_PMDA_list_of_approved_drugs_2004-2026-02_en.pdf）
+
+【检索方法】pdftotext -layout 后 grep -i "lumakras|sotorasib|krazati|adagrasib"；
+  命中 2 行，均为 Lumakras；Krazati／adagrasib 在该清单（2004-04 至 2026-02）内无任何命中。
+
+【首次批准与适应证（第 5549 行起）】
+
+
+Oncology drugs Jan. 20, 2022    128    Lumakras Tablets 120 mg                 Approval       Sotorasib                 A drug with a new active ingredient indicated for
+                                       (Amgen K.K.)                                                                     the treatment of unresectable advanced or
+                                                                                                                        recurrent KRAS G12C mutation-positive non-small
+                                                                                                                        cell lung cancer that has progressed after cancer
+                                                                                                                        chemotherapy.
+                                                                                                                        [Orphan drug]
+
+
+
+【2025-09-19 追加适应证（第 659 行起）】
+
+
+ Oncology drugs   Sep. 19, 2025    29     Lumakras Tablets 120 mg                             Change           Sotorasib                 A drug with a new indication and a new dosage for the
+                                          (Amgen K.K.)                                                                                   treatment of unresectable advanced or recurrent KRAS
+                                                                                                                                         G12C mutation-positive colorectal cancer that has
+                                                                                                                                         progressed after cancer chemotherapy.
+
+
+
+

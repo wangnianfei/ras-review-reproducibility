@@ -1,0 +1,203 @@
+# 基因／蛋白写法的人工判定——**只列判为「蛋白」（正体）的**。
+# 两列：符号 ＋ 其右侧语境片段（取复核清单里的原样片段，含前导空格）。
+# 登记在此的不再出现在 `基因蛋白写法_复核清单.md`，那份清单因此只剩**真正待判的**。
+# 判据同 写法判定.tsv：指分子本身——结合、活性、抑制、降解、信号、复合物——者为蛋白。
+符号	右侧片段
+KRAS	（句末）
+SHP2	 磷酸酶
+KRAS	 对 GDP／GTP 的亲和力在皮摩
+USP25	 可阻遏 RNF31 介导的线性泛素
+KRAS	 的质膜定位
+KRAS	–GDP 晶体结构上的位置见图三）
+KRAS	 的致癌性
+KRAS	 抑制的能量与变构图景，为这个节点的
+KRAS4B	 依赖法尼基化加多聚赖氨酸簇，KRA
+KRAS4A	 的效应器
+KRAS4A	 所独有——该亚型的棕榈酰化／去棕榈
+HRAS	、NRAS 与 KRAS4A 都带有
+NRAS	 与 KRAS4A 都带有一段短的多
+KRAS4A	 都带有一段短的多碱性区（PBR1）
+KRAS4A	 另有第二段多碱性区（PBR2）
+KRAS4B	 与 KRASBL 则带有两个被中和
+KRAS	 的加工
+KRAS	 完成成熟，再送上质膜
+KRAS	 的液—液相分离既抑制结肠癌生长
+KRAS	 突变体确实对 GAP 不敏感，则 
+KRAS	 G12C 如何水解出足够的 GTP
+KRAS	 G12C 水解 GTP
+SOS1	 对 A146T 的交换刺激更为有效
+KRAS	 对效应器的亲和力也变了，在哺乳动物
+HRAS	 与 NRAS 是 KRAS
+NRAS	 是 KRAS
+KRAS	 与 KRAS 之间的相互作用，并降
+KRAS	 抑制的获得性耐药（见 6.7），甚
+SOS1	，SOS1 作为鸟苷酸交换因子把 R
+SOS1	 作为鸟苷酸交换因子把 RAS 上的
+NF1	 从 RAS 上挤走，从而拮抗 NF
+NF1	 对 RAS 的抑制
+ARAF	–NF1 关系在 6.4 以另一种形
+NF1	 关系在 6.4 以另一种形态出现：
+ARAF	 的无序 N 端自组装成凝聚体、使 
+NF1	 的负调控失效
+SHP2	（句末）
+SHP2	，从而促进 MAPK 激活；该研究的
+SHP2	 突变体的相分离是 MAPK 过度激
+SHP2	 角色的措辞，不改变 SHP2 作为
+SHP2	 作为上游节点的定位
+SOS1	 对它的激活也被阻断
+KRAS	 Q61H 的 GTP 酶循环已严重
+SHP2	 的功能，因而对 SHP2 的药理学
+EGFR	）在部分癌种中可以奏效（见 5.2）
+KRAS	 大面积接触
+EGFR	 等受体的配体表达造成旁分泌式的再激
+SOS1	 的反馈决定 RAS-GTP 的装载
+CRAF	 的反馈决定 RAF 二聚体的比例，
+EGFR	 配体的反馈则把抑制效应扩散到旁细胞
+BRAF	 突变体都不再依赖 RAS
+BRAF	 V600 突变体以激活的单体形式工
+BRAF	 突变体则以组成性、不依赖 RAS 
+BRAF	 V600E 二聚体表达升高可导致获
+RREB1	，它把 RAS 的输出接到了转录层
+RREB1	）这一 RAS 转录效应器
+RREB1	 把 TGF-β 激活的 SMAD 
+RREB1	 是**转录效应器**，与 RAL、
+KRAS	 第 147 位赖氨酸的单泛素化（m
+KRAS	 可诱导 OAT 与多胺合成酶的表达
+KRAS	 G12D 可致肿瘤消退，而这种消退
+HMGB1	 线索方向一致（免疫一侧见 4.6）
+KRAS	 G12D 靶向治疗的耐药
+KRAS	 G12D 阻断治疗的疗效」这一步
+HMGB1	）释放，继而在免疫健全小鼠中引起抗肿
+KRAS	 G13D 与 G12V 的效力最高
+MYC	，见 2.4）
+KRAS	 抑制 IRF2 的表达，从而使 C
+CXCR2	 招募髓系细胞，形成免疫抑制
+MCT4	 转运体增强乳酸的生成与分泌
+EGFR	）的疗效」仍无直接比较
+NRAS	 本身的选择性分子至今没有进入关键试
+NRAS	 已被靶向」
+HRAS	 中有效、在 KRAS 中失效的原因
+KRAS	 中失效的原因（见 4.1）
+KRAS	 可以被香叶基香叶基转移酶 I 替代
+HRAS	 上却走通了——HRAS 只依赖法尼
+HRAS	 只依赖法尼基化，香叶基香叶基转移酶
+KRAS	 无效，对 HRAS 有效
+HRAS	 有效
+SHP2	 与 SOS1 两个（见 4.5），
+KRAS	 对 GTP 的亲和力在皮摩尔量级，
+KRAS	 的 GTP 亲和力与效应器相互作用
+KRAS	 G12C 在癌细胞中仍持续进行核苷
+KRAS	 G12C 不再受鸟苷酸交换因子的作
+KRAS	 则有约 700 倍的选择性窗口
+KRAS	 突变体该如何入手」这一追问
+LZTR1	–CUL3 是 RAS 的 E3 底
+KRAS	 的泛素化并增强其质膜定位
+KRAS	 的半衰期，而 USP18 表达升高
+KRAS	 G12C 与 HSP90 之间诱导
+EGFR	 定向的设计策略，临床上仍无直接靶向
+KRAS	 的定义恰恰是「不区分突变体」——原
+KRAS	 Q61 突变体的 GTP 水解，可
+KRAS	 Q61X（X = H、L、K、R）
+KRAS	 的口袋，而是重塑亲环素 A（CYP
+KRAS	 本身
+KRAS	 并带来肿瘤退缩
+LZTR1	 作为 Cullin-3 RING 
+SOS1	 同时定义为 KRAS 的激活因子与
+KRAS	 的激活因子与重要的反馈节点
+SOS1	 减少 RAS-GTP 装载，却也松
+SHP2	 一侧的起点更早，也更谨慎
+SHP2	 可显著抑制集落形成，但这只在 RT
+SHP2	 后并未出现同样的生长受抑
+SHP2	 抑制与 MEK 抑制联用在胰腺、肺
+SHP2	 抑制的效应可以按残余水解能力排序：
+KRAS	 突变体的激活
+SOS1	 与 SHP2 抑制都能压住这条旁路
+SHP2	 抑制都能压住这条旁路
+KRAS	（mKRAS）可以从免疫学途径加以靶
+KRAS	 肽的癌细胞显示出强劲的抗肿瘤反应
+KRAS	 来源新抗原的版本（SLATE–KR
+KRAS	）在该文发表时仍在评估
+SHP2	 抑制联用，可使肺部肿瘤对免疫检查点
+KRAS	 一个不可成药的口袋上成药」的工作
+KRAS	 已被确认为可成药靶点，FDA 批准
+SOS1	、SHP2 或法尼基化等调控与加工环
+SHP2	 或法尼基化等调控与加工环节者 13
+EGFR	 治疗时代遗留的历史存量（见 5.2
+EGFR	 是主要代偿来源，那么 EGFR 抑
+EGFR	 抑制的强度应当与缓解深度相关
+EGFR	 药物把客观缓解率大幅提高到 50%
+EGFR	 介导的适应性耐药这一既有机制相符，
+EGFR	 抑制得更狠是否缓解得更深」
+EGFR	 表达——用的是 H 评分——结果是
+EGFR	 输入在肺癌里也是主导代偿，基线 E
+EGFR	 表达本应把人群分开，它没有
+EGFR	 代偿」，而是把它定位成一个**不含
+EGFR	 表达可用作分层标志」，而不能排除「
+EGFR	 代偿不是主导；结直肠癌必须同时切断
+EGFR	 表达分不开缓解与无进展生存（见前文
+EGFR	 这一层不够，再压一档 MAPK 才
+BRAF	 而非 RAS，在这一节属借篇引用
+HER2	 过表达的条件下，转录因子 ELF3
+ELF3	 直接抬高 KRAS 的表达，而研究
+EGFR	 输入」是 G12C 在结直肠癌里的
+EGFR	 代偿（见 5.2）不同，而胰腺癌一
+KRAS	 在间质一侧另有一套维持机制，只抑制
+CYP3A4	 介导
+CYP3A4	 都是其药代动力学的重要决定因素
+CYP3A4	 人源化小鼠；且该文为期刊预校样版本
+CYP3A4	，剂量前提就跟着变
+EGFR	 代偿要经由核苷酸循环重新装载 GT
+NRAS	 已有靶向治疗」，故须写明：bini
+KRAS	(ON) 抑制使癌前病变消退，并由此
+KRAS	-GTP 与泛 RAS-GTP 的水
+SHP2	 一侧，与两药单用相比，联合使 ER
+KRAS	 的依赖，并把微环境另立一项
+NF1	 介导的负调控失效
+KRAS	 能否上膜
+ZBTB11	 不动 RAS，只把耐药细胞赖以供能
+MRAS	、ARAF N 端、MVA–他汀、Z
+ARAF	 N 端、MVA–他汀、ZBTB11
+ZBTB11	（句末）
+MRAS	 诱导可提高荷瘤小鼠疗效；他汀能在耐
+ZBTB11	 可使细胞重新对 KRAS 抑制敏感
+KRAS	 抑制敏感
+SHP2	 比单打任何一个 RTK 都更普遍地
+PKN2	 也已被列为可打击节点
+PKN2	、CD47、MUC1-C 四侧仍停在
+SHP2	 共同抑制能更普遍地消除反馈性再激活
+TBK1	 作为可干预节点
+SHP2	 与 MEK 双抑制会诱导线粒体重塑
+SHP2	／MEK1/2 的垂直阻断与谷胱甘肽
+GPX4	 抑制联用，其效果基本不受胰腺导管腺
+EGFR	（机制见 5.2）
+EGFR	 表达分不开疗效，方向仍支持「主导旁
+EGFR	」（见 5.2）
+EGFR	 与 KRAS G12C 的联合靶向
+KRAS	 G12C 的联合靶向在结直肠癌细胞
+EGFR	 与 ERBB3，间质分化的模型则主
+GPX4	——一种抑制脂质过氧化的过氧化物酶
+SHP2	／MEK 双抑制产生 GPX4 抑制
+GPX4	 抑制依赖，且跨分子亚型成立
+GPX4	——都还停在模型里或刚进注册阶段
+EGFR	 治疗，而不是预测谁能缓解（单臂、2
+KRAS	 的口袋，而是把亲环素 A 的表面重
+KRAS	 抑制的耐药
+KRAS	 抑制，转向针对肿瘤具体组织背景的靶
+# —— 2026-10-28（§一百二十二）：2.2 补回剪接产物名后新增
+KRAS4A	 与 KRAS4B 仅在 C 端的
+KRAS4B	 仅在 C 端的
+NF1		GAP（	# 图注里 GAP（NF1、RASA1）＝蛋白
+RASA1		（	# 同上
+TIAM1		/	# PLCε/TIAM1–RAC 指蛋白
+YAP1		与 	# PI3K-AKT 与 YAP1/TAZ 指蛋白
+YAP1		versus 	# 英文图注里的蛋白
+NF1		GAPs 	# 英文图注 the GAPs NF1 and RASA1
+RASA1		and 	# 同上
+CRAF		on 	# 英文图注 ERK-mediated feedback on SOS1, CRAF
+TIAM1		/	# 英文图注 PLCε/TIAM1–RAC
+KRAS		for 	# 英文图注 KRAS inhibitors＝蛋白
+HRAS		（	# 表二 HRAS（KRAS 无效）里的括号注
+TIAM1		、	# 效应器清单「RAL、PLCε、TIAM1」＝蛋白
+ELF3		转录因子 	# 「转录因子 ELF3」＝蛋白
+RASA1	）驱动回程		# 图注「GAP（NF1、RASA1）驱动回程」＝蛋白
+CRAF	 and the receptors		# 英文图注 ERK 反馈作用于 CRAF＝蛋白

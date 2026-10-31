@@ -1,0 +1,4 @@
+gene,cohort_samples,hot_codon,n_records,n_hot_records,pct_by_record,n_patients,pct_by_patient
+KRAS,10945,12,1670,1286,77.01,1609,77.38
+NRAS,10945,61,252,167,66.27,249,66.27
+HRAS,10945,61,101,38,37.62,97,39.18

@@ -1,0 +1,108 @@
+# 基因／蛋白写法的人工判定。两列：符号 ＋ 其右侧语境片段（取复核清单里的原样片段）。
+# **只列判为「基因」的**；未列者按默认判为蛋白（正体），并另出一份默认清单备查。
+# 判据：指基因座、转录本、突变、等位基因构成、突变频率与共突变组合者为基因（斜体）；
+# 指分子本身——结合、活性、抑制、降解、信号、复合物——者为蛋白（正体）。
+符号	右侧片段
+KRAS	 的两种剪接产物
+NRAS	(G12V) 的
+HRAS	、KRAS、NRAS）由此成为一组而
+HRAS	、KRAS、NRAS 合在一起算；后
+KRAS	 占绝大多数，NRAS 次之且集中在
+HRAS	 最少且集中在头颈与泌尿上皮
+NRAS	／HRAS 仍在等待（见 7.1）
+KRAS	 的 NM_004985.5 编码 
+U2AF1	 的 S34F 与 KRAS 的 G
+KRAS	、NRAS、HRAS：一项肺癌研究的
+KRAS	、APC 与 TP53，其模型即
+TP53	 与拷贝数改变，KRAS 出现得晚
+KRAS	 与 LKB1 的组合：
+KRAS	 G12D 在肺中的后果与在胰腺中不
+BRAF	」不可省略：在 BRAF V600E
+KRAS	 异常的模型
+HRAS	 是亚型特异性成药的独立案例
+NRAS	 与 HRAS 中更容易被选中
+TP53	 而不是 KRAS——
+KEAP1	 型要打的是代谢依赖，STK11 型
+STK11	 型患者的临床应答数据见 6.1
+STK11	／LKB1 一侧的落点则在免疫排斥的
+KEAP1	 一侧的落点不是抗氧化本身，而是由它
+STK11	 与 KEAP1 并列为修饰因素（见
+KEAP1	 留存
+KRAS	 G12D，结果是
+KRAS	 G12C 抑制
+KRAS	 G12C 非小细胞肺癌的联合治疗（
+KRAS	 G12C、MYC、MET、EGFR
+KRAS	 G12D 特异 siRNA 的方案
+BRAF	 V600E 是最接近的对照：
+ARID1A	 相对非 G12C 人群富集
+SMAD4	 共改变在这里不只是预后标记，还可能
+NRAS	 Q61 中的预期效果更低（机制见 
+NRAS	 的成药难点与 KRAS G12D 
+KRAS	 的翻译效率低于 HRAS」这类比较
+KRAS	 表达，不是肿瘤细胞里的突变体；该研
+HRAS	 与 KRAS 的命名来源
+EGFR	、KRAS 之外，也包括 MAP2K
+EGFR	 与 ERBB3 的表达
+FGFR1	 与间质标记相关
+KRAS	 的命名来源。
+KRAS	 之外，也包括 MAP2K1、BRA
+MAP2K1	、BRAF 与 NRAS。
+BRAF	 与 NRAS。
+NRAS	。
+ERBB3	 的表达“highly correl
+KRAS	 的 G12S 显著共现
+BRAF	 V600E，结局是
+BRAF	 V600E 背景下
+STK11	 型要打的是乳酸介导
+TP53	，其模型即
+KRAS	 更分散（G12、G13、Q61
+KRAS	、NRAS）由此成为一组而非一个
+NRAS	）由此成为一组而非一个
+KRAS	、NRAS 合在一起算
+NRAS	 合在一起算
+NRAS	 次之且集中在黑色素瘤与血液肿瘤
+HRAS	 仍在等待（见 7.1）
+KRAS4B	，NM_033360.4 编码
+HRAS	」这类比较性测定
+NRAS	 与 HRAS 分别有 66%
+HRAS	 中更容易被选中
+KRAS	 出现得晚
+NRAS	、HRAS：一项肺癌研究的题名
+HRAS	：一项肺癌研究的题名
+KEAP1	 并列为修饰因素（见 6.1）
+KRAS	 的表达，而
+NRAS		BRAF 与 
+TP53	（73%）
+CDKN2A	（33%）、SMAD4（28%）与 
+SMAD4	（28%）与 ARID1A（21%）
+ARID1A	（21%）
+TP53	、CDKN2A、PTEN、PIK3C
+PTEN	、PIK3CA 与 HRAS 这些既知基因
+ALK	、RET、BRAF、RAF1 与 F
+FGFR3	的致癌融合
+# —— 2026-10-28 人工判定（§一百二十）：以下判为基因
+KRAS4A	 剪接变体在肿瘤中广泛表达
+KRAS4B	 为何最为常见，都仍是极重要的待解问
+KRAS	 与 NRAS 都带有极长的 3
+NRAS	 都带有极长的 3
+KRAS	 G12S 何以相对少见
+KRAS	 剂量共同决定胰腺癌表型
+KRAS	 G12D、G12V、G12R、G1
+KRAS	 改变包括 G12D/R/V/W、G
+KRAS	 改变
+MET	 与 EGFR 的改变
+EGFR	 的改变
+KRAS	 G12D 肿瘤中增强
+KRAS	 G12D 胰腺导管腺癌高度有效，涵
+KRAS	 G12C 与 G12V 的 ctD
+KRAS	 与 TP53 共存可独立预测更短的
+TP53	 共存可独立预测更短的总生存
+PIK3CA	 功能获得
+NRAS	、KRAS、FLT3、IL7R、JA
+KRAS	、FLT3、IL7R、JAK3、JA
+FLT3	、IL7R、JAK3、JAK1、SH
+BRAF	）列为最常受累的一类
+KRAS	 的表达，并由此维持星状细胞的活化、
+IRF2	 的表达，从而使 CXCL3 高表达
+CXCL3	 高表达
+ERBB3	 的表达与上皮标记高度相关，而 FG

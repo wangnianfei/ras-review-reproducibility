@@ -1,0 +1,60 @@
+drug	gene	alleles	state	mechanism	result	section
+sotorasib	KRAS	G12C	OFF	Covalent	CodeBreaK 100 phase 2: ORR 37.1% (46/124); CodeBreaK 200 phase 3: PFS HR 0.66, **no OS benefit** (1.01, crossover permitted)	5.1
+adagrasib	KRAS	G12C	OFF	Covalent	KRYSTAL-1: ORR 42.9% (48/112, patients with measurable disease); KRYSTAL-12: PFS 5.5 vs 3.8 months (HR 0.58), OS immature	5.1
+fulzerasib	KRAS	G12C	OFF	Covalent	Pivotal phase 2 (NSCLC, 116 patients, IRRC): ORR 49.1% (95% CI 39.7–58.6); pooled phase 1 (mCRC, G12C-inhibitor-naive): ORR 44.6% (31.3–58.5)	4.2
+garsorasib	KRAS	G12C	OFF	Covalent	Phase 2: ORR 50% (61/123); pooled phase 1/2, n=189: ORR 48.1%, PFS 9.07, OS 14.19 months; grade ≥3 TRAE 49.2%	5.1
+glecirasib	KRAS	G12C	OFF	Covalent	Phase 2b: ORR 47.9% (56/117); CRC: monotherapy 23%, with cetuximab 50% (two separate non-randomised studies of 44 and 46 patients)	4.2 / 5.2
+sosimerasib	KRAS	G12C	OFF	Covalent	NMPA **conditional approval**, February 2026 (approved 2026-02-25, announced 2026-02-28), based on a single-agent phase 2 study: ORR 52.4% (n=145, ChiCTR2200059986); two further phase 3 trials registered, not yet recruiting (monotherapy vs docetaxel; with IN10018 vs chemo-immunotherapy) (Table 2, note 4a)	4.7
+divarasib	KRAS	G12C	OFF	Covalent (with a substantial non-covalent binding component)	Phase 1 (n=65): ORR 55.6%, PFS 13.8 months; phase 3 Krascendo 1 (n=338) vs first generation: PFS HR 0.58, OS HR 0.56; with cetuximab (CRC, n=24) ORR 62.5%	5.1 / 5.2
+olomorasib	KRAS	G12C	OFF	Covalent	No efficacy readout discussed in the review	4.7
+calderasib	KRAS	G12C	OFF	Covalent	No efficacy readout discussed in the review	4.7
+opnurasib	KRAS	G12C	OFF	Covalent	No efficacy readout discussed in the review	4.7
+D3S-001	KRAS	G12C	OFF (GDP-state selective)	Covalent	Phase 1, G12C-inhibitor-naive: ORR 73.5% (25/34, 8–21 patients per cancer type); previously treated NSCLC 30.0% — very small denominators, not set alongside phase 2/3 studies	4.2 / 5.4
+HS-10370	KRAS	G12C	Not stated (corpus: Undisclosed)	Not stated	No efficacy readout discussed in the review (highest phase in the corpus: phase 3)	4.7
+ZG19018	KRAS	G12C	OFF	Not stated (corpus: Undisclosed)	No efficacy readout discussed in the review	4.7
+YL-15293	KRAS	G12C	Not stated (corpus: Undisclosed)	Not stated	No efficacy readout discussed in the review	4.7
+GEC255	KRAS	G12C	Not stated (corpus: Undisclosed)	Not stated	No efficacy readout discussed in the review	4.7
+BI 1823911	KRAS	G12C	OFF	Covalent	No efficacy readout discussed in the review	4.7
+GFH375	KRAS	G12D	ON and OFF (dual state)	Non-covalent	Phase 1, 74 patients (43 pancreatic cancer): pancreatic subgroup ORR 35.1% (13/37), PFS 5.5, OS 9.9 months	5.3
+HRS-4642	KRAS	G12D	— (state not specified in the text)	Non-covalent	With chemotherapy, first line (n=30): ORR 63.3%, grade ≥3 TRAE 90.3% (mainly haematological); with anti-PD-L1 (n=37): ORR 43.2%	5.3
+INCB161734	KRAS	G12D	—	Non-covalent	No efficacy readout discussed in the review	4.7
+JAB-23E73	KRAS	pan-KRAS	ON and OFF (dual state)	Non-covalent	No efficacy readout discussed in the review	4.7
+ZG2001	KRAS	pan-KRAS	Not stated	Non-covalent (the registration title says only "pan-KRAS inhibitor")	No efficacy readout discussed in the review	4.7
+TSN1611	KRAS	G12D	—	Non-covalent	No efficacy readout discussed in the review	4.7
+QTX3034	KRAS	G12D	—	Non-covalent	No efficacy readout discussed in the review	4.7
+MRTX1133	KRAS	G12D	OFF	Non-covalent	Preclinical only: in KPC and other models, multiparametric MRI detected a rise in diffusion-weighted measures 48 hours after dosing, with opposite changes in resistant and responding phases	5.3
+daraxonrasib	pan-RAS	Multi-selective (G12 variants and wild type)	ON	Molecular glue (tri-complex)	RASolute 302 phase 3 (n=500): OS 13.2 vs 6.7 months (HR 0.40); PFS 7.3 vs 3.5; ORR 33.2% vs 11.8%	5.3
+zoldonrasib	KRAS	G12D	ON	Molecular glue (tri-complex)	No efficacy readout discussed in the review	4.7
+elironrasib	KRAS	G12C	ON	Molecular glue (tri-complex)	No efficacy readout discussed in the review	4.7
+setidegrasib	KRAS	G12D	State-independent	Degrader	No efficacy readout discussed in the review	4.7
+ERAS-4001	KRAS	pan-KRAS	—	Non-covalent	No efficacy readout discussed in the review	4.7
+LY4066434	KRAS	pan-KRAS	—	Non-covalent	No efficacy readout discussed in the review	4.7
+BGB-53038	KRAS	pan-KRAS	—	Non-covalent	No efficacy readout discussed in the review	4.7
+BBO-8520	KRAS	G12C	ON and OFF (dual state)	Covalent	No efficacy readout discussed in the review	4.7
+ARV-806	KRAS	G12D	State-independent	Degrader (PROTAC)	No efficacy readout discussed in the review	4.7
+iExosome siG12D	KRAS	G12D (sequence-matched)	Not applicable	RNA therapy (engineered exosomes carrying siRNA)	Phase 1 part (NCT03608631; registered as phase 1/2, dose escalation as phase 1a): MTD not reached, stable disease in some patients; measurable decline in *KRAS* DNA and p-ERK inhibition	5.3
+BI-2865	KRAS	pan-KRAS	OFF	Non-covalent	Preclinical only: a single binder covers multiple *KRAS* alleles and disables oncogenic signalling and tumour growth	4.4
+ADT-007	pan-RAS	pan-RAS	—	Non-covalent	No efficacy readout discussed in the review	4.7
+avutometinib + defactinib	KRAS	Pan-allele (patients selected by mutation, not allele-specific)	Not applicable (does not bind RAS directly)	RAF/MEK molecular glue (clamp) + FAK inhibition (pathway combination)	RAMP 201: ORR 44% (25/57) confirmed by independent radiology review per RECIST 1.1; FDA accelerated approval 2025-05-08 for *KRAS*-mutated recurrent LGSOC	4.1
+sitneprotafib	SHP2 (upstream)	Not applicable (patients selected by genotype)	Not applicable	Allosteric inhibition (upstream node)	As the combination partner of glecirasib: first-line ORR 71% (phase 1/2a); mechanism in 4.5 and 6.5 (paragraph 1)	4.5 / 6.5
+RMC-4630	SHP2 (upstream)	Not applicable	Not applicable	Allosteric inhibition (upstream node)	No drug-specific clinical readout in the review; SHP2 inhibition as an upstream node is discussed in 4.5	4.5
+TNO155	SHP2 (upstream)	Not applicable	Not applicable	Allosteric inhibition (upstream node)	No drug-specific clinical readout in the review; SHP2 inhibition as an upstream node is discussed in 4.5	4.5
+ERAS-601	SHP2 (upstream)	Not applicable	Not applicable	Allosteric inhibition (upstream node)	No drug-specific clinical readout in the review; SHP2 inhibition as an upstream node is discussed in 4.5	4.5
+BBP-398	SHP2 (upstream)	Not applicable	Not applicable	Allosteric inhibition (upstream node)	No drug-specific clinical readout in the review; SHP2 inhibition as an upstream node is discussed in 4.5	4.5
+migoprotafib	SHP2 (upstream)	Not applicable	Not applicable	Allosteric inhibition (upstream node)	No drug-specific clinical readout in the review; SHP2 inhibition as an upstream node is discussed in 4.5	4.5
+BI 1701963	SOS1 (upstream)	Not applicable	Not applicable	Inhibition of nucleotide exchange	No drug-specific clinical readout in the review; SOS1 as "cutting the upstream input" rather than "killing the mutant cell" is discussed in 4.1 (paragraph 3) and 4.5	4.5
+MRTX0902	SOS1 (upstream)	Not applicable	Not applicable	Inhibition of nucleotide exchange	No drug-specific clinical readout in the review; SOS1 as "cutting the upstream input" rather than "killing the mutant cell" is discussed in 4.1 (paragraph 3) and 4.5	4.5
+tipifarnib	Farnesyltransferase (processing step)	HRAS (not active against KRAS)	Not applicable	Inhibition of post-translational modification	Negative: first-line pancreatic cancer OS 193 vs 182 days. Positive: *HRAS*-mutant head and neck squamous cell carcinoma ORR 55%, PFS 5.6, OS 15.4 months (VAF ≥20%)	4.1 / 5.4
+lonafarnib	Farnesyltransferase (processing step)	HRAS	Not applicable	Inhibition of post-translational modification	No efficacy readout discussed in the review; the phase 3 trial in *KRAS*-mutant patients was negative	4.1
+ELI-002	Mutant RAS neoantigens	Multiple G12 alleles	Not applicable	Immune (peptide vaccine)	Immune evidence in 4.6; no drug-specific readout in the review	4.6
+GI-4000	Mutant RAS neoantigens	Multiple alleles	Not applicable	Immune (whole-yeast vaccine)	Immune evidence in 4.6; no drug-specific readout in the review	4.6
+TG01	Mutant RAS neoantigens	Multiple alleles	Not applicable	Immune (peptide vaccine)	Immune evidence in 4.6; no drug-specific readout in the review	4.6
+V941	Mutant KRAS neoantigens	Multiple alleles	Not applicable	Immune (mRNA vaccine)	Immune evidence in 4.6; no drug-specific readout in the review	4.6
+mutant-RAS TCR-T	Mutant RAS neoantigens	Epitopes recognised by the TCR	Not applicable	Immune (adoptive T cells)	The immunogenic basis of mutant RAS: Tran et al. 2015 (4.6); no product-specific readout in the review	4.6
+QTX3544	KRAS	G12V	OFF	Non-covalent	No efficacy readout discussed in the review	4.3
+RMC-5127	KRAS	G12V	ON	Molecular glue (tri-complex)	No efficacy readout discussed in the review	4.3
+GFH276	pan-RAS	pan-RAS	ON	Molecular glue (tri-complex)	No efficacy readout discussed in the review	4.7
+HYP-2090PTSA	KRAS	G12C	Not stated	Not stated (the registration title and review tables say only "KRAS G12C inhibitor")	No efficacy readout discussed in the review	4.7
+DN022150	KRAS	G12D	Not stated	Not stated (the library says only "selective KRAS G12D inhibitor")	No efficacy readout discussed in the review	4.7
+QLC1101	KRAS	G12D	Not stated	Not stated (review tables say only "KRAS G12D inhibitor")	No efficacy readout discussed in the review	4.7
+FMC-376	KRAS	G12C	ON and OFF (dual state)	Covalent	No efficacy readout discussed in the review	4.7

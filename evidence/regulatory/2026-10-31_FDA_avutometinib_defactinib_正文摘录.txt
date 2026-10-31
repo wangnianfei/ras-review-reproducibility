@@ -1,0 +1,81 @@
+来源（三件一手文件，均在 FDA 官方站）：
+ ① 审批历史页存档 2026-10-31_FDA_avutometinib_defactinib_NDA219616_审批历史_en.html
+    https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=219616
+ ② 2025 年首次批准的处方信息（label，2025-05-08 版）
+    https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/219616s000lbl.pdf
+ ③ 加速批准函（appletter）
+    https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2025/219616Orig1s000ltr.pdf
+取用日期：2026-10-31（联网现场取回；本机 temp 里的 PDF 未入库，可按上列 URL 重取）
+取回方式：openFDA `/drug/drugsfda.json` 定 NDA 号与提交行 → 取 ①②③ 原文，PDF 用 pdftotext -layout 转文本后逐字摘录。
+
+【关键判定一：批准日 2025-05-08，加速批准】
+Drugs@FDA 的 NDA 219616 审批历史第一行：
+  05/08/2025  ORIG-1  Approval  Type 1 - New Molecular Entity  PRIORITY; Orphan
+商品名与剂型：AVMAPKI FAKZYNJA CO-PACK (COPACKAGED)，
+  AVUTOMETINIB POTASSIUM（EQ 0.8MG BASE，胶囊）＋ DEFACTINIB HYDROCHLORIDE（EQ 200MG BASE，片）；
+  申办方 VERASTEM INC。
+批准路径不是从「单臂」推定的，批准函（③）第 1 页原字：
+  "We have completed our review of this application. It is approved under accelerated
+   approval pursuant to section 506(c) of the Federal Food, Drug, and Cosmetic Act
+   (FDCA) and 21 CFR 314.510, effective on the date of this letter, for use as
+   recommended in the enclosed agreed-upon labeling."
+批准函抬头标注 "ACCELERATED APPROVAL"。
+
+【关键判定二：适应证原文（label，第 1 节 INDICATIONS AND USAGE）】
+  "AVMAPKI FAKZYNJA CO-PACK is indicated for the treatment of adult patients with KRAS-mutated
+   recurrent low-grade serous ovarian cancer (LGSOC) who have received prior systemic therapy."
+  "This indication is approved under accelerated approval based on tumor response rate and duration of
+   response [see Clinical Studies (14)]. Continued approval for this indication may be contingent upon
+   verification and description of clinical benefit in a confirmatory trial."
+即：KRAS 突变、复发性低级别浆液性卵巢癌、既往接受过系统治疗；以缓解率与缓解持续时间为据。
+HIGHLIGHTS 首页同一句多一个同位语（"a combination of avutometinib and defactinib, each kinase
+inhibitors"）；该页是双栏排版，pdftotext -layout 会把右栏并进同一物理行，逐字核引须只取
+左栏片段（宽度 ≤84 字符）——2026-10-31 已按此核过两句都通过。
+2.1 Patient Selection 另有一句（表2 附注引用）：
+  "An FDA-approved test for the detection of a KRAS mutation in LGSOC for selecting patients for
+   treatment with AVMAPKI FAKZYNJA CO-PACK is not available."
+即本适应证**未附伴随诊断**，KRAS 突变由前瞻性本地检测（NGS 或 PCR）判定（第 14 节原文）。
+
+【关键判定三：疗效人群 57 例，确认 ORR 44%（95% CI 31–58）——不是 37%】
+label 第 14 节 CLINICAL STUDIES 逐字：
+  "The efficacy of AVMAPKI FAKZYNJA CO-PACK was evaluated in RAMP-201 (NCT04625270), an
+   open-label, multicenter study that included 57 adult patients with measurable
+   KRAS-mutated recurrent LGSOC. Patients were required to have received at least one
+   prior systemic therapy, including a platinum-based regimen."
+  "The major efficacy outcome measure was overall response rate (ORR) assessed by blinded
+   independent review committee (BIRC) according to Response Evaluation Criteria in Solid
+   Tumors (RECIST), version 1.1."
+  Table 5 Efficacy Results in RAMP-201（N = 57）：
+    Confirmed Overall Response Rate (95% CI)  44% (31, 58)
+      Complete response  3.5%；Partial response  40%
+    Duration of Response (DoR) Range (months)  3.3, 31.1
+  "The tumor KRAS mutations observed in the 25 responders were A146V, G12D, G12R, G12V,
+   and Q61H."（25／57＝43.9%，与 44% 自洽）
+
+【与督导 2026-10-30 清单的差异：ORR 37% 无出处】
+`grep -n "37"` 对 label 全文只命中不良事件表的百分数（Dyspepsia 2、Dermatitis acneiform
+37、Vitreoretinal disorders 37、Increased alkaline phosphatase 37），**CLINICAL STUDIES
+一节没有 37% 这个缓解率**；批准函全文亦无 37%。上一轮清单把 RAMP 201 论文的
+「115 例受治」与标签的「57 例」当成两套缓解率，实为三项分母：
+  · 115 例：论文 `4.1_BanerjeeSN_2025` 受治人数（表 1 行首 "A total of 115 patients
+    received the go-forward combination regimen"）；
+  · 109 例：可评估人数，全人群确认 ORR 34/109＝31%（95% CI 23–41）；
+  · 57 例：论文 TABLE 2 的 "KRAS mt, n = 57"，确认 ORR 25/57＝44%；**与 label 的
+    57 例是同一群体**（KRAS 突变且可测病灶），故 label 与论文在这一格上一致。
+据此本综述只写「57 例、确认 ORR 44%（95% CI 31–58，BIRC／RECIST 1.1）」，不写 37%。
+
+【关键判定四：确证性研究 RAMP 301，标签与批准函都未点名，出处是论文】
+label 与批准函只写 "a confirmatory trial(s)"，未给试验名。RAMP 301 的名字与登记号见
+库内 `4.1_BanerjeeSN_2025` 原文：
+  "randomized phase 3 study of avutometinib and defactinib versus investigator's ...
+   (RAMP301; ClinicalTrials.gov identifier: NCT06072781)."
+语料 `RAS临床试验注册分析/数据/表1_临床试验总表.csv` 的 NCT06072781 行：acronym
+"RAMP 301"、Phase 3、RANDOMIZED、对照臂含 pegylated liposomal doxorubicin／paclitaxel／
+letrozole／anastrozole（即研究者选择），RECRUITING。表2 的「确证性研究」一栏据此写
+「RAMP 301（Ⅲ期）」，不作「标签点名」之误。
+
+【已核过的旧值】
+此前表2、图9、图10、4.1 与摘要都没有本药（见 `数据核实_督导_20261030.md` 三·1）。
+作者 2026-10-31 裁定纳入获批清单，但**不计入「RAS 直接抑制剂」计数**：avutometinib 是
+RAF/MEK 分子胶（钳制剂），defactinib 是 FAK 抑制剂，两者都不直接结合 RAS；这是以
+KRAS 突变界定适应证的通路联合获批。

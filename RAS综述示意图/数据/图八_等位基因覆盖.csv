@@ -1,0 +1,7 @@
+lane,KRAS G12C,KRAS G12D,KRAS G12V,KRAS G13D,KRAS Q61,NRAS,HRAS,RAS wild-type
+1,full,none,none,none,none,none,none,none
+2,none,full,partial,partial,none,none,none,none
+3,full,full,partial,partial,partial,partial,partial,partial
+4,partial,full,partial,partial,partial,partial,partial,partial
+5,full,full,full,full,partial,full,full,partial
+6,full,full,full,full,full,none,none,partial

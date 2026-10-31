@@ -1,0 +1,30 @@
+Data, figures, tables and documentation
+
+Copyright (c) 2026 Shanghu Wang, Chiyu Sheng, Jian Qi, Nianfei Wang
+
+Except where noted below, the data files (*.csv, *.tsv, *.json), figures
+(*/figures/*), tables (RAS综述表格/), figure legends and documentation
+(README*.md, environment/) in this repository are licensed under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0).
+
+  Summary:   https://creativecommons.org/licenses/by/4.0/
+  Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+You may share and adapt this material for any purpose, including commercially,
+provided you give appropriate credit (cite the article and this repository),
+link to the licence, and indicate if changes were made.
+
+Not covered by this licence — third-party material keeps its own terms:
+
+- Raw downloads in */数据/raw/ and the structure files in RAS基因与蛋白结构/结构文件/
+  are copies of public database records: ClinicalTrials.gov (U.S. public domain),
+  RCSB PDB (CC0), AlphaFold DB (CC BY 4.0), cBioPortal / MSK-IMPACT
+  (cBioPortal terms of use), Ensembl, UniProt and NCBI Gene (free reuse with
+  citation). Data derived from them are offered under CC BY 4.0 to the extent
+  of the authors' own contribution; the terms of the source databases still apply.
+- Documents in evidence/regulatory/ are FDA, EMA, NMPA and PMDA publications,
+  included unchanged so that each regulatory statement can be verified; they
+  remain under the terms of the issuing agency.
+- The verbatim sentences quoted in evidence/图8_节点与边证据.tsv and in the
+  table notes are short excerpts from the cited publications, reproduced for
+  verification; copyright stays with their publishers.
