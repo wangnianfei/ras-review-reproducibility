@@ -117,7 +117,7 @@ def build():
     for r in rows:
         if r['lane'] != cur:
             cur = r['lane']
-            o.write('\n## Lane %s　%s\n\n' % (cur, LANE_NAME[cur]))
+            o.write('\n## Group %s. %s\n\n' % (cur, LANE_NAME[cur]))
             o.write('| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | '
                     'Registered trials | Representative studies and key results | Section |\n')
             o.write('|---|---|---|---|---|---|---|---|---|\n')
@@ -133,7 +133,7 @@ def build():
             'non-small-cell lung cancer; ORR, objective response rate; OS, overall survival; PFS, progression-free '
             'survival; TCR, T-cell receptor; TRAE, treatment-related adverse event; VAF, variant allele frequency.\n')
     o.write('\n---\n\n## Notes to Table 1\n\n')
-    o.write('**1. This table has the same drug set as Figure 9, and therefore the same boundaries.** The coordinate '
+    o.write('**1. This table has the same drug set as Figure 9, and therefore the same boundaries.** Its six groups correspond one to one, and in the same order, to the six lanes of Figure 9 (the table numbers them as groups; a lane is the horizontal track of the figure). The coordinate '
             'system covers only **drugs acting on the RAS protein**, together with its upstream processing and '
             'regulatory nodes and immune strategies against mutant-RAS neoantigens. Gene therapies (siRNA / miRNA / '
             'CRISPR) target the gene and its transcripts rather than the RAS protein and have no conformational state, '
@@ -152,7 +152,7 @@ def build():
     o.write('| avutometinib, defactinib, binimetinib, selumetinib, trametinib, CI-1040 | §4.1, §5.4 | Downstream '
             'kinase inhibitors and a RAF/MEK molecular glue acting below RAS, outside the coordinates; they appear in '
             '§4.1 as evidence from the era of indirect strategies. **Exception**: avutometinib + defactinib is included '
-            '(lane 6) for the reason in note 5 — not because it acts on RAS, but because its indication is defined '
+            '(group 6) for the reason in note 5 — not because it acts on RAS, but because its indication is defined '
             'by *KRAS* mutation and it is approved. |\n')
     o.write('\n**3. A count to verify at the proof stage.** The number of drugs in Figure 9 and in this table is '
             '**computed by the script** and is currently **%d**; the identity and source of each drug added during '
@@ -165,10 +165,10 @@ def build():
             'same molecule, and that registration is one of the 5 trials attributed to JAB-3312 in this review\'s '
             'corpus. **Names follow those published by the manufacturer / FDA**: Jacobio\'s own announcement writes '
             '"Sitneprotafib (JAB-3312)".\n')
-    o.write('\n**5. Avutometinib + defactinib in lane 6 is included by indication, not by mechanism.** Avutometinib is '
+    o.write('\n**5. Avutometinib + defactinib in group 6 is included by indication, not by mechanism.** Avutometinib is '
             'a RAF/MEK molecular glue (clamp) and defactinib a FAK inhibitor; **neither binds RAS directly**, and they '
-            'act downstream of and parallel to RAS — so the combination has **its own lane 6 (downstream pathway '
-            'combination)** rather than lane 5 (upstream nodes and immune strategies). It is in this table because '
+            'act downstream of and parallel to RAS — so the combination has **its own group 6 (downstream pathway '
+            'combination)** rather than group 5 (upstream nodes and immune strategies). It is in this table because '
             'the FDA accelerated approval of 2025-05-08 defines its indication by *KRAS* mutation (*KRAS*-mutated '
             'recurrent LGSOC; see Table 2, note 9). The row label in Figure 9 names the targets in parentheses and '
             'the figure legend explains this.\n')

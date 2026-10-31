@@ -151,7 +151,8 @@ cur = None
 for r in rows:
     if r['lane'] != cur:
         cur = r['lane']
-        out.write('\n## 泳道 %s　%s\n\n' % (cur, LANE_NAME[cur]))
+        out.write('\n## %s、%s\n\n' % ('一二三四五六七八九十'[int(cur) - 1],
+                                      LANE_NAME[cur]))
         out.write('| 药物（代号） | 靶向基因 | 覆盖等位基因 | 构象态 | 机制 | '
                   '最高阶段 | 登记试验数 | 代表研究与关键结果 | 正文 |\n')
         out.write('|---|---|---|---|---|---|---|---|---|\n')
@@ -169,7 +170,9 @@ for r in rows:
         STAGE_CN[r['stage']], r['n_trials'], e['result'], e['section']))
 
 out.write('\n---\n\n## 表1附注\n\n')
-out.write('**一、本表与图9同集合，因此也同边界。**坐标只覆盖**作用于 RAS 蛋白'
+out.write('**一、本表与图9同集合，因此也同边界。**本表的六个分组'
+          '与图9 的六条泳道一一对应、次序相同（本表按序号编组，泳道是图上的横轨）。'
+          '坐标只覆盖**作用于 RAS 蛋白'
           '的药物**，以及其上游加工与调控节点、针对突变 RAS 新抗原的免疫策略。'
           '基因治疗（siRNA／miRNA／CRISPR）靶向的是基因与转录本而非 RAS 蛋白，'
           '构象态对它没有取值，故不入坐标（见 4.7 段一d）；唯一的例外是'
@@ -187,7 +190,7 @@ out.write('| 卡铂、培美曲塞、吉西他滨、白蛋白结合型紫杉醇�
 out.write('| avutometinib、defactinib、binimetinib、selumetinib、trametinib、'
           'CI-1040 | 4.1、5.4 | 下游激酶抑制剂与 RAF/MEK 分子胶，作用点在 RAS '
           '之下，不在坐标内；它们在 4.1 作为「间接策略时代」的证据出现。**例外**：'
-          'avutometinib＋defactinib 本表已收（泳道 6），理由见附注五——不是因为它'
+          'avutometinib＋defactinib 本表已收（第六组），理由见附注五——不是因为它'
           '作用于 RAS，而是因为它的适应证以 *KRAS* 突变界定且已获批准。 |\n')
 out.write('\n**三、一处需要校样核对的计数。**图9与本表的药物数**由本脚本现算**，'
           '当前为 **%d 个**（历次变动：初稿 43 → 补入 D3S-001 为 44 → §九十二 '
@@ -199,7 +202,7 @@ out.write('\n**三、一处需要校样核对的计数。**图9与本表的药�
           '**凡正文或提纲写死这个数，改药后都要回查**'
           '，提纲附录三的图9行与图件清单行各有一处。\n' % (len(lanes), len(lanes)))
 out.write('\n**四、sitneprotafib 的身份已查实（§八十）。**它就是 **JAB-3312**，'
-          '不是另一个分子，因此本表不增行，只把泳道五原有的那一行改写为'
+          '不是另一个分子，因此本表不增行，只把第五组原有的那一行改写为'
           '「sitneprotafib（JAB-3312）」。两个独立来源一致：库内 '
           '`6.3_HendriksLEL_2026_42702211`（Lancet Respir Med 2026，综述）原文写'
           '“plus the SHP2 inhibitor sitneprotafib (JAB-3312), objective”；厂商'
@@ -209,12 +212,12 @@ out.write('\n**四、sitneprotafib 的身份已查实（§八十）。**它就�
           '（用户 2026-10-27 裁定）：加科思（Jacobio）自家公告即写 '
           '「Sitneprotafib（JAB-3312）」，与上述原文一致，此条就此结清，'
           '不再挂「查 WHO INN 名录」。\n')
-out.write('\n**五、泳道 6 里的 avutometinib＋defactinib 是「按适应证收入」，'
+out.write('\n**五、第六组里的 avutometinib＋defactinib 是「按适应证收入」，'
           '不是按机制收入（2026-10-31 作者裁定）。**avutometinib 是 RAF/MEK 分子胶'
           '（钳制剂），defactinib 是 FAK 抑制剂，**两者都不直接结合 RAS**，'
-          '作用点在 RAS 下游与平行链——所以它**单列泳道 6（下游通路联合）**，不放进泳道 5（上游节点与免疫策略）。它进本表是因为 FDA 2025-05-08 的加速批准'
+          '作用点在 RAS 下游与平行链——所以它**单列第六组（下游通路联合）**，不放进第五组（上游节点与免疫策略）。它进本表是因为 FDA 2025-05-08 的加速批准'
           '以 *KRAS* 突变界定适应证（KRAS 突变复发 LGSOC，见表2 附注九）；'
-          '泳道 6 的题名（下游通路联合，不直接结合 RAS）因此与这一行相符，'
+          '第六组的题名（下游通路联合，不直接结合 RAS）因此与这一行相符，'
           '图9 同位置的行标签已在括号里写明靶点，图注另有一句说明。'
           '若日后把它移出坐标，应同时改图9 数据、图注与 4.1。\n')
 
@@ -228,4 +231,4 @@ _gmod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_gmod)
 txt, _n = _gmod.GeneProtein().italicise(out.getvalue(), [])
 io.open(OUT, 'w', encoding='utf-8').write(txt)
-print('已写 表一_药物全景表.md：%d 药 / %d 泳道' % (len(rows), len(LANE_NAME)))
+print('已写 表一_药物全景表.md：%d 药 / %d 组' % (len(rows), len(LANE_NAME)))

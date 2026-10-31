@@ -9,7 +9,7 @@
 > Every value in the "Representative studies and key results" column can be found, with its citation, in the section given; **single-arm response rates are always given with sample size and assessment method**. Where the text gives no readout, the table says so and adds nothing from outside the text. Approval information is in Table 2 and must be re-checked against current labels at the proof stage.
 
 
-## Lane 1　OFF-state covalent inhibitors
+## Group 1. OFF-state covalent inhibitors
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
@@ -31,7 +31,7 @@
 | BI 1823911 | *KRAS* | G12C | OFF | Covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
 | GEC255 | *KRAS* | G12C | Not stated (corpus: Undisclosed) | Not stated | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
 
-## Lane 2　Non-covalent / reversible inhibitors (non-cysteine alleles)
+## Group 2. Non-covalent / reversible inhibitors (non-cysteine alleles)
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
@@ -45,7 +45,7 @@
 | QTX3034 | *KRAS* | G12D | — | Non-covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
 | QTX3544 | *KRAS* | G12V | OFF | Non-covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.3 |
 
-## Lane 3　RAS(ON) tri-complex inhibitors
+## Group 3. RAS(ON) tri-complex inhibitors
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
@@ -55,7 +55,7 @@
 | elironrasib (RMC-6291) | *KRAS* | G12C | ON | Molecular glue (tri-complex) | Phase 1/2 | 4 | No efficacy readout discussed in the review | 4.7 |
 | RMC-5127 | *KRAS* | G12V | ON | Molecular glue (tri-complex) | Phase 1 | 1 | No efficacy readout discussed in the review | 4.3 |
 
-## Lane 4　Degraders and other direct modalities
+## Group 4. Degraders and other direct modalities
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
@@ -72,7 +72,7 @@
 | ADT-007 | pan-*RAS* | pan-*RAS* | — | Non-covalent | Preclinical | 0 | No efficacy readout discussed in the review | 4.7 |
 | BI-2865 | *KRAS* | pan-*KRAS* | OFF | Non-covalent | Preclinical | 0 | Preclinical only: a single binder covers multiple *KRAS* alleles and disables oncogenic signalling and tumour growth | 4.4 |
 
-## Lane 5　Upstream nodes and immune strategies
+## Group 5. Upstream nodes and immune strategies
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
@@ -92,7 +92,7 @@
 | MRTX0902 | SOS1 (upstream) | Not applicable | Not applicable | Inhibition of nucleotide exchange | Phase 1 | 1 | No drug-specific clinical readout in the review; SOS1 as "cutting the upstream input" rather than "killing the mutant cell" is discussed in 4.1 (paragraph 3) and 4.5 | 4.5 |
 | V941 (mRNA-5671) | Mutant *KRAS* neoantigens | Multiple alleles | Not applicable | Immune (mRNA vaccine) | Phase 1 | 1 | Immune evidence in 4.6; no drug-specific readout in the review | 4.6 |
 
-## Lane 6　Downstream pathway combination (does not bind RAS directly)
+## Group 6. Downstream pathway combination (does not bind RAS directly)
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
@@ -104,7 +104,7 @@
 
 ## Notes to Table 1
 
-**1. This table has the same drug set as Figure 9, and therefore the same boundaries.** The coordinate system covers only **drugs acting on the RAS protein**, together with its upstream processing and regulatory nodes and immune strategies against mutant-RAS neoantigens. Gene therapies (siRNA / miRNA / CRISPR) target the gene and its transcripts rather than the RAS protein and have no conformational state, so they are outside the coordinates (see §4.7, paragraph 1d). The one exception is iExosome siG12D, which has human data discussed in §5.3, paragraph 6a; it is listed as an "RNA therapy" with "not applicable" in the conformational-state column.
+**1. This table has the same drug set as Figure 9, and therefore the same boundaries.** Its six groups correspond one to one, and in the same order, to the six lanes of Figure 9 (the table numbers them as groups; a lane is the horizontal track of the figure). The coordinate system covers only **drugs acting on the RAS protein**, together with its upstream processing and regulatory nodes and immune strategies against mutant-RAS neoantigens. Gene therapies (siRNA / miRNA / CRISPR) target the gene and its transcripts rather than the RAS protein and have no conformational state, so they are outside the coordinates (see §4.7, paragraph 1d). The one exception is iExosome siG12D, which has human data discussed in §5.3, paragraph 6a; it is listed as an "RNA therapy" with "not applicable" in the conformational-state column.
 
 **2. Drugs mentioned in the text but not in this table, and why.**
 
@@ -113,10 +113,10 @@
 | ifebemtinib | §6.5, paragraph 4e; Figure 12 (with garsorasib, first-line confirmed ORR 82%) | A FAK inhibitor that neither acts on the RAS protein nor belongs to the upstream input nodes or immune strategies; it is a combination partner, not a RAS-directed drug. |
 | cetuximab, panitumumab | §5.2; §6.5, paragraph 2 | Anti-EGFR antibodies; as above, combination partners. |
 | carboplatin, pemetrexed, gemcitabine, nab-paclitaxel, docetaxel | §5.1, §5.3; §6.5, paragraph 5 | Cytotoxic drugs, used as comparators or combination partners. |
-| avutometinib, defactinib, binimetinib, selumetinib, trametinib, CI-1040 | §4.1, §5.4 | Downstream kinase inhibitors and a RAF/MEK molecular glue acting below RAS, outside the coordinates; they appear in §4.1 as evidence from the era of indirect strategies. **Exception**: avutometinib + defactinib is included (lane 6) for the reason in note 5 — not because it acts on RAS, but because its indication is defined by *KRAS* mutation and it is approved. |
+| avutometinib, defactinib, binimetinib, selumetinib, trametinib, CI-1040 | §4.1, §5.4 | Downstream kinase inhibitors and a RAF/MEK molecular glue acting below RAS, outside the coordinates; they appear in §4.1 as evidence from the era of indirect strategies. **Exception**: avutometinib + defactinib is included (group 6) for the reason in note 5 — not because it acts on RAS, but because its indication is defined by *KRAS* mutation and it is approved. |
 
 **3. A count to verify at the proof stage.** The number of drugs in Figure 9 and in this table is **computed by the script** and is currently **59**; the identity and source of each drug added during revision are recorded in `RAS综述示意图/数据/图八_直接RAS候选.tsv`. **Wherever the text states this number, re-check it after any change to the drug set.**
 
 **4. The identity of sitneprotafib.** It is **JAB-3312**, not a different molecule. Two independent sources agree: Hendriks et al. 2026 (*Lancet Respir Med*, review) writes "plus the SHP2 inhibitor sitneprotafib (JAB-3312), objective"; the manufacturer's public information and ClinicalTrials.gov registration NCT05288205 (phase 1/2a of the glecirasib combination, first-line ORR 71%) refer to the same molecule, and that registration is one of the 5 trials attributed to JAB-3312 in this review's corpus. **Names follow those published by the manufacturer / FDA**: Jacobio's own announcement writes "Sitneprotafib (JAB-3312)".
 
-**5. Avutometinib + defactinib in lane 6 is included by indication, not by mechanism.** Avutometinib is a RAF/MEK molecular glue (clamp) and defactinib a FAK inhibitor; **neither binds RAS directly**, and they act downstream of and parallel to RAS — so the combination has **its own lane 6 (downstream pathway combination)** rather than lane 5 (upstream nodes and immune strategies). It is in this table because the FDA accelerated approval of 2025-05-08 defines its indication by *KRAS* mutation (*KRAS*-mutated recurrent LGSOC; see Table 2, note 9). The row label in Figure 9 names the targets in parentheses and the figure legend explains this.
+**5. Avutometinib + defactinib in group 6 is included by indication, not by mechanism.** Avutometinib is a RAF/MEK molecular glue (clamp) and defactinib a FAK inhibitor; **neither binds RAS directly**, and they act downstream of and parallel to RAS — so the combination has **its own group 6 (downstream pathway combination)** rather than group 5 (upstream nodes and immune strategies). It is in this table because the FDA accelerated approval of 2025-05-08 defines its indication by *KRAS* mutation (*KRAS*-mutated recurrent LGSOC; see Table 2, note 9). The row label in Figure 9 names the targets in parentheses and the figure legend explains this.

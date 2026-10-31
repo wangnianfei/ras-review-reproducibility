@@ -46,7 +46,9 @@ carrying a *RAS* mutation is not the same as depending on it.
 
 ## Figure 9 | Swimlane map of RAS-directed drug classes: mechanism, development stage and allele coverage.
 
-**a**, Agents are grouped into six mechanistic lanes — OFF-state covalent inhibitors;
+**a**, Agents are grouped into six mechanistic lanes (a lane is the horizontal track of a
+swimmer plot; Table 1 numbers the same six as groups, in the same order) — OFF-state
+covalent inhibitors;
 non-covalent or reversible inhibitors of non-cysteine alleles; RAS(ON) tri-complex
 inhibitors built on a cyclophilin A molecular glue; degraders and other direct
 modalities; upstream-node and immune strategies; and, on a lane of its own, a
@@ -142,7 +144,7 @@ no reader takes an approval for a finding. **Only positive milestones are plotte
 twelve of the thirty-three candidates in the data file. Negative results are not drawn - the
 2004 phase 3 trial of an FTI with gemcitabine, the 2004 CI-1040 study, the trametinib
 replication of 2015, SELECT-1 in 2017, and the withdrawal on 1 September 2026 of the
-adagrasib plus cetuximab colorectal indication (section 5.2 and Table 2, note four) - and
+adagrasib plus cetuximab colorectal indication (section 5.2 and Table 2, note 6) - and
 remain documented in sections 4.1 and 5.2, in Table 2 and in the data file. The
 consequence is intended and visible: **the lower lane holds no node before 2021**. It
 records what was approved, not what was tried; for three decades the field tried indirect
