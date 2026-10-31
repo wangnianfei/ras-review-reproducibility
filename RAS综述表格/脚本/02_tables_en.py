@@ -138,7 +138,7 @@ def build():
             'regulatory nodes and immune strategies against mutant-RAS neoantigens. Gene therapies (siRNA / miRNA / '
             'CRISPR) target the gene and its transcripts rather than the RAS protein and have no conformational state, '
             'so they are outside the coordinates (see §4.7, paragraph 1d). The one exception is iExosome siG12D, which '
-            'has human data discussed in §5.3, paragraph 19; it is listed as an "RNA therapy" with "not applicable" '
+            'has human data discussed in §5.3, paragraph 6a; it is listed as an "RNA therapy" with "not applicable" '
             'in the conformational-state column.\n\n')
     o.write('**2. Drugs mentioned in the text but not in this table, and why.**\n\n')
     o.write('| Drug | Where mentioned | Reason for exclusion |\n|---|---|---|\n')
