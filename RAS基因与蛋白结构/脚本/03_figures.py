@@ -403,13 +403,27 @@ def fig1():
 
 
 # =========================================================== Figure 2 ======
+# Manuscript Figure 4. Annotation layout rebuilt 2026-11-01 (author: the
+# explanatory text was neither tidy nor sensibly placed). What changed:
+#   · the six motif labels no longer dangle on leader lines of six different
+#     lengths and angles; they sit in a 3 x 2 grid of swatch + name + range,
+#     left-aligned to the protein bar, in N-to-C reading order;
+#   · 'G domain (aa 1-166)' moved inside the bar, into the empty stretch
+#     between switch II and G4, so it no longer collides with the Q61 arrow;
+#   · the two long diagonal arrows to the HVR and C185 notes are gone: both
+#     notes are now one left-aligned footnote under the residue axis;
+#   · legend trimmed to the two secondary-structure marks (the bar labels
+#     'G domain' and 'HVR' in place) and set on one baseline with the
+#     transcript identifier;
+#   · the floating axis title is dropped — the row label already reads
+#     'KRAS4B protein, 188 aa'.
 def fig2():
     AA = 188
-    H = 104.0
+    H = 82.0
     fig = figure(H)
     ax = axes(fig, 29, 2, W2 - 29 - 3, H - 4)
     ax.set_xlim(-16, AA + 28)
-    ax.set_ylim(-3.45, 4.35)
+    ax.set_ylim(-1.62, 4.45)
     ax.axis('off')
     ex = [e for e in exons(TXS['KRAS4B']) if I(e['coding_len'])]
 
@@ -431,16 +445,13 @@ def fig2():
                     color='white', lw=0.7)
     ax.text(-14, ytop, 'CDS\n567 bp', ha='right', va='center',
             fontsize=FS['axis'], linespacing=1.35)
-    ax.text(AA + 26, ytop + 0.82,
-            GI('KRAS') + ', MANE Select ENST00000311936.8 / NM_004985.5',
-            ha='right', va='bottom', fontsize=FS['anno'], color='#1B4F72')
 
     # 2) straight-edged correspondence band
-    ybot = 1.05
+    ybot, ybar = 2.00, 0.88
     for k, e in enumerate(ex):
         a, b = I(e['codon_first']) - 1, min(I(e['codon_last']), AA)
         ax.add_patch(Polygon([[a, ytop - hh / 2], [b, ytop - hh / 2],
-                              [b, ybot + 0.40], [a, ybot + 0.40]],
+                              [b, ybar], [a, ybar]],
                              closed=True, fc=cols[k], alpha=0.10, ec='none'))
 
     # 3) secondary structure (to residue 166 only)
@@ -464,62 +475,66 @@ def fig2():
             fontsize=FS['axis'], linespacing=1.35)
 
     # 4) protein track
-    yp, ph = 0.02, 0.60
+    yp, ph = 0.58, 0.60
     ax.add_patch(Rectangle((0, yp - ph / 2), 166, ph, fc='#E8EDF1',
                            ec='#111111', lw=0.45))
     ax.add_patch(Rectangle((166, yp - ph / 2), AA - 166, ph, fc=C['hvr'],
                            ec='#111111', lw=0.45, alpha=0.78))
-    ax.text(83, yp + ph / 2 + 0.11, 'G domain (aa 1–166)', ha='center',
-            va='bottom', fontsize=FS['anno'], color='#333333')
     ax.text(177, yp, 'HVR', ha='center', va='center', fontsize=FS['small'],
             color='white', fontweight='bold')
-    MOT = [('G1 / P-loop\n10–17', 10, 17, C['ploop'], 13, -1.30),
-           ('switch I\n30–38', 30, 38, C['sw1'], 34, -1.30),
-           ('G3 DxxG\n57–60', 57, 60, C['g3'], 46, -2.12),
-           ('switch II\n60–76', 60, 76, C['sw2'], 76, -1.30),
-           ('G4 NKxD\n116–119', 116, 119, C['g4'], 117, -1.30),
-           ('G5 SAK\n145–147', 145, 147, C['g5'], 146, -1.30)]
-    for n, a, b, col, lx, ly in MOT:
+    MOT = [('G1 / P-loop', '10–17', 10, 17, C['ploop']),
+           ('switch I', '30–38', 30, 38, C['sw1']),
+           ('G3 DxxG', '57–60', 57, 60, C['g3']),
+           ('switch II', '60–76', 60, 76, C['sw2']),
+           ('G4 NKxD', '116–119', 116, 119, C['g4']),
+           ('G5 SAK', '145–147', 145, 147, C['g5'])]
+    for n, rng, a, b, col in MOT:
         ax.add_patch(Rectangle((a - 1, yp - ph / 2), b - a + 1, ph, fc=col,
                                ec='#111111', lw=LW['edge']))
-        ax.annotate(n, xy=((a + b) / 2, yp - ph / 2), xytext=(lx, ly),
-                    ha='center', va='top', fontsize=FS['anno'], color=col,
-                    linespacing=1.35,
-                    arrowprops=dict(arrowstyle='-', lw=LW['lead'], color=col))
+    # the G domain caption sits in the bar's own empty stretch (77-115)
+    ax.text(96, yp, 'G domain (aa 1–166)', ha='center', va='center',
+            fontsize=FS['anno'], color='#333333')
     ax.text(-14, yp, 'KRAS4B protein\n188 aa (UniProt P01116-2)', ha='right',
             va='center', fontsize=FS['axis'], linespacing=1.35)
 
     for cd, lb in [(12.5, 'G12 / G13'), (61, 'Q61'), (117, 'K117'),
                    (146, 'A146')]:
-        ax.annotate(lb, xy=(cd, yp + ph / 2), xytext=(cd, 0.93), ha='center',
+        ax.annotate(lb, xy=(cd, yp + ph / 2), xytext=(cd, 1.42), ha='center',
                     fontsize=FS['anno'], color=C['hot'], fontweight='bold',
                     arrowprops=dict(arrowstyle='-|>', lw=0.6, color=C['hot'],
                                     shrinkA=0, shrinkB=0, mutation_scale=6))
-    ax.annotate('C185 farnesylation and\ncarboxymethylation (membrane anchor)',
-                xy=(185, yp - ph / 2), xytext=(AA + 24, -2.42), ha='right',
-                va='top', fontsize=FS['anno'], color='#333333', linespacing=1.4,
-                arrowprops=dict(arrowstyle='-|>', lw=LW['lead'], color='#333333',
-                                mutation_scale=6))
-    ax.annotate('HVR (aa 167–188): K175–K180 polybasic stretch,\n'
-                'specific to KRAS4B; KRAS4A is palmitoylated at C180/C181',
-                xy=(176, yp + ph / 2), xytext=(AA + 24, 2.05), ha='right',
-                va='bottom', fontsize=FS['anno'], color='#333333',
-                linespacing=1.4,
-                arrowprops=dict(arrowstyle='-|>', lw=LW['lead'], color='#333333',
-                                mutation_scale=6))
+
+    # 5) residue axis, directly under the bar
+    yax = yp - ph / 2
     for t in range(0, AA + 1, 20):
-        ax.plot([t, t], [yp - ph / 2 - 0.06, yp - ph / 2 - 0.15],
-                color=C['grey'], lw=LW['axis'])
-        ax.text(t, yp - ph / 2 - 0.19, str(t), ha='center', va='top',
+        ax.plot([t, t], [yax - 0.06, yax - 0.15], color=C['grey'],
+                lw=LW['axis'])
+        ax.text(t, yax - 0.19, str(t), ha='center', va='top',
                 fontsize=FS['small'], color=C['grey'])
-    ax.text(AA / 2, -3.3, 'Residue number (KRAS4B, 188 aa)', ha='center',
-            fontsize=FS['axis'], color='#333333')
+
+    # 6) motif read-out: one tidy grid instead of six leader lines
+    COLX, ROWY = (0.0, 66.0, 132.0), (-0.40, -0.80)
+    sw, sh = 4.2, 0.17
+    for i, (n, rng, a, b, col) in enumerate(MOT):
+        x, y = COLX[i % 3], ROWY[i // 3]
+        ax.add_patch(Rectangle((x, y - sh / 2), sw, sh, fc=col, ec='none'))
+        ax.text(x + sw + 2.6, y, '%s  %s' % (n, rng), ha='left', va='center',
+                fontsize=FS['anno'], color='#333333')
+
+    # 7) the two long-arrow notes become one footnote
+    ax.text(0, -1.22, 'HVR (aa 167–188): K175–K180 polybasic stretch, specific '
+            'to KRAS4B; KRAS4A is palmitoylated at C180/C181.', ha='left',
+            va='top', fontsize=FS['small'], color='#333333')
+    ax.text(0, -1.48, 'C185 farnesylation and carboxymethylation anchor the '
+            'protein to the membrane.', ha='left', va='top',
+            fontsize=FS['small'], color='#333333')
+
     h = [Rectangle((0, 0), 1, 1, fc=C['helix'], label='α-helix'),
-         Rectangle((0, 0), 1, 1, fc=C['strand'], label='β-strand'),
-         Rectangle((0, 0), 1, 1, fc='#E8EDF1', ec='#111111', lw=LW['edge'],
-                   label='G domain'),
-         Rectangle((0, 0), 1, 1, fc=C['hvr'], label='Hypervariable region')]
-    ax.legend(handles=h, loc='upper left', bbox_to_anchor=(0.005, 1.0), ncol=4)
+         Rectangle((0, 0), 1, 1, fc=C['strand'], label='β-strand')]
+    ax.legend(handles=h, loc='upper left', bbox_to_anchor=(0.0, 1.005), ncol=2)
+    ax.text(AA + 28, 4.18,
+            GI('KRAS') + ', MANE Select ENST00000311936.8 / NM_004985.5',
+            ha='right', va='center', fontsize=FS['anno'], color='#1B4F72')
     save(fig, 'Fig2_gene_to_protein_map')
 
 
