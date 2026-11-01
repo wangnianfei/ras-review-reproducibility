@@ -183,9 +183,11 @@ from the same Figure 9 data and the English text in `数据/表一_补充列_en.
 script imports the gene/protein typography rules from
 `RAS综述原始文献/RAG/脚本/辅助/geneprotein.py`, shipped at the same relative path.
 The tables and figure legends in this repository have the project's internal working notes
-(decision dates, local archive paths, revision logs) removed by
-`RAS综述原始文献/RAG/脚本/辅助/traces.py`, the same rules used for the manuscript;
-`reproduce.sh` applies it to the regenerated Table 1 before verification.
+(decision dates, local archive paths, revision logs, and a few notes that are entirely decision
+records) removed by `RAS综述原始文献/RAG/脚本/辅助/traces.py`, the same rules used for the
+manuscript; table notes are then renumbered and every cross-reference to them updated.
+`RAS综述表格/数据/表注重排.tsv` records the old→new note numbers, and `reproduce.sh` uses it
+when it strips the regenerated Table 1 before verification.
 
 ### Figure 10: sixty-year timeline — `RAS综述示意图/`
 

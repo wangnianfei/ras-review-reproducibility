@@ -1,11 +1,9 @@
 # Figure legends (schematic figures of the review)
 
-Prepared 20 October 2026 (Figures 9 and 12 redrawn as a swimlane map and a matrix
-heatmap on 30 October 2026). These figures are schematics and carry no measured
+Prepared 20 October 2026. These figures are schematics and carry no measured
 quantities of their own: Figure 9 carries only trial counts (the right-hand track),
 Figure 12 only the two published detection rates, and Figure 10 only years. The trial
-counts come from the
-ClinicalTrials.gov corpus assembled for this review (REST API v2, snapshot of
+counts come from trial registration dataset assembled for this review from ClinicalTrials.gov (REST API v2, snapshot of
 20 October 2026; 1 133 RAS-related interventional oncology trials; see
 `RAS临床试验注册分析`). Regulatory status was checked against the
 approving agencies' own announcements. Source files: `figures/Fig*.pdf` (vector,
@@ -54,7 +52,7 @@ inhibitors built on a cyclophilin A molecular glue; degraders and other direct
 modalities; upstream-node and immune strategies; and, on a lane of its own, a
 downstream pathway combination that does not bind RAS at all. Each agent is drawn as a
 horizontal bar that starts at preclinical development and ends at the highest stage it
-has reached in the 1 133-trial ClinicalTrials.gov corpus, read from the phase field each
+has reached in the 1 133-trial ClinicalTrials.gov dataset, read from the phase field each
 registration reports (Phase 1/Phase 2 counts as phase 1/2, not as phase 2); the marker at the end of the
 bar gives the highest status reached at that stage — filled diamond, at least one
 regulatory approval; open circle, in clinical trials; triangle, preclinical only. The
@@ -62,26 +60,23 @@ numbers on the right-hand track are how many of those trials list that agent, so
 measure registered development activity, not efficacy.
 
 **What the map includes.** Lanes 1–4 (agents that act on RAS itself: inhibitors, molecular glues
-and degraders) are meant to be complete: every agent in the corpus that has a registered trial and
+and degraders) are meant to be complete: every agent in the dataset that has a registered trial and
 whose identity as a direct RAS inhibitor, degrader or molecular glue can be documented is accounted
-for, either on the map or in `数据/图八_直接RAS候选.tsv`. An agent is drawn only if the corpus
-records a stage of phase 1/2 or higher, or if the library holds a published clinical readout; the
+for, either on the map or in `数据/图八_直接RAS候选.tsv`. An agent is drawn only if the dataset
+records a stage of phase 1/2 or higher, or if a published clinical readout is cited in this review; the
 remaining 28 agents are listed in that file (25 are phase 1 only, or appear only in review
-tables and have no trial in the corpus, with no published readout; LY3499446 is registered in
-the corpus as phase 2 but was discontinued; and 2, HRS-2329 and RNK08954, have no modality
+tables and have no trial in the dataset, with no published readout; LY3499446 is registered in
+the dataset as phase 2 but was discontinued; and 2, HRS-2329 and RNK08954, have no modality
 recorded and no clinical readout, so they are listed but not drawn),
 and 12 further codes whose target identity could not be verified are kept in the same file but are
-neither drawn nor counted. Lanes 5 and 6 remain representative selections, not complete sets. **How completeness is checked
-(from 31 October 2026)**: lanes 1-4 are swept exhaustively in two directions — (i) every intervention
-name in the 1 133-trial corpus is split out, chemotherapy, antibodies, checkpoint inhibitors, vaccines
+neither drawn nor counted. Lanes 5 and 6 remain representative selections, not complete sets. **How completeness is checked**: lanes 1-4 are swept exhaustively in two directions — (i) every intervention
+name in the 1 133-trial dataset is split out, chemotherapy, antibodies, checkpoint inhibitors, vaccines
 and known MEK/*EGFR*/SHP2/SOS1 agents are removed, and each remaining code is searched for an
-identity sentence in all 518 documents of the library; (ii) the drug tables of three reviews in the
-library (Ebright et al. 2025 Table 1, Wu et al. 2026 and Riedl et al. 2026) are read row by row for
-codes and targets and checked against the corpus. Both directions are re-runnable through
-`RAS综述示意图/脚本/05_scan_direct_ras_candidates.py`; the corpus `target_class` field is no longer
+identity sentence in all 518 full-text documents collected for this review; (ii) the drug tables of three reviews cited in this review (Ebright et al. 2025 Table 1, Wu et al. 2026 and Riedl et al. 2026) are read row by row for
+codes and targets and checked against the dataset. Both directions were swept by script against the full-text documents collected for this review (not distributed, for copyright reasons); the dataset `target_class` field is no longer
 used, because it classifies direct RAS agents such as FMC-376, HYP-2090PTSA and BEBT-607 as
 Not RAS-directed. Lane
-assignment follows the mechanism recorded in the corpus; for the G12C agents whose conformational
+assignment follows the mechanism recorded in the dataset; for the G12C agents whose conformational
 state and chemistry are not stated there (HS-10370, YL-15293, GEC255), the allele they target is used
 to place them in lane 1, as noted row by row in the candidate file. pan-*KRAS* and pan-RAS inhibitors
 are always drawn in lane 4 (LY4066434, BGB-53038, ERAS-4001, JAB-23E73 and ZG2001 sit together),
@@ -91,7 +86,7 @@ sotorasib (FDA 2021), adagrasib (FDA 2022), fulzerasib (NMPA August 2024), garso
 (NMPA November 2024), glecirasib (NMPA May 2025) and sosimerasib (HBI-2438/JMKX001899,
 NMPA February 2026, conditional approval), all six for *KRAS* G12C-mutant non-small-cell
 lung cancer; sosimerasib was approved on a single-arm phase 2 study (145 patients, ORR
-52.4%), and because the library papers predate the approval the bar still stops at phase 3
+52.4%), and because the cited papers predate the approval the bar still stops at phase 3
 while the tip carries a filled diamond; GH35 is a different molecule and is not counted
 here; daraxonrasib (FDA, 26 August 2026) for
 previously treated metastatic pancreatic adenocarcinoma — the first approval in the
@@ -114,7 +109,7 @@ rather than from binding: the FDA indication requires any *KRAS* mutation and no
 particular allele, so the five *KRAS* alleles are fully covered; wild-type RAS is only
 partly covered, since the *KRAS* wild-type cohort of RAMP 201 responded at 17% against
 44% in the *KRAS*-mutant cohort; and *NRAS* and *HRAS* are not covered, as no clinical
-data in this corpus address the combination in *NRAS*- or *HRAS*-mutant tumours. *KRAS* G12C is
+data in this dataset address the combination in *NRAS*- or *HRAS*-mutant tumours. *KRAS* G12C is
 reached by five of the six lanes (1, 3, 4, 5 and 6); lane 2, which admits single-allele
 agents only, covers G12D (dark) and G12V and G13D (pale) but not G12C, its two
 pan-*KRAS* inhibitors (JAB-23E73, ZG2001) having been placed in lane 4 by target class;
@@ -187,39 +182,3 @@ them is not a trend, nor is it a tissue-versus-plasma contrast: the axis title s
 the two denominators do not convert into each other. On the 45% side the arithmetic
 complement is the point: in that cohort more than half the patients had no attributable
 acquired alteration at all.
-
----
-
-## Notes for the figure captions in the final manuscript
-
-1. Figure 8 is a synthesis schematic: every node and every feedback arrow must be
-   supported by the primary references cited in review sections 3.1–3.5, and the caption
-   in the manuscript should cite them rather than a review.
-2. The drug-class tags in Figure 8 and the lanes in Figure 9 must stay consistent with
-   the four-dimensional classification of section 4.7 (gene — allele range —
-   conformational state — mechanism) and with the master drug table; no agent may appear
-   in a figure and be missing from the table.
-3. Trial counts in Figure 9 are reproducible from
-   `RAS临床试验注册分析/数据/表1_临床试验总表.csv`; state the snapshot date
-   (20 October 2026) wherever they are quoted, and note that 2026 is an incomplete year.
-4. An agent's bar ends at the highest stage it has reached in that corpus, and the
-   marker at its end gives the highest status reached at that stage; a drug tested only
-   inside a combination trial is counted for that trial as well, so the counts are
-   activity measures and are not mutually exclusive.
-5. Regulatory statements must be rechecked at proof stage: this field changes within
-   months, and the figure is explicitly dated.
-6. Figure 10's six stages are an induction by this review and must be presented as such;
-   its stage rail beneath the axis is a label for those stages, not a band scaled in years
-   (the true-scale strip at the top carries the years). Only positive milestones are
-   plotted - negative results stay in the text and in the data file, where the full
-   candidate list with the citing section for every node is kept.
-7. Figure 12 departs from the original plan in two ways, both recorded in appendix
-   three of the outline: the combination logics number **five**, not four
-   (section 6.5 gained a fifth in the course of writing), and the matrix is not the
-   composition pie first sketched. No study in the corpus reports a ctDNA
-   resistance-mechanism composition for KRAS inhibitors, and section 6.3 forbids
-   reading either published detection rate as a universal one; a pie would have
-   required numbers nobody published. Which square is filled is the review's own
-   judgement and tracks the prose paragraph by paragraph.
-8. Figures 9, 11 and 12 contain no Chinese and no figure title, in the same style as
-   Figures 7 and 8; gene symbols are italic and protein names roman.

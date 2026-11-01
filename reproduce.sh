@@ -60,7 +60,7 @@ step "Table 1, Chinese and English (generated from the Figure 9 data); number ch
 (cd RAS综述表格 && python3 脚本/01_build_table1.py && python3 脚本/02_tables_en.py)
 
 step "Remove internal working notes from the regenerated tables (same rules as the shipped tables)"
-python3 RAS综述原始文献/RAG/脚本/辅助/traces.py RAS综述表格/表一_药物全景表.md RAS综述表格/英文版/Table1_RAS-directed_drug_landscape.md
+python3 RAS综述原始文献/RAG/脚本/辅助/traces.py --map RAS综述表格/数据/表注重排.tsv RAS综述表格/表一_药物全景表.md RAS综述表格/英文版/Table1_RAS-directed_drug_landscape.md
 
 step "Compare with the committed versions"
 python3 verify.py

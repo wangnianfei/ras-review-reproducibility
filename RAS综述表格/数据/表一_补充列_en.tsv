@@ -55,6 +55,6 @@ QTX3544	KRAS	G12V	OFF	Non-covalent	No efficacy readout discussed in the review	4
 RMC-5127	KRAS	G12V	ON	Molecular glue (tri-complex)	No efficacy readout discussed in the review	4.3
 GFH276	pan-RAS	pan-RAS	ON	Molecular glue (tri-complex)	No efficacy readout discussed in the review	4.7
 HYP-2090PTSA	KRAS	G12C	Not stated	Not stated (the registration title and review tables say only "KRAS G12C inhibitor")	No efficacy readout discussed in the review	4.7
-DN022150	KRAS	G12D	Not stated	Not stated (the library says only "selective KRAS G12D inhibitor")	No efficacy readout discussed in the review	4.7
+DN022150	KRAS	G12D	Not stated	Not stated (the cited literature says only "selective KRAS G12D inhibitor")	No efficacy readout discussed in the review	4.7
 QLC1101	KRAS	G12D	Not stated	Not stated (review tables say only "KRAS G12D inhibitor")	No efficacy readout discussed in the review	4.7
 FMC-376	KRAS	G12C	ON and OFF (dual state)	Covalent	No efficacy readout discussed in the review	4.7

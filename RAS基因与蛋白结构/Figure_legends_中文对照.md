@@ -1,6 +1,6 @@
 # 图注（中文对照版）
 
-本文件是 `Figure_legends.md` 的逐条中译，**仅供对照与讨论，投稿时请用英文版**；两份文件的段落顺序、面板字母、数字完全一一对应。
+本文件是 `Figure_legends.md` 的逐条中译；两份文件的段落顺序、面板字母、数字完全一一对应。
 
 生成于 2026 年 10 月 20 日。所有面板均由当日实时检索的一手数据库记录生成（NCBI Gene、Ensembl GRCh38、UniProt、RCSB PDB、AlphaFold DB v6、cBioPortal），无一数值取自二手文献。源文件：`figures/Fig*.pdf`（矢量，文字可编辑）、`figures/Fig*.svg`（矢量，供 Illustrator/Inkscape）、`figures/Fig*.png`（400 dpi，仅供预览）。底层数据见 `数据/表1–表7`。
 
@@ -36,7 +36,7 @@ KRAS 处于 GDP 结合（失活）态的光线追踪 cartoon 渲染（PDB 4OBE�
 
 **a–c**，MSK-IMPACT 临床测序队列（10 945 例肿瘤；Zehir 等，*Nat. Med.* 2017）中 *KRAS*（**a**）、*NRAS*（**b**）、*HRAS*（**c**）的 lollipop 图。每根竖线代表一个残基，其高度与圆点面积给出在该残基携带突变的样本数；红色菱形为经典热点密码子（12、13、61、117、146），蓝色圆形为其余密码子；热点同时以**形状**与颜色两种编码区分，不单依赖颜色。标签给出该热点上最常见的三种氨基酸改变、样本数及其占该基因全部突变的百分比。各图下方的色条对应图4 所定义的蛋白区段。三条基因的突变压力都极度集中，但落点不同：*KRAS* 突变的 77% 位于密码子 12，而 *NRAS* 与 *HRAS* 以密码子 61 为主（分别为 66% 与 38%；均按突变记录数计，按患者去重时 *HRAS* 为 39%，复算脚本见公开复现包）。须注意该队列是富集晚期病例的靶向 panel 队列，上述百分比描述的是送检队列，不能作为人群发病率的估计。
 
-## 定稿图注时的注意事项
+## 引用与方法说明
 
 1. 图中出现的每个 PDB 条目都须同时引用数据库与原始解析论文：4OBE 与 4LDJ（Hunter 等，*PNAS* 2014）、5VQ2（*Acta Crystallogr. D* 2017）、6OIM（Canon 等，*Nature* 2019）、6GJ8（Kessler 等，*PNAS* 2019）、7RPZ（Wang 等，*J. Med. Chem.* 2022）、5P21（Pai 等，*EMBO J.* 1990）、4Q21（Milburn 等，*Science* 1990）、1WQ1（Scheffzek 等，*Science* 1997）、3CON（未发表）。
 2. AlphaFold 模型须引 Jumper 等，*Nature* 2021 并同时引 AlphaFold DB 的数据库文献，且注明模型版本（v6）。

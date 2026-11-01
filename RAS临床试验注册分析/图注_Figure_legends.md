@@ -1,8 +1,6 @@
 # Figure legends — global landscape of RAS-related oncology trials
 
-Nature-style legends. English version is what goes to the journal; the Chinese
-version below is a working translation for proof-reading only and must not be
-submitted. Figure files carry no title and no Chinese text: every word that
+Nature-style legends, with a Chinese translation below. Figure files carry no title and no Chinese text: every word that
 describes the figure lives here.
 
 ---
@@ -27,7 +25,7 @@ trial relates to *RAS*: RAS-targeted, the investigational agent acts on the RAS
 protein itself; RAS-regulator-targeted, the agent acts on SOS1, SHP2 or protein
 farnesylation; RAS-biomarker-selected, *RAS* genotype governs eligibility or
 stratification while the agent is directed elsewhere; RAS-mentioned, *RAS* is
-referred to but is neither target nor selection criterion. **Coverage limitation.** The corpus is drawn from ClinicalTrials.gov only. Studies registered
+referred to but is neither target nor selection criterion. **Coverage limitation.** The dataset is drawn from ClinicalTrials.gov only. Studies registered
 solely with the Chinese regulator or on ChiCTR — for example the phase 2 monotherapy study of
 sosimerasib under ChiCTR2200059986 — are therefore absent, and the share of trials sponsored
 from China is understated by this map. Data were harvested
@@ -51,7 +49,7 @@ documentation.
 ---
 ---
 
-# 中文对照（仅供校对，不用于投稿）
+# 中文对照
 
 ## 图11 ｜ ClinicalTrials.gov 登记的 RAS 相关恶性肿瘤临床试验的全球分布
 
@@ -61,7 +59,3 @@ documentation.
 `数据/表1_临床试验总表.csv`（记录级）、`表3_国家分布.csv`（a、b 面板）、
 `表4_国家×首次登记年份.csv`（c 面板）、`表13_国家名_地图多边形对照.csv`（国名—地图多边形对照）。
 
-### 排版注意
-- 图内一律英文、无图题，面板字母为小写粗体 a–d；若改投 Science，需整批改为大写 (A)–(D)。
-- 基因名 *RAS*/*KRAS* 用斜体，蛋白名 RAS 用正体；本图注已按此处理，正文引用时请沿用。
-- 正文凡引用本图数字，须与 `summary.json` 一致；更新数据后先重跑脚本再改正文。

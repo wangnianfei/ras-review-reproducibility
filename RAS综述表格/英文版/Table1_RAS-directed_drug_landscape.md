@@ -37,7 +37,7 @@
 
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
-| DN022150 | *KRAS* | G12D | Not stated | Not stated (the library says only "selective *KRAS* G12D inhibitor") | Phase 3 | 2 | No efficacy readout discussed in the review | 4.7 |
+| DN022150 | *KRAS* | G12D | Not stated | Not stated (the cited literature says only "selective *KRAS* G12D inhibitor") | Phase 3 | 2 | No efficacy readout discussed in the review | 4.7 |
 | GFH375 (VS-7375) | *KRAS* | G12D | ON and OFF (dual state) | Non-covalent | Phase 3 | 11 | Phase 1, 74 patients (43 pancreatic cancer): pancreatic subgroup ORR 35.1% (13/37), PFS 5.5, OS 9.9 months | 5.3 |
 | HRS-4642 | *KRAS* | G12D | — (state not specified in the text) | Non-covalent | Phase 3 | 19 | With chemotherapy, first line (n=30): ORR 63.3%, grade ≥3 TRAE 90.3% (mainly haematological); with anti-PD-L1 (n=37): ORR 43.2% | 5.3 |
 | INCB161734 | *KRAS* | G12D | — | Non-covalent | Phase 3 | 5 | No efficacy readout discussed in the review | 4.7 |
