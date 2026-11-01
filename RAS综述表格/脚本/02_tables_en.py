@@ -113,14 +113,15 @@ def build():
             'in the section given; **single-arm response rates are always given with sample size and assessment '
             'method**. Where the text gives no readout, the table says so and adds nothing from outside the text. '
             'Approval information is in Table 2.\n\n')
+    # 一张表，不是六张（与中文版同改）：表头只出现一次，组名写成横跨整行的分组行
+    o.write('| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | '
+            'Registered trials | Representative studies and key results | Section |\n')
+    o.write('|---|---|---|---|---|---|---|---|---|\n')
     cur = None
     for r in rows:
         if r['lane'] != cur:
             cur = r['lane']
-            o.write('\n## Group %s. %s\n\n' % (cur, LANE_NAME[cur]))
-            o.write('| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | '
-                    'Registered trials | Representative studies and key results | Section |\n')
-            o.write('|---|---|---|---|---|---|---|---|---|\n')
+            o.write('| **Group %s. %s** | | | | | | | | |\n' % (cur, LANE_NAME[cur]))
         e = en[r['drug']]
         code = ' / '.join(p.strip() for p in re.split(r'[;；]', r['code']) if p.strip())
         name = r['drug'] + (' (%s)' % code if code else '')

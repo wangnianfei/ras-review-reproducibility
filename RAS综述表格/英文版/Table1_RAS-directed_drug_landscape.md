@@ -10,11 +10,9 @@
 >
 > Every value in the "Representative studies and key results" column can be found, with its citation, in the section given; **single-arm response rates are always given with sample size and assessment method**. Where the text gives no readout, the table says so and adds nothing from outside the text. Approval information is in Table 2.
 
-
-## Group 1. OFF-state covalent inhibitors
-
 | Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
 |---|---|---|---|---|---|---|---|---|
+| **Group 1. OFF-state covalent inhibitors** | | | | | | | | |
 | adagrasib (MRTX849) | *KRAS* | G12C | OFF | Covalent | Approved | 35 | KRYSTAL-1: ORR 42.9% (48/112, patients with measurable disease); KRYSTAL-12: PFS 5.5 vs 3.8 months (HR 0.58), OS immature | 5.1 |
 | fulzerasib (IBI351 / GFH925) | *KRAS* | G12C | OFF | Covalent | Approved | 11 | Pivotal phase 2 (NSCLC, 116 patients, IRRC): ORR 49.1% (95% CI 39.7–58.6); pooled phase 1 (mCRC, G12C-inhibitor-naive): ORR 44.6% (31.3–58.5) | 4.2 |
 | garsorasib (D-1553) | *KRAS* | G12C | OFF | Covalent | Approved | 12 | Phase 2: ORR 50% (61/123); pooled phase 1/2, n=189: ORR 48.1%, PFS 9.07, OS 14.19 months; grade ≥3 TRAE 49.2% | 5.1 |
@@ -32,11 +30,7 @@
 | ZG19018 | *KRAS* | G12C | OFF | Not stated (dataset: Undisclosed) | Phase 1/2 | 1 | No efficacy readout discussed in the review | 4.7 |
 | BI 1823911 | *KRAS* | G12C | OFF | Covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
 | GEC255 | *KRAS* | G12C | Not stated (dataset: Undisclosed) | Not stated | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
-
-## Group 2. Non-covalent / reversible inhibitors (non-cysteine alleles)
-
-| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
-|---|---|---|---|---|---|---|---|---|
+| **Group 2. Non-covalent / reversible inhibitors (non-cysteine alleles)** | | | | | | | | |
 | DN022150 | *KRAS* | G12D | Not stated | Not stated (the cited literature says only "selective *KRAS* G12D inhibitor") | Phase 3 | 2 | No efficacy readout discussed in the review | 4.7 |
 | GFH375 (VS-7375) | *KRAS* | G12D | ON and OFF (dual state) | Non-covalent | Phase 3 | 11 | Phase 1, 74 patients (43 pancreatic cancer): pancreatic subgroup ORR 35.1% (13/37), PFS 5.5, OS 9.9 months | 5.3 |
 | HRS-4642 | *KRAS* | G12D | — (state not specified in the text) | Non-covalent | Phase 3 | 19 | With chemotherapy, first line (n=30): ORR 63.3%, grade ≥3 TRAE 90.3% (mainly haematological); with anti-PD-L1 (n=37): ORR 43.2% | 5.3 |
@@ -46,21 +40,13 @@
 | MRTX1133 | *KRAS* | G12D | OFF | Non-covalent | Phase 1 | 1 | Preclinical only: in KPC and other models, multiparametric MRI detected a rise in diffusion-weighted measures 48 hours after dosing, with opposite changes in resistant and responding phases | 5.3 |
 | QTX3034 | *KRAS* | G12D | — | Non-covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
 | QTX3544 | *KRAS* | G12V | OFF | Non-covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.3 |
-
-## Group 3. RAS(ON) tri-complex inhibitors
-
-| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
-|---|---|---|---|---|---|---|---|---|
+| **Group 3. RAS(ON) tri-complex inhibitors** | | | | | | | | |
 | daraxonrasib (RMC-6236) | pan-*RAS* | Multi-selective (G12 variants and wild type) | ON | Molecular glue (tri-complex) | Approved | 18 | RASolute 302 phase 3 (n=500): OS 13.2 vs 6.7 months (HR 0.40); PFS 7.3 vs 3.5; ORR 33.2% vs 11.8% | 5.3 |
 | zoldonrasib (RMC-9805) | *KRAS* | G12D | ON | Molecular glue (tri-complex) | Phase 3 | 8 | No efficacy readout discussed in the review | 4.7 |
 | GFH276 | pan-*RAS* | pan-*RAS* | ON | Molecular glue (tri-complex) | Phase 2 | 4 | No efficacy readout discussed in the review | 4.7 |
 | elironrasib (RMC-6291) | *KRAS* | G12C | ON | Molecular glue (tri-complex) | Phase 1/2 | 4 | No efficacy readout discussed in the review | 4.7 |
 | RMC-5127 | *KRAS* | G12V | ON | Molecular glue (tri-complex) | Phase 1 | 1 | No efficacy readout discussed in the review | 4.3 |
-
-## Group 4. Degraders and other direct modalities
-
-| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
-|---|---|---|---|---|---|---|---|---|
+| **Group 4. Degraders and other direct modalities** | | | | | | | | |
 | setidegrasib (ASP3082) | *KRAS* | G12D | State-independent | Degrader | Phase 3 | 4 | No efficacy readout discussed in the review | 4.7 |
 | ARV-806 | *KRAS* | G12D | State-independent | Degrader (PROTAC) | Phase 1/2 | 1 | No efficacy readout discussed in the review | 4.7 |
 | FMC-376 | *KRAS* | G12C | ON and OFF (dual state) | Covalent | Phase 1/2 | 1 | No efficacy readout discussed in the review | 4.7 |
@@ -73,11 +59,7 @@
 | LY4066434 | *KRAS* | pan-*KRAS* | — | Non-covalent | Phase 1 | 1 | No efficacy readout discussed in the review | 4.7 |
 | ADT-007 | pan-*RAS* | pan-*RAS* | — | Non-covalent | Preclinical | 0 | No efficacy readout discussed in the review | 4.7 |
 | BI-2865 | *KRAS* | pan-*KRAS* | OFF | Non-covalent | Preclinical | 0 | Preclinical only: a single binder covers multiple *KRAS* alleles and disables oncogenic signalling and tumour growth | 4.4 |
-
-## Group 5. Upstream nodes and immune strategies
-
-| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
-|---|---|---|---|---|---|---|---|---|
+| **Group 5. Upstream nodes and immune strategies** | | | | | | | | |
 | lonafarnib (SCH66336) | Farnesyltransferase (processing step) | *HRAS* | Not applicable | Inhibition of post-translational modification | Phase 3 | 21 | No efficacy readout discussed in the review; the phase 3 trial in *KRAS*-mutant patients was negative | 4.1 |
 | sitneprotafib (JAB-3312) | SHP2 (upstream) | Not applicable (patients selected by genotype) | Not applicable | Allosteric inhibition (upstream node) | Phase 3 | 5 | As the combination partner of glecirasib: first-line ORR 71% (phase 1/2a); mechanism in 4.5 and 6.5 | 4.5 / 6.5 |
 | tipifarnib (R115777) | Farnesyltransferase (processing step) | *HRAS* (not active against *KRAS*) | Not applicable | Inhibition of post-translational modification | Phase 3 | 82 | Negative: first-line pancreatic cancer OS 193 vs 182 days. Positive: *HRAS*-mutant head and neck squamous cell carcinoma ORR 55%, PFS 5.6, OS 15.4 months (VAF ≥20%) | 4.1 / 5.4 |
@@ -93,11 +75,7 @@
 | migoprotafib (RLY-1971) | SHP2 (upstream) | Not applicable | Not applicable | Allosteric inhibition (upstream node) | Phase 1 | 1 | No drug-specific clinical readout in the review; SHP2 inhibition as an upstream node is discussed in 4.5 | 4.5 |
 | MRTX0902 | SOS1 (upstream) | Not applicable | Not applicable | Inhibition of nucleotide exchange | Phase 1 | 1 | No drug-specific clinical readout in the review; SOS1 as "cutting the upstream input" rather than "killing the mutant cell" is discussed in 4.1 and 4.5 | 4.5 |
 | V941 (mRNA-5671) | Mutant *KRAS* neoantigens | Multiple alleles | Not applicable | Immune (mRNA vaccine) | Phase 1 | 1 | Immune evidence in 4.6; no drug-specific readout in the review | 4.6 |
-
-## Group 6. Downstream pathway combination (does not bind RAS directly)
-
-| Drug (code) | Target | Alleles covered | Conformational state | Mechanism | Highest phase | Registered trials | Representative studies and key results | Section |
-|---|---|---|---|---|---|---|---|---|
+| **Group 6. Downstream pathway combination (does not bind RAS directly)** | | | | | | | | |
 | avutometinib + defactinib (VS-6766 / VS-6063) | *KRAS* | Pan-allele (patients selected by mutation, not allele-specific) | Not applicable (does not bind RAS directly) | RAF/MEK molecular glue (clamp) + FAK inhibition (pathway combination) | Approved | 14 | RAMP 201: ORR 44% (25/57) confirmed by independent radiology review per RECIST 1.1; FDA accelerated approval 2025-05-08 for *KRAS*-mutated recurrent LGSOC | 4.1 |
 
 > Abbreviations: CRC / mCRC, (metastatic) colorectal cancer; DCR, disease control rate; IRRC, independent radiology review committee; LGSOC, low-grade serous ovarian cancer; MTD, maximum tolerated dose; NSCLC, non-small-cell lung cancer; ORR, objective response rate; OS, overall survival; PFS, progression-free survival; TCR, T-cell receptor; TRAE, treatment-related adverse event; VAF, variant allele frequency.

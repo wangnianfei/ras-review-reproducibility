@@ -4,7 +4,7 @@
 
 > Placed at the end of §5.5. Wide table; set in landscape.
 >
-> **Inclusion criterion**: clinical studies that are actually cited in the text of this review and report end-point results that can be restated; studies mentioned only by registration number, with no readout yet, are listed in the final section ("Registration only, no readout") and are not set alongside studies with readouts.
+> **Inclusion criterion**: clinical studies that are actually cited in the text of this review and report end-point results that can be restated; studies mentioned only by registration number, with no readout yet, are listed in the final group of the table and are not set alongside studies with readouts.
 >
 > **Source of registration numbers**: an NCT number is either taken from the cited text or matched by study acronym in this review's ClinicalTrials.gov trial registration dataset (REST API v2, snapshot of 2026-10-20); where no match was found, the cell says so — **numbers are not inferred by convention**.
 >
@@ -14,10 +14,9 @@
 
 ---
 
-## 1. Non-small-cell lung cancer (*KRAS* G12C)
-
 | Study / NCT | Phase and design | Cancer and allele | Line | Sample size | Main results | Status | Section |
 |---|---|---|---|---|---|---|---|
+| **Group 1. Non-small-cell lung cancer (*KRAS* G12C)** | | | | | | | |
 | CodeBreaK 100 / NCT03600883 | Phase 1–2, single arm | NSCLC, *KRAS* G12C | Previously treated | 126 (response denominator 124) | IRC-confirmed ORR 37.1% (**46/124**, 95% CI 28.6–46.2); PFS **6.8 months** (5.1–8.2); OS 12.5 months; DCR 80.6% | Completed; the whole basis of FDA accelerated approval | 5.1 |
 | CodeBreaK 100 (phase 1 part) / NCT03600883 | Phase 1 dose escalation, solid tumours | Solid tumours, *KRAS* G12C (NSCLC subgroup) | Previously treated | 129 (total), NSCLC subgroup 59 | NSCLC subgroup confirmed ORR 32.2% (19 patients), DCR 88.1% (52 patients); **no dose-limiting toxicity observed, MTD not reached**; 960 mg/day chosen as the expansion dose | Completed | 5.1 |
 | CodeBreaK 200 / NCT04303780 | Phase 3, randomised, open label, **crossover permitted** | NSCLC, *KRAS* G12C | Previously treated | 345 | PFS 5.6 vs 4.5 months (**HR 0.66, 0.51–0.86; P=0.0017**); OS 10.6 vs 11.3 months (**HR 1.01, 0.77–1.33**) | PFS benefit firm; **no OS benefit** (compressed by the crossover design) | 5.1 |
@@ -38,11 +37,7 @@
 | German compassionate-use multicentre review | Retrospective real-world cohort | NSCLC, *KRAS* G12C | Median 2 lines (0–7) | 163 | ORR 38.7%; OS **9.8 months** (6.5–not reached); a quarter with poor performance status, 38% with brain metastases; less benefit with *KEAP1* co-mutation | Reported; response rate reproducible, survival depressed by population composition | 5.1 |
 | Italian expanded-access programme | Retrospective real-world cohort, 30 centres | Advanced NSCLC, *KRAS* G12C | Previously treated | 196 | ORR 26%; PFS 5.8 months; OS 8.2 months; grade ≥3 TRAE 16.5% (mainly liver enzymes) | Reported | 5.5 |
 | First-in-human study of a Chinese G12C inhibitor | Phase 1a / 1b | Solid tumours, *KRAS* G12C | Previously treated | 1a 76 (69 NSCLC) / 1b 100 (97 NSCLC) | Non-lung tumours were under one tenth of the 176 patients; **efficacy by tumour type cannot be interpreted at this sample size** | Reported; used to show that "a basket has no quotas" | 5.4 |
-
-## 2. Colorectal cancer (*KRAS* G12C)
-
-| Study / NCT | Phase and design | Cancer and allele | Line | Sample size | Main results | Status | Section |
-|---|---|---|---|---|---|---|---|
+| **Group 2. Colorectal cancer (*KRAS* G12C)** | | | | | | | |
 | CodeBreaK 300 / NCT05198934 | Phase 3, randomised, three arms (two doses + investigator's choice) | mCRC, *KRAS* G12C | After chemotherapy resistance | 53 / 53 / 54 | PFS 5.6 / 3.9 / 2.2 months; **960 mg group vs standard care HR 0.49 (0.30–0.80), P=0.006; 240 mg group 0.58 (0.36–0.93), P=0.03**; ORR 26.4% / 5.7% / 0% | Completed | 5.2 |
 | CodeBreaK 300 final OS analysis / NCT05198934 | As above, final overall survival analysis | As above | As above | As above | **OS HR 0.70 (95% CI 0.41–1.18), did not cross the multiplicity-adjusted prespecified threshold of 0.01875**; median OS not reached in the 960 mg group, 11.9 months in the 240 mg group, 10.3 months in the control group | Reported; the accurate wording is "**did not reach prespecified significance**" | 5.2 / 6.5 |
 | KRYSTAL-1 colorectal combination cohort / NCT03785249 | Phase 1/2, single arm, non-randomised | mCRC, *KRAS* G12C; adagrasib + cetuximab | Previously treated | 94 (28 early) | **BICR-confirmed ORR 34.0% (24.6–44.5)**; investigator-assessed 42.6%; PFS 6.9 months; OS 15.9 months | Reported; the two readouts are **different assessment methods**, not two conflicting studies | 5.2 |
@@ -51,11 +46,7 @@
 | divarasib + cetuximab | Phase 1 dose finding and expansion cohort | mCRC, *KRAS* G12C | **G12C-inhibitor-naive** | 24 | ORR 62.5% (95% CI 40.6–81.2), median DOR 6.9 months, median PFS 8.1 months | Reported; **better baseline and smaller sample; not directly comparable with later-line data** | 5.2 |
 | glecirasib monotherapy and combination (two studies side by side) | Two separate open-label, **non-randomised** phase 1/2 studies | mCRC, *KRAS* G12C | Previously treated | Monotherapy 44 / with cetuximab 46 | Monotherapy confirmed ORR 23% (10/44); combination **50% (23/46, 95% CI 35–65)** | Reported; replicates the **direction**, not the effect size | 5.2 |
 | Matching-adjusted indirect comparison (MAIC) | Indirect comparison, non-randomised | mCRC, *KRAS* G12C | After chemotherapy resistance | Effective sample after weighting **29 patients** | Vs trifluridine–tipiracil + bevacizumab: response adjusted OR 5.7 (2.6–12.8), PFS HR 0.77 (0.47–1.25, **crosses 1**), OS HR 0.44 (0.22–0.87) | Reported; **three reasons it cannot upgrade the conclusion**: indirect comparison, effective sample of only 29, most authors from the marketing-authorisation holder; and its PFS direction disagrees with the 0.49 of CodeBreaK 300 (960 mg group) | 5.2 |
-
-## 3. Pancreatic ductal adenocarcinoma
-
-| Study / NCT | Phase and design | Cancer and allele | Line | Sample size | Main results | Status | Section |
-|---|---|---|---|---|---|---|---|
+| **Group 3. Pancreatic ductal adenocarcinoma** | | | | | | | |
 | **RASolute 302 / NCT06625320** | **Phase 3, randomised, vs investigator's choice of chemotherapy, no crossover**; dual primary end points (OS and PFS in the RAS G12 subgroup) | Metastatic PDAC, RAS-mutant | Previously treated | 500 | **OS 13.2 vs 6.7 months, HR 0.40 (0.30–0.53), P<0.001** (RAS G12 subgroup, 459 patients: 13.2 vs 6.6, HR 0.40, 0.30–0.54); PFS **RAS G12 subgroup 7.3 vs 3.5 months (HR 0.45); overall population 7.2 vs 3.6 months (HR 0.49)**; ORR 33.2% vs 11.8% (RAS G12 subgroup); discontinuation for TRAE 1.2% vs 11.2% | Completed; among the pancreatic cancer studies in this review, **the only randomised result with an OS hazard ratio below 0.5**; basis of the regular approval | 5.3 |
 | CodeBreaK 100 pancreatic cancer subgroup / NCT03600883 | Pooled phase 1–2 population, single arm | PDAC, *KRAS* G12C (only 1–2% in this cancer) | Previously treated | 38 | Centrally confirmed ORR **21% (95% CI 10–37)**, median PFS 4.0 months, median OS 6.9 months; treatment maintained >3 months in 66%, >6 months in 21% | Reported; lower than in lung cancer, but not below the historical range of second-line chemotherapy (PFS 3–4, OS 6–7 months) | 5.3 |
 | RMC-6236-001 | Phase 1–2, single arm, compared with historical controls | Previously treated metastatic PDAC | Previously treated | Limited | Clinical activity shown; adverse events mainly low-grade rash and gastrointestinal reactions | Reported; **different level of evidence from the phase 3 trial; must not be presented as "consistent" alongside it** | 5.3 |
@@ -66,19 +57,11 @@
 | iExoKras phase 1 / NCT03608631 | Phase 1a 3+3 escalation + phase 1b accelerated titration, **single arm, non-randomised** | Advanced PDAC, *KRAS* G12D (sequence-matched) | After multiple lines | Not given separately | **Primary end points were safety / tolerability / target engagement**: MTD not reached, stable disease in some patients; measurable decline in *KRAS* DNA and p-ERK inhibition | Reported; **must not be set alongside response rates** | 5.3 |
 | Variant-specific prognostic cohort of 1 359 patients | Retrospective real-world | PDAC, stratified by *KRAS* variant | Standard treatment | 1 359 | OS: wild type 2.1 vs G12D/V 1.4 years (HR 0.61, 0.48–0.77); Q61 1.1 years (HR 2.28, 1.33–3.92); G12R 1.8 years (HR 0.69, 0.48–0.98) | Reported; retrospective, single centre, modest numbers per subtype | 5.3 |
 | Testing-access cohort of 342 patients | Retrospective real-world | PDAC | Any | 342 | Molecular testing on tissue 50%, liquid biopsy 45%, both 5%; **actionable alterations in only 69 patients (20%), of whom 31 (45%) received matched therapy** | Reported; **only its denominators are used, not its survival difference** (selection bias) | 5.3 |
-
-## 4. Other cancers and basket trials
-
-| Study / NCT | Phase and design | Cancer and allele | Line | Sample size | Main results | Status | Section |
-|---|---|---|---|---|---|---|---|
+| **Group 4. Other cancers and basket trials** | | | | | | | |
 | KRYSTAL-1 basket cohort / NCT03785249 | Phase 1/2 basket, **NSCLC and CRC excluded by design** | Advanced solid tumours, *KRAS* G12C | Previously treated | 63 treated (57 measurable) | ORR **35.1% (20 patients, all partial responses)**; pancreatic cancer 33.3% (7/21), biliary tract cancer 41.7% (5/12); median DOR 5.3 months, median PFS 7.4 months | Reported; with the two cancers that "have clearly different partners" excluded, the remaining cancers are relatively homogeneous | 5.4 |
 | Tipifarnib pivotal study in *HRAS* head and neck squamous cell carcinoma | Single arm, enrolment restricted to **mutant allele frequency ≥20%** | Head and neck squamous cell carcinoma, *HRAS* | Previously treated | Evaluable high-VAF subgroup | **ORR 55% (95% CI 31.5–76.9)**; median PFS 5.6 months (3.6 months on the same patients' previous line); median OS 15.4 months | Reported; this review treats it as **the most complete case** of subtype-specific drugging: it suggests writing cancer type, allele and a mutant-allele-frequency threshold together into the eligibility criteria; **the drug is not approved** (not in Table 2) | 5.4 |
 | NEMO | Phase 3, randomised, vs dacarbazine | Melanoma, *NRAS* | — | — | Median PFS 2.8 months (95% CI 2.8–3.6) vs 1.5 months (1.5–1.7), **HR 0.62 (0.47–0.80)** | Completed; **binimetinib is a MEK inhibitor acting downstream of *NRAS*, not an NRAS inhibitor**; PFS improved by only 1.3 months; **no OS difference** (11.0 vs 10.1 months, HR 1.00) | 5.4 |
-
-## 5. The era of indirect strategies (Chapter 4, section 1)
-
-| Study / NCT | Phase and design | Cancer and allele | Line | Sample size | Main results | Status | Section |
-|---|---|---|---|---|---|---|---|
+| **Group 5. The era of indirect strategies (Chapter 4, section 1)** | | | | | | | |
 | Gemcitabine ± tipifarnib | Phase 3, randomised, placebo-controlled | Advanced pancreatic cancer, not selected by genotype | First line | — | **Negative**: median OS 193 vs 182 days, not statistically significant; the regimen "has an acceptable toxicity profile but did not prolong survival" | Completed; the failure lay in **the wrong target** (*KRAS* can be alternatively prenylated by geranylgeranyltransferase I), not in an ineffective drug | 4.1 |
 | CI-1040 multicentre phase 2 | Phase 2, single arm | Breast, colon, NSCLC, pancreatic cancer | Advanced | 67 | **Negative**: no complete or partial response observed | Completed | 4.1 |
 | Selumetinib + docetaxel | Randomised phase 2, placebo-controlled | NSCLC, *KRAS*-mutant | Previously treated | — | **Positive**: median PFS 5.3 vs 2.1 months (**HR 0.58, one-sided p=0.014**), ORR 37% vs 0 | Completed; sufficient to support a phase 3 trial | 4.1 |
@@ -87,14 +70,10 @@
 | SELECT-2 | Phase 2, randomised, double blind, placebo-controlled; **population definition amended during the trial** | NSCLC, restricted after amendment to *KRAS* **wild type** | Second line | 212 | **Primary end point PFS not met**; no statistically significant improvement in PFS or OS in the overall or wild-type population; but **higher response rate (investigator-assessed)** | Completed; response rate decoupled from time-to-event end points, a testable source of early positive signals. **The population is mainly wild type and cannot directly explain effect sizes in *KRAS*-mutant patients** | 4.1 |
 | MILO / ENGOT-ov11 | Phase 3, randomised, vs physician's choice of chemotherapy | Low-grade serous ovarian cancer (MAPK alterations in 30–60%) | Recurrent or persistent | 341 (enrolment stopped) | **Negative**: BICR median PFS 9.1 months (95% CI 7.3–11.3) vs 10.6 months (**HR 1.21**) | Closed early after crossing the prespecified futility boundary | 4.1 |
 | RAMP 201 / ENGOT-OV60 / GOG-3052 | **Single-arm expansion cohort** (non-randomised) | Recurrent low-grade serous ovarian cancer | Recurrent | 115 | ORR **44% (*KRAS*-mutant) vs 17% (wild type)**; median PFS 12.9 months (95% CI 10.9–20.2) | Reported; **same level of evidence as the 2013 phase 2 trial**; the drugs are a RAF/MEK molecular glue + FAK inhibitor, not a plain MEK inhibitor; the randomised phase 3 trial is still enrolling | 4.1 |
-
-## 6. Registration only, no readout (not set alongside the tables above)
-
-| Study / NCT | Content | Status | Section |
-|---|---|---|---|
-| RASolute 303 / NCT07491445 | RAS(ON) inhibition combined with standard chemotherapy, **given concurrently** | Phase 3 ongoing; concurrent dosing has not been compared with any other schedule | 5.3 |
-| RAMP 205 / NCT05669482 | Pancreatic cancer triplet: FAK + RAF–MEK inhibition plus gemcitabine and nab-paclitaxel | Ongoing, **registration only, no readout**; lung cancer uses a doublet and pancreatic cancer a triplet, so they **must not be lumped together as "chemotherapy combinations"** | 6.5 |
-| NCT03454035 | The senescence-induction combination logic has reached registration | **Registered, no readout** | 6.5 |
+| **Group 6. Registration only, no readout (not set alongside the groups above)** | | | | | | | |
+| RASolute 303 / NCT07491445 | Phase 3; RAS(ON) inhibition combined with standard chemotherapy, **given concurrently** | — | — | — | **No readout** | Ongoing; concurrent dosing has not been compared with any other schedule | 5.3 |
+| RAMP 205 / NCT05669482 | Pancreatic cancer triplet: FAK + RAF–MEK inhibition plus gemcitabine and nab-paclitaxel | — | — | — | **No readout** | Ongoing; lung cancer uses a doublet and pancreatic cancer a triplet, so they **must not be lumped together as "chemotherapy combinations"** | 6.5 |
+| NCT03454035 | The senescence-induction combination logic has reached registration | — | — | — | **No readout** | **Registered, no readout** | 6.5 |
 
 ---
 
