@@ -156,145 +156,246 @@ def exons(tx):
 
 
 # =========================================================== Figure 1 ======
+# Manuscript Figure 2. Layout rebuilt 2026-11-01 (author: the old one was not
+# publication-grade). Two changes carry the redesign:
+#   panel a  three loci on one tight baseline grid, axis directly under the
+#            tracks, legend on the panel's top line — no floating blocks;
+#   panel b  drawn in CODON coordinates, so coding exons 2-4 fall into shared
+#            columns across all four transcripts. The point of the figure —
+#            the coding exons are identical in all three genes, divergence is
+#            confined to the last one — is now carried by the layout instead
+#            of by the reader comparing printed numbers. Per-exon numbers that
+#            are the same in every row are printed once, under the columns.
+# Palette: one ink-blue value ramp (CDS -> UTR) plus a single vermilion accent
+# reserved for hotspot codons; nothing else is coloured.
+P1 = {'cds': '#1B3A5C', 'utr': '#C7D3DE', 'intron': '#93A1AE',
+      'band': '#EDF2F7', 'hot': '#CC3311', 'ink': '#1A1A1A', 'grey': '#5B6770'}
+CLIP_BP = 330.0          # exons longer than this are drawn truncated (*)
+
+
 def fig1():
-    H = 158.0
+    from matplotlib.transforms import blended_transform_factory as blend
+    P, H, GUT = P1, 114.0, 31.0
     fig = figure(H)
 
-    # ---- panel a: genomic spans, true scale -------------------------------
-    AH = 42.0
-    axA = axes(fig, 21, H - 8 - AH, W2 - 21 - 7, AH)
+    # ------------------------------------------- panel a: genomic extent --
+    AH = 22.0
+    axA = axes(fig, GUT, H - 12.5 - AH, W2 - GUT - 6, AH)
     order = ['KRAS4B', 'HRAS', 'NRAS']
-    axA.set_ylim(-0.75, len(order) - 0.25)
-    uA = AH / (len(order) + 0.5)                      # mm per data unit
-    h_cds, h_utr = 1.6 / uA, 1.0 / uA
+    axA.set_xlim(-0.6, 53.5)
+    axA.set_ylim(-0.8, 2.7)
+    uA = AH / 3.5                                   # mm per data unit
+    hc, hu = 2.0 / uA, 1.25 / uA
+    tA = blend(axA.transAxes, axA.transData)
     for i, key in enumerate(order):
         ex = exons(TXS[key])
         g = ex[0]['gene']
         hi = max(I(e['exon_end']) for e in ex)
         lo = min(I(e['exon_start']) for e in ex)
-        span = hi - lo
+        span = (hi - lo) / 1000.0
         y = len(order) - 1 - i
 
-        def X(p):
-            return (hi - p) / 1000.0
-        axA.plot([0, span / 1000.0], [y, y], color=C['intron'],
-                 lw=0.7, zorder=1, solid_capstyle='butt')
+        def X(p, _hi=hi):
+            return (_hi - p) / 1000.0
+        axA.plot([0, span], [y, y], color=P['intron'], lw=0.6, zorder=1,
+                 solid_capstyle='butt')
         for e in ex:
-            a0, b0 = X(I(e['exon_end'])), X(I(e['exon_start']))
-            cl, ul = I(e['coding_len']), I(e['utr_len'])
-            if ul:
-                axA.add_patch(Rectangle((a0, y - h_utr / 2), max(b0 - a0, 0.04),
-                                        h_utr, fc=C['utr'], ec='#1b1b1b',
-                                        lw=LW['edge'], zorder=2))
-            if cl:
-                ca_, cb_ = X(I(e['coding_end'])), X(I(e['coding_start']))
-                axA.add_patch(Rectangle((ca_, y - h_cds / 2), max(cb_ - ca_, 0.04),
-                                        h_cds, fc=C['cds'], ec='#1b1b1b',
-                                        lw=LW['edge'], zorder=3))
-        axA.text(-0.8, y, '%s\n%s' % (GI(g), CYTO[key]), ha='right', va='center',
-                 fontsize=FS['axis'], linespacing=1.45)
-        axA.text(span / 1000.0 + 0.7, y, '%.1f kb' % (span / 1000.0),
-                 ha='left', va='center', fontsize=FS['anno'], color=C['grey'])
-    axA.set_xlim(-7.0, 54)
+            if I(e['utr_len']):
+                a0, b0 = X(I(e['exon_end'])), X(I(e['exon_start']))
+                axA.add_patch(Rectangle((a0, y - hu / 2), max(b0 - a0, 0.10),
+                                        hu, fc=P['utr'], ec=P['cds'], lw=0.2,
+                                        zorder=2))
+            if I(e['coding_len']):
+                a0, b0 = X(I(e['coding_end'])), X(I(e['coding_start']))
+                axA.add_patch(Rectangle((a0, y - hc / 2), max(b0 - a0, 0.10),
+                                        hc, fc=P['cds'], ec='none', zorder=3))
+        axA.text(-0.012, y, '%s  %s' % (GI(g), CYTO[key]), transform=tA,
+                 ha='right', va='center', fontsize=FS['anno'], color=P['ink'])
+        axA.text(span + 0.8, y, '%.1f kb' % span, ha='left', va='center',
+                 fontsize=FS['small'], color=P['grey'])
     axA.set_yticks([])
-    axA.set_xlabel('Distance from gene 5′ end (kb, GRCh38)')
+    axA.set_xticks(range(0, 51, 10))
+    axA.spines['bottom'].set_bounds(0, 50)
+    axA.spines['bottom'].set_color(P['grey'])
     for s_ in ('top', 'right', 'left'):
         axA.spines[s_].set_visible(False)
-    axA.legend(handles=[Rectangle((0, 0), 1, 1, fc=C['cds'], ec='k',
-                                  lw=LW['edge'], label='Coding sequence'),
-                        Rectangle((0, 0), 1, 1, fc=C['utr'], ec='k',
-                                  lw=LW['edge'], label='Untranslated region')],
-               loc='lower right', ncol=2, borderpad=0.1)
-    panel(fig, axA, 'a')
+    axA.tick_params(axis='x', colors=P['grey'], length=1.8, pad=1.2)
+    for t in axA.get_xticklabels():
+        t.set_fontsize(FS['small'])
+    axA.set_xlabel('Distance from gene 5′ end (kb, GRCh38)', labelpad=1.5,
+                   color=P['ink'], fontsize=FS['anno'])
+    axA.legend(handles=[Rectangle((0, 0), 1, 1, fc=P['cds'], ec='none',
+                                  label='Coding sequence'),
+                        Rectangle((0, 0), 1, 1, fc=P['utr'], ec=P['cds'],
+                                  lw=0.2, label='Untranslated region')],
+               loc='lower right', bbox_to_anchor=(1.0, 1.0), ncol=2,
+               borderpad=0.0, handlelength=1.2, fontsize=FS['small'],
+               labelcolor=P['grey'])
+    panel(fig, axA, 'a', dx=-GUT + 1.0, dy=2.0)
 
-    # ---- panel b: exon-intron structure, introns compressed ---------------
-    BH = 88.0
-    axB = axes(fig, 6, 10, W2 - 12, BH)
+    # --------------------------------- panel b: exons in codon coordinates --
+    BH = 62.0
+    axB = axes(fig, GUT, 10.0, W2 - GUT - 6, BH)
     keys = ['KRAS4B', 'KRAS4A', 'HRAS', 'NRAS']
-    GAP, CLIP, ROW = 150.0, 700.0, 2.1
-    span_u = (len(keys) - 1) * ROW + 2.55
-    uB = BH / span_u
-    hb_cds, hb_utr = 2.4 / uB, 1.4 / uB
-    axB.set_xlim(-1060, 2760)
-    axB.set_ylim(-1.05, (len(keys) - 1) * ROW + 1.50)
+    NAME = {'KRAS4B': (GI('KRAS'), 'KRAS4B, 188 aa'),
+            'KRAS4A': (GI('KRAS'), 'KRAS4A, 189 aa'),
+            'HRAS': (GI('HRAS'), '189 aa'),
+            'NRAS': (GI('NRAS'), '189 aa')}
+    GAPU = 6.5                                      # fixed intron gap, codons
+    nrow = len(keys)
+    axB.set_ylim(-1.50, nrow - 1 + 1.35)
+    uB = BH / (nrow - 1 + 2.85)                     # mm per data unit
+    hc, hu = 2.5 / uB, 1.5 / uB
     axB.axis('off')
+    tB = blend(axB.transAxes, axB.transData)
+
+    def clipw(bp):
+        return min(bp, CLIP_BP) / 3.0, bp > CLIP_BP
+
+    def geom(key):
+        """Blocks in codon units. Coding exons share coordinates across rows."""
+        ex = exons(TXS[key])
+        cod = [e for e in ex if I(e['coding_len'])]
+        r0, rN = I(cod[0]['exon_rank']), I(cod[-1]['exon_rank'])
+        cds, utr, labs, cum = [], [], [], 0.0
+        for k, e in enumerate(cod):
+            w = I(e['coding_len']) / 3.0
+            cds.append((cum + GAPU * k, w, I(e['exon_rank']), e))
+            cum += w
+        u = I(cod[0]['utr_len']) / 3.0              # 5′ stub on first CDS exon
+        if u:
+            utr.append((cds[0][0] - u, u, False))
+        x = cds[0][0] - u
+        for e in sorted([e for e in ex if I(e['exon_rank']) < r0],
+                        key=lambda e: -I(e['exon_rank'])):
+            w, clip = clipw(I(e['exon_len']))
+            x -= GAPU + w
+            utr.append((x, w, clip))
+            labs.append((x + w / 2, 'E%s · %d bp%s' % (e['exon_rank'],
+                                                       I(e['exon_len']),
+                                                       '*' if clip else '')))
+        left = x
+        x = cds[-1][0] + cds[-1][1]
+        if I(cod[-1]['utr_len']):
+            w, clip = clipw(I(cod[-1]['utr_len']))
+            utr.append((x, w, clip))
+            if w > 6:
+                labs.append((x + w / 2, '3′UTR · %d bp%s' %
+                             (I(cod[-1]['utr_len']), '*' if clip else '')))
+            x += w
+        for e in sorted([e for e in ex if I(e['exon_rank']) > rN],
+                        key=lambda e: I(e['exon_rank'])):
+            w, clip = clipw(I(e['exon_len']))
+            x += GAPU
+            utr.append((x, w, clip))
+            labs.append((x + w / 2, 'E%s · %d bp%s' % (e['exon_rank'],
+                                                       I(e['exon_len']),
+                                                       '*' if clip else '')))
+            x += w
+        return cds, utr, labs, left, x
+
+    G = {k: geom(k) for k in keys}
+    x0 = min(G[k][3] for k in keys)
+    x1 = max(G[k][4] for k in keys)
+    axB.set_xlim(x0 - 4, x1 + 4)
+
+    # shared columns behind everything
+    ytop, ybot = nrow - 1 + 0.42, -0.34
+    shared = [c for c in G['KRAS4B'][0] if c[2] in (2, 3, 4)]
+    for xs, w, rank, e in shared:
+        axB.add_patch(Rectangle((xs - 1.4, ybot), w + 2.8, ytop - ybot,
+                                fc=P['band'], ec='none', zorder=0))
+
     for i, key in enumerate(keys):
+        cds, utr, labs, _, _ = G[key]
         ex = exons(TXS[key])
         g = ex[0]['gene']
         aa_len = 188 if key == 'KRAS4B' else 189
-        y = (len(keys) - 1 - i) * ROW
-        x = 0.0
-        hots = {int(h['codon']): I(h['exon_rank']) for h in HOT if h['gene'] == g}
-        for j, e in enumerate(ex):
-            L, cl, ul = I(e['exon_len']), I(e['coding_len']), I(e['utr_len'])
-            w = min(L, CLIP)
-            clipped = L > CLIP
-            cw = w * cl / L if cl else 0.0
-            uw = w - cw
-            x0 = x + uw if I(e['exon_rank']) <= 2 else x      # coding block start
-            if uw > 0:
-                ux = x if I(e['exon_rank']) <= 2 else x + cw
-                axB.add_patch(Rectangle((ux, y - hb_utr / 2), uw, hb_utr,
-                                        fc=C['utr'], ec='#1b1b1b',
-                                        lw=LW['edge'], zorder=3))
-            if cw > 0:
-                axB.add_patch(Rectangle((x0, y - hb_cds / 2), cw, hb_cds,
-                                        fc=C['cds'], ec='#1b1b1b',
-                                        lw=LW['edge'], zorder=3))
-            if clipped:                                        # break symbol
-                for off in (17, 11):
-                    for col, lwd, z in (('white', 2.2, 4), ('#1b1b1b', 0.5, 5)):
-                        axB.plot([x + w - off, x + w - off + 9],
-                                 [y - hb_cds * 0.75, y + hb_cds * 0.75],
-                                 color=col, lw=lwd, zorder=z,
-                                 solid_capstyle='butt')
-            if cw > 70:
-                axB.text(x0 + cw / 2, y, 'E%s' % e['exon_rank'], ha='center',
-                         va='center', fontsize=FS['small'], color='white',
-                         fontweight='bold', zorder=6)
-            else:
-                axB.text(x + w / 2, y + hb_cds / 2 + 0.07, 'E%s' % e['exon_rank'],
-                         ha='center', va='bottom', fontsize=FS['small'],
-                         color='#222222')
-            axB.text(x + w / 2, y - hb_cds / 2 - 0.09, '%d bp%s' %
-                     (L, '*' if clipped else ''), ha='center', va='top',
-                     fontsize=FS['small'], color=C['grey'])
-            if cl:
-                axB.text(x0 + cw / 2, y - hb_cds / 2 - 0.33, 'aa %s–%s' %
-                         (e['codon_first'], min(I(e['codon_last']), aa_len)),
+        y = nrow - 1 - i
+        # intron baseline, from the first to the last drawn block
+        axB.plot([G[key][3], G[key][4]], [y, y], color=P['intron'], lw=0.55,
+                 zorder=1, solid_capstyle='butt')
+        for xs, w, clip in utr:
+            axB.add_patch(Rectangle((xs, y - hu / 2), w, hu, fc=P['utr'],
+                                    ec=P['cds'], lw=0.2, zorder=3))
+            if clip:
+                for off in (1.6, 4.4):
+                    for col, lwd, z in (('white', 1.8, 4), (P['cds'], 0.45, 5)):
+                        axB.plot([xs + w - off - 1.3, xs + w - off + 1.3],
+                                 [y - hu * 0.95, y + hu * 0.95], color=col,
+                                 lw=lwd, zorder=z, solid_capstyle='butt')
+        for xs, w, rank, e in cds:
+            axB.add_patch(Rectangle((xs, y - hc / 2), w, hc, fc=P['cds'],
+                                    ec='none', zorder=3))
+            if rank == cds[-1][2]:                  # last coding exon: varies
+                axB.text(xs + w / 2, y - hc / 2 - 0.16,
+                         'E%d · %d bp · aa %s–%d' % (rank, I(e['coding_len']),
+                                                     e['codon_first'],
+                                                     min(I(e['codon_last']),
+                                                         aa_len)),
                          ha='center', va='top', fontsize=FS['small'],
-                         color=C['cds'])
-            here = sorted(cd for cd, er in hots.items()
-                          if er == I(e['exon_rank']))
-            groups = []
-            for cd in here:
-                if groups and cd - groups[-1][-1] <= 2:
-                    groups[-1].append(cd)
-                else:
-                    groups.append([cd])
-            for gi, grp in enumerate(groups):
-                cf, cls_ = I(e['codon_first']), I(e['codon_last'])
-                frac = (sum(grp) / len(grp) - cf + 0.5) / max(1, cls_ - cf + 1)
-                px = x0 + cw * frac
-                ty = y + (0.98 if gi % 2 == 0 else 0.70)
-                axB.annotate('/'.join(HOTLAB[c] for c in grp),
-                             xy=(px, y + hb_cds / 2), xytext=(px, ty),
-                             ha='center', fontsize=FS['anno'], color=C['hot'],
-                             fontweight='bold',
-                             arrowprops=dict(arrowstyle='-|>', lw=0.6,
-                                             color=C['hot'], shrinkA=1,
-                                             shrinkB=1, mutation_scale=6))
-            x += w
-            if j < len(ex) - 1:
-                axB.plot([x, x + GAP], [y, y], color=C['intron'], lw=0.7,
-                         zorder=1, solid_capstyle='butt')
-                x += GAP
-        t1, t2 = LAB[key]
-        axB.text(-80, y + 0.17, t1, ha='right', va='center',
-                 fontsize=FS['anno'], color='#111111')
-        axB.text(-80, y - 0.17, t2, ha='right', va='center',
-                 fontsize=FS['anno'], color=C['grey'])
-    panel(fig, axB, 'b', dx=0.0)
+                         color=P['grey'], zorder=6)
+        for lx, tx in labs:                 # non-coding exons: label above
+            axB.text(lx, y + hu / 2 + 0.11, tx, ha='center', va='bottom',
+                     fontsize=FS['small'], color=P['grey'], zorder=6)
+        gene, iso = NAME[key]
+        axB.text(-0.015, y, '%s  %s' % (gene, iso), transform=tB, ha='right',
+                 va='center', fontsize=FS['anno'], color=P['ink'])
+
+    # ---- hotspot codons: one label per codon, ticks only where registered --
+    def hx(codon, rank):
+        k = [c[2] for c in G['KRAS4B'][0]].index(rank)
+        return codon - 0.5 + GAPU * k
+
+    HOTG = [('G12/G13', (12, 13), 2), ('Q61', (61,), 3),
+            ('K117', (117,), 4), ('A146', (146,), 4)]
+    yl = nrow - 1 + 0.95
+    for lab, codons, rank in HOTG:
+        rows = [i for i, k in enumerate(keys)
+                if any(h for h in HOT if h['gene'] == exons(TXS[k])[0]['gene']
+                       and int(h['codon']) in codons)]
+        if not rows:
+            continue
+        px = sum(hx(c, rank) for c in codons) / len(codons)
+        ylow = nrow - 1 - max(rows)
+        axB.plot([px, px], [ylow, yl - 0.16], color=P['hot'], lw=0.4,
+                 alpha=0.30, zorder=2, solid_capstyle='butt')
+        for i in rows:
+            yy = nrow - 1 - i
+            for c in codons:
+                axB.plot([hx(c, rank)] * 2, [yy - hc / 2, yy + hc / 2],
+                         color=P['hot'], lw=1.0, zorder=5,
+                         solid_capstyle='butt')
+        axB.text(px, yl, lab, ha='center', va='bottom', fontsize=FS['anno'],
+                 color=P['hot'], fontweight='bold')
+
+    # ---- shared column read-out, printed once ----------------------------
+    yh = ybot - 0.10
+    for xs, w, rank, e in shared:
+        axB.text(xs + w / 2, yh, 'E%d' % rank, ha='center', va='top',
+                 fontsize=FS['small'], color=P['ink'], fontweight='bold')
+        axB.text(xs + w / 2, yh - 0.30, '%d bp\naa %s–%s' %
+                 (I(e['coding_len']), e['codon_first'], e['codon_last']),
+                 ha='center', va='top', fontsize=FS['small'], color=P['grey'],
+                 linespacing=1.3)
+    bx0, bx1 = shared[0][0] - 1.4, shared[-1][0] + shared[-1][1] + 1.4
+    byy = yh - 1.02
+    axB.plot([bx0, bx0, bx1, bx1], [byy + 0.09, byy, byy, byy + 0.09],
+             color=P['grey'], lw=0.4, zorder=2)
+    axB.text((bx0 + bx1) / 2, byy - 0.08,
+             'identical in all three genes — the basis of the exon 2/3/4 '
+             'scheme used in clinical testing', ha='center', va='top',
+             fontsize=FS['small'], color=P['grey'])
+    panel(fig, axB, 'b', dx=-GUT + 1.0, dy=2.6)
+    fig.text(6.0 / W2, 5.4 / H, 'MANE v1 matched pairs (Ensembl / NCBI) — '
+             'KRAS4B, MANE Select, ENST00000311936.8 / NM_004985.5;   '
+             'KRAS4A, MANE Plus Clinical, ENST00000256078.10 / NM_033360.4;',
+             ha='left', va='bottom', fontsize=FS['small'], color=P['grey'])
+    fig.text(6.0 / W2, 2.2 / H, 'HRAS, MANE Select, ENST00000311189.8 / '
+             'NM_005343.4;   NRAS, MANE Select, ENST00000369535.5 / '
+             'NM_002524.5.   Asterisks, terminal exons truncated for display.',
+             ha='left', va='bottom', fontsize=FS['small'], color=P['grey'])
+
     save(fig, 'Fig1_RAS_gene_structure')
     CHECK['Fig1 coding exon lengths (KRAS/HRAS/NRAS, E2-E4)'] = [
         [I(e['coding_len']) for e in exons(TXS[k]) if I(e['coding_len'])][:3]
