@@ -141,27 +141,19 @@ def build():
             'has human data discussed in §5.3; it is listed as an "RNA therapy" with "not applicable" '
             'in the conformational-state column. This table lists **%d** drugs, the same set, drug for '
             'drug, as Figure 9.\n\n' % len(lanes))
-    o.write('**2. Drugs mentioned in the text but not in this table, and why.**\n\n')
-    o.write('| Drug | Where mentioned | Reason for exclusion |\n|---|---|---|\n')
-    o.write('| ifebemtinib | §6.5; Figure 12 (with garsorasib, first-line confirmed ORR 82%) | A FAK '
-            'inhibitor that neither acts on the RAS protein nor belongs to the upstream input nodes or immune '
-            'strategies; it is a combination partner, not a RAS-directed drug. |\n')
-    o.write('| cetuximab, panitumumab | §5.2; §6.5 | Anti-EGFR antibodies; as above, combination '
-            'partners. |\n')
-    o.write('| carboplatin, pemetrexed, gemcitabine, nab-paclitaxel, docetaxel | §5.1, §5.3; §6.5 | '
-            'Cytotoxic drugs, used as comparators or combination partners. |\n')
-    o.write('| avutometinib, defactinib, binimetinib, selumetinib, trametinib, CI-1040 | §4.1, §5.4 | Downstream '
-            'kinase inhibitors and a RAF/MEK molecular glue acting below RAS, outside the coordinates; they appear in '
-            '§4.1 as evidence from the era of indirect strategies. **Exception**: avutometinib + defactinib is included '
-            '(group 6) for the reason in note 3 — not because it acts on RAS, but because its indication is defined '
-            'by *KRAS* mutation and it is approved. |\n')
-    o.write('\n**3. Avutometinib + defactinib in group 6 is included by indication, not by mechanism.** Avutometinib is '
+    o.write('**2. Drugs mentioned in the text but not in this table.** Ifebemtinib (§6.5; Figure 12) is a FAK '
+            'inhibitor and cetuximab and panitumumab (§5.2; §6.5) are anti-EGFR antibodies: none acts on the RAS '
+            'protein, and all are combination partners. Carboplatin, pemetrexed, gemcitabine, nab-paclitaxel and '
+            'docetaxel (§5.1, §5.3; §6.5) are cytotoxic drugs used as comparators or combination partners. '
+            'Binimetinib, selumetinib, trametinib and CI-1040 (§4.1, §5.4) are downstream kinase inhibitors acting '
+            'below RAS, outside the coordinates. **Exception**: avutometinib + defactinib, also downstream, is '
+            'included (group 6) for the reason in note 3.\n\n')
+    o.write('**3. Avutometinib + defactinib in group 6 is included by indication, not by mechanism.** Avutometinib is '
             'a RAF/MEK molecular glue (clamp) and defactinib a FAK inhibitor; **neither binds RAS directly**, and they '
-            'act downstream of and parallel to RAS — so the combination has **its own group 6 (downstream pathway '
+            'act downstream of and parallel to RAS, so the combination has **its own group 6 (downstream pathway '
             'combination)** rather than group 5 (upstream nodes and immune strategies). It is in this table because '
             'the FDA accelerated approval of 2025-05-08 defines its indication by *KRAS* mutation (*KRAS*-mutated '
-            'recurrent LGSOC; see Table 2, note 7). The row label in Figure 9 names the targets in parentheses and '
-            'the figure legend explains this.\n')
+            'recurrent LGSOC; see Table 2, note 7).\n')
     os.makedirs(ENDIR, exist_ok=True)
     io.open(OUT, 'w', encoding='utf-8').write(o.getvalue())
     print('已写 英文版/%s：%d 药' % (os.path.basename(OUT), len(rows)))

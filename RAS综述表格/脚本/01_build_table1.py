@@ -179,26 +179,20 @@ out.write('**一、本表与图9同集合，因此也同边界。**本表的六�
           ' iExosome siG12D，它已有人体读数且在 5.3 段六a展开，按「RNA 疗法」'
           '列出并在构象态一栏写明「不适用」。本表共收 **%d 个**药，'
           '与图9 的药物集合逐药一致。\n\n' % len(lanes))
-out.write('**二、正文提到、但不在本表内的药物，以及为什么。**\n\n')
-out.write('| 药物 | 出现处 | 不入表的理由 |\n|---|---|---|\n')
-out.write('| ifebemtinib | 6.5 段四e、图12（联合 garsorasib，一线确认 ORR 82%）'
-          ' | FAK 抑制剂，不作用于 RAS 蛋白，也不属上游输入节点或免疫策略；'
-          '是联合搭档，不是 RAS 靶向药。 |\n')
-out.write('| cetuximab、panitumumab | 5.2、6.5 段二 | 抗 EGFR 抗体，同上，属联合'
-          '搭档。 |\n')
-out.write('| 卡铂、培美曲塞、吉西他滨、白蛋白结合型紫杉醇、多西他赛 | 5.1、5.3、'
-          '6.5 段五 | 细胞毒药物，属对照臂或联合搭档。 |\n')
-out.write('| avutometinib、defactinib、binimetinib、selumetinib、trametinib、'
-          'CI-1040 | 4.1、5.4 | 下游激酶抑制剂与 RAF/MEK 分子胶，作用点在 RAS '
-          '之下，不在坐标内；它们在 4.1 作为「间接策略时代」的证据出现。**例外**：'
-          'avutometinib＋defactinib 本表已收（第六组），理由见附注三。 |\n')
-out.write('\n**三、第六组里的 avutometinib＋defactinib 是「按适应证收入」，'
+out.write('**二、正文提到、但不在本表内的药物。**ifebemtinib（6.5 段四e、图12）是'
+          ' FAK 抑制剂，cetuximab 与 panitumumab（5.2、6.5 段二）是抗 EGFR 抗体，'
+          '都不作用于 RAS 蛋白，属联合搭档；卡铂、培美曲塞、吉西他滨、'
+          '白蛋白结合型紫杉醇、多西他赛（5.1、5.3、6.5 段五）是细胞毒药物，'
+          '属对照臂或联合搭档；binimetinib、selumetinib、trametinib、CI-1040'
+          '（4.1、5.4）是下游激酶抑制剂，作用点在 RAS 之下，不在坐标内。'
+          '**例外**：同属下游的 avutometinib＋defactinib 本表已收（第六组），'
+          '理由见附注三。\n\n')
+out.write('**三、第六组里的 avutometinib＋defactinib 是「按适应证收入」，'
           '不是按机制收入。**avutometinib 是 RAF/MEK 分子胶'
           '（钳制剂），defactinib 是 FAK 抑制剂，**两者都不直接结合 RAS**，'
-          '作用点在 RAS 下游与平行链——所以它**单列第六组（下游通路联合）**，不放进第五组（上游节点与免疫策略）。它进本表是因为 FDA 2025-05-08 的加速批准'
-          '以 *KRAS* 突变界定适应证（KRAS 突变复发 LGSOC，见表2 附注七）；'
-          '第六组的题名（下游通路联合，不直接结合 RAS）因此与这一行相符，'
-          '图9 同位置的行标签已在括号内写明靶点，图注另有说明。\n')
+          '作用点在 RAS 下游与平行链，所以它**单列第六组（下游通路联合）**，'
+          '不放进第五组（上游节点与免疫策略）。它进本表是因为 FDA 2025-05-08 的'
+          '加速批准以 *KRAS* 突变界定适应证（KRAS 突变复发 LGSOC，见表2 附注七）。\n')
 
 # 全表再过一遍基因／蛋白判定：靶向基因列已就地标了斜体，这里补的是
 # 「代表研究与关键结果」与附注里以散文出现的基因名（HRAS 突变人群、KRAS G12C 等）。
