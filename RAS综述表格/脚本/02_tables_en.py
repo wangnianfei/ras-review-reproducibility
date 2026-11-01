@@ -160,7 +160,7 @@ def build():
             'act downstream of and parallel to RAS — so the combination has **its own group 6 (downstream pathway '
             'combination)** rather than group 5 (upstream nodes and immune strategies). It is in this table because '
             'the FDA accelerated approval of 2025-05-08 defines its indication by *KRAS* mutation (*KRAS*-mutated '
-            'recurrent LGSOC; see Table 2, note 8). The row label in Figure 9 names the targets in parentheses and '
+            'recurrent LGSOC; see Table 2, note 7). The row label in Figure 9 names the targets in parentheses and '
             'the figure legend explains this.\n')
     os.makedirs(ENDIR, exist_ok=True)
     io.open(OUT, 'w', encoding='utf-8').write(o.getvalue())
