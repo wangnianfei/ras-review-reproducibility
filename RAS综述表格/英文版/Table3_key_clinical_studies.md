@@ -4,7 +4,7 @@
 
 > Placed at the end of §5.5. Wide table; set in landscape.
 >
-> **Inclusion criterion**: clinical studies that are actually cited in the text of this review and report end-point results that can be restated. Studies mentioned in the text only as background or by registration number, with no readout yet, are listed in the final section ("Registration only, no readout") and are not set alongside studies with readouts.
+> **Inclusion criterion**: clinical studies that are actually cited in the text of this review and report end-point results that can be restated; studies mentioned only by registration number, with no readout yet, are listed in the final section ("Registration only, no readout") and are not set alongside studies with readouts.
 >
 > **Source of registration numbers**: an NCT number is either taken from the cited text or matched by study acronym in this review's ClinicalTrials.gov trial registration dataset (REST API v2, snapshot of 2026-10-20); where no match was found, the cell says so — **numbers are not inferred by convention**.
 >
