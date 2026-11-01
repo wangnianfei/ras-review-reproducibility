@@ -1,6 +1,6 @@
-# Data and code for the figures and tables of *RAS 与恶性肿瘤：从癌基因到可成药靶点*
+# Data and code for the figures and tables of *RAS in malignant tumours: from oncogene to druggable target*
 
-*(English translation of the title: "RAS and malignant tumours: from oncogene to druggable target")*
+*(Chinese original title: 《恶性肿瘤中的 RAS：从癌基因到可成药靶点》)*
 
 [中文说明 → README_zh.md](README_zh.md)
 
