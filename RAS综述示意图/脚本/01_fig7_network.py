@@ -3,11 +3,18 @@
 """Figure 8 - the RAS signalling network, drawn as a cell schematic.
 
 Redrawn 2026-11-01 (author: the plain box-and-arrow form was not acceptable for a
-top journal). The content is unchanged - same nodes, same labels, same arrows, same
+top journal), second pass the same day (author: the rest of the figure should be
+drawn the way the membrane is, and several connectors were too short to read).
+The content is unchanged throughout - same nodes, same labels, same arrows, same
 drug tags and the same negative-feedback line as the box version it replaces; only
-the depiction changed: the plasma membrane is a lipid bilayer, the four input
-classes are receptor glyphs set in it, every signalling node is a protein body
-(globule or capsule), and the switch carries its bound nucleotide in a pocket.
+the depiction changed:
+  · plasma membrane as a lipid bilayer, the four input classes as receptor glyphs;
+  · every protein is a lobed body (domain lobes hinted by the silhouette), every
+    small GTPase a smooth globule, every cellular process a flat plate, so shape
+    alone separates molecule from process;
+  · the switch carries its bound nucleotide in a pocket;
+  · connectors are laid out with real clearance between bodies and drawn without
+    end shrink, so no arrow is shorter than it needs to be.
 
 Content follows the review outline sections 3.1-3.5 one to one (upstream input ->
 switch -> downstream branches -> cellular phenotypes -> negative feedback), and every
@@ -24,14 +31,32 @@ from importlib import import_module
 S = import_module('00_style')
 import numpy as np
 from matplotlib.patches import (Rectangle, Circle, Ellipse, FancyBboxPatch,
-                                Polygon, Wedge)
+                                FancyArrowPatch, Polygon, Wedge)
+from matplotlib.colors import to_rgb
 
 ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else '..')
 FIG = os.path.join(ROOT, 'figures')
 os.makedirs(FIG, exist_ok=True)
 C, FS, LW, GI = S.C, S.FS, S.LW, S.GI
-arrow, tee, tag = S.arrow, S.tee, S.drug_tag
+tee, tag = S.tee, S.drug_tag
 DASH = (0, (3, 2))
+
+
+def arrow(ax, p0, p1, style='-|>', ls='-', color=None, lw=None, rad=0.0,
+          z=2, ms=2.2, shrink=0.0):
+    """Like S.arrow but with the end shrink under control (default none)."""
+    ax.add_patch(FancyArrowPatch(p0, p1, arrowstyle=style, mutation_scale=ms * 3,
+                                 linewidth=lw or LW['arrow'], linestyle=ls,
+                                 color=color or C['edge'], zorder=z,
+                                 connectionstyle='arc3,rad=%.2f' % rad,
+                                 shrinkA=shrink, shrinkB=shrink,
+                                 joinstyle='miter'))
+
+
+def tint(col, f=0.80):
+    r, g, b = to_rgb(col)
+    return (r + (1 - r) * f, g + (1 - g) * f, b + (1 - b) * f)
+
 
 # ---------------------------------------------------------------- glyph kit ---
 MEM_Y = 107.0            # mid-plane of the bilayer, mm
@@ -61,36 +86,59 @@ def bilayer(ax, x0, x1, gaps=(), step=2.45, r=0.78):
                         zorder=1)
 
 
-def capsule(ax, x, y, w, h, label, fc, tc='white', fs=None, bold=True,
-            ec=None, lw=None, z=4, ls='-'):
-    """Stadium-shaped protein body; (x, y) is the bottom-left corner in mm."""
-    r = h / 2
-    ax.add_patch(FancyBboxPatch((x + r, y + r), w - 2 * r, 1e-6,
-                                boxstyle='round,pad=%.3f' % r,
-                                facecolor=fc, edgecolor=ec or C['edge'],
-                                linewidth=lw or LW['box'], linestyle=ls, zorder=z))
-    ax.text(x + w / 2, y + h / 2, label, ha='center', va='center',
+# --- protein bodies: the outline is the union of a few domain lobes -----------
+def _ray(c0, lobe, ct, st):
+    """Distance from c0 along (ct, st) to the far side of one elliptical lobe."""
+    ex, ey, w, h = lobe
+    a, b = w / 2.0, h / 2.0
+    qa = (ct / a) ** 2 + (st / b) ** 2
+    qb = 2 * ((c0[0] - ex) * ct / a ** 2 + (c0[1] - ey) * st / b ** 2)
+    qc = ((c0[0] - ex) / a) ** 2 + ((c0[1] - ey) / b) ** 2 - 1.0
+    d = qb * qb - 4 * qa * qc
+    if d < 0:
+        return 0.0
+    return max((-qb + np.sqrt(d)) / (2 * qa), 0.0)
+
+
+def blob(ax, lobes, c0, fc, ec=None, lw=None, z=4, n=220):
+    """Single clean outline around a set of overlapping lobes (star-shaped union)."""
+    th = np.linspace(0, 2 * np.pi, n, endpoint=False)
+    ct, st = np.cos(th), np.sin(th)
+    r = np.max([[_ray(c0, lo, c, s) for c, s in zip(ct, st)] for lo in lobes],
+               axis=0)
+    pts = np.column_stack([c0[0] + r * ct, c0[1] + r * st])
+    ax.add_patch(Polygon(pts, closed=True, facecolor=fc,
+                         edgecolor=ec or C['edge'], linewidth=lw or LW['box'],
+                         joinstyle='round', zorder=z))
+
+
+def protein(ax, cx, cy, w, h, label, fc, shape='bi', tc='white', fs=None,
+            bold=True, z=4, dy=0.0):
+    """Lobed protein body with its name on it. shape: bi | tri | round."""
+    if shape == 'tri':                      # three domains in a row
+        lobes = [(cx - w * 0.30, cy + h * 0.02, w * 0.52, h * 0.86),
+                 (cx, cy + h * 0.05, w * 0.56, h),
+                 (cx + w * 0.30, cy - h * 0.04, w * 0.52, h * 0.84)]
+    elif shape == 'round':                  # one compact globule
+        lobes = [(cx, cy, w, h)]
+    else:                                   # two lobes with a shallow waist
+        lobes = [(cx - w * 0.17, cy + h * 0.03, w * 0.74, h * 0.98),
+                 (cx + w * 0.19, cy - h * 0.05, w * 0.68, h * 0.88)]
+    blob(ax, lobes, (cx, cy), fc, z=z)
+    ax.text(cx, cy + dy, label, ha='center', va='center',
             fontsize=fs or FS['anno'], color=tc, zorder=z + 1,
             fontweight='bold' if bold else 'normal', linespacing=1.25)
-    return (x + w / 2, y, x + w / 2, y + h)
 
 
-def globule(ax, cx, cy, w, h, label, fc, tc='white', fs=None, bold=True, z=4):
-    """Globular protein body."""
-    ax.add_patch(Ellipse((cx, cy), w, h, facecolor=fc, edgecolor=C['edge'],
-                         linewidth=LW['box'], zorder=z))
+def plate(ax, cx, cy, w, h, label, col, fs=None, z=4):
+    """A cellular process, not a molecule: flat tinted plate, no body outline."""
+    ax.add_patch(FancyBboxPatch((cx - w / 2 + 1.1, cy - h / 2 + 1.1),
+                                w - 2.2, h - 2.2,
+                                boxstyle='round,pad=1.1,rounding_size=1.3',
+                                facecolor=tint(col, 0.82), edgecolor=col,
+                                linewidth=LW['thin'], zorder=z))
     ax.text(cx, cy, label, ha='center', va='center', fontsize=fs or FS['anno'],
-            color=tc, zorder=z + 1, fontweight='bold' if bold else 'normal',
-            linespacing=1.25)
-
-
-def lipid_tail(ax, x, y, up=6.0, color=None):
-    """Zigzag standing for the C-terminal prenyl anchor of RAS."""
-    n, amp = 5, 0.85
-    ys = np.linspace(y, y + up, n + 1)
-    xs = [x + (amp if i % 2 else -amp) * (i > 0) for i in range(n + 1)]
-    ax.plot(xs, ys, color=color or C['grey'], linewidth=0.55, zorder=3,
-            solid_joinstyle='round')
+            color=col, zorder=z + 1, linespacing=1.25)
 
 
 def nucleotide(ax, cx, cy, text, fc):
@@ -105,7 +153,8 @@ def nucleotide(ax, cx, cy, text, fc):
 
 
 def switch(ax, cx, cy, state, fc, tc, nuc, nfc):
-    globule(ax, cx, cy, 32, 18, '', fc)
+    ax.add_patch(Ellipse((cx, cy), 32, 18, facecolor=fc, edgecolor=C['edge'],
+                         linewidth=LW['box'], zorder=4))
     ax.text(cx, cy + 4.6, 'RAS', ha='center', va='center', fontsize=FS['head'],
             fontweight='bold', color=tc, zorder=6)
     ax.text(cx, cy + 0.9, state, ha='center', va='center', fontsize=FS['small'],
@@ -209,104 +258,119 @@ for key, lbl in (('rtk', 'Receptor tyrosine\nkinases'), ('int', 'Integrins'),
            color=C['ink'], linespacing=1.3)
 
 # --- adaptor / exchange-factor layer ------------------------------------------
-AY, AH = 88.0, 10.0
-capsule(A, 3, AY, 17, AH, 'GRB2', C['adaptor'])
-capsule(A, 23, AY, 22, AH, 'SOS1\nGEF', C['adaptor'], fs=FS['small'])
-capsule(A, 48, AY, 17, AH, 'SHP2', C['adaptor'])
-capsule(A, 68, AY, 28, AH, 'Tissue-restricted\nGEFs', C['adaptor'],
+AC, AH = 90.0, 10.0                      # body centre line and body height
+ATOP, ABOT = AC + AH / 2, AC - AH / 2
+protein(A, 10.0, AC, 18, AH, 'GRB2', C['adaptor'], shape='tri')
+protein(A, 36.0, AC, 23, AH, 'SOS1\nGEF', C['adaptor'], shape='bi', fs=FS['small'])
+protein(A, 62.0, AC, 19, AH, 'SHP2', C['adaptor'], shape='tri')
+protein(A, 90.0, AC, 30, AH, 'Tissue-restricted\nGEFs', C['adaptor'], shape='bi',
         fs=FS['tiny'], bold=False)
 
-arrow(A, (13.5, 98.6), (11.5, AY + AH))                  # RTK -> GRB2
-arrow(A, (19.5, 99.0), (53.0, AY + AH), rad=-0.22)        # RTK -> SHP2
-arrow(A, (45.5, 100.0), (57.5, AY + AH))                 # integrins -> SHP2
-arrow(A, (68.5, 100.0), (78.0, AY + AH))                 # GPCRs -> GEFs
-arrow(A, (88.0, 99.5), (86.0, AY + AH))                  # immune -> RasGRP
-arrow(A, (20, AY + AH / 2), (23, AY + AH / 2))           # GRB2 -> SOS1
-arrow(A, (48, AY + 2.2), (45, AY + 2.8), color=C['grey'])  # SHP2 -> GRB2-SOS1
-tag(A, 8, 82.5, 'SHP2 and SOS1 inhibitors act on this layer', status='clinical',
+arrow(A, (14.0, 99.4), (10.5, ATOP + 0.3))                 # RTK -> GRB2
+arrow(A, (20.4, 100.2), (58.0, ATOP + 0.3), rad=-0.26)     # RTK -> SHP2
+arrow(A, (45.6, 100.4), (63.5, ATOP + 0.3), rad=-0.12)     # integrins -> SHP2
+arrow(A, (68.4, 100.4), (84.0, ATOP + 0.3), rad=-0.12)     # GPCRs -> GEFs
+arrow(A, (90.0, 99.2), (92.0, ATOP + 0.3))                 # immune -> RasGRP
+arrow(A, (19.4, AC), (24.2, AC))                           # GRB2 -> SOS1
+arrow(A, (55.0, ABOT - 0.4), (41.0, ABOT - 0.4), rad=0.26,
+      color=C['grey'])                                     # SHP2 -> GRB2-SOS1
+tag(A, 6, 79.5, 'SHP2 and SOS1 inhibitors act on this layer', status='clinical',
     fs=FS['tiny'])
 
 # --- the nucleotide switch ----------------------------------------------------
-SY = 72.0
+SY = 69.0
 switch(A, 48, SY, 'OFF state', C['off'], C['ink'], 'GDP', '#4A5560')
 switch(A, 104, SY, 'ON state', C['on'], 'white', 'GTP', C['on'])
 
-arrow(A, (63, 77.0), (89, 77.0), rad=-0.38, lw=0.9)      # exchange
-arrow(A, (89, 67.0), (63, 67.0), rad=-0.38, lw=0.9)      # hydrolysis
-A.text(76, 84.0, 'nucleotide exchange (GEF: SOS1)', ha='center', va='bottom',
+arrow(A, (64.6, 73.4), (87.4, 73.4), rad=-0.40, lw=0.9)    # exchange
+arrow(A, (87.4, 64.6), (64.6, 64.6), rad=-0.40, lw=0.9)    # hydrolysis
+A.text(78, 78.8, 'nucleotide exchange (GEF: SOS1)', ha='center', va='bottom',
        fontsize=FS['small'], color=C['adaptor'])
-A.text(76, 59.8, 'GTP hydrolysis (GAP: NF1)', ha='center', va='top',
+A.text(78, 59.2, 'GTP hydrolysis (GAP: NF1)', ha='center', va='top',
        fontsize=FS['small'], color=C['grey'])
-arrow(A, (34, AY), (69, 81.5), color=C['adaptor'])       # SOS1 -> exchange
+arrow(A, (36.0, ABOT - 0.2), (68.0, 77.4), rad=-0.10,
+      color=C['adaptor'])                                  # SOS1 -> exchange
 
-capsule(A, 126, 61, 32, 10, 'NF1, RASA1\nGAPs', C['gap'], fs=FS['small'])
-A.text(126, 59.0, 'lost in ' + GI('NF1') + '-mutant tumours; germline\n'
+protein(A, 142.0, 63.0, 30, 11, 'NF1, RASA1\nGAPs', C['gap'], shape='bi',
+        fs=FS['small'])
+A.text(126, 55.8, 'lost in ' + GI('NF1') + '-mutant tumours; germline\n'
        'loss causes RASopathies', fontsize=FS['tiny'], color=C['grey'],
        ha='left', va='top', linespacing=1.3)
-arrow(A, (126, 66.0), (88, 64.5), color=C['gap'])        # GAP -> hydrolysis
+arrow(A, (126.0, 63.6), (88.5, 62.6), rad=0.08, color=C['gap'])   # GAP -> hydrolysis
 
-A.add_patch(Rectangle((124, 88), 47, 14, facecolor=C['light'],
-                      edgecolor=C['grey'], linewidth=LW['thin'], zorder=1))
+A.add_patch(FancyBboxPatch((125.3, 89.3), 44.4, 11.4,
+                           boxstyle='round,pad=1.3,rounding_size=1.6',
+                           facecolor=C['light'], edgecolor=HEAD,
+                           linewidth=LW['thin'], zorder=1))
 A.text(125.5, 100.6, 'Substitutions at codons 12, 13 and 61 impair\n'
                      'GAP-stimulated hydrolysis, so the switch accumulates\n'
                      'in the GTP-bound state; the residual nucleotide cycling\n'
                      'left to each allele decides which drug class can work.',
        fontsize=FS['tiny'], ha='left', va='top', linespacing=1.35, zorder=2)
 
-tag(A, 14, 59.0, 'OFF-state covalent inhibitors (' + GI('KRAS') + ' G12C)',
+tag(A, 12, 56.2, 'OFF-state covalent inhibitors (' + GI('KRAS') + ' G12C)',
     status='approved')
-tag(A, 14, 55.0, 'OFF-state inhibitors of non-cysteine alleles', status='clinical')
-tag(A, 124, 79.0, 'RAS(ON) tri-complex inhibitors: allele-selective\n'
+tag(A, 12, 52.4, 'OFF-state inhibitors of non-cysteine alleles', status='clinical')
+tag(A, 124, 77.5, 'RAS(ON) tri-complex inhibitors: allele-selective\n'
                   'and multi-selective (pan-RAS)', status='approved')
-tag(A, 124, 74.0, 'RAS degraders; effector-interface binders', status='clinical')
+tag(A, 124, 72.5, 'RAS degraders; effector-interface binders', status='clinical')
 
 # --- effector fan -------------------------------------------------------------
-arrow(A, (104, 63.0), (104, 51.0), lw=0.9)
+arrow(A, (104, 59.6), (104, 50.4), lw=0.9)
 A.plot([13, 161], [50.0, 50.0], color=C['edge'], linewidth=LW['arrow'], zorder=2)
-A.text(101, 51.8, 'effector binding (switch I and the interswitch surface)',
+A.text(101, 50.6, 'effector binding (switch I and the interswitch surface)',
        fontsize=FS['tiny'], color=C['grey'], ha='right', va='bottom')
 
-TIERS = [40.0, 29.0, 18.0]
-CHAIN = [(C['mapk'], 6, 34, ['RAF (BRAF, CRAF)', 'MEK1/2', 'ERK1/2'],
+TC = [42.5, 30.75, 19.0]                 # centre line of each effector tier
+EH = 7.6
+CHAIN = [(C['mapk'], 23.0, 34, [('RAF (BRAF, CRAF)', 'bi'), ('MEK1/2', 'bi'),
+                                ('ERK1/2', 'bi')],
           [('RAF and MEK inhibitors', 'approved'),
            ('ERK inhibitors', 'clinical')]),
-         (C['pi3k'], 46, 32, ['PI3K (p110)', 'AKT', 'mTORC1'],
+         (C['pi3k'], 62.0, 32, [('PI3K (p110)', 'bi'), ('AKT', 'bi'),
+                                ('mTORC1', 'tri')],
           [('PI3K, AKT and mTOR inhibitors', 'approved'),
            ('blocking one trunk de-represses the other', 'clinical')]),
-         (C['ral'], 84, 30, ['RALGDS', 'RAL', 'vesicle traffic,\nsecretion'],
+         (C['ral'], 99.0, 30, [('RALGDS', 'bi'), ('RAL', 'round'),
+                               ('vesicle traffic,\nsecretion', 'plate')],
           [('no selective agent in the clinic', 'preclinical')])]
-for col, x, w, labels, tags in CHAIN:
-    for i, lbl in enumerate(labels):
-        y = TIERS[i]
-        capsule(A, x, y, w, 8.5, lbl, col,
-                fs=FS['small'] if '\n' in lbl else FS['anno'], bold=(i < 2))
+for col, cx, w, nodes, tags in CHAIN:
+    for i, (lbl, shp) in enumerate(nodes):
+        cy = TC[i]
+        fs = FS['small'] if '\n' in lbl else FS['anno']
+        if shp == 'plate':
+            plate(A, cx, cy, w, EH, lbl, col, fs=fs)
+        else:
+            protein(A, cx, cy, w if shp != 'round' else w * 0.62, EH, lbl, col,
+                    shape=shp, fs=fs, bold=(i < 2))
         if i:
-            arrow(A, (x + w / 2, TIERS[i - 1]), (x + w / 2, y + 8.5))
-    arrow(A, (x + w / 2, 50.0), (x + w / 2, TIERS[0] + 8.5))
+            arrow(A, (cx, TC[i - 1] - EH / 2 - 0.2), (cx, cy + EH / 2 + 0.2))
+    arrow(A, (cx, 49.6), (cx, TC[0] + EH / 2 + 0.2))
     for j, (tg, st) in enumerate(tags):
-        tag(A, x, 13.0 - 3.4 * j, tg, status=st, fs=FS['tiny'])
+        tag(A, cx - w / 2, 12.2 - 3.3 * j, tg, status=st, fs=FS['tiny'])
 
 # fourth branch: two parallel effectors feeding one output
-capsule(A, 120, TIERS[0], 24, 8.5, u'PLCε', C['other'])
-capsule(A, 147, TIERS[0], 23, 8.5, 'TIAM1', C['other'])
-capsule(A, 120, TIERS[1], 24, 8.5, 'DAG, PKC', C['other'], fs=FS['small'])
-capsule(A, 147, TIERS[1], 23, 8.5, 'RAC', C['other'])
-capsule(A, 120, TIERS[2], 50, 8.5, 'actin remodelling, migration and invasion',
-        C['other'], fs=FS['small'], bold=False)
-for x, w in ((120, 24), (147, 23)):
-    arrow(A, (x + w / 2, 50.0), (x + w / 2, TIERS[0] + 8.5))
-    arrow(A, (x + w / 2, TIERS[0]), (x + w / 2, TIERS[1] + 8.5))
-    arrow(A, (x + w / 2, TIERS[1]), (x + w / 2, TIERS[2] + 8.5))
-tag(A, 120, 13.0, 'no selective agent in the clinic', status='preclinical',
+protein(A, 132.0, TC[0], 24, EH, u'PLCε', C['other'], shape='bi')
+protein(A, 158.5, TC[0], 23, EH, 'TIAM1', C['other'], shape='bi')
+protein(A, 132.0, TC[1], 24, EH, 'DAG, PKC', C['other'], shape='tri',
+        fs=FS['small'])
+protein(A, 158.5, TC[1], 15, EH, 'RAC', C['other'], shape='round')
+plate(A, 145.0, TC[2], 50, EH, 'actin remodelling, migration and invasion',
+      C['other'], fs=FS['small'])
+for cx in (132.0, 158.5):
+    arrow(A, (cx, 49.6), (cx, TC[0] + EH / 2 + 0.2))
+    arrow(A, (cx, TC[0] - EH / 2 - 0.2), (cx, TC[1] + EH / 2 + 0.2))
+    arrow(A, (cx, TC[1] - EH / 2 - 0.2), (cx, TC[2] + EH / 2 + 0.2))
+tag(A, 120, 12.2, 'no selective agent in the clinic', status='preclinical',
     fs=FS['tiny'])
-tag(A, 120, 9.6, 'effector use differs by allele and by tissue', status='clinical',
+tag(A, 120, 8.9, 'effector use differs by allele and by tissue', status='clinical',
     fs=FS['tiny'])
 
 # --- ERK-mediated negative feedback -------------------------------------------
-A.plot([6, 2.5, 2.5, 28.0, 28.0], [22.2, 22.2, 85.5, 85.5, 86.9],
+A.plot([6, 2.5, 2.5, 36.0, 36.0], [TC[2], TC[2], 81.8, 81.8, ABOT - 1.4],
        color=C['on'], linewidth=LW['arrow'], linestyle=DASH, zorder=4)
-A.plot([28.0], [87.1], marker='_', markersize=4.0, color=C['on'], zorder=4)
-A.text(4.4, 29, 'ERK-mediated negative feedback on SOS1, CRAF and the receptors',
+A.plot([36.0], [ABOT - 1.2], marker='_', markersize=4.0, color=C['on'], zorder=4)
+A.text(4.4, 30, 'ERK-mediated negative feedback on SOS1, CRAF and the receptors',
        fontsize=FS['tiny'], color=C['on'], rotation=90, rotation_mode='anchor',
        ha='left', va='center')
 A.text(6, 5.6, 'Blocking the pathway releases this feedback and the upstream layer '
@@ -359,30 +423,35 @@ def icon_senescence(ax, x, y):
 
 
 PH = [
-    (2, 'Metabolic reprogramming', icon_metabolic,
+    (0.5, 'Metabolic reprogramming', icon_metabolic,
      'Increased glucose uptake, rewired\nglutamine use, scavenging of\nextracellular nutrients',
      'metabolic co-targeting', 'preclinical'),
-    (45, 'Macropinocytosis and autophagy', icon_macropino,
+    (43.5, 'Macropinocytosis and autophagy', icon_macropino,
      'Protein and amino-acid recycling\nsustains growth and becomes a\nsurvival route under drug pressure',
      'autophagy inhibition', 'clinical'),
-    (88, 'Immunosuppressive microenvironment', icon_immune,
+    (86.5, 'Immunosuppressive microenvironment', icon_immune,
      'Higher PD-L1, recruitment of myeloid\nsuppressor cells, reduced antigen\npresentation',
      'checkpoint blockade; mutant-RAS\nvaccines and TCR-T cells', 'clinical'),
-    (131, 'Senescence and oncogenic stress', icon_senescence,
+    (129.5, 'Senescence and oncogenic stress', icon_senescence,
      'A barrier that must be bypassed:\ncarrying a mutation is not the same\nas depending on it',
      'no therapeutic use; constrains how\nmutation data are read', 'preclinical'),
 ]
 for x, head, icon, body, tg, st in PH:
-    B.add_patch(FancyBboxPatch((x + 1.2, 5.2), 36.6, 21.6,
-                               boxstyle='round,pad=1.2,rounding_size=1.4',
-                               facecolor=C['pheno'], edgecolor=C['edge'],
-                               linewidth=LW['box'], zorder=1))
-    B.text(x + 2.4, 26.0, head, fontsize=FS['small'], fontweight='bold',
-           ha='left', va='top', zorder=2)
-    B.text(x + 2.4, 21.4, body, fontsize=FS['tiny'], ha='left', va='top',
-           zorder=2, linespacing=1.4)
-    icon(B, x + 31.0, 11.5)
-    tag(B, x + 2.4, 7.0, tg, status=st, fs=FS['tiny'])
+    # each card is a cell: outer leaflet, inner leaflet, cytoplasm
+    B.add_patch(FancyBboxPatch((x + 1.2, 5.2), 39.0, 21.6,
+                               boxstyle='round,pad=1.2,rounding_size=2.6',
+                               facecolor=C['pheno'], edgecolor=HEAD,
+                               linewidth=1.1, zorder=1))
+    B.add_patch(FancyBboxPatch((x + 2.2, 6.0), 37.0, 20.0,
+                               boxstyle='round,pad=1.0,rounding_size=2.2',
+                               facecolor='none', edgecolor=HEAD,
+                               linewidth=0.45, zorder=2))
+    B.text(x + 2.9, 25.6, head, fontsize=FS['small'], fontweight='bold',
+           ha='left', va='top', zorder=3)
+    B.text(x + 2.9, 21.2, body, fontsize=FS['tiny'], ha='left', va='top',
+           zorder=3, linespacing=1.4)
+    icon(B, x + 33.0, 11.4)
+    tag(B, x + 2.9, 7.2, tg, status=st, fs=FS['tiny'])
 S.panel(fig, B, 'b')
 
 S.save(fig, 'Fig7_RAS_signalling_network', FIG)
