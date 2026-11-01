@@ -139,7 +139,8 @@ def build():
             'CRISPR) target the gene and its transcripts rather than the RAS protein and have no conformational state, '
             'so they are outside the coordinates (see §4.7). The one exception is iExosome siG12D, which '
             'has human data discussed in §5.3; it is listed as an "RNA therapy" with "not applicable" '
-            'in the conformational-state column.\n\n')
+            'in the conformational-state column. This table lists **%d** drugs, the same set, drug for '
+            'drug, as Figure 9.\n\n' % len(lanes))
     o.write('**2. Drugs mentioned in the text but not in this table, and why.**\n\n')
     o.write('| Drug | Where mentioned | Reason for exclusion |\n|---|---|---|\n')
     o.write('| ifebemtinib | §6.5; Figure 12 (with garsorasib, first-line confirmed ORR 82%) | A FAK '
@@ -154,7 +155,6 @@ def build():
             '§4.1 as evidence from the era of indirect strategies. **Exception**: avutometinib + defactinib is included '
             '(group 6) for the reason in note 3 — not because it acts on RAS, but because its indication is defined '
             'by *KRAS* mutation and it is approved. |\n')
-    o.write('\n**The number of drugs in Figure 9 and in this table** is currently **%d**.\n' % len(lanes))
     o.write('\n**3. Avutometinib + defactinib in group 6 is included by indication, not by mechanism.** Avutometinib is '
             'a RAF/MEK molecular glue (clamp) and defactinib a FAK inhibitor; **neither binds RAS directly**, and they '
             'act downstream of and parallel to RAS — so the combination has **its own group 6 (downstream pathway '
