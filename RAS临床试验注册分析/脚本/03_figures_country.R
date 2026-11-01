@@ -94,7 +94,7 @@ pa <- ggplot() +
                                          title.position = "left",
                                          title.vjust = 0.1, keywidth = unit(5, "mm"))) +
   coord_fixed(1.33, xlim = c(-168, 182), ylim = c(-57, 84), expand = FALSE) +
-  base + theme(legend.position = "bottom",
+  base + theme(legend.position = "bottom", legend.box.spacing = unit(1, "mm"),
                panel.background = element_rect(fill = PAL[["sea"]], colour = NA))
 
 # ------------------------------- panel b: top 25 countries, stacked by phase
@@ -196,13 +196,18 @@ AA
 BC
 DD
 "
-fig <- pa + pb + pcc + pd +
-  plot_layout(design = layout, heights = c(1.10, 0.95, 0.80)) +
+# `free(pa)` releases the map from the column alignment: patchwork would
+# otherwise line its panel up with b's country-label gutter and c's right edge,
+# which left the fixed-aspect map 115 mm wide under 180 mm panels (narrow top,
+# wide bottom).  Released, it fills the canvas; row heights are millimetres,
+# and row a needs the map's own 93 mm (350° x 141° at 1.33) plus its legend.
+fig <- free(pa, side = "lr") + pb + pcc + pd +
+  plot_layout(design = layout, heights = c(111, 63, 53)) +
   plot_annotation(tag_levels = "a") &
   theme(plot.tag.position = c(0, 1))
 
-save_fig(fig, "Figure_RAS_trials_global_distribution", 180, 198)
-save_fig(pa, "FigurePanel_a_world_map", 180, 96)
+save_fig(fig, "Figure_RAS_trials_global_distribution", 180, 227)
+save_fig(pa, "FigurePanel_a_world_map", 180, 111)
 save_fig(pb, "FigurePanel_b_top25_by_phase", 88, 92)
 save_fig(pcc, "FigurePanel_c_cumulative_by_year", 88, 68)
 save_fig(pd, "FigurePanel_d_tier_composition", 180, 78)

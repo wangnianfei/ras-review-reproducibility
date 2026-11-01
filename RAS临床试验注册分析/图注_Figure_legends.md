@@ -41,7 +41,7 @@ documentation.
 
 ## Supplementary-style single panels
 
-**Figure 11a (stand-alone)** — as panel **a** above, 180 × 96 mm.
+**Figure 11a (stand-alone)** — as panel **a** above, 180 × 111 mm.
 **Figure 11b (stand-alone)** — as panel **b** above, single column, 88 × 92 mm.
 **Figure 11c (stand-alone)** — as panel **c** above, single column, 88 × 68 mm.
 **Figure 11d (stand-alone)** — as panel **d** above, 180 × 78 mm.
