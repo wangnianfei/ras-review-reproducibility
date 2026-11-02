@@ -90,6 +90,26 @@ def check():
             m = missing(a, b)
             if m:
                 bad.append('%s 第 %d 行（%s）：英文缺 %s' % (zp, i, b.split('|')[1].strip()[:40], ' '.join(m)))
+    # 表注上标字母（Nature／Lancet 体例，2026-11-02）：表身用到的字母按首现顺序为 a、b、c…，
+    # 每个都在表注里定义、表注里不多出；单元格里不再写「（见表注）」「(see Note)」。
+    files = [os.path.join(ROOT, '表一_药物全景表.md')] + [os.path.join(ROOT, z) for z, _ in PAIRS] \
+        + [os.path.join(ENDIR, e) for _, e in PAIRS]
+    files.append(os.path.join(ENDIR, 'Table1_RAS-directed_drug_landscape.md'))
+    for f in files:
+        if not os.path.exists(f):
+            continue
+        txt = io.open(f, encoding='utf-8').read()
+        rows = '\n'.join(table_rows(f))
+        note = '\n'.join(l for l in txt.splitlines() if l.startswith(('注：', 'Note:')))
+        used = list(dict.fromkeys(re.findall(r'<sup>([a-z])</sup>', rows)))
+        defd = re.findall(r'<sup>([a-z])</sup>', note)
+        name = os.path.basename(f)
+        if used != [chr(97 + k) for k in range(len(used))]:
+            bad.append('%s：表身上标字母未按 a、b、c 顺序首现（%s）' % (name, ''.join(used)))
+        if defd != used:
+            bad.append('%s：表注定义的字母 %s ≠ 表身用到的 %s' % (name, ''.join(defd), ''.join(used)))
+        if re.search(r'见表注|see Note', rows):
+            bad.append('%s：单元格里仍有「见表注」式指向，改用上标字母' % name)
     return bad
 
 
@@ -111,10 +131,15 @@ def build():
     for r in rows:
         if r['lane'] != cur:
             cur = r['lane']
-            o.write('| **Group %s. %s** | | | | | | | | |\n' % (cur, LANE_NAME[cur]))
+            o.write('| **%s** | | | | | | | | |\n' % LANE_NAME[cur])   # group rows unnumbered
         e = en[r['drug']]
         code = ' / '.join(p.strip() for p in re.split(r'[;；]', r['code']) if p.strip())
-        name = r['drug'] + (' (%s)' % code if code else '')
+        drug = r['drug']
+        if re.fullmatch(r'[a-z]{5,}', code) and not re.fullmatch(r'[a-z]{5,}', drug):
+            drug, code = code, drug   # INN first, code in brackets (as in the Chinese table)
+        name = drug + (' (%s)' % code if code else '')
+        if r['lane'] == '6':
+            name += '<sup>a</sup>'    # footnote a: no direct RAS binding
         it = lambda s: GENE.sub(r'*\1*', s)
         o.write('| %s | %s | %s | %s | %s | %s | %s | %s | %s |\n' % (
             name, it(e['gene']), it(e['alleles']), e['state'], it(e['mechanism']),
@@ -123,8 +148,8 @@ def build():
     o.write('\nNote: Drug set and six groups as in Figure 9 (%d drugs); highest phase and registered trials from '
             'ClinicalTrials.gov (cut-off %s; 1 133 RAS-related phase 1–3 interventional oncology trials); registered '
             'trials: development activity, not efficacy, including trials with the drug only as a combination component, '
-            'so counts overlap; avutometinib + defactinib (group 6): no direct RAS binding, included for its FDA indication '
-            'defined by *KRAS* mutation; approval information in Table 2. '
+            'so counts overlap; approval information in Table 2; <sup>a</sup>no direct RAS binding, included for its FDA indication '
+            'defined by *KRAS* mutation. '
             'Abbreviations: CRC / mCRC, (metastatic) colorectal cancer; DCR, disease control rate; IRRC, independent radiology review committee; LGSOC, low-grade serous ovarian cancer; MTD, maximum tolerated dose; NSCLC, non-small-cell lung cancer; ORR, objective response rate; OS, overall survival; PFS, progression-free survival; TCR, T-cell receptor; TRAE, treatment-related adverse event; VAF, variant allele frequency.\n' % (len(lanes), SNAP))
     os.makedirs(ENDIR, exist_ok=True)
     io.open(OUT, 'w', encoding='utf-8').write(o.getvalue())

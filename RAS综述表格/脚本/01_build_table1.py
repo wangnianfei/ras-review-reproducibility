@@ -149,13 +149,18 @@ cur = None
 for r in rows:
     if r['lane'] != cur:
         cur = r['lane']
-        out.write('| **%s、%s** | | | | | | | | |\n'
-                  % ('一二三四五六七八九十'[int(cur) - 1], LANE_NAME[cur]))
+        # 分组行不编号（Nature／Lancet 体例：小标题即组名，不写「一、」）
+        out.write('| **%s** | | | | | | | | |\n' % LANE_NAME[cur])
     e = extra[r['drug']]
     # code 列可写多个代号（用「;」分隔，出处见 00_count_swimlane_trials.py 头注），
     # 表里用全角「／」连写：sosimerasib（HBI-2438／JMKX001899）
     code = '／'.join(p.strip() for p in re.split(r'[;；]', r['code']) if p.strip())
-    name = r['drug'] + ('（%s）' % code if code else '')
+    drug = r['drug'].replace(' + ', '＋')
+    if re.fullmatch(r'[a-z]{5,}', code) and not re.fullmatch(r'[a-z]{5,}', drug):
+        drug, code = code, drug       # 药名统一：有 INN 的一律「INN（代号）」（RMC-4630、TNO155 在数据里是反着记的）
+    name = drug + ('（%s）' % code if code else '')
+    if r['lane'] == '6':
+        name += '<sup>a</sup>'        # 表注 a：不直接结合 RAS 的收录理由
     # 基因符号斜体、蛋白正体（同正文与图注的写法规范）：靶向基因一栏里的
     # KRAS/NRAS/HRAS/RAS 是基因名，输出成 *KRAS*；「突变 RAS 新抗原」里的 RAS
     # 亦指基因，一并斜体。等位基因与氨基酸改变（G12C 等）保持正体。
@@ -169,7 +174,7 @@ for r in rows:
 # 置于表下；投稿稿按小五、单倍行距排（`02_make_docx.py` 认段首「注：」）。
 out.write('\n注：药物集合与六组同图9（共 %d 个药）；最高阶段与登记试验数据 ClinicalTrials.gov（截取日 %s，'
           '1 133 项 RAS 相关Ⅰ–Ⅲ期干预性肿瘤试验），登记试验数示研发活跃度、非疗效，含作为联合组分的登记，各药间不互斥；'
-          '第六组 avutometinib＋defactinib 不直接结合 RAS，按 *KRAS* 突变界定的 FDA 适应证收录；获批信息见表2。'
+          '获批信息见表2；<sup>a</sup>不直接结合 RAS，按 *KRAS* 突变界定的 FDA 适应证收录。'
           '\n' % (len(lanes), SNAP))
 
 # 全表再过一遍基因／蛋白判定：靶向基因列已就地标了斜体，这里补的是
