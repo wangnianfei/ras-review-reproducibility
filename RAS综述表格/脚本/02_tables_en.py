@@ -119,24 +119,17 @@ def build():
         o.write('| %s | %s | %s | %s | %s | %s | %s | %s | %s |\n' % (
             name, it(e['gene']), it(e['alleles']), e['state'], it(e['mechanism']),
             STAGE_EN[r['stage']], r['n_trials'], e['result'], e['section']))
-    # 表注只写一段（2026-11-02 作者，与中文版同改）：口径、收录边界与第六组的收录理由并成一段，
-    # 缩略语行随后。
-    o.write('\nNote: This table has the same drug set as Figure 9 (%d drugs), and its six groups correspond one to '
-            'one to the six lanes of Figure 9. Highest phase and registered trials come from this review\'s trial '
-            'registration dataset (ClinicalTrials.gov, cut-off %s; 1 133 RAS-related phase 1–3 interventional '
-            'oncology trials); registered trials measure development activity, not efficacy, and include trials in '
-            'which the drug is only a combination component, so counts overlap. The table covers drugs acting on the '
-            'RAS protein, its upstream processing and regulatory nodes, and immune strategies against mutant-RAS '
-            'neoantigens; gene therapies are excluded except iExosome siG12D, which has human data. Avutometinib + '
-            'defactinib (group 6) does not bind RAS and is included because the FDA defines its indication by '
-            '*KRAS* mutation; other downstream kinase inhibitors such as MEK inhibitors, ifebemtinib, anti-EGFR '
-            'antibodies and cytotoxic drugs are only combination partners or comparators and are not listed. '
-            'Single-arm response rates are given with sample size and assessment method; approval information is in '
-            'Table 2.\n' % (len(lanes), SNAP))
-    o.write('\n> Abbreviations: CRC / mCRC, (metastatic) colorectal cancer; DCR, disease control rate; IRRC, independent '
-            'radiology review committee; LGSOC, low-grade serous ovarian cancer; MTD, maximum tolerated dose; NSCLC, '
-            'non-small-cell lung cancer; ORR, objective response rate; OS, overall survival; PFS, progression-free '
-            'survival; TCR, T-cell receptor; TRAE, treatment-related adverse event; VAF, variant allele frequency.\n')
+    # 表注只写一段（2026-11-02 作者，与中文版同改）：短语式，缩略语接在同段末尾。
+    o.write('\nNote: Drug set as in Figure 9 (%d drugs); six groups matching the six lanes of Figure 9; highest phase and '
+            'registered trials from this review\'s trial registration dataset (ClinicalTrials.gov, cut-off %s; 1 133 '
+            'RAS-related phase 1–3 interventional oncology trials); registered trials: a measure of development activity, '
+            'not efficacy, including trials with the drug only as a combination component, so counts overlap; scope: drugs '
+            'acting on the RAS protein, upstream processing and regulatory nodes, and immune strategies against mutant-RAS '
+            'neoantigens; gene therapies excluded except iExosome siG12D (human data available); avutometinib + defactinib '
+            '(group 6): no direct RAS binding, included for its FDA indication defined by *KRAS* mutation; other downstream '
+            'kinase inhibitors, ifebemtinib, anti-EGFR antibodies and cytotoxic drugs (combination partners or comparators) '
+            'not listed; single-arm response rates with sample size and assessment method; approval information in Table 2. '
+            'Abbreviations: CRC / mCRC, (metastatic) colorectal cancer; DCR, disease control rate; IRRC, independent radiology review committee; LGSOC, low-grade serous ovarian cancer; MTD, maximum tolerated dose; NSCLC, non-small-cell lung cancer; ORR, objective response rate; OS, overall survival; PFS, progression-free survival; TCR, T-cell receptor; TRAE, treatment-related adverse event; VAF, variant allele frequency.\n' % (len(lanes), SNAP))
     os.makedirs(ENDIR, exist_ok=True)
     io.open(OUT, 'w', encoding='utf-8').write(o.getvalue())
     print('已写 英文版/%s：%d 药' % (os.path.basename(OUT), len(rows)))
