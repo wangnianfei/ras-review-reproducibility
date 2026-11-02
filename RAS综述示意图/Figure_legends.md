@@ -1,6 +1,8 @@
 # Figure legends (schematic figures of the review)
 
-Prepared 20 October 2026. These figures are schematics and carry no measured
+Prepared 20 October 2026 (Figures 9 and 12 redrawn as a swimlane map and a matrix
+heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration on
+2 November 2026). These figures are schematics and carry no measured
 quantities of their own: Figure 9 carries only trial counts (the right-hand track),
 Figure 12 only the two published detection rates, and Figure 10 only years. The trial
 counts come from trial registration dataset assembled for this review from ClinicalTrials.gov (REST API v2, snapshot of
@@ -16,7 +18,7 @@ names roman, categories separated by marker shape before colour.
 
 ## Figure 8 | The RAS signalling network: inputs, the nucleotide switch, effector branches and the points at which it can be drugged.
 
-**a**, Signal flow from the cell surface to the effector branches: receptor inputs converge through the GRB2–SOS1 axis (assembly maintained by SHP2) on the nucleotide switch, and GAPs (NF1, RASA1) drive the return reaction; four effector branches of active RAS (RAF–MEK–ERK, PI3K–AKT–mTOR, RALGDS–RAL, PLCε/TIAM1–RAC); red dashed lines, ERK negative feedback to SOS1, CRAF and receptors. Drug-class markers: circles, approved agents exist; squares, in clinical trials (phase I–III); triangles, preclinical only or abandoned. **b**, Cellular programmes established by sustained RAS signalling (metabolic reprogramming, macropinocytosis and autophagy, immunosuppressive microenvironment, senescence and oncogenic-stress barriers) with their therapeutic entry points; the last cell is a limitation, not a target: carrying a *RAS* mutation is not the same as depending on it.
+**a**, Signalling from the plasma membrane to the nucleus: receptor inputs (RTK, receptor tyrosine kinase; integrin; GPCR, G-protein-coupled receptor; immune receptor) converge through the GRB2–SOS1 axis (assembly maintained by SHP2) and tissue-restricted GEFs on nucleotide exchange of RAS, which is anchored to the inner leaflet by its lipidated tail; GAPs (NF1, RASA1) catalyse GTP hydrolysis, the return reaction; four effector branches of active RAS (RAF–MEK–ERK, PI3K–AKT–mTOR, RALGDS–RAL, PLCε/TIAM1–RAC), with ERK entering the nucleus to drive ERK-dependent transcription; red dashed lines, ERK negative feedback to SOS1, CRAF and receptors. Drug-class markers: circles, approved agents exist; squares, in clinical trials (phase I–III); triangles, preclinical only or abandoned. **b**, Cellular programmes established by sustained RAS signalling (metabolic reprogramming, macropinocytosis and autophagy, immunosuppressive microenvironment, senescence and oncogenic-stress barriers) with their therapeutic entry points; the last cell is a limitation, not a target: carrying a *RAS* mutation is not the same as depending on it.
 
 ## Figure 9 | Swimlane map of RAS-directed drug classes: mechanism, development stage and allele coverage.
 

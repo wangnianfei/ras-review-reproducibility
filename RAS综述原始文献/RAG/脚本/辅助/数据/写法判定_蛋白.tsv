@@ -199,7 +199,7 @@ KRAS		for 	# 英文图注 KRAS inhibitors＝蛋白
 HRAS		（	# 表二 HRAS（KRAS 无效）里的括号注
 TIAM1		、	# 效应器清单「RAL、PLCε、TIAM1」＝蛋白
 ELF3		转录因子 	# 「转录因子 ELF3」＝蛋白
-RASA1	）驱动回程		# 图注「GAP（NF1、RASA1）驱动回程」＝蛋白
+RASA1	）催化 GTP		# 图注「GAP（NF1、RASA1）催化 GTP 水解」＝蛋白（2026-11-02 图8 重画后措辞）
 CRAF	 and the receptors		# 英文图注 ERK 反馈作用于 CRAF＝蛋白
 EGFR	，表皮生长因子受体	
 EGFR	）	factor receptor，
@@ -209,4 +209,4 @@ HER2	）	factor receptor 2，
 CRAF	 与受体		# 图8 图注「ERK 对 SOS1、CRAF 与受体的负反馈」＝蛋白
 CRAF	 and receptors		# 英文图8 图注 ERK feedback to SOS1, CRAF and receptors＝蛋白
 NF1		GAPs (	# 英文图8 图注 GAPs (NF1, RASA1)＝蛋白
-RASA1	) drive		# 同上
+RASA1	) catalyse		# 同上（英文图8 图注 GAPs (NF1, RASA1) catalyse GTP hydrolysis）

@@ -130,10 +130,12 @@ are frequencies *in that cohort*, not population incidence. Residue numbering fo
 
 ### Figure 8: RAS signalling network — `RAS综述示意图/`
 
-A schematic: node and arrow positions are defined in `脚本/01_fig7_network.py` (shared style
-in `脚本/00_style.py`); there is no numerical input. Every node, arrow and label is backed by a
+A cell-level mechanism illustration: the shapes and positions of membrane, molecules and nucleus
+are defined in `脚本/01_fig7_network.py`; there is no numerical input. The script writes SVG,
+then rsvg-convert makes the PNG and headless Chrome the PDF (cairo would embed the space glyph
+as a Type 3 font, which fails the Arial-only check). Every node, arrow and label is backed by a
 verbatim sentence from a paper cited in the review, listed in
-`evidence/图8_节点与边证据.tsv` (70 rows: element, type, supporting sentence, source
+`evidence/图8_节点与边证据.tsv` (72 rows: element, type, supporting sentence, source
 document ID `<section>_<FirstAuthor>_<year>_<PMID>`, section of the text). Five rows are
 marked as textbook scaffolding; three drug-status labels were counted from the
 ClinicalTrials.gov corpus of Figure 11.
