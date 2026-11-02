@@ -23,8 +23,10 @@ INK <- "#1A1A1A"; GREY <- "#4D5559"; RULE <- "#D5DBDE"
 # house palette: coral (KRAS, Fig 3/5), amber, wine, purple, teal, blue
 HOUSE <- c(coral = "#E0533D", amber = "#E09F3E", wine = "#A3203F",
            purple = "#6A4C93", teal = "#1F8A8C", blue = "#2E86AB")
-PHASE_COL <- c("Early Phase 1" = "#F3D3A1", "Phase 1" = "#E09F3E",
-               "Phase 2" = "#E0533D", "Phase 3" = "#A3203F")
+# 2026-11-02 作者第三轮：图11 不要过暖，色调随图5–图9——冷色（青绿）为底、珊瑚红点睛。
+# 阶段是有序量，用图2／图3 外显子的同一条青绿明度梯度
+PHASE_COL <- c("Early Phase 1" = "#CFE5E2", "Phase 1" = "#8CC2BC",
+               "Phase 2" = "#3F8F95", "Phase 3" = "#1F6F78")
 
 txt <- function(...) element_text(family = "Arial", size = FS_PT, colour = INK, ...)
 base <- theme_void(base_family = "Arial", base_size = FS_PT) +
@@ -72,9 +74,9 @@ world$n[is.na(world$n)] <- 0            # no registered site, not missing data
 BRK <- c(0, 1, 2, 6, 11, 26, 51, 101, Inf)
 LAB <- c("0", "1", "2–5", "6–10", "11–25", "26–50", "51–100", ">100")
 world$bin <- cut(world$n, BRK, labels = LAB, right = FALSE)
-# warm sequential ramp in the house palette: sand -> amber -> coral -> wine
-FILL <- setNames(c("#ECEEEF", "#FBE8D3", "#F6D0A6", "#F0AF78", "#E98654",
-                   "#E0533D", "#C23B3B", "#A3203F"), LAB)
+# cool sequential ramp (same teal as Figures 2-3 and the phase bars): grey -> pale teal -> deep teal
+FILL <- setNames(c("#ECEEEF", "#E1EFED", "#CFE5E2", "#A9D2CD", "#7FB3AE",
+                   "#4F9A9C", "#2B7C83", "#17585F"), LAB)
 
 # label anchors: every label sits on sea or on a pale (0-trial) land mass so it
 # stays legible; hj = 0 left-aligned, 1 right-aligned, 0.5 centred
@@ -84,22 +86,27 @@ lab_pts <- data.frame(
   lon = c(-100, -106,  104, 139, 128,  134, -2,  2.5, -4,   13, 10.5),
   lat = c(  40,   58,   35,  36, 36.5, -25, 53,  47,  40, 42.5, 51),
   nx  = c(-132,  -40,   80, 150, 137,  134, -24, -24, -24,  14,  14),
-  ny  = c(  26,   74,   47,  44,  21,  -47,  60,  49,  37,  22,  73),
+  ny  = c(  26,   74,   47,  44,  21,  -47,  60,  49,  37,  27,  73),
   hj  = c(   1,    0,    1,   0,   0,  0.5,   1,   1,   1, 0.5, 0.5))
 lab_pts$n <- cn$n_trials[match(lab_pts$country, cn$country)]
 lab_pts$txt <- paste0(sub("United States", "USA",
                           sub("United Kingdom", "UK", lab_pts$country)),
                       " **", lab_pts$n, "**")
-# the leader stops just short of the text: beside it for left/right-aligned
-# labels, under or over it for centred ones
-lab_pts$ex <- with(lab_pts, ifelse(hj == 1, nx + 1, ifelse(hj == 0, nx - 1, nx)))
-lab_pts$ey <- with(lab_pts, ifelse(hj == 0.5, ny + ifelse(ny > lat, -2.2, 2.2), ny))
+# leaders are elbowed (as in Figure 7): a slanted run from the country, then a
+# short horizontal run that stops 1.6 deg short of the text, so no line ever
+# touches a glyph; centred labels are met from below or above with a 2.6 deg gap
+GAPX <- 1.6; ELB <- 3
+lab_pts$ex <- with(lab_pts, ifelse(hj == 1, nx + GAPX, ifelse(hj == 0, nx - GAPX, nx)))
+lab_pts$ey <- with(lab_pts, ifelse(hj == 0.5, ny + ifelse(ny > lat, -2.6, 2.6), ny))
+lab_pts$kx <- with(lab_pts, ifelse(hj == 1, ex + ELB, ifelse(hj == 0, ex - ELB, ex)))
 
 pa <- ggplot() +
   geom_polygon(data = world, aes(long, lat, group = group, fill = bin),
                colour = "white", linewidth = 0.1) +
-  geom_segment(data = lab_pts, aes(x = lon, y = lat, xend = ex, yend = ey),
-               linewidth = 0.3, colour = INK) +
+  geom_segment(data = lab_pts, aes(x = lon, y = lat, xend = kx, yend = ey),
+               linewidth = 0.25, colour = GREY) +
+  geom_segment(data = lab_pts, aes(x = kx, y = ey, xend = ex, yend = ey),
+               linewidth = 0.25, colour = GREY) +
   geom_point(data = lab_pts, aes(lon, lat), size = 0.9, shape = 21,
              fill = "white", colour = INK, stroke = 0.3) +
   ggtext::geom_richtext(data = lab_pts, aes(nx, ny, label = txt, hjust = hj),
@@ -161,7 +168,8 @@ cc$year <- as.integer(as.character(cc$year))
 cc <- cc[order(cc$country, cc$year), ]
 cc$cum <- unlist(lapply(split(cc$Freq, cc$country), cumsum))
 cc$country <- factor(as.character(cc$country), levels = top6)
-LINE <- setNames(unname(HOUSE[c("coral", "wine", "amber", "teal", "purple", "blue")]), top6)
+LINE <- setNames(c(HOUSE[["coral"]], "#1F6F78", HOUSE[["amber"]], HOUSE[["purple"]],
+                   HOUSE[["blue"]], "#59656B"), top6)
 ends <- do.call(rbind, lapply(split(cc, cc$country), function(d) d[nrow(d), ]))
 
 pcc <- ggplot(cc, aes(year, cum, colour = country)) +
@@ -174,7 +182,7 @@ pcc <- ggplot(cc, aes(year, cum, colour = country)) +
     max.overlaps = Inf, seed = 1, show.legend = FALSE) +
   scale_colour_manual(values = LINE, guide = "none") +
   scale_x_continuous("Year first posted",
-                     limits = c(min(cc$year), max(cc$year) + 6.5),
+                     limits = c(min(cc$year), max(cc$year) + 7.5),
                      breaks = seq(2000, 2025, 5), expand = expansion(c(0.01, 0))) +
   scale_y_continuous("Cumulative trials", breaks = seq(0, 600, 200),
                      expand = expansion(c(0.01, 0.04))) +
@@ -185,8 +193,8 @@ top15 <- ord[1:15]
 sh <- as.data.frame(table(country = pc$country, tier = pc$tier))
 sh <- sh[sh$country %in% top15, ]
 sh$country <- factor(as.character(sh$country), levels = rev(top15))
-TIER <- c("RAS-targeted" = HOUSE[["coral"]], "RAS-regulator-targeted" = HOUSE[["teal"]],
-          "RAS-biomarker-selected" = HOUSE[["amber"]], "RAS-mentioned" = "#C9CED2")
+TIER <- c("RAS-targeted" = "#1F6F78", "RAS-regulator-targeted" = HOUSE[["coral"]],
+          "RAS-biomarker-selected" = "#A9D2CD", "RAS-mentioned" = "#D5DBDE")
 sh$tier <- factor(sh$tier, levels = rev(names(TIER)))
 
 pd <- ggplot(sh, aes(Freq, country, fill = tier)) +

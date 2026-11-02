@@ -727,8 +727,10 @@ def fig3():
 # =========================================================== Figure 4 ======
 def fig4():
     KEYS = ['G12D', 'G12V', 'G12C', 'G12R', 'G13D', 'Q61X', 'Other']
-    PAL = ['#1B4F72', '#2E86AB', '#48A9A6', '#E09F3E', '#BF3100', '#6A4C93',
-           '#B6BEC6']
+    # 等位基因色取全书主色板（图5／图7 的青绿、珊瑚红、琥珀，图9 的蓝、紫），
+    # 2026-11-02 作者第三轮：全文配色尽可能一致
+    PAL = ['#1F6F78', '#2E86AB', '#8CC2BC', '#E9A23B', '#E0533D', '#6A4C93',
+           '#C9CFD1']
     muts = json.load(open(os.path.join(DATA, 'cbioportal_mutations.json')))
     ct = json.load(open(os.path.join(DATA, 'cbioportal_sample_cancertype.json')))
     comp = collections.defaultdict(collections.Counter)
@@ -815,8 +817,9 @@ def fig4():
     labw = text_mm([r['cancer_type'] for r in BYCT if r['gene'] in ('NRAS', 'HRAS')
                     and r in sorted([x for x in BYCT if x['gene'] == r['gene']],
                                     key=lambda x: -float(x['freq_pct']))[:NB]])
-    for idx, (g, col, pn) in enumerate((('NRAS', C['n'], 'b'),
-                                        ('HRAS', C['h'], 'c'))):
+    # 基因色同图5、图7（KRAS 珊瑚红、NRAS 青绿、HRAS 琥珀）
+    for idx, (g, col, pn) in enumerate((('NRAS', '#1F6F78', 'b'),
+                                        ('HRAS', '#E9A23B', 'c'))):
         rs = sorted([r for r in BYCT if r['gene'] == g],
                     key=lambda r: -float(r['freq_pct']))[:NB][::-1]
         labs = [r['cancer_type'] for r in rs]

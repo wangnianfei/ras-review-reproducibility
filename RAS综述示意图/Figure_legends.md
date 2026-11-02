@@ -1,7 +1,7 @@
 # Figure legends (schematic figures of the review)
 
 Prepared 20 October 2026 (Figures 9 and 12 redrawn as a swimlane map and a matrix
-heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration, Figure 9 re-laid in two columns with the warm house palette, and Figure 10 re-set in the same palette at 7.5 pt, on
+heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration, Figure 9 re-laid in two columns with the warm house palette, Figure 10 re-set in the same palette at 7.5 pt, and Figure 12 re-set full width in the lane grammar of Figure 9, on
 2 November 2026). These figures are schematics and carry no measured
 quantities of their own: Figure 9 carries only trial counts (the right-hand n column),
 Figure 12 only the two published detection rates, and Figure 10 only years. The trial
