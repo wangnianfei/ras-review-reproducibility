@@ -205,3 +205,8 @@ EGFR	，表皮生长因子受体
 EGFR	）	factor receptor，
 HER2	，人表皮生长因子受体 2	
 HER2	）	factor receptor 2，
+# —— 2026-11-02：图注精简后的新语境
+CRAF	 与受体		# 图8 图注「ERK 对 SOS1、CRAF 与受体的负反馈」＝蛋白
+CRAF	 and receptors		# 英文图8 图注 ERK feedback to SOS1, CRAF and receptors＝蛋白
+NF1		GAPs (	# 英文图8 图注 GAPs (NF1, RASA1)＝蛋白
+RASA1	) drive		# 同上

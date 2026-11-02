@@ -120,15 +120,11 @@ def build():
             name, it(e['gene']), it(e['alleles']), e['state'], it(e['mechanism']),
             STAGE_EN[r['stage']], r['n_trials'], e['result'], e['section']))
     # 表注只写一段（2026-11-02 作者，与中文版同改）：短语式，缩略语接在同段末尾。
-    o.write('\nNote: Drug set as in Figure 9 (%d drugs); six groups matching the six lanes of Figure 9; highest phase and '
-            'registered trials from this review\'s trial registration dataset (ClinicalTrials.gov, cut-off %s; 1 133 '
-            'RAS-related phase 1–3 interventional oncology trials); registered trials: a measure of development activity, '
-            'not efficacy, including trials with the drug only as a combination component, so counts overlap; scope: drugs '
-            'acting on the RAS protein, upstream processing and regulatory nodes, and immune strategies against mutant-RAS '
-            'neoantigens; gene therapies excluded except iExosome siG12D (human data available); avutometinib + defactinib '
-            '(group 6): no direct RAS binding, included for its FDA indication defined by *KRAS* mutation; other downstream '
-            'kinase inhibitors, ifebemtinib, anti-EGFR antibodies and cytotoxic drugs (combination partners or comparators) '
-            'not listed; single-arm response rates with sample size and assessment method; approval information in Table 2. '
+    o.write('\nNote: Drug set and six groups as in Figure 9 (%d drugs); highest phase and registered trials from '
+            'ClinicalTrials.gov (cut-off %s; 1 133 RAS-related phase 1–3 interventional oncology trials); registered '
+            'trials: development activity, not efficacy, including trials with the drug only as a combination component, '
+            'so counts overlap; avutometinib + defactinib (group 6): no direct RAS binding, included for its FDA indication '
+            'defined by *KRAS* mutation; approval information in Table 2. '
             'Abbreviations: CRC / mCRC, (metastatic) colorectal cancer; DCR, disease control rate; IRRC, independent radiology review committee; LGSOC, low-grade serous ovarian cancer; MTD, maximum tolerated dose; NSCLC, non-small-cell lung cancer; ORR, objective response rate; OS, overall survival; PFS, progression-free survival; TCR, T-cell receptor; TRAE, treatment-related adverse event; VAF, variant allele frequency.\n' % (len(lanes), SNAP))
     os.makedirs(ENDIR, exist_ok=True)
     io.open(OUT, 'w', encoding='utf-8').write(o.getvalue())

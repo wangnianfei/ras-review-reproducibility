@@ -27,10 +27,6 @@ import sys
 
 TRACE = (
     # ── 前期收口里属于内部痕迹的条目（2026-11-01 自 POLISH 迁入，两出口共用）
-    ('止于它在 1 133 项 ClinicalTrials.gov 语料中所达到的最高研发阶段',
-     '止于它在 1 133 项登记试验中所达到的最高研发阶段'),
-    ('右侧轨道的数字为该药在同一语料中被登记的试验数',
-     '右侧轨道的数字为该药在同一批登记试验中被登记的试验数'),
     ('这一日期与适应证取自一篇前临床论文的引言，已对 FDA 的肿瘤批准公告逐字核过'
      '（2026-10-27），两者一致。', ''),
     ('re:这是全节约束最紧的一条纪律。', '这是本节最严格的一条约束。'),
@@ -39,44 +35,11 @@ TRACE = (
     ('按纪律这类跨研究比较只能降级不能升级', '此类跨研究比较只能降级不能升级'),
 
     # ── 项目内部痕迹（作者 2026-11-01 裁定，逐条对应裁定表 A1–C4）─────────────
-    # 这些是脚手架：项目编号、裁定日期、谁拍板、文件放在哪个目录。事实一律留下，
-    # 只去掉「这是哪个项目、谁在哪天定的」。与 DROP_PARA 同纪律：每条必须命中。
-    # 内部痕迹 A1（作者 2026-11-01 裁定）图9 图注的裁定痕迹
-    ('**本图的纳入标准（2026-10-31 补，作者授权督导定）。**',
-     '**本图的纳入标准。**'),
-    # 内部痕迹 B2：图7 图注的复算脚本路径
-    ('复算脚本 `脚本/05_codon_share.py`', '复算脚本见公开复现包'),
-    # 内部痕迹 B4：图9 图注里的数据文件路径（清单本身改指补充材料）
-    ('列于 `数据/图八_直接RAS候选.tsv`', '列于补充材料'),
-    # 内部痕迹 B5：图9 图注里的扫描脚本路径
-    # （2026-11-01 作者改定：扫描脚本要读全文库，按 export.py 的 SKIP 不随复现包分发，
-    #   原先写的「可由公开复现包中的扫描脚本复跑」不成立；口径与英文图注一致）
-    ('两个方向都由 `RAS综述示意图/脚本/05_scan_direct_ras_candidates.py` 复跑',
-     '两个方向都由脚本对本综述收集的全文逐篇扫描（全文受版权限制，不随复现包分发）'),
-    # 内部痕迹 D（作者 2026-11-01 裁定）：「语料」是项目内部对自建试验集的叫法。
-    # 全稿第一次出现处写全称并补口径，之后每个图注／表／节内首次写
-    # 「本文的试验登记数据集」、同单元内再出现写「该数据集」。
-    ('语料中凡能证明是直接 RAS 抑制剂',
-     '本文的试验登记数据集（ClinicalTrials.gov，截取日 2026 年 10 月 20 日，'
-     '共 1 133 项 RAS 相关Ⅰ–Ⅲ期干预性肿瘤试验）中凡能证明是直接 RAS 抑制剂'),
+    # 脚手架（项目编号、裁定日期、文件路径）去掉、事实留下；每条必须命中。图注里的各条已随
+    # 2026-11-02 图注精简删去（原句不在了）。
     # 表1 表体：单元格里用短式
     ('未载（语料记 Undisclosed）', '未载（数据集记为 Undisclosed）'),
     ('（语料最高阶段Ⅲ期）', '（数据集内最高阶段Ⅲ期）'),
-    # 图11 图注
-    ('本图的语料只取自 ClinicalTrials.gov',
-     '本文的试验登记数据集只取自 ClinicalTrials.gov'),
-    # 图9 图注余下的各处
-    ('**上图只收**语料最高阶段', '**上图只收**该数据集内最高阶段'),
-    ('只在综述表里出现而语料未登记', '只在综述表里出现而该数据集未登记'),
-    ('——语料登记为Ⅱ期但已停止开发', '——该数据集登记为Ⅱ期但已停止开发'),
-    ('——语料未载作用方式', '——该数据集未载作用方式'),
-    ('① 语料 1 133 项试验的干预字段', '① 该数据集 1 133 项试验的干预字段'),
-    ('再与语料对照', '再与该数据集对照'),
-    ('不再用语料 `target_class`', '不再用该数据集 `target_class`'),
-    ('泳道的归属依语料所载机制', '泳道的归属依该数据集所载机制'),
-    ('：语料只写靶点', '：该数据集只写靶点'),
-    # 内部痕迹 F3（作者 2026-11-01 裁定，清单外补）：图9 图注的核法起点日期
-    ('**完整性的核法（2026-10-31 起）**', '**完整性的核法**'),
 
     # ── 只在投稿稿出现的形态（投稿稿先做过「本综述→本文」「本库→…」，字面与专著版不同；
     #    专著版的对应条目在下一组）
@@ -125,17 +88,6 @@ TRACE = (
     (r're:Prepared 20 October 2026 \(Figures 9 and 12 redrawn as a swimlane map and a matrix\s+heatmap on 30 October 2026\)\.',
      'Prepared 20 October 2026.', '复现包'),
     ('（图9、图12 于 10 月 30 日按泳道图与矩阵热图重画）', '', '复现包'),
-    (r're:\*\*How completeness is checked\s+\(from 31 October 2026\)\*\*', '**How completeness is checked**', '复现包'),
-    # 扫描脚本要读全文库、不随包分发（export.py 的 SKIP），不能写成「可复跑」
-    (r're:Both directions are re-runnable through\s+`RAS综述示意图/脚本/05_scan_direct_ras_candidates\.py`;',
-     'Both directions were swept by script against the full-text documents collected for this review (not '
-     'distributed, for copyright reasons);', '复现包'),
-    # 「the library」＝项目内部的文献库（中文的「本库」）
-    ('or if the library holds a published clinical readout',
-     'or if a published clinical readout is cited in this review', '复现包'),
-    (r're:in all 518 documents of the\s+library;', 'in all 518 full-text documents collected for this review;', '复现包'),
-    (r're:the drug tables of three reviews in the\s+library \(', 'the drug tables of three reviews cited in this review (', '复现包'),
-    ('because the library papers predate the approval', 'because the cited papers predate the approval', '复现包'),
     ('本综述自建的 ClinicalTrials.gov 语料', '本综述的 ClinicalTrials.gov 试验登记数据集', '复现包'),
     # 写给作者自己的说明节：英文 Notes 与中文「撰写时须注意」（到文件末尾），以及图11 的「排版注意」
     (r're:\n---\n\n## Notes for the figure captions in the final manuscript\n[\s\S]*?(?=\n---\n|\Z)', '', '复现包'),
