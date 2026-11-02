@@ -427,123 +427,167 @@ def fig1():
 #   · the floating axis title is dropped — the row label already reads
 #     'KRAS4B protein, 188 aa'.
 def fig2():
-    AA = 188
-    H = 82.0
-    fig = figure(H)
-    ax = axes(fig, 29, 2, W2 - 29 - 3, H - 4)
-    ax.set_xlim(-16, AA + 28)
-    ax.set_ylim(-1.62, 4.45)
-    ax.axis('off')
+    # Manuscript Figure 4. Rebuilt 2026-11-02 (author: text too small, column
+    # width not used, labels pushed to the right, wide gap between the row
+    # labels and the tracks). One text size, a measured label gutter, tracks
+    # to the right margin; exon length/aa range sit inside the exon boxes;
+    # motifs are labelled directly under the protein bar; the transcript ID
+    # and the HVR footnote move to the legend (HVR detail is Figure 3c).
+    AA, NCOD = 188, 189                       # residues; codons incl. stop
+    T = 7.5
+    INK, GREY = P1['ink'], P1['grey']
+    HEL, STR = '#3E7CB1', '#33434C'
+    EXC = ['#CFE5E2', '#8CC2BC', '#3F8F95', '#1F6F78']
+    EXT = [INK, INK, 'white', 'white']
     ex = [e for e in exons(TXS['KRAS4B']) if I(e['coding_len'])]
+    assert sum(I(e['coding_len']) for e in ex) == 3 * NCOD
 
-    # 1) CDS track
-    ytop, hh = 2.95, 0.52
-    cols = ['#9FC3DE', '#5B93BD', '#2E6F9E', '#1B4F72']
+    # vertical layout, mm from the top
+    EXH, G1, SSH, G2, PH, G3, LAB, G4 = 8.5, 3.2, 5.0, 8.0, 6.0, 1.4, 7.0, 0.6
+    y_ex = 1.5
+    y_ss = y_ex + EXH + G1
+    y_pr = y_ss + SSH + G2
+    y_lb = y_pr + PH + G3
+    y_ax = y_lb + LAB + G4
+    H = y_ax + 5.0
+    W = W2
+    fig = figure(H)
+    ax = axes(fig, 0, 0, W, H)
+    ax.set_xlim(0, W)
+    ax.set_ylim(H, 0)                          # y measured from the top
+    ax.axis('off')
+    rend = fig.canvas.get_renderer()
+
+    def tw(s, bold=False):
+        o = fig.text(0, 0, s, fontsize=T, fontweight='bold' if bold else None)
+        w = o.get_window_extent(rend).width / fig.dpi / MM
+        o.remove()
+        return w
+
+    ROWL = [('CDS', '567 bp'), ('Secondary', 'structure'),
+            ('KRAS4B', '188 aa')]
+    GUT = max(tw(s) for p in ROWL for s in p) + 4.5
+    R = 2.0
+    s = (W - GUT - R) / NCOD
+
+    def X(r):                                  # residue boundary -> mm
+        return GUT + r * s
+
+    def rowlab(y, pair):
+        ax.text(GUT - 2.5, y, '\n'.join(pair), ha='right', va='center',
+                fontsize=T, color=INK, linespacing=1.3)
+
+    # 1) CDS, drawn in nucleotide/3 so the split codon 97 falls where it does
     for k, e in enumerate(ex):
-        a, b = I(e['codon_first']), min(I(e['codon_last']), AA)
-        ax.add_patch(Rectangle((a - 1, ytop - hh / 2), b - a + 1, hh,
-                               fc=cols[k], ec='#111111', lw=LW['edge']))
-        ax.text((a + b) / 2, ytop, 'Exon %s' % e['exon_rank'], ha='center',
-                va='center', fontsize=FS['anno'], color='white',
+        x0 = X((I(e['cds_offset_start']) - 1) / 3)
+        x1 = X(I(e['cds_offset_end']) / 3)
+        ax.add_patch(Rectangle((x0, y_ex), x1 - x0, EXH, fc=EXC[k],
+                               ec='white', lw=0.8))
+        last = min(I(e['codon_last']), AA)
+        cx = (x0 + x1) / 2
+        ax.text(cx, y_ex + EXH * 0.32, 'Exon %s' % e['exon_rank'],
+                ha='center', va='center', fontsize=T, color=EXT[k],
                 fontweight='bold')
-        ax.text((a + b) / 2, ytop + hh / 2 + 0.13, '%s bp  (aa %d–%d)' %
-                (e['coding_len'], a, b), ha='center', va='bottom',
-                fontsize=FS['anno'], color='#333333')
-        if k < len(ex) - 1:
-            ax.plot([b + 0.5, b + 0.5], [ytop - hh / 2, ytop + hh / 2],
-                    color='white', lw=0.7)
-    ax.text(-14, ytop, 'CDS\n567 bp', ha='right', va='center',
-            fontsize=FS['axis'], linespacing=1.35)
+        ax.text(cx, y_ex + EXH * 0.71, '%s bp · aa %d–%d' %
+                (e['coding_len'], I(e['codon_first']), last), ha='center',
+                va='center', fontsize=T, color=EXT[k])
+        # faint column linking the exon to the residues it encodes
+        ax.add_patch(Rectangle((x0, y_ex + EXH), x1 - x0, y_pr - y_ex - EXH,
+                               fc=EXC[k], alpha=0.16, ec='none', zorder=0))
+    rowlab(y_ex + EXH / 2, ROWL[0])
 
-    # 2) straight-edged correspondence band
-    ybot, ybar = 2.00, 0.88
-    for k, e in enumerate(ex):
-        a, b = I(e['codon_first']) - 1, min(I(e['codon_last']), AA)
-        ax.add_patch(Polygon([[a, ytop - hh / 2], [b, ytop - hh / 2],
-                              [b, ybar], [a, ybar]],
-                             closed=True, fc=cols[k], alpha=0.10, ec='none'))
-
-    # 3) secondary structure (to residue 166 only)
+    # 2) secondary structure (resolved part only, to residue 166)
+    yc = y_ss + SSH / 2
     for f in FEAT:
         if f['gene'] != 'KRAS' or f['type'] not in ('Helix', 'Beta strand'):
             continue
-        a, b = I(f['start']), I(f['end'])
+        a, b = I(f['start']), min(I(f['end']), 166)
         if a > 166:
             continue
-        b = min(b, 166)
         if f['type'] == 'Helix':
-            ax.add_patch(FancyBboxPatch((a - 1, ybot + 0.10), b - a + 1, 0.30,
-                                        boxstyle='round,pad=0,rounding_size=0.12',
-                                        fc=C['helix'], ec='none'))
+            ax.add_patch(FancyBboxPatch((X(a - 1), yc - 1.35), X(b) - X(a - 1),
+                                        2.7, boxstyle='round,pad=0,rounding_size=0.6',
+                                        fc=HEL, ec='none'))
         else:
-            ax.add_patch(FancyArrow(a - 1, ybot + 0.25, b - a + 1, 0, width=0.13,
-                                    head_width=0.26, head_length=min(4, b - a + 1),
-                                    length_includes_head=True, fc=C['strand'],
+            L = X(b) - X(a - 1)
+            ax.add_patch(FancyArrow(X(a - 1), yc, L, 0, width=1.3,
+                                    head_width=2.9, head_length=min(1.8, L),
+                                    length_includes_head=True, fc=STR,
                                     ec='none'))
-    ax.text(-14, ybot + 0.25, 'Secondary\nstructure', ha='right', va='center',
-            fontsize=FS['axis'], linespacing=1.35)
+    rowlab(yc, ROWL[1])
+    # legend in the empty 167-188 stretch of this row
+    lx = X(169)
+    for i, (lab, col, kind) in enumerate([('α-helix', HEL, 'h'),
+                                          ('β-strand', STR, 's')]):
+        yy = yc - 1.7 + i * 3.4
+        if kind == 'h':
+            ax.add_patch(FancyBboxPatch((lx, yy - 0.8), 3.6, 1.6,
+                                        boxstyle='round,pad=0,rounding_size=0.4',
+                                        fc=col, ec='none'))
+        else:
+            ax.add_patch(FancyArrow(lx, yy, 3.6, 0, width=0.8, head_width=1.8,
+                                    head_length=1.3, length_includes_head=True,
+                                    fc=col, ec='none'))
+        ax.text(lx + 4.8, yy, lab, ha='left', va='center', fontsize=T,
+                color=INK)
 
-    # 4) protein track
-    yp, ph = 0.58, 0.60
-    ax.add_patch(Rectangle((0, yp - ph / 2), 166, ph, fc='#E8EDF1',
-                           ec='#111111', lw=0.45))
-    ax.add_patch(Rectangle((166, yp - ph / 2), AA - 166, ph, fc=C['hvr'],
-                           ec='#111111', lw=0.45, alpha=0.78))
-    ax.text(177, yp, 'HVR', ha='center', va='center', fontsize=FS['small'],
-            color='white', fontweight='bold')
-    MOT = [('G1 / P-loop', '10–17', 10, 17, C['ploop']),
-           ('switch I', '30–38', 30, 38, C['sw1']),
-           ('G3 DxxG', '57–60', 57, 60, C['g3']),
-           ('switch II', '60–76', 60, 76, C['sw2']),
-           ('G4 NKxD', '116–119', 116, 119, C['g4']),
-           ('G5 SAK', '145–147', 145, 147, C['g5'])]
-    for n, rng, a, b, col in MOT:
-        ax.add_patch(Rectangle((a - 1, yp - ph / 2), b - a + 1, ph, fc=col,
-                               ec='#111111', lw=LW['edge']))
-    # the G domain caption sits in the bar's own empty stretch (77-115)
-    ax.text(96, yp, 'G domain (aa 1–166)', ha='center', va='center',
-            fontsize=FS['anno'], color='#333333')
-    ax.text(-14, yp, 'KRAS4B protein\n188 aa (UniProt P01116-2)', ha='right',
-            va='center', fontsize=FS['axis'], linespacing=1.35)
+    # 3) protein bar
+    yt, yb = y_pr, y_pr + PH
+    ax.add_patch(Rectangle((X(0), yt), X(166) - X(0), PH, fc='#E3E8EA',
+                           ec=INK, lw=0.5))
+    ax.add_patch(Rectangle((X(166), yt), X(AA) - X(166), PH, fc='#8C989C',
+                           ec=INK, lw=0.5))
+    ax.text((X(166) + X(AA)) / 2, yt + PH / 2, 'HVR', ha='center',
+            va='center', fontsize=T, color='white', fontweight='bold')
+    ax.text((X(77) + X(115)) / 2, yt + PH / 2, 'G domain 1–166',
+            ha='center', va='center', fontsize=T, color=GREY)
+    MOT = [('G1 / P-loop', 10, 17, C['ploop'], 'center'),
+           ('switch I', 30, 38, C['sw1'], 'center'),
+           ('G3 DxxG', 57, 60, C['g3'], 'right'),
+           ('switch II', 60, 76, C['sw2'], 'left'),
+           ('G4 NKxD', 116, 119, C['g4'], 'center'),
+           ('G5 SAK', 145, 147, C['g5'], 'center')]
+    for n, a, b, col, ha in MOT:
+        ax.add_patch(Rectangle((X(a - 1), yt), X(b) - X(a - 1), PH, fc=col,
+                               ec=INK, lw=LW['edge']))
+    rowlab(yt + PH / 2, ROWL[2])
 
-    for cd, lb in [(12.5, 'G12 / G13'), (61, 'Q61'), (117, 'K117'),
+    # motif labels straight under the bar, short leaders, no legend grid
+    def mlab(xm, xt, ha, name, rng, col):
+        ax.plot([xm, xm], [yb, yb + G3 * 0.8], color=col, lw=0.6)
+        ax.text(xt, y_lb, name, ha=ha, va='top', fontsize=T, color=col,
+                fontweight='bold')
+        ax.text(xt, y_lb + 3.4, rng, ha=ha, va='top', fontsize=T, color=GREY)
+    for n, a, b, col, ha in MOT:
+        xm = (X(a - 1) + X(b)) / 2
+        # G3 and switch II share residue 60: split their labels at it
+        xt = {'center': xm, 'right': X(58.6), 'left': X(60.4)}[ha]
+        mlab(xm, xt, ha, n, '%d–%d' % (a, b), col)
+    mlab((X(166) + X(AA)) / 2, (X(166) + X(AA)) / 2, 'center', 'HVR',
+         '167–188', '#5E6A70')
+
+    # 4) hotspots: labels in the gap between the SS row and the bar
+    yh = y_ss + SSH + 1.6
+    for cd, lb in [(12.5, 'G12/G13'), (61, 'Q61'), (117, 'K117'),
                    (146, 'A146')]:
-        ax.annotate(lb, xy=(cd, yp + ph / 2), xytext=(cd, 1.42), ha='center',
-                    fontsize=FS['anno'], color=C['hot'], fontweight='bold',
-                    arrowprops=dict(arrowstyle='-|>', lw=0.6, color=C['hot'],
-                                    shrinkA=0, shrinkB=0, mutation_scale=6))
+        xx = X(cd - 0.5)
+        ax.annotate(lb, xy=(xx, yt), xytext=(xx, yh), ha='center', va='top',
+                    fontsize=T, color=P1['hot'], fontweight='bold',
+                    arrowprops=dict(arrowstyle='-|>', lw=0.7, color=P1['hot'],
+                                    shrinkA=0, shrinkB=0, mutation_scale=6,
+                                    relpos=(0.5, 0.0)))
 
-    # 5) residue axis, directly under the bar
-    yax = yp - ph / 2
-    for t in range(0, AA + 1, 20):
-        ax.plot([t, t], [yax - 0.06, yax - 0.15], color=C['grey'],
-                lw=LW['axis'])
-        ax.text(t, yax - 0.19, str(t), ha='center', va='top',
-                fontsize=FS['small'], color=C['grey'])
-
-    # 6) motif read-out: one tidy grid instead of six leader lines
-    COLX, ROWY = (0.0, 66.0, 132.0), (-0.40, -0.80)
-    sw, sh = 4.2, 0.17
-    for i, (n, rng, a, b, col) in enumerate(MOT):
-        x, y = COLX[i % 3], ROWY[i // 3]
-        ax.add_patch(Rectangle((x, y - sh / 2), sw, sh, fc=col, ec='none'))
-        ax.text(x + sw + 2.6, y, '%s  %s' % (n, rng), ha='left', va='center',
-                fontsize=FS['anno'], color='#333333')
-
-    # 7) the two long-arrow notes become one footnote
-    ax.text(0, -1.22, 'HVR (aa 167–188): K175–K180 polybasic stretch, specific '
-            'to KRAS4B; KRAS4A is palmitoylated at C180/C181.', ha='left',
-            va='top', fontsize=FS['small'], color='#333333')
-    ax.text(0, -1.48, 'C185 farnesylation and carboxymethylation anchor the '
-            'protein to the membrane.', ha='left', va='top',
-            fontsize=FS['small'], color='#333333')
-
-    h = [Rectangle((0, 0), 1, 1, fc=C['helix'], label='α-helix'),
-         Rectangle((0, 0), 1, 1, fc=C['strand'], label='β-strand')]
-    ax.legend(handles=h, loc='upper left', bbox_to_anchor=(0.0, 1.005), ncol=2)
-    ax.text(AA + 28, 4.18,
-            GI('KRAS') + ', MANE Select ENST00000311936.8 / NM_004985.5',
-            ha='right', va='center', fontsize=FS['anno'], color='#1B4F72')
+    # 5) residue ruler along the bottom
+    ax.plot([X(0), X(AA)], [y_ax, y_ax], color=GREY, lw=LW['axis'])
+    for t in (1, 25, 50, 75, 100, 125, 150, 188):
+        xx = X(t - 0.5)
+        ax.plot([xx, xx], [y_ax, y_ax + 0.9], color=GREY, lw=LW['axis'])
+        ax.text(xx, y_ax + 1.3, str(t), ha='center', va='top', fontsize=T,
+                color=GREY)
+    ax.text(GUT - 2.5, y_ax + 1.3, 'Residue', ha='right', va='top',
+            fontsize=T, color=GREY)
+    CHECK['Fig4 (file Fig2) label gutter, mm'] = round(GUT, 1)
+    CHECK['Fig4 (file Fig2) height, mm'] = round(H, 1)
     save(fig, 'Fig2_gene_to_protein_map')
 
 

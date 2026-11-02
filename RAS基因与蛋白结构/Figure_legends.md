@@ -18,7 +18,7 @@ Prepared 20 October 2026. All panels were generated from primary database record
 
 ## Figure 4 | Correspondence between *KRAS* gene structure and KRAS4B protein architecture.
 
-Top, the 567-bp coding sequence of the MANE Select transcript (NM_004985.5), coloured by exon and annotated with the residues each exon encodes. Middle, experimentally determined secondary structure (arrows, β-strands; rounded bars, α-helices) up to residue 166. Bottom, the 188-residue KRAS4B protein (UniProt P01116-2): G-box motifs, switch regions and the hypervariable region (HVR, 167–188); red arrows, oncogenic hotspot residues. Residues 1–150 are shared by KRAS4A and KRAS4B, the HVR differs; all residue numbers refer to the 4B isoform.
+Top, the 567-bp coding sequence (stop codon included) of the *KRAS* MANE Select transcript (ENST00000311936.8 / NM_004985.5); each box gives the exon number, its coding length and the residues it encodes; pale columns, the residue span of each exon. Middle, experimentally determined secondary structure (arrows, β-strands; rounded bars, α-helices) up to residue 166. Bottom, the 188-residue KRAS4B protein (UniProt P01116-2): G-box motifs, switch regions and the hypervariable region (HVR, 167–188), named with their residue ranges beneath the bar; red arrows, oncogenic hotspot residues; bottom ruler, residue number. Residues 1–150 are shared by KRAS4A and KRAS4B, the HVR differs (sequence and lipidation sites in Figure 3c); all residue numbers refer to the 4B isoform.
 
 ## Figure 5 | Complementarity of experimental and predicted structures across the RAS polypeptide.
 
