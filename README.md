@@ -67,7 +67,7 @@ also appears in its English version.
 |---|---|---|---|---|
 | Figure 1 | §1.2 | Tumour-type distribution of *RAS* mutations | cBioPortal, MSK-IMPACT 2017 | Python |
 | Figure 2 | §2.1 | Genomic organization of *KRAS*, *NRAS*, *HRAS* | NCBI Gene, Ensembl | Python |
-| Figure 3 | §2.2 | GDP-bound KRAS with nucleotide-binding elements | RCSB PDB 4OBE | PyMOL + Python |
+| Figure 3 | §2.2 | KRAS nucleotide-binding elements and sequence divergence among the four RAS proteins | RCSB PDB 4OBE; UniProt | PyMOL + Python |
 | Figure 4 | §2.2 | *KRAS* gene structure ↔ KRAS4B protein architecture | Ensembl, UniProt | Python |
 | Supplementary Figure S1 | §2.2 | AlphaFold model of full-length KRAS by confidence | AlphaFold DB | PyMOL + Python |
 | Figure 5 | §2.2 | Experimental vs predicted structure coverage | RCSB PDB, AlphaFold DB | Python |
@@ -116,7 +116,7 @@ text), SVG and PNG in `figures/`.
 |---|---|---|
 | Figure 1 | `Fig4_cancer_type_distribution` | `表5`, `cbioportal_mutations.json`, `cbioportal_sample_cancertype.json` |
 | Figure 2 | `Fig1_RAS_gene_structure` | `表1`, `表2` |
-| Figure 3 | `FigS1_KRAS_GDP_structure` | PDB 4OBE → `_S1_KRAS_GDP_4OBE.png` |
+| Figure 3 | `FigS1_KRAS_GDP_structure` | PDB 4OBE → `_S1_KRAS_GDP_4OBE.png` (a); UniProt sequences → `03_figures.py` (b, c) |
 | Figure 4 | `Fig2_gene_to_protein_map` | `表1`, `表3` |
 | Figure 5 | `Fig5_AlphaFold_confidence_and_coverage` | `alphafold_plddt.json`, `表7`, `pdb_entries.json`, `genes_core.json` |
 | Figure 6 | `Fig6_conformational_switch` | PDB 4OBE, 5VQ2, 4LDJ, 6OIM (Cα superposition computed in the script); `_panelC_6OIM.png` |

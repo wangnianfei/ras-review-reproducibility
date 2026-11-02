@@ -3,8 +3,8 @@
 """Assemble the PyMOL renders into single-column supplementary figures.
 
 Usage: python3 04_supplementary.py <root>
-Input : figures/_S1_*.png, _S2_*.png, _S3_*.png  (from render_supplementary_pymol.pml)
-Output: figures/FigS1..FigS3  .pdf / .svg / .png
+Input : figures/_S2_*.png, _S3_*.png  (from render_supplementary_pymol.pml)
+Output: figures/FigS2, FigS3  .pdf / .svg / .png
 Same style contract as 03_figures.py: 88 mm single column, Arial, no titles,
 no Chinese, colour keys inside the panel, titles live in Figure_legends.md.
 """
@@ -72,11 +72,8 @@ def build(src, out, handles, ncol, key_mm=11.0):
     print('  -> %s   %.0f x %.0f mm' % (out, W1, H))
 
 
-build('_S1_KRAS_GDP_4OBE.png', 'FigS1_KRAS_GDP_structure',
-      [line(C['ploop'], 'P-loop'), line(C['sw1'], 'switch I'),
-       line(C['sw2'], 'switch II'), line(C['g4'], 'G4'), line(C['g5'], 'G5'),
-       dot(C['gdp'], 'GDP'), dot(C['mg'], 'Mg2+'),
-       dot(C['hot'], 'Gly12', mec='k', mew=0.3)], ncol=4)
+# _S1_KRAS_GDP_4OBE.png is panel a of manuscript Figure 3, assembled in
+# 03_figures.py (fig_s1), not here.
 
 build('_S2_GDP_vs_GTP_overlay.png', 'FigS2_GDP_vs_GTP_superposition',
       [line(C['cool'], 'KRAS–GDP (4OBE)'), line(C['gtp'], 'switch I/II, GDP state'),

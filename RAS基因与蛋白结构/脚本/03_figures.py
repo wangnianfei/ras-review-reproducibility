@@ -995,7 +995,266 @@ def fig6():
     save(fig, 'Fig6_conformational_switch')
 
 
-for f in (fig1, fig2, fig3, fig4, fig5, fig6):
+# ------------------------------------------------- manuscript Figure 3 ----
+# File name kept as FigS1_KRAS_GDP_structure (it started life as a
+# supplementary figure).  Three panels on the full 180 mm width:
+#   a  the PyMOL render of 4OBE (figures/_S1_KRAS_GDP_4OBE.png), colour key
+#      shared with the region bar of panel b;
+#   b  KRAS4A / HRAS / NRAS compared with KRAS4B position by position:
+#      every residue that differs from KRAS4B (or faces its gap) is dark;
+#   c  the C-terminal end (161-189) written out, basic residues and the
+#      lipidated cysteines marked.
+# Sequences: UniProt P01116-2 (prepared_meta.json), P01116 / P01112 /
+# P01111 canonical (genes_core.json).  Lipidation sites: UniProt
+# S-palmitoyl / S-farnesyl cysteine features; KRAS4B carries none in that
+# entry, so its farnesyl cysteine is the CAAX cysteine (length - 3) and the
+# same rule is asserted against UniProt for the other three.
+SEQ_KEYS = ['KRAS4B', 'KRAS4A', 'HRAS', 'NRAS']
+CMP_KEYS = SEQ_KEYS[1:]
+
+
+def nw(a, b):
+    """Global alignment, match +1 / mismatch 0 / gap -1; returns gapped pair."""
+    n, m = len(a), len(b)
+    S = np.zeros((n + 1, m + 1))
+    S[:, 0], S[0, :] = -np.arange(n + 1), -np.arange(m + 1)
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            S[i, j] = max(S[i - 1, j - 1] + (a[i - 1] == b[j - 1]),
+                          S[i - 1, j] - 1, S[i, j - 1] - 1)
+    i, j, x, y = n, m, [], []
+    while i or j:
+        if i and j and S[i, j] == S[i - 1, j - 1] + (a[i - 1] == b[j - 1]):
+            x.append(a[i - 1]); y.append(b[j - 1]); i -= 1; j -= 1
+        elif i and S[i, j] == S[i - 1, j] - 1:
+            x.append(a[i - 1]); y.append('-'); i -= 1
+        else:
+            x.append('-'); y.append(b[j - 1]); j -= 1
+    return ''.join(x[::-1]), ''.join(y[::-1])
+
+
+def isoform_alignment():
+    G = json.load(open(os.path.join(DATA, 'genes_core.json')))
+    raw = {'KRAS4B': META['kras4b_seq'],
+           'KRAS4A': G['KRAS']['uniprot_data']['sequence'],
+           'HRAS': G['HRAS']['uniprot_data']['sequence'],
+           'NRAS': G['NRAS']['uniprot_data']['sequence']}
+    L = 189
+    for k in ('KRAS4A', 'HRAS', 'NRAS'):
+        assert len(raw[k]) == L, k
+    assert len(raw['KRAS4B']) == 188
+    # residues 1-166 carry no indel; place the single KRAS4B gap in the tail
+    t4a, t4b = nw(raw['KRAS4A'][166:], raw['KRAS4B'][166:])
+    assert t4a == raw['KRAS4A'][166:] and t4b.count('-') == 1, (t4a, t4b)
+    aln = dict(raw)
+    aln['KRAS4B'] = raw['KRAS4B'][:166] + t4b
+    # lipidated cysteines, in alignment-column numbering (1-based)
+    lip = {}
+    for k, g in (('KRAS4A', 'KRAS'), ('HRAS', 'HRAS'), ('NRAS', 'NRAS')):
+        f = G[g]['uniprot_data']['features']
+        palm = sorted(int(x['start']) for x in f if x['type'] == 'Lipidation'
+                      and x['desc'].startswith('S-palmitoyl cysteine'))
+        farn = [int(x['start']) for x in f if x['type'] == 'Lipidation'
+                and x['desc'].startswith('S-farnesyl cysteine')]
+        assert farn == [L - 3] and raw[k][L - 4] == 'C', (k, farn)
+        lip[k] = {'palm': palm, 'farn': farn}
+    col4b = [i + 1 for i, c in enumerate(aln['KRAS4B']) if c != '-']
+    assert raw['KRAS4B'][185 - 1] == 'C'            # CAAX cysteine, C185
+    lip['KRAS4B'] = {'palm': [], 'farn': [col4b[185 - 1]]}
+    for k in lip:
+        for c in lip[k]['palm'] + lip[k]['farn']:
+            assert aln[k][c - 1] == 'C', (k, c)
+    var = []                                        # columns not all identical
+    for i in range(L):
+        if len({aln[k][i] for k in SEQ_KEYS}) > 1:   # gap counts as a state
+            var.append(i + 1)
+    return raw, aln, lip, var
+
+
+def fig_s1():
+    raw, aln, lip, var = isoform_alignment()
+    L = len(aln['HRAS'])
+    T, PN = 7.5, 9
+    INK, GREY = P1['ink'], P1['grey']
+    DIFF, SAME = '#33434C', '#E3E8EA'
+    BASIC, PALM, FARN = '#D5E6F1', P1['cds'], P1['hot']
+    CAAX = '#8C989C'
+    W, H = W2, 74.0
+    fig = figure(H)
+    rend = fig.canvas.get_renderer()
+
+    def tw(s, bold=False, fs=T):
+        o = fig.text(0, 0, s, fontsize=fs, fontweight='bold' if bold else None)
+        w = o.get_window_extent(rend).width / fig.dpi / MM
+        o.remove()
+        return w
+
+    # ---------------------------------------------------- a: structure --
+    img = plt.imread(os.path.join(FIG, '_S1_KRAS_GDP_4OBE.png'))
+    a_ = img[:, :, 3] > 0.02
+    rs, cs = np.where(a_.any(1))[0], np.where(a_.any(0))[0]
+    pad = 12
+    img = img[rs[0] - pad:rs[-1] + pad, cs[0] - pad:cs[-1] + pad]
+    TOP, KEY = 4.0, 7.0
+    AW = 66.0
+    AH = AW * img.shape[0] / img.shape[1]
+    if AH > H - TOP - KEY:
+        AH = H - TOP - KEY
+        AW = AH * img.shape[1] / img.shape[0]
+    axA = axes(fig, 3.0, H - TOP - AH, AW, AH)
+    axA.imshow(img, interpolation='antialiased')
+    axA.set_axis_off()
+    fig.text(1.0 / W, (H - 1.2) / H, 'a', fontsize=PN, fontweight='bold',
+             va='top')
+    fig.legend(handles=[
+        plt.Line2D([], [], ls='', marker='o', ms=4, color=C['strand'],
+                   label='GDP'),
+        plt.Line2D([], [], ls='', marker='o', ms=4, color=C['ploop'],
+                   label='Mg$^{2+}$'),
+        plt.Line2D([], [], ls='', marker='o', ms=4, color=C['hot'], mec='k',
+                   mew=0.3, label='Gly12')],
+        loc='center', bbox_to_anchor=((3.0 + AW / 2) / W, (H - TOP - AH - 3.5) / H),
+        ncol=3, fontsize=T, handletextpad=0.3, columnspacing=1.4,
+        borderpad=0, borderaxespad=0)
+
+    # ---------------------------------------------- b: four-way comparison --
+    X0 = 3.0 + AW + 6.0                        # right column left edge
+    labs = {'KRAS4B': 'KRAS4B', 'KRAS4A': 'KRAS4A', 'HRAS': 'HRAS',
+            'NRAS': 'NRAS'}
+    GUT = X0 + max(tw(s) for s in labs.values()) + 2.0
+    PW = W - GUT - 3.0
+    RH, RG = 3.0, 0.9                           # row height / gap, mm
+    yb_top = H - TOP - 7.5                     # top of the region bar
+    BAR = 1.8
+    rows_top = yb_top - BAR - 1.6
+    HB = 3 * RH + 2 * RG
+    axB = axes(fig, GUT, rows_top - HB, PW, yb_top - (rows_top - HB))
+    axB.set_xlim(0.5, L + 0.5)
+    axB.set_ylim(-HB, yb_top - rows_top)
+    axB.set_axis_off()
+    # region bar (colours = panel a)
+    regs = [r for r in REG if r[0] != 'HVR']
+    yb = yb_top - rows_top - BAR
+    axB.add_patch(Rectangle((0.5, yb + BAR / 2 - 0.15), L, 0.3, fc=SAME,
+                            ec='none'))
+    for nm, lo, hi, col in regs:
+        axB.add_patch(Rectangle((lo - 0.5, yb), hi - lo + 1, BAR, fc=col,
+                                ec='none'))
+    axB.add_patch(Rectangle((166.5, yb), L - 166, BAR, fc='#9AA7A9',
+                            ec='none'))
+    # labels above the bar: one tier, assert no collision
+    upp = PW / L                                # mm per residue
+    lab_items = [(nm, (lo + hi) / 2, col) for nm, lo, hi, col in regs] + \
+        [('HVR', (167 + L) / 2, GREY)]
+    spans = []
+    for nm, cx, col in lab_items:
+        w = tw(nm)
+        spans.append(((cx - 0.5) * upp - w / 2, (cx - 0.5) * upp + w / 2, nm))
+        axB.text(cx, yb + BAR + 0.7, nm, ha='center', va='bottom',
+                 fontsize=T, color=col)
+    spans.sort()
+    for (a0, a1, n0), (b0, b1, n1) in zip(spans, spans[1:]):
+        assert a1 + 0.8 < b0, 'FigS1 region labels overlap: %s / %s' % (n0, n1)
+    # sequence rows: KRAS4B is the reference (it is the protein drawn in
+    # Figures 4-6); each other row darkens the residues that differ from it
+    cnt = {}
+    REF = aln['KRAS4B']
+    fig.text((GUT - 2.0) / W, (rows_top + yb + BAR / 2) / H, 'KRAS4B',
+             ha='right', va='center', fontsize=T, color=INK)
+    for r, k in enumerate(CMP_KEYS):
+        y = -(r * (RH + RG)) - RH
+        axB.add_patch(Rectangle((0.5, y), L, RH, fc=SAME, ec='none'))
+        d = [i + 1 for i in range(L) if aln[k][i] != REF[i]]
+        for i in d:
+            axB.add_patch(Rectangle((i - 0.5, y), 1, RH, fc=DIFF, ec='none'))
+        cnt[k] = (sum(i <= 166 for i in d), sum(i > 166 for i in d))
+        fig.text((GUT - 2.0) / W, (rows_top + y + RH / 2) / H, labs[k],
+                 ha='right', va='center', fontsize=T, color=INK)
+    # axis
+    yax = rows_top - HB
+    axX = axes(fig, GUT, yax - 0.01, PW, 0.01)
+    axX.set_xlim(0.5, L + 0.5)
+    axX.set_yticks([])
+    for s_ in ('top', 'right', 'left'):
+        axX.spines[s_].set_visible(False)
+    axX.spines['bottom'].set_color(GREY)
+    axX.set_xticks([1, 50, 100, 150, 189])
+    axX.tick_params(axis='x', colors=GREY, labelcolor=INK, length=1.8,
+                    pad=1.2, labelsize=T)
+    nG = sum(1 for i in var if i <= 166)
+    nH = sum(1 for i in var if i > 166)
+    fig.text((X0 - 3.0) / W, (H - 1.2) / H, 'b', fontsize=PN,
+             fontweight='bold', va='top')
+    CHECK['FigS1 variable positions (G domain / HVR)'] = (nG, nH)
+    CHECK['FigS1 differences from KRAS4B (1-166, 167-189)'] = cnt
+
+    # ------------------------------------------------ c: C-terminal zoom --
+    C0, C1 = 161, L
+    ncol = C1 - C0 + 1
+    CH, CG = 5.0, 1.0
+    HC = 4 * CH + 3 * CG
+    yc_top = yax - 9.5                         # top of the number row
+    yc = yc_top - 3.6 - HC
+    axC = axes(fig, GUT, yc, PW, HC)
+    axC.set_xlim(C0 - 0.5, C1 + 0.5)
+    axC.set_ylim(-HC, 0)
+    axC.set_axis_off()
+    cw = PW / ncol
+    for r, k in enumerate(SEQ_KEYS):
+        y = -(r * (CH + CG)) - CH
+        pos = 0
+        n_before = sum(1 for c in aln[k][:C0 - 1] if c != '-')
+        for i in range(C0, C1 + 1):
+            c = aln[k][i - 1]
+            if c == '-':
+                axC.text(i, y + CH / 2, '–', ha='center', va='center',
+                         fontsize=T, color=CAAX)
+                continue
+            pos += 1
+            fc, tc, fw = None, INK, None
+            if i in lip[k]['farn']:
+                fc, tc, fw = FARN, 'white', 'bold'
+            elif i in lip[k]['palm']:
+                fc, tc, fw = PALM, 'white', 'bold'
+            elif c in 'KR':
+                fc = BASIC
+            if i > lip[k]['farn'][0]:
+                tc = CAAX
+            if fc:
+                axC.add_patch(Rectangle((i - 0.46, y), 0.92, CH, fc=fc,
+                                        ec='none'))
+            axC.text(i, y + CH / 2, c, ha='center', va='center', fontsize=T,
+                     color=tc, fontweight=fw)
+        fig.text((GUT - 2.0) / W, (yc + HC + y + CH / 2) / H, labs[k],
+                 ha='right', va='center', fontsize=T, color=INK)
+    # G domain | HVR divider and column numbers
+    xd = GUT + (166.5 - C0 + 0.5) * cw
+    fig.add_artist(plt.Line2D([xd / W] * 2, [(yc - 0.6) / H,
+                                             (yc + HC + 0.6) / H],
+                              color=GREY, lw=0.5, ls=(0, (2, 1.5))))
+    for n in (161, 166, 170, 175, 180, 185, 189):
+        fig.text((GUT + (n - C0 + 0.5) * cw) / W, (yc + HC + 1.0) / H, str(n),
+                 ha='center', va='bottom', fontsize=T, color=GREY)
+    # zoom guides from b's 161-189 span to c
+    for xb, xc_ in ((GUT + (C0 - 1) * upp, GUT), (GUT + L * upp, GUT + PW)):
+        fig.add_artist(plt.Line2D([xb / W, xc_ / W],
+                                  [(yax - 3.6) / H, (yc_top + 0.4) / H],
+                                  color=GREY, lw=0.4, alpha=0.6))
+    fig.text((X0 - 3.0) / W, (yc_top + 2.0) / H, 'c', fontsize=PN,
+             fontweight='bold', va='top')
+    fig.legend(handles=[
+        Rectangle((0, 0), 1, 1, fc=BASIC, label='Lys/Arg'),
+        Rectangle((0, 0), 1, 1, fc=PALM, label='S-palmitoyl Cys'),
+        Rectangle((0, 0), 1, 1, fc=FARN, label='S-farnesyl Cys')],
+        loc='center', bbox_to_anchor=((GUT + PW / 2) / W,
+                                      (H - TOP - AH - 3.5) / H),
+        ncol=3, fontsize=T, handlelength=1.1, handleheight=0.9,
+        handletextpad=0.4, columnspacing=1.2, borderpad=0, borderaxespad=0)
+    CHECK['FigS1 lipidated Cys (alignment columns)'] = lip
+    save(fig, 'FigS1_KRAS_GDP_structure')
+
+
+for f in (fig1, fig2, fig3, fig4, fig5, fig6, fig_s1):
     print('==', f.__name__)
     f()
 

@@ -57,7 +57,7 @@ All data files and figures reproduced exactly.
 |---|---|---|---|---|
 | 图1 | 1.2 | *RAS* 突变的癌种分布 | cBioPortal，MSK-IMPACT 2017 | Python |
 | 图2 | 2.1 | *KRAS*、*NRAS*、*HRAS* 的基因组结构 | NCBI Gene、Ensembl | Python |
-| 图3 | 2.2 | GDP 结合态 KRAS 与核苷酸结合元件 | RCSB PDB 4OBE | PyMOL＋Python |
+| 图3 | 2.2 | KRAS 核苷酸结合元件与四种 RAS 蛋白的序列差异 | RCSB PDB 4OBE；UniProt | PyMOL＋Python |
 | 图4 | 2.2 | *KRAS* 基因结构与 KRAS4B 蛋白结构的对应 | Ensembl、UniProt | Python |
 | 补充图S1 | 2.2 | 全长 KRAS 的 AlphaFold 模型（按置信度着色） | AlphaFold DB | PyMOL＋Python |
 | 图5 | 2.2 | 实验结构与预测结构的覆盖互补 | RCSB PDB、AlphaFold DB | Python |
@@ -104,7 +104,7 @@ SVG 与 PNG。
 |---|---|---|
 | 图1 | `Fig4_cancer_type_distribution` | `表5`、`cbioportal_mutations.json`、`cbioportal_sample_cancertype.json` |
 | 图2 | `Fig1_RAS_gene_structure` | `表1`、`表2` |
-| 图3 | `FigS1_KRAS_GDP_structure` | PDB 4OBE → `_S1_KRAS_GDP_4OBE.png` |
+| 图3 | `FigS1_KRAS_GDP_structure` | PDB 4OBE → `_S1_KRAS_GDP_4OBE.png`（a）；UniProt 序列 → `03_figures.py`（b、c） |
 | 图4 | `Fig2_gene_to_protein_map` | `表1`、`表3` |
 | 图5 | `Fig5_AlphaFold_confidence_and_coverage` | `alphafold_plddt.json`、`表7`、`pdb_entries.json`、`genes_core.json` |
 | 图6 | `Fig6_conformational_switch` | PDB 4OBE、5VQ2、4LDJ、6OIM（Cα 叠合在脚本内计算）；`_panelC_6OIM.png` |
