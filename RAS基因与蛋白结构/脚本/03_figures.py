@@ -769,10 +769,27 @@ def fig4():
         for s_ in ('top', 'right', 'left'):
             ax.spines[s_].set_visible(False)
 
-    def value(ax, x, y, r):
-        ax.text(x, y, '%.0f%% (%s/%s)' % (float(r['freq_pct']),
-                                         r['n_mut_samples'], r['n_samples']),
-                va='center', fontsize=T, color='#333333')
+    def lab(r):
+        return '%.0f%% (%s/%s)' % (float(r['freq_pct']), r['n_mut_samples'],
+                                   r['n_samples'])
+
+    OFF = 1.0                          # 数值标注与条端的间隙，mm
+
+    def fit_xlim(rows, w):
+        # 2026-11-02 作者「图1 右侧留白太多」：轴不再固定到 80／25／6 再空出右侧，
+        # 而是取刚好让最长「条＋标注」顶到面板右边线的 xlim；轴线只画到最后一个刻度
+        return max(float(r['freq_pct']) * w / (w - OFF - text_mm([lab(r)]))
+                   for r in rows)
+
+    def value(ax, x, y, r, X, w):
+        ax.text(x + OFF * X / w, y, lab(r), va='center', fontsize=T,
+                color='#333333')
+
+    def ticks(ax, X, step):
+        last = int(X // step) * step
+        ax.set_xlim(0, X)
+        ax.set_xticks(range(0, last + 1, step))
+        ax.spines['bottom'].set_bounds(0, last)
 
     LEFT, PADL = 4.0, 1.5              # 面板字母所在左边线；标签与轴的间隙
     ks = sorted([r for r in BYCT if r['gene'] == 'KRAS'],
@@ -780,9 +797,10 @@ def fig4():
     labA = [r['cancer_type'] for r in ks]
     xa = LEFT + text_mm(labA) + PADL
     ya = BOT + XAX + HB + GAP + XAX
-    wa = W2 - xa - 24                  # 右侧留给最长的数值标注
+    RM = 0.5                           # 右边线
+    wa = W2 - RM - xa
     axA = axes(fig, xa, ya, wa, HA)
-    XMAX = 80
+    XMAX = fit_xlim(ks, wa)
     for i, r in enumerate(ks):
         f = float(r['freq_pct'])
         cc = comp[r['cancer_type']]
@@ -794,9 +812,8 @@ def fig4():
                 axA.barh(i, w, left=left, color=col, height=BAR / PITCH,
                          ec='white', lw=0.3)
             left += w
-        value(axA, f + 1.0, i, r)
-    axA.set_xlim(0, XMAX)
-    axA.set_xticks(range(0, XMAX + 1, 20))
+        value(axA, f, i, r, XMAX, wa)
+    ticks(axA, XMAX, 10)
     style(axA, NA, labA, GI('KRAS') + '-mutant samples (%)')
     fig.legend(handles=[Rectangle((0, 0), 1, 1, fc=c, label=k)
                         for k, c in zip(KEYS, PAL)],
@@ -825,16 +842,14 @@ def fig4():
         labs = [r['cancer_type'] for r in rs]
         x0 = LEFT + idx * half
         xb = x0 + labw + PADL          # b、c 共用同一标签栏宽，两块几何完全对称
-        wb = half * (idx + 1) - xb - 22
+        wb = half * (idx + 1) - xb - (4.0 if idx == 0 else RM)   # b、c 间留 4 mm
         a_ = axes(fig, xb, BOT + XAX, wb, HB)
-        mx = max(float(r['freq_pct']) for r in rs)
+        X = fit_xlim(rs, wb)
         a_.barh(range(NB), [float(r['freq_pct']) for r in rs], color=col,
                 height=BAR / PITCH, ec='none')
         for i, r in enumerate(rs):
-            value(a_, float(r['freq_pct']) + mx * 0.03, i, r)
-        lim = 25 if g == 'NRAS' else 6
-        a_.set_xlim(0, lim)
-        a_.set_xticks(range(0, lim + 1, 5 if g == 'NRAS' else 2))
+            value(a_, float(r['freq_pct']), i, r, X, wb)
+        ticks(a_, X, 5 if g == 'NRAS' else 1)
         style(a_, NB, labs, GI(g) + '-mutant samples (%)')
         fig.text(x0 / W2, (BOT + XAX + HB + 2.0) / H, pn, fontsize=PN,
                  fontweight='bold', ha='left', va='bottom')
