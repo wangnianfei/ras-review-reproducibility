@@ -10,7 +10,7 @@ Prepared 20 October 2026. All panels were generated from primary database record
 
 ## Figure 2 | Genomic organization of the three classical human *RAS* genes.
 
-**a**, Genomic extent of *KRAS* (12p12.1), *HRAS* (11p15.5) and *NRAS* (1p13.2) on GRCh38, to scale and oriented 5′→3′; dark boxes, coding sequence; light boxes, untranslated regions; lines, introns. **b**, Exon–intron structure of each MANE Select transcript (for *KRAS*, also the MANE Plus Clinical transcript encoding KRAS4A); introns at fixed width, exons proportional to length; asterisks, truncated terminal exons; red marks, hotspot codons. Coding exons 2, 3 and 4 have identical lengths in all three genes (111, 179 and 160 bp), the basis for exon 2/3/4 reporting in clinical *RAS* testing.
+**a**, Genomic extent of *KRAS* (12p12.1), *HRAS* (11p15.5) and *NRAS* (1p13.2) on GRCh38, to scale and oriented 5′→3′; dark boxes, coding sequence; light boxes, untranslated regions; lines, introns. **b**, Exon–intron structure of each MANE Select transcript (for *KRAS*, also the MANE Plus Clinical transcript encoding KRAS4A); introns at fixed width, exons proportional to length; asterisks, truncated terminal exons; red marks, hotspot codons; transcripts (Ensembl/NCBI): KRAS4B, ENST00000311936.8/NM_004985.5; KRAS4A, ENST00000256078.10/NM_033360.4; *HRAS*, ENST00000311189.8/NM_005343.4; *NRAS*, ENST00000369535.5/NM_002524.5. Coding exons 2, 3 and 4 have identical lengths in all three genes (111, 179 and 160 bp), the basis for exon 2/3/4 reporting in clinical *RAS* testing.
 
 ## Figure 3 | The GDP-bound state of KRAS, with the nucleotide-binding elements highlighted.
 
