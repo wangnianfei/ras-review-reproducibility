@@ -6,7 +6,9 @@
 #     图内文字一律 Arial 7.5 pt，面板字母 9 pt 粗体；不再有 5.4–6.8 pt 的杂号；
 #   · 面板 a 由单栏 59 行（原图 180 × 272 mm）改为**双栏**：左栏泳道 1–3（直接结合 RAS 的
 #     OFF 态与 ON 态抑制剂），右栏泳道 4–6；每栏四列：药名、靶标、阶段轨、登记试验数；
-#   · 泳道色取自图8 的机制色（MAPK 蓝、PI3K 绿、RAS-GTP 红、RAL 紫、赭、灰），全文一套；
+#   · 同日第二轮（作者：冷色调不清晰、不醒目）：泳道色改取全文主色板的暖色为主
+#     （图3/图5 的 KRAS 珊瑚、图4 的琥珀、酒红、紫、图1 的青、图4 的蓝），饱和度提高；
+#     泳道题头改为通栏色带白字，泳道行铺本色浅底，阶段条加粗，获批药名与列标题加粗；
 #   · 在研代号不再上图（代号逐药列在表1），行标签只留药名，靶标单列且省去 KRAS 前缀；
 #   · 面板 b 的覆盖矩阵横排在底部，图例放在右侧留白里。
 # 全图在一个以 mm 为单位的坐标系里手工排版（ggplot 只当画布用），每个字的位置可算；
@@ -30,15 +32,15 @@ W <- 180
 FS_PT <- 7.5; PN_PT <- 9
 FS <- FS_PT / .pt; PN <- PN_PT / .pt          # geom_text 的 size（mm）
 FS_MM <- FS_PT * 25.4 / 72                       # 字号对应的 mm
-INK <- "#1A1A1A"; GREY <- "#59656B"; RULE <- "#D5DBDE"; TRACK <- "#EEF1F2"
+INK <- "#1A1A1A"; GREY <- "#4D5559"; RULE <- "#D5DBDE"; TRACK <- "white"
 FAM <- "Arial"
 
 LANE <- c(`1` = "OFF-state covalent", `2` = "Non-covalent / reversible",
           `3` = "RAS(ON) tri-complex", `4` = "Degraders and other modalities",
           `5` = "Upstream and immune", `6` = "Downstream pathway combination")
-# 图8 的机制色：MAPK 蓝、PI3K 绿、RAS-GTP 红、RAL 紫、其他效应器赭、GAP 灰
-LANE_COL <- c(`1` = "#2E6F9E", `2` = "#1C7C54", `3` = "#D7263D",
-              `4` = "#6A4C93", `5` = "#A0522D", `6` = "#59656B")
+# 全文主色板：KRAS 珊瑚（图3/图5）、琥珀（图4）、酒红、紫（图4 Q61X）、青（图1）、蓝（图4 G12V）
+LANE_COL <- c(`1` = "#E0533D", `2` = "#E09F3E", `3` = "#A3203F",
+              `4` = "#6A4C93", `5` = "#1F8A8C", `6` = "#2E86AB")
 COLS <- list(left = 1:3, right = 4:6)            # 两栏各放哪几条泳道
 
 STAGE_K <- c("Preclinical" = 0, "Phase 1" = 1, "Phase 1/2" = 2,
@@ -80,7 +82,7 @@ HEAD_H <- 4.4                # 泳道题头行
 LANE_GAP <- 2.2
 COLW <- 87.5
 X0 <- c(left = 2.3, right = 91.7)          # 右栏数字右缘落在 179.2 mm，不贴画布边
-OFF <- list(name = 3.4, tgt = 28.2, trk = 50.4, stp = 5.7, n = COLW)
+OFF <- list(name = 3.4, tgt = 28.2, trk = 50.4, stp = 5.7, n = COLW - 0.9)
 NAME_W <- OFF$tgt - OFF$name - 1.8
 TGT_W <- OFF$trk - OFF$tgt - 2.4
 Y_HDR <- 3.4                 # 列标题行（与面板字母 a 同一行）
@@ -119,7 +121,9 @@ for (side in names(COLS)) {
 rows <- bind_rows(rows); heads <- bind_rows(heads); stripes <- bind_rows(stripes)
 
 # 越界检查：药名、靶标不得越过本列
-bad <- c(rows$name[vapply(strsplit(rows$name, "\n"), function(v) max(tw(v)), 0) > NAME_W],
+nw <- mapply(function(v, k) max(tw(v, if (k == 5) "bold" else "plain")),
+             strsplit(rows$name, "\n"), rows$k)
+bad <- c(rows$name[nw > NAME_W],
          rows$tgt[tw(rows$tgt) > TGT_W])
 hw <- tw(sprintf("%s  %s", heads$lane, LANE[as.character(heads$lane)]), "bold")
 if (any(hw + 4 > COLW)) bad <- c(bad, "lane header")
@@ -165,60 +169,59 @@ p <- txt(p, 0.3, YB_H1, "b", face = "bold", size = PN)
 for (side in names(COLS)) {
   x0 <- X0[[side]]; tx <- x0 + OFF$trk
   # 列标题
-  p <- txt(p, x0 + OFF$name, Y_HDR, "Agent", col = GREY)
-  p <- txt(p, x0 + OFF$tgt, Y_HDR, "Target", col = GREY)
-  p <- txt(p, tx + OFF$stp * (0:5), Y_HDR, STAGE_LAB, hjust = 0.5, col = GREY)
-  p <- txt(p, x0 + OFF$n, Y_HDR, "n", hjust = 1, col = GREY)
+  p <- txt(p, x0 + OFF$name, Y_HDR, "Agent", face = "bold")
+  p <- txt(p, x0 + OFF$tgt, Y_HDR, "Target", face = "bold")
+  p <- txt(p, tx + OFF$stp * (0:5), Y_HDR, STAGE_LAB, hjust = 0.5, face = "bold")
+  p <- txt(p, x0 + OFF$n, Y_HDR, "n", hjust = 1, face = "bold")
   p <- p + annotate("segment", x = x0, xend = x0 + COLW, y = Y(Y_HDR + 2.0),
-                    yend = Y(Y_HDR + 2.0), colour = INK, linewidth = 0.25)
-  # 阶段网格线（贯穿该栏）
-  p <- p + annotate("segment", x = tx + OFF$stp * (0:5), xend = tx + OFF$stp * (0:5),
-                    y = Y(Y_START), yend = Y(y_end[[side]]), colour = RULE,
-                    linewidth = 0.18)
+                    yend = Y(Y_HDR + 2.0), colour = INK, linewidth = 0.4)
 }
 
-# 泳道题头：色块编号＋粗体名；左侧色条贯穿本泳道各行
+# 泳道题头：通栏色带＋白色粗体编号与名称；其下各行铺本色浅底，阶段网格线为白线
 for (r in seq_len(nrow(heads))) {
-  h <- heads[r, ]; col <- LANE_COL[[as.character(h$lane)]]; yc <- h$y + HEAD_H / 2 - 0.2
-  p <- p + annotate("rect", xmin = h$x0, xmax = h$x0 + 3.0, ymin = Y(yc + 1.5),
-                    ymax = Y(yc - 1.5), fill = col, colour = NA)
-  p <- txt(p, h$x0 + 1.5, yc, as.character(h$lane), hjust = 0.5, col = "white",
+  h <- heads[r, ]; col <- LANE_COL[[as.character(h$lane)]]; yc <- h$y + HEAD_H / 2
+  p <- p + annotate("rect", xmin = h$x0, xmax = h$x0 + COLW + 0.6, ymin = Y(yc + 2.0),
+                    ymax = Y(yc - 2.0), fill = col, colour = NA)
+  p <- txt(p, h$x0 + 1.3, yc, as.character(h$lane), hjust = 0.5, col = "white",
            face = "bold")
-  p <- txt(p, h$x0 + 4.4, yc, LANE[[as.character(h$lane)]], face = "bold")
+  p <- txt(p, h$x0 + OFF$name, yc, LANE[[as.character(h$lane)]], col = "white",
+           face = "bold")
 }
 for (r in seq_len(nrow(stripes))) {
-  s <- stripes[r, ]
-  p <- p + annotate("rect", xmin = s$x0 + 1.0, xmax = s$x0 + 1.6, ymin = Y(s$y1 - 0.5),
-                    ymax = Y(s$y0 + 0.5), fill = tint(LANE_COL[[as.character(s$lane)]], 0.55),
+  s <- stripes[r, ]; tx <- s$x0 + OFF$trk
+  p <- p + annotate("rect", xmin = s$x0, xmax = s$x0 + COLW + 0.6, ymin = Y(s$y1 + 0.4),
+                    ymax = Y(s$y0), fill = tint(LANE_COL[[as.character(s$lane)]], 0.88),
                     colour = NA)
+  p <- p + annotate("segment", x = tx + OFF$stp * (0:5), xend = tx + OFF$stp * (0:5),
+                    y = Y(s$y0), yend = Y(s$y1 + 0.4), colour = "white", linewidth = 0.3)
 }
 
 # 各药一行
 for (r in seq_len(nrow(rows))) {
   w <- rows[r, ]; col <- LANE_COL[[as.character(w$lane)]]
   x0 <- w$x0; tx <- x0 + OFF$trk; xe <- tx + OFF$stp * w$k; yc <- w$yc
-  p <- txt(p, x0 + OFF$name, yc, w$name)
+  p <- txt(p, x0 + OFF$name, yc, w$name, face = if (w$k == 5) "bold" else "plain")
   xx <- x0 + OFF$tgt
   for (sg in split_gene(w$tgt)) {
     p <- txt(p, xx, yc, sg[1], col = GREY, face = sg[2]); xx <- xx + tw(sg[1], sg[2])
   }
   # 阶段轨：浅底 → 泳道色实杠 → 末端标记
   p <- p + annotate("segment", x = tx, xend = tx + OFF$stp * 5, y = Y(yc), yend = Y(yc),
-                    colour = TRACK, linewidth = 2.6, lineend = "round")
+                    colour = TRACK, linewidth = 2.4, lineend = "round")
   if (w$k > 0)
     p <- p + annotate("segment", x = tx, xend = xe, y = Y(yc), yend = Y(yc),
-                      colour = col, linewidth = 1.25, lineend = "round")
+                      colour = col, linewidth = 2.4, lineend = "round")
   if (w$k == 5) {
-    p <- p + annotate("point", x = xe, y = Y(yc), shape = 23, size = 2.5, fill = col,
-                      colour = col, stroke = 0.35)
+    p <- p + annotate("point", x = xe, y = Y(yc), shape = 23, size = 3.0, fill = INK,
+                      colour = "white", stroke = 0.45)
   } else if (w$k == 0) {
-    p <- p + annotate("point", x = xe + 0.3, y = Y(yc - 0.15), shape = 24, size = 2.1,
-                      fill = "white", colour = col, stroke = 0.7)
+    p <- p + annotate("point", x = xe + 0.3, y = Y(yc - 0.15), shape = 24, size = 2.2,
+                      fill = "white", colour = col, stroke = 0.8)
   } else {
-    p <- p + annotate("point", x = xe, y = Y(yc), shape = 21, size = 2.2, fill = "white",
-                      colour = col, stroke = 0.75)
+    p <- p + annotate("point", x = xe, y = Y(yc), shape = 21, size = 2.5, fill = "white",
+                      colour = col, stroke = 0.9)
   }
-  p <- txt(p, x0 + OFF$n, yc, format(w$n), hjust = 1)
+  p <- txt(p, x0 + OFF$n, yc, format(w$n), hjust = 1, face = if (w$k == 5) "bold" else "plain")
 }
 
 # 面板 a 图例：右栏下方的留白
@@ -228,7 +231,7 @@ lg <- function(p, x, y, shape, fill, col, lab, size = 2.3, stroke = 0.75) {
                     colour = col, stroke = stroke)
   txt(p, x + 2.4, y, lab)
 }
-p <- lg(p, XL + 1, YL, 23, GREY, GREY, "Approved (≥1 regulatory approval)", 2.5, 0.35)
+p <- lg(p, XL + 1, YL, 23, INK, "white", "Approved (≥1 regulatory approval; name in bold)", 3.0, 0.45)
 p <- lg(p, XL + 1, YL + PITCH, 21, "white", GREY, "Clinical stage")
 p <- lg(p, XL + 30, YL + PITCH, 24, "white", GREY, "Preclinical only", 2.1, 0.7)
 p <- txt(p, XL, YL + 2 * PITCH, "n, registered trials in the 1,133-trial corpus",
@@ -238,8 +241,8 @@ p <- txt(p, XL, YL + 2 * PITCH, "n, registered trials in the 1,133-trial corpus"
 gene_of <- sub(" .*", "", alleles); rest_of <- sub("^\\S+ ?", "", alleles)
 for (j in seq_along(alleles)) {
   xc <- XB_CELL + (j - 0.5) * (CELL_W + 0.8)
-  p <- txt(p, xc, YB_H1, gene_of[j], hjust = 0.5, face = "italic")
-  if (nzchar(rest_of[j])) p <- txt(p, xc, YB_H2, rest_of[j], hjust = 0.5)
+  p <- txt(p, xc, YB_H1, gene_of[j], hjust = 0.5, face = "bold.italic")
+  if (nzchar(rest_of[j])) p <- txt(p, xc, YB_H2, rest_of[j], hjust = 0.5, face = "bold")
 }
 for (ln in sort(unique(cov$lane))) {
   yc <- YB_ROW0 + (match(ln, sort(unique(cov$lane))) - 1) * CPITCH
@@ -251,7 +254,7 @@ for (ln in sort(unique(cov$lane))) {
 }
 fill_of <- function(lane, cover) {
   col <- LANE_COL[[as.character(lane)]]
-  switch(cover, full = col, partial = tint(col, 0.68), none = "#F3F5F6")
+  switch(cover, full = col, partial = tint(col, 0.62), none = "#F1F2F3")
 }
 for (r in seq_len(nrow(cov))) {
   cc <- cov[r, ]
@@ -268,7 +271,7 @@ for (q in seq_along(legb)) {
   yy <- YB_ROW0 + (q - 1) * CPITCH
   p <- p + annotate("rect", xmin = XLB, xmax = XLB + 5.0, ymin = Y(yy + CELL_H / 2),
                     ymax = Y(yy - CELL_H / 2),
-                    fill = fill_of(6, legb[[q]][1]), colour = NA)
+                    fill = fill_of(1, legb[[q]][1]), colour = NA)
   p <- txt(p, XLB + 6.4, yy, legb[[q]][2])
 }
 stopifnot(XLB + 6.4 + max(tw(vapply(legb, `[`, "", 2))) < W)
