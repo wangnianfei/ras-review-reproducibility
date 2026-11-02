@@ -664,15 +664,20 @@ def fig3():
                         (lb0, fmt(tt0), 100.0 * tt0 / tot), ha='left',
                         va='center', fontsize=T, color=INK)
                 continue
+            # one text row per codon, rows ordered by stem height (tallest
+            # on top) and each leader ending at its own row, so no two
+            # leaders share an end point and every line reads unambiguously
             tx = cl[-1][0] + 9
             ty = top * 0.97 if top >= ymax * 0.5 else top + ymax * 0.16
-            txt = '\n'.join('%s  %s (%.0f%%)' % (lb, fmt(tt), 100.0 * tt / tot)
-                            for _, tt, lb in cl)
-            ax.text(tx, ty, txt, ha='left', va='center', fontsize=T,
-                    color=INK, linespacing=1.3)
-            for p0, tt0, _ in cl:
-                ax.plot([p0 + 1.2, tx - 1.2], [tt0, ty], color=STEM,
-                        lw=0.5, zorder=1)
+            dy = T * 1.3 * 25.4 / 72 / PH * (ymax * 1.265)   # row pitch, data
+            rows_ = sorted(cl, key=lambda a: -a[1])
+            for k, (p0, tt0, lb0) in enumerate(rows_):
+                yk = ty + dy * ((len(rows_) - 1) / 2.0 - k)
+                ax.text(tx, yk, '%s  %s (%.0f%%)' %
+                        (lb0, fmt(tt0), 100.0 * tt0 / tot), ha='left',
+                        va='center', fontsize=T, color=INK)
+                ax.plot([p0 + 1.2, tx - 2.6, tx - 1.0], [tt0, yk, yk],
+                        color=STEM, lw=0.5, zorder=1)
         # protein track with the segment colours of Figures 4 and 6
         ax.add_patch(Rectangle((1, -ymax * 0.120), AA, ymax * 0.040,
                                fc='#E6EAEB', ec='none', zorder=1,
