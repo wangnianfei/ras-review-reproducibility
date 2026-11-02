@@ -994,73 +994,106 @@ def devcurve(p1, c1, p2, c2, excl=((25, 45), (55, 76))):
 
 
 def fig6():
-    PH, GAPY, BOT, TOP = 44.0, 9.0, 13.0, 7.0
+    # Manuscript Figure 6. Layout tightened 2026-11-02 (author: artwork is
+    # fine; use the full Word column width, clearer text, tidy and compact).
+    #   · one text size (T = 7.5 pt) and one panel-letter size, as Figs 2/4/5;
+    #   · letters a, b, c sit on one top line / one left line next to artwork;
+    #   · a and b share a measured y-label gutter; c fills the right column
+    #     at full width and its legend sits directly under the render, so the
+    #     two columns end on the same baseline (no empty corner).
+    T, PN = 7.5, 9
+    LEFT = 0.5
+    PH, GAPY, BOT, TOP = 40.0, 10.0, 10.5, 8.0
     H = BOT + 2 * PH + GAPY + TOP
     fig = figure(H)
+    XA, WA = 12.5, 85.5                    # a/b axes: x0, width (mm)
+    XC = XA + WA + 6.0                     # c column: x0 -> right margin
+    WC = W2 - XC
     pairs = [(('4OBE', 'B'), ('5VQ2', 'A'),
               'KRAS–GDP (4OBE) vs KRAS–GTP (5VQ2)', C['h']),
              (('4LDJ', 'A'), ('6OIM', 'A'),
               'KRAS(G12C)–GDP (4LDJ) vs KRAS(G12C)–sotorasib (6OIM)', C['sw2'])]
     for i, (p1, p2, ttl, col) in enumerate(pairs):
         y = H - TOP - (i + 1) * PH - i * GAPY
-        ax = axes(fig, 15, y, 85, PH)
+        ax = axes(fig, XA, y, WA, PH)
         com, d, rms = devcurve(p1[0], p1[1], p2[0], p2[1])
         ax.fill_between(com, 0, d, color=col, alpha=0.30, lw=0)
-        ax.plot(com, d, color=col, lw=LW['data'])
+        ax.plot(com, d, color=col, lw=1.4)
         for nm, lo, hi, cc in REG[:3]:
             ax.axvspan(lo, hi, color=cc, alpha=0.18, zorder=0, lw=0)
-            ax.text((lo + hi) / 2, max(d) * 1.07, nm, ha='center',
-                    fontsize=FS['small'], color=cc)
+            ax.text((lo + hi) / 2, max(d) * 1.17, nm, ha='center',
+                    va='bottom', fontsize=T, color=cc)
         ax.set_xlim(1, 170)
-        ax.set_ylim(0, max(d) * 1.26)
-        ax.set_ylabel('Cα deviation (Å)')
-        ax.text(0.995, 1.02, ttl, transform=ax.transAxes, ha='right',
-                va='bottom', fontsize=FS['anno'], color='#222222')
-        ax.text(0.99, 0.90, 'Core-region RMSD = %.2f Å' % rms,
+        ax.set_ylim(0, max(d) * 1.32)
+        ax.set_ylabel('Cα deviation (Å)', fontsize=T, labelpad=2)
+        ax.yaxis.set_label_coords(-(XA - LEFT - 0.3) / WA, 0.5)
+        ax.yaxis.label.set_va('top')
+        ax.text(1.0, 1.03, ttl, transform=ax.transAxes, ha='right',
+                va='bottom', fontsize=T, color=P1['ink'])
+        ax.text(1.0, 0.80, 'Core-region RMSD = %.2f Å' % rms,
                 transform=ax.transAxes, ha='right', va='top',
-                fontsize=FS['anno'], color='#333333')
+                fontsize=T, color=P1['grey'])
+        ax.set_xticks([1, 25, 50, 75, 100, 125, 150, 170])
         if i == 1:
-            ax.set_xlabel('Residue number')
+            ax.set_xlabel('Residue number', fontsize=T, labelpad=1.5)
+        ax.tick_params(labelsize=T, pad=1.5, width=0.6, length=2.2)
         for s_ in ('top', 'right'):
             ax.spines[s_].set_visible(False)
-        panel(fig, ax, 'ab'[i])
+        for s_ in ('left', 'bottom'):
+            ax.spines[s_].set_linewidth(0.6)
+        fig.text(LEFT / W2, (y + PH + 3.0) / H, 'ab'[i], fontsize=PN,
+                 fontweight='bold', ha='left', va='bottom')
         CHECK['Fig6 %s' % ttl.split(' vs ')[0]] = {
             'core RMSD': round(rms, 2),
             'switch I peak': round(max(d[j] for j, r in enumerate(com)
                                        if 30 <= r <= 38), 1),
             'switch II peak': round(max(d[j] for j, r in enumerate(com)
                                         if 60 <= r <= 76), 1)}
+    CHECK['Fig6 height, mm'] = round(H, 1)
 
     # ---- panel c: molecular rendering -----------------------------------
     SEGS = [('P-loop', C['ploop']), ('switch I', C['sw1']),
             ('switch II', C['sw2']), ('G4', C['g4']), ('G5', C['g5'])]
-    hl = [plt.Line2D([], [], color=c, lw=2.6, label=n) for n, c in SEGS]
-    hl += [plt.Line2D([], [], marker='o', ls='', color='#355070', ms=3,
-                      label='GDP'),
-           plt.Line2D([], [], marker='o', ls='', color=C['sw2'], ms=3,
-                      label='Sotorasib (AMG 510)'),
-           plt.Line2D([], [], marker='o', ls='', color=C['ploop'], ms=4,
-                      label='Mg2+'),
-           plt.Line2D([], [], marker='o', ls='', color=C['hot'], ms=4.5,
-                      mec='k', mew=0.3, label='Cys12 (covalent site)')]
+    seg_h = [plt.Line2D([], [], color=c, lw=2.6, label=n) for n, c in SEGS]
+    lig_h = [plt.Line2D([], [], marker='o', ls='', color='#355070', ms=3.5,
+                        label='GDP'),
+             plt.Line2D([], [], marker='o', ls='', color=C['sw2'], ms=3.5,
+                        label='Sotorasib (AMG 510)'),
+             plt.Line2D([], [], marker='o', ls='', color=C['ploop'], ms=4,
+                        label='Mg$^{2+}$'),
+             plt.Line2D([], [], marker='o', ls='', color=C['hot'], ms=4.5,
+                        mec='k', mew=0.3, label='Cys12 (covalent site)')]
+    hl = seg_h + lig_h
     render = os.path.join(FIG, '_panelC_6OIM.png')
+    LGH = 17.0                                     # legend block height, mm
+    CTOP = H - TOP + 2.0                           # c may use the title row
 
     if os.path.exists(render):                     # PyMOL ray-traced render
-        imax = axes(fig, 102, 24, 76, H - 24 - 8)
         img = plt.imread(render)
         if img.ndim == 3 and img.shape[2] == 4:      # crop transparent margins
             a = img[:, :, 3] > 0.02
             rs, cs = np.where(a.any(1))[0], np.where(a.any(0))[0]
-            pad = int(0.015 * max(img.shape[:2]))
+            pad = int(0.01 * max(img.shape[:2]))
             img = img[max(rs[0] - pad, 0):rs[-1] + pad,
                       max(cs[0] - pad, 0):cs[-1] + pad]
+        ih = min(WC * img.shape[0] / img.shape[1], CTOP - BOT - LGH)
+        iw = ih * img.shape[1] / img.shape[0]
+        imax = axes(fig, XC + (WC - iw) / 2, CTOP - ih, iw, ih)
         imax.imshow(img, interpolation='antialiased')
         imax.set_axis_off()
-        lgax = axes(fig, 104, 6, 72, 18)
+        lgax = axes(fig, XC, BOT, WC, LGH)
         lgax.set_axis_off()
-        lgax.legend(handles=hl, loc='center', ncol=2, fontsize=FS['small'],
-                    handlelength=1.3, columnspacing=0.8, borderpad=0.1)
-        panel(fig, imax, 'c', dx=-2, dy=-2)
+        L1 = lgax.legend(handles=seg_h, loc='upper left', fontsize=T,
+                         handlelength=1.4, handletextpad=0.5, labelspacing=0.3,
+                         borderpad=0, borderaxespad=0, frameon=False,
+                         bbox_to_anchor=(0.08, 1.0))
+        lgax.add_artist(L1)
+        lgax.legend(handles=lig_h, loc='upper left', fontsize=T,
+                    handlelength=1.0, handletextpad=0.5, labelspacing=0.3,
+                    borderpad=0, borderaxespad=0, frameon=False,
+                    bbox_to_anchor=(0.44, 1.0))
+        fig.text((XC - 3.5) / W2, (H - TOP + 3.0) / H, 'c', fontsize=PN,
+                 fontweight='bold', ha='left', va='bottom')
     else:                                          # fallback: Ca trace sketch
         ax3 = fig.add_axes([108 / W2, 24 / H, 68 / W2, (H - 32) / H],
                            projection='3d')
