@@ -1,9 +1,9 @@
 # Figure legends (schematic figures of the review)
 
 Prepared 20 October 2026 (Figures 9 and 12 redrawn as a swimlane map and a matrix
-heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration on
+heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration, and Figure 9 re-laid in two columns, on
 2 November 2026). These figures are schematics and carry no measured
-quantities of their own: Figure 9 carries only trial counts (the right-hand track),
+quantities of their own: Figure 9 carries only trial counts (the right-hand n column),
 Figure 12 only the two published detection rates, and Figure 10 only years. The trial
 counts come from trial registration dataset assembled for this review from ClinicalTrials.gov (REST API v2, snapshot of
 20 October 2026; 1 133 RAS-related interventional oncology trials; see
@@ -22,7 +22,7 @@ names roman, categories separated by marker shape before colour.
 
 ## Figure 9 | Swimlane map of RAS-directed drug classes: mechanism, development stage and allele coverage.
 
-**a**, Six mechanism lanes (in the order of the six groups of Table 1): covalent OFF-state inhibitors; non-covalent/reversible inhibitors of non-cysteine alleles; RAS(ON) tri-complex inhibitors; degraders and other direct modalities; upstream nodes and immune strategies; downstream-pathway combination (not binding RAS). Bars run from preclinical to the highest phase each drug reaches among the 1,133 registered trials; end markers: filled diamond, at least one regulatory approval; open circle, clinical stage; triangle, preclinical only; right-hand numbers, registered trials (development activity, not efficacy). **b**, Alleles covered by each lane: dark, clinical-stage agent; light, partial or early coverage; blank, not covered; lane 6 is read by its FDA indication (any *KRAS* mutation). Inclusion: lanes 1–4 take agents reaching phase I/II or higher or with published clinical readouts (28 further agents listed in the Supplementary Material); lanes 5 and 6 are representative selections.
+**a**, Six mechanism lanes (in the order of the six groups of Table 1): covalent OFF-state inhibitors; non-covalent/reversible inhibitors of non-cysteine alleles; RAS(ON) tri-complex inhibitors; degraders and other direct modalities; upstream nodes and immune strategies; downstream-pathway combination (not binding RAS). Bars run from preclinical to the highest phase each drug reaches among the 1,133 registered trials; end markers: filled diamond, at least one regulatory approval; open circle, clinical stage; triangle, preclinical only; n, registered trials (development activity, not efficacy); the target column omits the *KRAS* prefix (G12C, *KRAS* G12C), and development codes are given in Table 1. **b**, Alleles covered by each lane: dark, clinical-stage agent; light, partial or early coverage; blank, not covered; lane 6 is read by its FDA indication (any *KRAS* mutation). Inclusion: lanes 1–4 take agents reaching phase I/II or higher or with published clinical readouts (28 further agents listed in the Supplementary Material); lanes 5 and 6 are representative selections.
 
 ## Figure 10 | Sixty years of RAS: a two-lane timeline of the biology and of the drugs.
 
