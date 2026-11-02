@@ -801,67 +801,156 @@ def fig4():
 
 # =========================================================== Figure 5 ======
 def fig5():
+    # Manuscript Figure 5. Rebuilt 2026-11-02 (author: same problems as
+    # Figure 4 — panel letters far from the artwork, small text, thin lines,
+    # heavy blue bars, colours not coordinated). Layout as Figures 2 and 4:
+    #   · one text size (T = 7.5 pt) and one panel-letter size; the row-label
+    #     gutter of b is measured, a and b share that left edge and run to the
+    #     right margin; letters sit on one left line next to the artwork;
+    #   · a: y axis starts at 30 (no data below 38.9), four confidence bands
+    #     become three dashed thresholds labelled at the right edge; switch I/II
+    #     and the HVR are named directly; data lines 1.4 pt;
+    #   · b: a three-column table (PDB, protein, resolution) replaces the
+    #     packed tick string; observed residues as a teal bar on a thin grey
+    #     1-189 track, and unmodelled internal residues are drawn at their true
+    #     length (read from the coordinate files, not a fixed 1-residue notch).
+    T, PN = 7.5, 9
+    INK, GREY = P1['ink'], P1['grey']
+    GCOL = {'KRAS': '#E0533D', 'NRAS': '#1F6F78', 'HRAS': '#E9A23B'}
     PDBS = ('3CON', '4LDJ', '4OBE', '4Q21', '5P21', '5VQ2', '6GJ8', '6OIM',
             '7RPZ')
+    PROT = {'3CON': 'NRAS', '4LDJ': 'KRAS G12C', '4OBE': 'KRAS',
+            '4Q21': 'HRAS', '5P21': 'HRAS', '5VQ2': 'KRAS', '6GJ8': 'KRAS G12D',
+            '6OIM': 'KRAS G12C', '7RPZ': 'KRAS G12D'}
+    LIG = {'GDP': 'GDP', 'GNP': 'GppNHp', 'GTP': 'GTP', 'GCP': 'GppCH$_2$p'}
     cov = sorted([c for c in COV if c['pdb'] in PDBS],
                  key=lambda c: c['pdb'], reverse=True)
-    HA, PITCH_B, BAR_B = 55.0, 3.6, 2.2
-    HB = len(cov) * PITCH_B
-    BOT, GAPY, TOP = 12.0, 5.0, 6.0
-    H = BOT + HB + GAPY + HA + TOP
-    fig = figure(H)
-    L, WIDTH = 40.0, W2 - 40 - 6
 
-    ax = axes(fig, L, H - TOP - HA, WIDTH, HA)
-    for g, col in (('KRAS', C['k']), ('NRAS', C['n']), ('HRAS', C['h'])):
+    def observed(c):
+        s = set()
+        for l in open(os.path.join(STRU, '%s.pdb' % c['pdb'])):
+            if l.startswith('ATOM') and l[21] == c['chain']:
+                s.add(int(l[22:26]))
+        return sorted(r for r in s if 0 < r < 400)
+
+    LEFT, AA = 0.5, 189
+    HA, PITCH, BAR = 46.0, 4.6, 2.6
+    HB = len(cov) * PITCH
+    TOP, HEAD, XAX, GAP = 5.0, 5.0, 10.0, 7.0
+    H = TOP + HA + GAP + HEAD + HB + XAX
+    fig = figure(H)
+    rend = fig.canvas.get_renderer()
+
+    def tw(s, bold=False):
+        o = fig.text(0, 0, s, fontsize=T, fontweight='bold' if bold else None)
+        w = o.get_window_extent(rend).width / fig.dpi / MM
+        o.remove()
+        return w
+
+    # table columns of b: PDB | protein | resolution ; widths measured
+    c1 = max(tw(c['pdb'], True) for c in cov + [{'pdb': 'PDB'}])
+    c2 = max(tw(s) for s in list(PROT.values()) + ['Protein'])
+    c3 = max(tw('%.2f Å' % PDBM[c['pdb']]['resolution']) for c in cov)
+    CG = 3.0
+    x1 = LEFT + 3.5
+    x2 = x1 + c1 + CG
+    x3 = x2 + c2 + CG
+    XL = x3 + c3 + 3.5                     # left edge of both data axes
+    RT = 21.0                              # right margin: threshold labels
+    WD = W2 - XL - RT
+
+    # ---- a: pLDDT ----
+    ya = H - TOP - HA
+    ax = axes(fig, XL, ya, WD, HA)
+    ax.axvspan(167, AA + 0.5, color='#ECEFF0', zorder=0, lw=0)
+    for nm, lo, hi, _ in REG[1:3]:             # switch I 30-38, switch II 60-76
+        ax.axvspan(lo - 0.5, hi + 0.5, color='#F6F1E6', zorder=0, lw=0)
+    for g in ('HRAS', 'NRAS', 'KRAS'):
         y = PLD[g]
-        ax.plot(range(1, len(y) + 1), y, color=col, lw=LW['data'],
-                label='%s (%s)' % (g, GCORE[g]['alphafold']['entryId']))
-    for lo, hi, cc, al in ((90, 100, '#0053D6', 0.07), (70, 90, '#65CBF3', 0.07),
-                           (50, 70, '#FFDB13', 0.10), (0, 50, '#FF7D45', 0.10)):
-        ax.axhspan(lo, hi, color=cc, alpha=al, zorder=0, lw=0)
-    ax.axvspan(167, 189, color=C['hvr'], alpha=0.16, zorder=0, lw=0)
-    ax.text(178, 18, 'Hypervariable region\n(flexible; absent from\n'
-            'all crystal structures)', ha='center', fontsize=FS['anno'],
-            color='#333333', linespacing=1.35)
-    ax.set_ylim(0, 102)
-    ax.set_xlim(0, 191)
-    ax.set_ylabel('pLDDT')
+        ax.plot(range(1, len(y) + 1), y, color=GCOL[g], lw=1.4, zorder=3,
+                solid_joinstyle='round', solid_capstyle='round')
+    for v, nm in ((90, 'Very high'), (70, 'Confident'), (50, 'Low')):
+        ax.axhline(v, color='#8A9497', lw=0.6, ls=(0, (3, 2)), zorder=1)
+    for y0, nm in ((95, 'Very high'), (80, 'Confident'), (60, 'Low'),
+                   (40, 'Very low')):
+        ax.text(AA + 3, y0, nm, fontsize=T, color=GREY, va='center',
+                ha='left', clip_on=False)
+    for x0, nm in ((34, 'switch I'), (68, 'switch II'), (178, 'HVR')):
+        ax.text(x0, 101.5, nm, fontsize=T, color=GREY, ha='center',
+                va='bottom', clip_on=False)
+    ax.set_ylim(30, 101)
+    ax.set_yticks(range(30, 101, 10))
+    ax.set_xlim(0.5, AA + 0.5)
+    ax.set_xticks(range(25, AA, 25))
     ax.set_xticklabels([])
-    ax.legend(loc='lower left', bbox_to_anchor=(0.005, 0.02), borderpad=0.1)
-    ax.text(0.995, 0.055, '≥90 very high  |  70–90 confident  |  50–70 low  |'
-            '  <50 very low', transform=ax.transAxes, ha='right',
-            fontsize=FS['small'], color='#444444')
+    ax.set_ylabel('pLDDT', fontsize=T, labelpad=2)
+    ax.tick_params(labelsize=T, pad=1.5, width=0.6, length=2.2)
     for s_ in ('top', 'right'):
         ax.spines[s_].set_visible(False)
-    panel(fig, ax, 'a', dx=-36)
+    for s_ in ('left', 'bottom'):
+        ax.spines[s_].set_linewidth(0.6)
+    ax.legend(handles=[plt.Line2D([], [], color=GCOL[g], lw=1.8,
+                                  label='%s (%s)' % (g, GCORE[g]['alphafold']['entryId']))
+                       for g in ('KRAS', 'NRAS', 'HRAS')],
+              loc='lower left', bbox_to_anchor=(0.01, 0.03), ncol=3,
+              fontsize=T, borderpad=0, handlelength=1.8, columnspacing=1.6,
+              frameon=False)
+    fig.text(LEFT / W2, (ya + HA + 4.5) / H, 'a', fontsize=PN,
+             fontweight='bold', ha='left', va='top')
 
-    ax2 = axes(fig, L, BOT, WIDTH, HB)
-    ylab = []
+    # ---- b: crystal-structure coverage ----
+    yb = XAX
+    ax2 = axes(fig, XL, yb, WD, HB)
+    ax2.axvspan(167, AA + 0.5, color='#ECEFF0', zorder=0, lw=0)
+    bh = BAR / PITCH
+    toY = lambda i: (yb + (i + 0.5) * PITCH) / H
     for i, c in enumerate(cov):
-        a, b = int(c['first_obs']), int(c['last_obs'])
-        bh = BAR_B / PITCH_B
-        ax2.add_patch(Rectangle((a, i - bh / 2), b - a + 1, bh, fc='#2E6F9E',
-                                ec='#111111', lw=LW['edge']))
-        for gp in [x for x in c['gap_after'].split(';') if x]:
-            ax2.add_patch(Rectangle((int(gp) + 0.5, i - bh / 2), 1.2, bh,
-                                    fc='white', ec='none'))
-        ylab.append('%s  %.2f Å  [%s]' % (c['pdb'],
-                                          PDBM[c['pdb']]['resolution'] or 0,
-                                          ','.join(PDBM[c['pdb']]['ligands'] or [])))
-    ax2.axvspan(167, 189, color=C['hvr'], alpha=0.16, zorder=0, lw=0)
-    ax2.set_yticks(range(len(cov)))
-    ax2.set_yticklabels(ylab, fontsize=FS['small'])
-    ax2.tick_params(axis='y', length=0)
-    ax2.set_xlim(0, 191)
-    ax2.set_ylim(-0.6, len(cov) - 0.4)
-    ax2.set_xlabel('Residue number')
+        rs = observed(c)
+        assert rs[0] == int(c['first_obs']) and rs[-1] == int(c['last_obs'])
+        assert len(set(range(rs[0], rs[-1] + 1)) - set(rs)) == \
+            int(c['missing_internal'])
+        ax2.plot([0.5, AA + 0.5], [i, i], color='#B9C3C5', lw=0.8, zorder=1,
+                 solid_capstyle='butt')
+        # contiguous observed runs
+        run0 = rs[0]
+        for a_, b_ in zip(rs, rs[1:] + [None]):
+            if b_ is None or b_ != a_ + 1:
+                ax2.add_patch(FancyBboxPatch(
+                    (run0 - 0.5, i - bh / 2), a_ - run0 + 1, bh,
+                    boxstyle='square,pad=0', fc=P1['cds'], ec='none',
+                    zorder=2))
+                run0 = b_
+        y = toY(i)
+        fig.text(x1 / W2, y, c['pdb'], fontsize=T, fontweight='bold',
+                 va='center', color=INK)
+        fig.text(x2 / W2, y, PROT[c['pdb']], fontsize=T, va='center',
+                 color=INK)
+        fig.text((x3 + c3) / W2, y, '%.2f Å' % PDBM[c['pdb']]['resolution'],
+                 fontsize=T, va='center', ha='right', color=INK)
+        nuc = [LIG[l] for l in PDBM[c['pdb']]['ligands'] if l in LIG]
+        ax2.text(AA + 3, i, nuc[0], fontsize=T, color=GREY, va='center',
+                 ha='left', clip_on=False)
+    hy = (yb + HB + 1.2) / H
+    for x_, s, ha in ((x1, 'PDB', 'left'), (x2, 'Protein', 'left'),
+                      (x3 + c3, 'Resolution', 'right')):
+        fig.text(x_ / W2, hy, s, fontsize=T, color=GREY, ha=ha, va='bottom')
+    ax2.text(AA + 3, len(cov) - 0.5 + 1.2 / PITCH, 'Nucleotide', fontsize=T,
+             color=GREY, ha='left', va='bottom', clip_on=False)
+    ax2.set_xlim(0.5, AA + 0.5)
+    ax2.set_ylim(-0.5, len(cov) - 0.5)
+    ax2.set_yticks([])
+    ax2.set_xticks([1] + list(range(25, AA, 25)) + [189])
+    ax2.set_xlabel('Residue number', fontsize=T, labelpad=2)
+    ax2.tick_params(labelsize=T, pad=1.5, width=0.6, length=2.2)
     for s_ in ('top', 'right', 'left'):
         ax2.spines[s_].set_visible(False)
-    panel(fig, ax2, 'b', dx=-36)
+    ax2.spines['bottom'].set_linewidth(0.6)
+    fig.text(LEFT / W2, (yb + HB + HEAD) / H, 'b', fontsize=PN,
+             fontweight='bold', ha='left', va='top')
     save(fig, 'Fig5_AlphaFold_confidence_and_coverage')
     CHECK['Fig5 last observed residue'] = {c['pdb']: int(c['last_obs'])
                                            for c in cov}
+    CHECK['Fig5 height, mm'] = round(H, 1)
 
 
 # =========================================================== Figure 6 ======

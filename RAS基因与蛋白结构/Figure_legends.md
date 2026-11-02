@@ -22,7 +22,7 @@ Top, the 567-bp coding sequence (stop codon included) of the *KRAS* MANE Select 
 
 ## Figure 5 | Complementarity of experimental and predicted structures across the RAS polypeptide.
 
-**a**, Per-residue confidence (pLDDT) of the full-length AlphaFold DB v6 models of KRAS, NRAS and HRAS; background bands, official confidence tiers. **b**, Residue ranges with interpretable electron density in nine representative crystal structures (left, PDB code, resolution and ligand; white gaps, unmodelled residues). Grey shading, hypervariable region: absent from all crystal structures and predicted with low confidence, indicating intrinsic flexibility.
+**a**, Per-residue confidence (pLDDT) of the full-length AlphaFold DB v6 models of KRAS, NRAS and HRAS; dashed lines, official confidence thresholds (90, 70, 50), with the tier names at right; beige bands, switch I (30–38) and switch II (60–76). **b**, Residues with interpretable electron density in nine representative crystal structures (left, PDB code, protein and resolution; right, bound nucleotide); teal bars, modelled residues; thin grey line, unmodelled residues, drawn at their true length. Grey shading, hypervariable region (HVR, 167–189): no crystal structure is modelled beyond residue 169, and the prediction confidence is low, indicating intrinsic flexibility.
 
 ## Figure 6 | Nucleotide state and covalent inhibitor binding remodel the switch regions without altering the core fold.
 
