@@ -32,7 +32,7 @@ Top, the 567-bp coding sequence (stop codon included) of the *KRAS* MANE Select 
 
 ## Figure 7 | Position-resolved somatic mutation spectra of *KRAS*, *NRAS* and *HRAS* in a pan-cancer cohort.
 
-**a–c**, Lollipop plots for *KRAS* (**a**), *NRAS* (**b**) and *HRAS* (**c**) in the MSK-IMPACT cohort (10,945 tumours; cBioPortal; Zehir et al., *Nat. Med.* 2017). Stem height and dot area, samples mutated at that residue; red diamonds, canonical hotspot codons (12, 13, 61, 117, 146); blue circles, other codons; labels, the three commonest changes at each hotspot with sample count and share; bottom bars, protein segments as in Fig. 4. Percentages count mutation records and describe the sequenced cohort, not population incidence.
+**a–c**, Lollipop plots for *KRAS* (**a**), *NRAS* (**b**) and *HRAS* (**c**) in the MSK-IMPACT cohort (10,945 tumours; cBioPortal; Zehir et al., *Nat. Med.* 2017). Stem height and dot area, samples mutated at that residue; each panel in its gene colour (as Fig. 5); diamonds, canonical hotspot codons (12, 13, 61, 117, 146); pale circles, other codons; labels, the three commonest changes at each hotspot with sample count and share; bottom bars, protein segments as in Fig. 4. Percentages count mutation records and describe the sequenced cohort, not population incidence.
 
 ## Notes on attribution and methods
 

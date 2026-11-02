@@ -593,16 +593,41 @@ def fig2():
 
 # =========================================================== Figure 3 ======
 def fig3():
-    AA = 189
-    PH, GAPY, BOT, TOP = 40.0, 7.0, 13.0, 9.0
+    # Manuscript Figure 7. Rebuilt 2026-11-02 (author: colours, compactness
+    # and alignment to match Figures 4-6; no colour-blind constraint):
+    #   · one text size (T = 7.5 pt) and one panel-letter size; letters on one
+    #     left line at the page edge, y label beside them, axes run to the
+    #     right margin;
+    #   · each panel takes its gene colour from Figure 5 (KRAS coral, NRAS
+    #     teal, HRAS amber): hotspot codons are solid diamonds, other codons
+    #     pale circles of the same hue, so shape + saturation separate them;
+    #   · labels of the tallest stem sit beside it instead of above it, which
+    #     frees the head-room the old layout reserved;
+    #   · protein segments under the axis keep the Figure 4/6 colours.
+    AA, T, PN, LEFT = 189, 7.5, 9, 0.5
+    INK, GREY = P1['ink'], P1['grey']
+    GCOL = {'KRAS': '#E0533D', 'NRAS': '#1F6F78', 'HRAS': '#E9A23B'}
+    STEM = '#A9B3B5'
+    PH, GAPY, BOT, TOP = 39.0, 5.5, 9.0, 7.5
     H = BOT + 3 * PH + 2 * GAPY + TOP
+    XA = 14.0
+    WA = W2 - XA - 1.0
     fig = figure(H)
+    rend = fig.canvas.get_renderer()
     genes = ('KRAS', 'NRAS', 'HRAS')
     axs = []
     for i in range(3):
         y = H - TOP - (i + 1) * PH - i * GAPY
-        axs.append(axes(fig, 15, y, W2 - 15 - 6, PH))
+        axs.append(axes(fig, XA, y, WA, PH))
+        fig.text(LEFT / W2, (y + PH + 1.0) / H, 'abc'[i], fontsize=PN,
+                 fontweight='bold', ha='left', va='top', color=INK)
+
+    def mix(col, f, to=1.0):
+        r, g, b = matplotlib.colors.to_rgb(col)
+        return tuple(c + (to - c) * f for c in (r, g, b))
+
     for pi, (ax, g) in enumerate(zip(axs, genes)):
+        gc = GCOL[g]
         rs = [r for r in MUT if r['gene'] == g]
         tot = sum(int(r['n']) for r in rs)
         pos = collections.defaultdict(list)
@@ -613,15 +638,15 @@ def fig3():
         labs = []
         for p, v in sorted(pos.items()):
             tt = sum(n for _, n in v)
-            ax.plot([p, p], [0, tt], color='#999999', lw=0.5, zorder=2,
-                    solid_capstyle='butt')
             hotspot = p in (12, 13, 61, 117, 146)
-            d_mm = 1.2 + 2.0 * (tt / ymax) ** 0.5
+            ax.plot([p, p], [0, tt], color=STEM, lw=0.6, zorder=2,
+                    solid_capstyle='butt')
+            d_mm = 1.3 + 2.2 * (tt / ymax) ** 0.5
             ax.scatter([p], [tt], s=dot_area(d_mm) * (1.35 if hotspot else 1.0),
                        marker='D' if hotspot else 'o',
-                       fc=C['hot'] if hotspot else '#9FC3DE',
-                       ec='#111111' if hotspot else '#2E6F9E',
-                       lw=0.45 if hotspot else LW['edge'], zorder=3)
+                       fc=gc if hotspot else mix(gc, 0.50),
+                       ec=mix(gc, 0.35, 0.0) if hotspot else mix(gc, 0.25, 0.0),
+                       lw=0.5, zorder=4 if hotspot else 3, clip_on=False)
             if tt >= ymax * 0.08:
                 labs.append((p, tt, '/'.join(x for x, _ in
                                              sorted(v, key=lambda a: -a[1])[:3])))
@@ -634,51 +659,63 @@ def fig3():
         for cl in clusters:
             top = max(t for _, t, _ in cl)
             if len(cl) == 1 and cl[0][1] >= ymax * 0.5:
-                p0, tt0, lb0 = cl[0]
-                ax.annotate('%s\n%s (%.0f%%)' % (lb0, fmt(tt0),
-                                                 100.0 * tt0 / tot),
-                            xy=(p0, tt0), xytext=(0, 5),
-                            textcoords='offset points', ha='center',
-                            va='bottom', fontsize=FS['anno'], linespacing=1.3)
+                p0, tt0, lb0 = cl[0]          # tallest stem: label at its side
+                ax.text(p0 + 4.0, tt0, '%s  %s (%.0f%%)' %
+                        (lb0, fmt(tt0), 100.0 * tt0 / tot), ha='left',
+                        va='center', fontsize=T, color=INK)
                 continue
-            tx = cl[-1][0] + 8
-            ty = top * 1.04 + ymax * 0.07
+            tx = cl[-1][0] + 9
+            ty = top * 0.97 if top >= ymax * 0.5 else top + ymax * 0.16
             txt = '\n'.join('%s  %s (%.0f%%)' % (lb, fmt(tt), 100.0 * tt / tot)
                             for _, tt, lb in cl)
-            ax.text(tx, ty, txt, ha='left', va='bottom', fontsize=FS['anno'],
-                    linespacing=1.35)
+            ax.text(tx, ty, txt, ha='left', va='center', fontsize=T,
+                    color=INK, linespacing=1.3)
             for p0, tt0, _ in cl:
-                ax.plot([p0, tx - 1.5], [tt0, ty], color='#aaaaaa',
-                        lw=LW['lead'], zorder=1)
-        ax.add_patch(Rectangle((1, -ymax * 0.125), AA, ymax * 0.048,
-                               fc='#DCE3E8', ec='#333333', lw=LW['edge'],
-                               zorder=1, clip_on=False))
+                ax.plot([p0 + 1.2, tx - 1.2], [tt0, ty], color=STEM,
+                        lw=0.5, zorder=1)
+        # protein track with the segment colours of Figures 4 and 6
+        ax.add_patch(Rectangle((1, -ymax * 0.120), AA, ymax * 0.040,
+                               fc='#E6EAEB', ec='none', zorder=1,
+                               clip_on=False))
         for nm, a, b, cc in REG:
-            ax.add_patch(Rectangle((a, -ymax * 0.145), b - a + 1, ymax * 0.088,
+            ax.add_patch(Rectangle((a, -ymax * 0.145), b - a + 1, ymax * 0.090,
                                    fc=cc, ec='none', clip_on=False, zorder=4))
-        ax.set_ylim(-ymax * 0.17, ymax * 1.44)
-        ax.set_xlim(0, AA + 2)
-        ax.set_ylabel('Mutated samples (n)')
-        ax.text(0.995, 0.95, '%s, %s mutations in %s samples' %
-                (GI(g, bold=True), fmt(tot), fmt(NTOT)),
-                transform=ax.transAxes, ha='right',
-                va='top', fontsize=FS['axis'], fontweight='bold')
+        ax.set_xlim(0, AA + 1)
+        ax.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(4, integer=True))
+        ax.set_ylim(-ymax * 0.165, ymax * 1.10)
+        ax.set_xticks([1, 25, 50, 75, 100, 125, 150, 175])
+        ax.set_ylabel('Mutated samples (n)', fontsize=T, color=INK)
+        ax.yaxis.set_label_coords(-(XA - LEFT) / WA, 0.5)
+        ax.yaxis.label.set_va('top')
+        ax.tick_params(labelsize=T, pad=1.5, width=0.6, length=2.2,
+                       colors=INK)
+        sub = ax.text(1.0, 1.0, '%s mutations in %s samples' %
+                      (fmt(tot), fmt(NTOT)), transform=ax.transAxes,
+                      ha='right', va='top', fontsize=T, color=GREY)
+        sw = sub.get_window_extent(rend).width / fig.dpi / MM
+        ax.text(1.0 - (sw + 1.6) / WA, 1.0, GI(g, bold=True),
+                transform=ax.transAxes, ha='right', va='top', fontsize=T,
+                color=gc)
         for s_ in ('top', 'right'):
             ax.spines[s_].set_visible(False)
+        for s_ in ('left', 'bottom'):
+            ax.spines[s_].set_linewidth(0.6)
         if pi < 2:
             ax.set_xticklabels([])
-        panel(fig, ax, 'abc'[pi])
         CHECK['Fig3 %s hotspot counts' % g] = {
             c: sum(n for _, n in pos.get(c, [])) for c in (12, 13, 61)}
-    axs[-1].set_xlabel('Residue number')
-    hmark = [plt.Line2D([], [], ls='', marker='D', mfc=C['hot'], mec='#111111',
-                        mew=0.45, ms=3.4, label='Hotspot codon'),
-             plt.Line2D([], [], ls='', marker='o', mfc='#9FC3DE', mec='#2E6F9E',
-                        mew=0.3, ms=3.4, label='Other codon')]
-    axs[0].legend(handles=hmark + [Rectangle((0, 0), 1, 1, fc=cc, label=nm)
-                                   for nm, _, _, cc in REG],
-                  loc='lower left', bbox_to_anchor=(0.0, 1.02), ncol=8,
-                  borderpad=0.1, handletextpad=0.4)
+    axs[-1].set_xlabel('Residue number', fontsize=T, color=INK, labelpad=1.5)
+    CHECK['Fig3 height, mm'] = round(H, 1)
+    hmark = [plt.Line2D([], [], ls='', marker='D', mfc='#59656B', mec='#2F3638',
+                        mew=0.5, ms=4.0, label='Hotspot codon'),
+             plt.Line2D([], [], ls='', marker='o', mfc='#C9CFD1', mec='#59656B',
+                        mew=0.5, ms=3.6, label='Other codon')]
+    fig.legend(handles=hmark + [Rectangle((0, 0), 1, 1, fc=cc, ec='none',
+                                          label=nm) for nm, _, _, cc in REG],
+               loc='upper left', bbox_to_anchor=(XA / W2, 1.0 - 0.6 / H),
+               ncol=8, fontsize=T, frameon=False, borderpad=0, borderaxespad=0,
+               handlelength=1.3, handleheight=0.7, handletextpad=0.45,
+               columnspacing=1.5, labelcolor=INK)
     save(fig, 'Fig3_mutation_distribution')
 
 
