@@ -643,17 +643,49 @@ def fig4():
                 'Q61X' if str(m['start']) == '61' else 'Other')
             comp[ct[m['sample']]][k] += 1
 
-    NA, PITCH_A, BAR_A = 16, 4.6, 3.2
-    NB, PITCH_B, BAR_B = 10, 3.0, 2.1
-    HA, HB = NA * PITCH_A, NB * PITCH_B
-    BOT, TOP, GAPB = 12.0, 7.0, 11.0
-    H = max(BOT + HA + TOP, BOT + 2 * HB + GAPB + 11 + TOP)
+    # 版式（2026-11-02 作者「整齐、用足 Word 版心宽、字不能偏小」）：
+    # a 通栏在上，b、c 并排在下；三块共用一套字号、条粗与行距，
+    # 类目标签栏宽按实测文字宽度定，面板字母贴同一条左边线与同一条顶线。
+    T, PN = 7.5, 9                     # 全图唯一正文字号；面板字母
+    NA, NB, PITCH, BAR = 16, 10, 4.1, 2.8
+    BOT, XAX, GAP, TOP, LEGH = 1.0, 9.5, 9.0, 4.0, 6.0
+    HA, HB = NA * PITCH, NB * PITCH
+    H = BOT + XAX + HB + GAP + XAX + HA + LEGH + TOP
     fig = figure(H)
+    rend = fig.canvas.get_renderer()
 
-    axA = axes(fig, 44, BOT, 72, HA)
+    def text_mm(labels):
+        w = 0
+        for t in labels:
+            o = fig.text(0, 0, t, fontsize=T)
+            w = max(w, o.get_window_extent(rend).width / fig.dpi / MM)
+            o.remove()
+        return w
+
+    def style(ax, n, labels, xlab):
+        ax.set_yticks(range(n))
+        ax.set_yticklabels(labels, fontsize=T)
+        ax.set_ylim(-0.5, n - 0.5)
+        ax.set_xlabel(xlab, fontsize=T, labelpad=2)
+        ax.tick_params(axis='y', length=0, pad=2)
+        ax.tick_params(axis='x', labelsize=T, pad=1.5)
+        for s_ in ('top', 'right', 'left'):
+            ax.spines[s_].set_visible(False)
+
+    def value(ax, x, y, r):
+        ax.text(x, y, '%.0f%% (%s/%s)' % (float(r['freq_pct']),
+                                         r['n_mut_samples'], r['n_samples']),
+                va='center', fontsize=T, color='#333333')
+
+    LEFT, PADL = 4.0, 1.5              # 面板字母所在左边线；标签与轴的间隙
     ks = sorted([r for r in BYCT if r['gene'] == 'KRAS'],
                 key=lambda r: -float(r['freq_pct']))[:NA][::-1]
-    bar_u = BAR_A / PITCH_A
+    labA = [r['cancer_type'] for r in ks]
+    xa = LEFT + text_mm(labA) + PADL
+    ya = BOT + XAX + HB + GAP + XAX
+    wa = W2 - xa - 24                  # 右侧留给最长的数值标注
+    axA = axes(fig, xa, ya, wa, HA)
+    XMAX = 80
     for i, r in enumerate(ks):
         f = float(r['freq_pct'])
         cc = comp[r['cancer_type']]
@@ -662,50 +694,52 @@ def fig4():
         for k, col in zip(KEYS, PAL):
             w = f * cc[k] / tot
             if w > 0:
-                axA.barh(i, w, left=left, color=col, height=bar_u, ec='white',
-                         lw=0.3)
+                axA.barh(i, w, left=left, color=col, height=BAR / PITCH,
+                         ec='white', lw=0.3)
             left += w
-        axA.text(f + 1.5, i, '%.0f%%  (%s/%s)' % (f, r['n_mut_samples'],
-                                                  r['n_samples']),
-                 va='center', fontsize=FS['anno'], color='#333333')
-    axA.set_yticks(range(NA))
-    axA.set_yticklabels([r['cancer_type'] for r in ks], fontsize=FS['tick'])
-    axA.set_ylim(-0.5, NA - 0.5)
-    axA.set_xlim(0, 100)
-    axA.set_xticks(range(0, 101, 20))
-    axA.set_xlabel(GI('KRAS') + '-mutant samples (%)')
-    axA.tick_params(axis='y', length=0)
-    for s_ in ('top', 'right', 'left'):
-        axA.spines[s_].set_visible(False)
-    axA.legend(handles=[Rectangle((0, 0), 1, 1, fc=c, label=k)
-                        for k, c in zip(KEYS, PAL)], loc='lower left',
-               ncol=2, title='Allele', title_fontsize=FS['anno'],
-               borderpad=0.1, bbox_to_anchor=(0.58, 0.015))
-    panel(fig, axA, 'a', dx=-40)
+        value(axA, f + 1.0, i, r)
+    axA.set_xlim(0, XMAX)
+    axA.set_xticks(range(0, XMAX + 1, 20))
+    style(axA, NA, labA, GI('KRAS') + '-mutant samples (%)')
+    fig.legend(handles=[Rectangle((0, 0), 1, 1, fc=c, label=k)
+                        for k, c in zip(KEYS, PAL)],
+               loc='lower left', ncol=len(KEYS), fontsize=T, borderpad=0,
+               handlelength=1.4, handleheight=0.9, columnspacing=1.3,
+               title='Allele', title_fontsize=T, alignment='left',
+               bbox_to_anchor=(xa / W2, (ya + HA + 0.8) / H))
+    # 图例题与条目同排：legend title 只能排在上方，故去掉，另按图例实测中线排「Allele」
+    lg = fig.legends[-1]
+    lg.set_title(None)
+    bb = lg.get_window_extent(rend).transformed(fig.transFigure.inverted())
+    fig.text(xa / W2 - 0.004, (bb.y0 + bb.y1) / 2, 'Allele',
+             fontsize=T, ha='right', va='center', fontweight='bold')
+    fig.text(LEFT / W2, (ya + HA + LEGH) / H, 'a', fontsize=PN,
+             fontweight='bold', ha='left', va='bottom')
 
+    half = W2 / 2
+    labw = text_mm([r['cancer_type'] for r in BYCT if r['gene'] in ('NRAS', 'HRAS')
+                    and r in sorted([x for x in BYCT if x['gene'] == r['gene']],
+                                    key=lambda x: -float(x['freq_pct']))[:NB]])
     for idx, (g, col, pn) in enumerate((('NRAS', C['n'], 'b'),
                                         ('HRAS', C['h'], 'c'))):
-        ytop = H - TOP if idx == 0 else H - TOP - HB - GAPB
-        a_ = axes(fig, 148, ytop - HB, 28, HB)
         rs = sorted([r for r in BYCT if r['gene'] == g],
                     key=lambda r: -float(r['freq_pct']))[:NB][::-1]
+        labs = [r['cancer_type'] for r in rs]
+        x0 = LEFT + idx * half
+        xb = x0 + labw + PADL          # b、c 共用同一标签栏宽，两块几何完全对称
+        wb = half * (idx + 1) - xb - 22
+        a_ = axes(fig, xb, BOT + XAX, wb, HB)
+        mx = max(float(r['freq_pct']) for r in rs)
         a_.barh(range(NB), [float(r['freq_pct']) for r in rs], color=col,
-                height=BAR_B / PITCH_B, ec='#333333', lw=LW['edge'])
+                height=BAR / PITCH, ec='none')
         for i, r in enumerate(rs):
-            a_.text(float(r['freq_pct']) + max(float(x['freq_pct'])
-                                               for x in rs) * 0.04, i,
-                    '%.0f%% (%s/%s)' % (float(r['freq_pct']),
-                                        r['n_mut_samples'], r['n_samples']),
-                    va='center', fontsize=FS['small'], color='#333333')
-        a_.set_yticks(range(NB))
-        a_.set_yticklabels([r['cancer_type'] for r in rs], fontsize=FS['small'])
-        a_.set_ylim(-0.5, NB - 0.5)
-        a_.set_xlim(0, max(float(r['freq_pct']) for r in rs) * 1.6)
-        a_.set_xlabel(GI(g) + '-mutant samples (%)')
-        a_.tick_params(axis='y', length=0)
-        for s_ in ('top', 'right', 'left'):
-            a_.spines[s_].set_visible(False)
-        panel(fig, a_, pn, dx=-31)
+            value(a_, float(r['freq_pct']) + mx * 0.03, i, r)
+        lim = 25 if g == 'NRAS' else 6
+        a_.set_xlim(0, lim)
+        a_.set_xticks(range(0, lim + 1, 5 if g == 'NRAS' else 2))
+        style(a_, NB, labs, GI(g) + '-mutant samples (%)')
+        fig.text(x0 / W2, (BOT + XAX + HB + 2.0) / H, pn, fontsize=PN,
+                 fontweight='bold', ha='left', va='bottom')
     save(fig, 'Fig4_cancer_type_distribution')
     CHECK['Fig4 KRAS top3'] = [(r['cancer_type'], r['freq_pct'],
                                 '%s/%s' % (r['n_mut_samples'], r['n_samples']))
