@@ -1,7 +1,7 @@
 # Figure legends (schematic figures of the review)
 
 Prepared 20 October 2026 (Figures 9 and 12 redrawn as a swimlane map and a matrix
-heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration, and Figure 9 re-laid in two columns with the warm house palette, on
+heatmap on 30 October 2026; Figure 8 redrawn as a cell-level mechanism illustration, Figure 9 re-laid in two columns with the warm house palette, and Figure 10 re-set in the same palette at 7.5 pt, on
 2 November 2026). These figures are schematics and carry no measured
 quantities of their own: Figure 9 carries only trial counts (the right-hand n column),
 Figure 12 only the two published detection rates, and Figure 10 only years. The trial
@@ -26,7 +26,7 @@ names roman, categories separated by marker shape before colour.
 
 ## Figure 10 | Sixty years of RAS: a two-lane timeline of the biology and of the drugs.
 
-Two lanes share one time axis: above, milestones in RAS biology and structure; below, drug development and regulatory decisions. The main axis is ordinal (one equal slot per year with a node); the pale band at the top mirrors the same twelve milestones on a true scale (2.28 mm per year). Circles, publications cited in the text; diamond, the switch-II pocket (2013); filled squares, regulatory approvals. Only positive milestones are drawn (negative results in sections 4.1 and 5.2 and Table 2). The stage ruler below the axis gives this review's six stages (width by node count): I viral oncogenes (1964–1982); II human oncogenes and point mutations (1982–1990); III 'undruggable', with three indirect routes (1990–2013); IV structure first (2013–2021); V one allele, one conformational state (2021–2026); VI beyond a single allele (2026– ).
+Two lanes share one time axis: above, milestones in RAS biology and structure; below, drug development and regulatory decisions. The main axis is ordinal (one equal slot per year with a node); the pale band at the top mirrors the same twelve milestones on a true scale (2.59 mm per year). Circles, publications cited in the text; diamond, the switch-II pocket (2013); filled squares, regulatory approvals. Only positive milestones are drawn (negative results in sections 4.1 and 5.2 and Table 2). The stage ruler below the axis gives this review's six stages (width by node count): I viral oncogenes (1964–1982); II human oncogenes and point mutations (1982–1990); III 'undruggable', with three indirect routes (1990–2013); IV structure first (2013–2021); V one allele, one conformational state (2021–2026); VI beyond a single allele (2026– ).
 
 ## Figure 12 | What resistance is made of, and what each combination logic answers.
 
